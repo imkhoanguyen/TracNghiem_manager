@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TracNghiem_manager", "TracNghiem_manager\TracNghiem_manager.csproj", "{FB0141C9-D88A-441E-9103-3D3347B3F9D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracNghiemManager.DAO", "TracNghiemManager.DAO\TracNghiemManager.DAO.csproj", "{9804F92C-5242-4584-BBE0-259FF022320E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracNghiemManager.DTO", "TracNghiemManager.DTO\TracNghiemManager.DTO.csproj", "{416CE8BC-B563-478A-BFD4-3DF9F4BE7116}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracNghiemManager.BUS", "TracNghiemManager.BUS\TracNghiemManager.BUS.csproj", "{065DEF08-B1A5-4543-8977-DCFF0F235FB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracNghiemManager.GUI", "TracNghiemManager.GUI\TracNghiemManager.GUI.csproj", "{CF5481E9-0489-4208-B22E-7B5EF031D419}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB0141C9-D88A-441E-9103-3D3347B3F9D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB0141C9-D88A-441E-9103-3D3347B3F9D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB0141C9-D88A-441E-9103-3D3347B3F9D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB0141C9-D88A-441E-9103-3D3347B3F9D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9804F92C-5242-4584-BBE0-259FF022320E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9804F92C-5242-4584-BBE0-259FF022320E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9804F92C-5242-4584-BBE0-259FF022320E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9804F92C-5242-4584-BBE0-259FF022320E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{416CE8BC-B563-478A-BFD4-3DF9F4BE7116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416CE8BC-B563-478A-BFD4-3DF9F4BE7116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416CE8BC-B563-478A-BFD4-3DF9F4BE7116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416CE8BC-B563-478A-BFD4-3DF9F4BE7116}.Release|Any CPU.Build.0 = Release|Any CPU
+		{065DEF08-B1A5-4543-8977-DCFF0F235FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{065DEF08-B1A5-4543-8977-DCFF0F235FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{065DEF08-B1A5-4543-8977-DCFF0F235FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{065DEF08-B1A5-4543-8977-DCFF0F235FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF5481E9-0489-4208-B22E-7B5EF031D419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF5481E9-0489-4208-B22E-7B5EF031D419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF5481E9-0489-4208-B22E-7B5EF031D419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF5481E9-0489-4208-B22E-7B5EF031D419}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89D547BA-5207-477B-BEC1-CF5B9AA99D3E}
+	EndGlobalSection
+EndGlobal
