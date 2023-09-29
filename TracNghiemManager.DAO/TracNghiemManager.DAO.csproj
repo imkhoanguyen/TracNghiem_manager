@@ -47,7 +47,6 @@
     <Compile Include="DbConnection.cs" />
     <Compile Include="IDAO.cs" />
     <Compile Include="ChiTietQuyenDAO.cs" />
-    <Compile Include="ChiTietQuyenDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuyenDAO.cs" />
   </ItemGroup>
