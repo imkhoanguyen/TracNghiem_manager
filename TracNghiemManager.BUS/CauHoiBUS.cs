@@ -11,32 +11,47 @@ namespace TracNghiemManager.BUS
 {
     public class CauHoiBUS
     {
-        public static CauHoiDAO cauHoiDAO = CauHoiDAO.getInstance();
-        public static List<CauHoiDTO> listCauHoi = CauHoiDAO.getInstance().GetAll();
-
+        public CauHoiDAO cauHoiDAO = CauHoiDAO.getInstance();
+        public List<CauHoiDTO> listCauHoi = CauHoiDAO.getInstance().GetAll();
         public CauHoiBUS()
         {
-           
-        }
 
-        public static List<CauHoiDTO> getAll()
+        }
+        public List<CauHoiDTO> getAll()
         {
-            
+
             return listCauHoi;
         }
 
-        public static string Add(CauHoiDTO t)
+        public string Add(CauHoiDTO t)
         {
-            int x = 0;
             if (cauHoiDAO.Add(t))
             {
-                x = 1;
-            return "1";
+                return "Thêm câu hỏi thành công!";
             }
-            Console.WriteLine(x);
-    
-            return "0";
+            return "Thêm câu hỏi thất bại!";
+        }
 
+        public string Update(CauHoiDTO t)
+        {
+            if (cauHoiDAO.Update(t)) { return "Cập nhật câu hỏi thành công!"; }
+            return "Cập nhật câu hỏi thất bại!";
+        }
+        public string Delete(int id)
+        {
+            if (cauHoiDAO.Delete(id))
+            {
+                return "Xõa câu hỏi thành công";
+            }
+            return "Xóa câu hỏi thất bại";
+        }
+        public int GetAutoIncrement()
+        {
+            return cauHoiDAO.GetAutoIncrement();
+        }
+        public CauHoiDTO getById(int id)
+        {
+            return cauHoiDAO.GetById(id);
         }
     }
 }

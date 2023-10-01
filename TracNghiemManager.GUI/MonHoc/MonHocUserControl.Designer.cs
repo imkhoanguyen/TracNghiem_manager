@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace TracNghiemManager.GUI.CauHoi
+namespace TracNghiemManager.GUI.MonHoc
 {
-    partial class CauHoiUserControl
+    partial class MonHocUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace TracNghiemManager.GUI.CauHoi
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CauHoiUserControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonHocUserControl));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -144,7 +144,6 @@ namespace TracNghiemManager.GUI.CauHoi
             this.btnLamMoi.Text = "LÀM MỚI";
             this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLamMoi.UseVisualStyleBackColor = false;
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnChiTiet
             // 
@@ -164,7 +163,6 @@ namespace TracNghiemManager.GUI.CauHoi
             this.btnChiTiet.Text = "CHI TIẾT";
             this.btnChiTiet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnChiTiet.UseVisualStyleBackColor = false;
-            this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
             // 
             // btnXuatFile
             // 
@@ -184,7 +182,6 @@ namespace TracNghiemManager.GUI.CauHoi
             this.btnXuatFile.Text = "XUẤT FILE";
             this.btnXuatFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnXuatFile.UseVisualStyleBackColor = false;
-            this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
             // 
             // btnXoa
             // 
@@ -204,7 +201,6 @@ namespace TracNghiemManager.GUI.CauHoi
             this.btnXoa.Text = "XÓA";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnXoa.UseVisualStyleBackColor = false;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -224,7 +220,6 @@ namespace TracNghiemManager.GUI.CauHoi
             this.btnSua.Text = "SỬA";
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSua.UseVisualStyleBackColor = false;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -244,7 +239,6 @@ namespace TracNghiemManager.GUI.CauHoi
             this.btnThem.Text = "THÊM";
             this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThem.UseVisualStyleBackColor = false;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // containerComboboxPanel
             // 
@@ -269,14 +263,13 @@ namespace TracNghiemManager.GUI.CauHoi
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxMonHoc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxMonHoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.comboBoxMonHoc.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBoxMonHoc.FormattingEnabled = true;
             this.comboBoxMonHoc.Location = new System.Drawing.Point(3, 2);
             this.comboBoxMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxMonHoc.Name = "comboBoxMonHoc";
             this.comboBoxMonHoc.Size = new System.Drawing.Size(569, 36);
             this.comboBoxMonHoc.TabIndex = 0;
-            this.comboBoxMonHoc.SelectedValueChanged += new System.EventHandler(this.comboBoxMonHoc_SelectedValueChanged);
             // 
             // comboBoxDoKho
             // 
@@ -288,7 +281,6 @@ namespace TracNghiemManager.GUI.CauHoi
             this.comboBoxDoKho.Name = "comboBoxDoKho";
             this.comboBoxDoKho.Size = new System.Drawing.Size(179, 36);
             this.comboBoxDoKho.TabIndex = 1;
-            this.comboBoxDoKho.SelectedValueChanged += new System.EventHandler(this.comboBoxDoKho_SelectedValueChanged);
             // 
             // containerTimKiemPanel
             // 
@@ -325,7 +317,6 @@ namespace TracNghiemManager.GUI.CauHoi
             this.btnTimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
             this.btnTimKiem.Location = new System.Drawing.Point(1282, 0);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(0);
             this.btnTimKiem.Name = "btnTimKiem";
@@ -334,7 +325,6 @@ namespace TracNghiemManager.GUI.CauHoi
             this.btnTimKiem.Text = " TÌM KIẾM";
             this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTimKiem.UseVisualStyleBackColor = false;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // dataGridView1
             // 
@@ -359,7 +349,6 @@ namespace TracNghiemManager.GUI.CauHoi
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(1551, 589);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // button2
             // 
@@ -370,7 +359,6 @@ namespace TracNghiemManager.GUI.CauHoi
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.Location = new System.Drawing.Point(5, 0);
             this.button2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.button2.Name = "button2";
@@ -382,13 +370,13 @@ namespace TracNghiemManager.GUI.CauHoi
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // CauHoiUserControl
+            // MonHocUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.mainPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "CauHoiUserControl";
+            this.Name = "MonHocUserControl";
             this.Size = new System.Drawing.Size(1573, 826);
             this.mainPanel.ResumeLayout(false);
             this.headingPanel.ResumeLayout(false);

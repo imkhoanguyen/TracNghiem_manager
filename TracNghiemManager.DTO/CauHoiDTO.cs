@@ -27,15 +27,5 @@ namespace TracNghiemManager.DTO
             MaNguoiTao = maNguoiTao;
             TrangThai = trangThai;
         }
-        public CauHoiDTO( string noiDung, string doKho, int maMonHoc, int maNguoiTao, int trangThai)
-        {
-         
-            NoiDung = noiDung;
-            DoKho = doKho;
-            MaMonHoc = maMonHoc;
-            MaNguoiTao = maNguoiTao;
-            TrangThai = trangThai;
-        }
-
     }
 }

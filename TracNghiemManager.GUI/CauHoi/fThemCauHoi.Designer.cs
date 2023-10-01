@@ -163,6 +163,7 @@
             this.comboBoxDoKho.Name = "comboBoxDoKho";
             this.comboBoxDoKho.Size = new System.Drawing.Size(160, 36);
             this.comboBoxDoKho.TabIndex = 3;
+            this.comboBoxDoKho.SelectedValueChanged += new System.EventHandler(this.comboBoxDoKho_SelectedValueChanged);
             // 
             // lblMonHoc
             // 
@@ -186,6 +187,7 @@
             this.comboBoxMonHoc.Name = "comboBoxMonHoc";
             this.comboBoxMonHoc.Size = new System.Drawing.Size(432, 36);
             this.comboBoxMonHoc.TabIndex = 1;
+            this.comboBoxMonHoc.SelectedValueChanged += new System.EventHandler(this.comboBoxMonHoc_SelectedValueChanged);
             // 
             // noiDungPanel
             // 
@@ -382,12 +384,13 @@
             // 
             this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLuu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLuu.Location = new System.Drawing.Point(1029, 201);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(204, 37);
             this.btnLuu.TabIndex = 1;
-            this.btnLuu.Text = "Thêm câu hỏi";
+            this.btnLuu.Text = "LƯU";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
