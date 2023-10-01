@@ -75,17 +75,18 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1262, 653);
+            this.tabControl1.Size = new System.Drawing.Size(946, 531);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.mainThemThuCongPanel);
             this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 37);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1254, 612);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(938, 497);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thêm thủ công";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -98,13 +99,13 @@
             this.mainThemThuCongPanel.Controls.Add(this.containerCauHoiPanel, 0, 0);
             this.mainThemThuCongPanel.Controls.Add(this.containerDapAnPanel, 0, 1);
             this.mainThemThuCongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainThemThuCongPanel.Location = new System.Drawing.Point(3, 3);
-            this.mainThemThuCongPanel.Margin = new System.Windows.Forms.Padding(20);
+            this.mainThemThuCongPanel.Location = new System.Drawing.Point(2, 2);
+            this.mainThemThuCongPanel.Margin = new System.Windows.Forms.Padding(15, 16, 15, 16);
             this.mainThemThuCongPanel.Name = "mainThemThuCongPanel";
             this.mainThemThuCongPanel.RowCount = 2;
             this.mainThemThuCongPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
             this.mainThemThuCongPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.49505F));
-            this.mainThemThuCongPanel.Size = new System.Drawing.Size(1248, 606);
+            this.mainThemThuCongPanel.Size = new System.Drawing.Size(934, 493);
             this.mainThemThuCongPanel.TabIndex = 0;
             // 
             // containerCauHoiPanel
@@ -115,12 +116,13 @@
             this.containerCauHoiPanel.Controls.Add(this.comboBoxPanel, 0, 0);
             this.containerCauHoiPanel.Controls.Add(this.noiDungPanel, 0, 1);
             this.containerCauHoiPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.containerCauHoiPanel.Location = new System.Drawing.Point(3, 3);
+            this.containerCauHoiPanel.Location = new System.Drawing.Point(2, 2);
+            this.containerCauHoiPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.containerCauHoiPanel.Name = "containerCauHoiPanel";
             this.containerCauHoiPanel.RowCount = 2;
             this.containerCauHoiPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.5625F));
             this.containerCauHoiPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.4375F));
-            this.containerCauHoiPanel.Size = new System.Drawing.Size(1242, 294);
+            this.containerCauHoiPanel.Size = new System.Drawing.Size(930, 240);
             this.containerCauHoiPanel.TabIndex = 0;
             // 
             // comboBoxPanel
@@ -133,12 +135,13 @@
             this.comboBoxPanel.Controls.Add(this.lblMonHoc, 0, 0);
             this.comboBoxPanel.Controls.Add(this.comboBoxMonHoc, 0, 1);
             this.comboBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxPanel.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxPanel.Location = new System.Drawing.Point(2, 2);
+            this.comboBoxPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxPanel.Name = "comboBoxPanel";
             this.comboBoxPanel.RowCount = 2;
             this.comboBoxPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.47368F));
             this.comboBoxPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.52632F));
-            this.comboBoxPanel.Size = new System.Drawing.Size(1236, 86);
+            this.comboBoxPanel.Size = new System.Drawing.Size(926, 71);
             this.comboBoxPanel.TabIndex = 0;
             // 
             // labelDoKho
@@ -146,9 +149,10 @@
             this.labelDoKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelDoKho.AutoSize = true;
-            this.labelDoKho.Location = new System.Drawing.Point(621, 0);
+            this.labelDoKho.Location = new System.Drawing.Point(465, 0);
+            this.labelDoKho.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDoKho.Name = "labelDoKho";
-            this.labelDoKho.Size = new System.Drawing.Size(80, 42);
+            this.labelDoKho.Size = new System.Drawing.Size(65, 35);
             this.labelDoKho.TabIndex = 4;
             this.labelDoKho.Text = "Độ khó";
             this.labelDoKho.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,20 +162,22 @@
             this.comboBoxDoKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBoxDoKho.FormattingEnabled = true;
-            this.comboBoxDoKho.Location = new System.Drawing.Point(621, 47);
-            this.comboBoxDoKho.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.comboBoxDoKho.Location = new System.Drawing.Point(465, 39);
+            this.comboBoxDoKho.Margin = new System.Windows.Forms.Padding(2, 4, 2, 2);
             this.comboBoxDoKho.Name = "comboBoxDoKho";
-            this.comboBoxDoKho.Size = new System.Drawing.Size(160, 36);
+            this.comboBoxDoKho.Size = new System.Drawing.Size(121, 29);
             this.comboBoxDoKho.TabIndex = 3;
+            this.comboBoxDoKho.SelectedValueChanged += new System.EventHandler(this.comboBoxDoKho_SelectedValueChanged);
             // 
             // lblMonHoc
             // 
             this.lblMonHoc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblMonHoc.AutoSize = true;
-            this.lblMonHoc.Location = new System.Drawing.Point(3, 0);
+            this.lblMonHoc.Location = new System.Drawing.Point(2, 0);
+            this.lblMonHoc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMonHoc.Name = "lblMonHoc";
-            this.lblMonHoc.Size = new System.Drawing.Size(106, 42);
+            this.lblMonHoc.Size = new System.Drawing.Size(85, 35);
             this.lblMonHoc.TabIndex = 0;
             this.lblMonHoc.Text = "Môn học: ";
             this.lblMonHoc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -181,11 +187,12 @@
             this.comboBoxMonHoc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBoxMonHoc.FormattingEnabled = true;
-            this.comboBoxMonHoc.Location = new System.Drawing.Point(3, 47);
-            this.comboBoxMonHoc.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.comboBoxMonHoc.Location = new System.Drawing.Point(2, 39);
+            this.comboBoxMonHoc.Margin = new System.Windows.Forms.Padding(2, 4, 2, 2);
             this.comboBoxMonHoc.Name = "comboBoxMonHoc";
-            this.comboBoxMonHoc.Size = new System.Drawing.Size(432, 36);
+            this.comboBoxMonHoc.Size = new System.Drawing.Size(325, 29);
             this.comboBoxMonHoc.TabIndex = 1;
+            this.comboBoxMonHoc.SelectedValueChanged += new System.EventHandler(this.comboBoxMonHoc_SelectedValueChanged);
             // 
             // noiDungPanel
             // 
@@ -195,12 +202,13 @@
             this.noiDungPanel.Controls.Add(this.lblNoiDung, 0, 0);
             this.noiDungPanel.Controls.Add(this.txtNoiDung, 0, 1);
             this.noiDungPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.noiDungPanel.Location = new System.Drawing.Point(3, 95);
+            this.noiDungPanel.Location = new System.Drawing.Point(2, 77);
+            this.noiDungPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.noiDungPanel.Name = "noiDungPanel";
             this.noiDungPanel.RowCount = 2;
             this.noiDungPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.71831F));
             this.noiDungPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.28169F));
-            this.noiDungPanel.Size = new System.Drawing.Size(1236, 196);
+            this.noiDungPanel.Size = new System.Drawing.Size(926, 161);
             this.noiDungPanel.TabIndex = 1;
             // 
             // lblNoiDung
@@ -208,9 +216,10 @@
             this.lblNoiDung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblNoiDung.AutoSize = true;
-            this.lblNoiDung.Location = new System.Drawing.Point(3, 0);
+            this.lblNoiDung.Location = new System.Drawing.Point(2, 0);
+            this.lblNoiDung.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNoiDung.Name = "lblNoiDung";
-            this.lblNoiDung.Size = new System.Drawing.Size(186, 38);
+            this.lblNoiDung.Size = new System.Drawing.Size(150, 31);
             this.lblNoiDung.TabIndex = 1;
             this.lblNoiDung.Text = "Nội dung câu hỏi: ";
             this.lblNoiDung.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -218,10 +227,11 @@
             // txtNoiDung
             // 
             this.txtNoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNoiDung.Location = new System.Drawing.Point(3, 41);
+            this.txtNoiDung.Location = new System.Drawing.Point(2, 33);
+            this.txtNoiDung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNoiDung.Multiline = true;
             this.txtNoiDung.Name = "txtNoiDung";
-            this.txtNoiDung.Size = new System.Drawing.Size(1230, 152);
+            this.txtNoiDung.Size = new System.Drawing.Size(922, 126);
             this.txtNoiDung.TabIndex = 2;
             // 
             // containerDapAnPanel
@@ -232,12 +242,13 @@
             this.containerDapAnPanel.Controls.Add(this.lblDanAn, 0, 0);
             this.containerDapAnPanel.Controls.Add(this.dapAnPanel, 0, 1);
             this.containerDapAnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.containerDapAnPanel.Location = new System.Drawing.Point(3, 303);
+            this.containerDapAnPanel.Location = new System.Drawing.Point(2, 246);
+            this.containerDapAnPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.containerDapAnPanel.Name = "containerDapAnPanel";
             this.containerDapAnPanel.RowCount = 2;
             this.containerDapAnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.66667F));
             this.containerDapAnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.33334F));
-            this.containerDapAnPanel.Size = new System.Drawing.Size(1242, 300);
+            this.containerDapAnPanel.Size = new System.Drawing.Size(930, 245);
             this.containerDapAnPanel.TabIndex = 1;
             // 
             // lblDanAn
@@ -245,9 +256,10 @@
             this.lblDanAn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDanAn.AutoSize = true;
-            this.lblDanAn.Location = new System.Drawing.Point(3, 0);
+            this.lblDanAn.Location = new System.Drawing.Point(2, 0);
+            this.lblDanAn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDanAn.Name = "lblDanAn";
-            this.lblDanAn.Size = new System.Drawing.Size(79, 53);
+            this.lblDanAn.Size = new System.Drawing.Size(64, 43);
             this.lblDanAn.TabIndex = 2;
             this.lblDanAn.Text = "Đáp án";
             this.lblDanAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -260,12 +272,13 @@
             this.dapAnPanel.Controls.Add(this.txtDapAnPanel, 0, 0);
             this.dapAnPanel.Controls.Add(this.btnLuu, 0, 1);
             this.dapAnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dapAnPanel.Location = new System.Drawing.Point(3, 56);
+            this.dapAnPanel.Location = new System.Drawing.Point(2, 45);
+            this.dapAnPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dapAnPanel.Name = "dapAnPanel";
             this.dapAnPanel.RowCount = 2;
             this.dapAnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.25311F));
             this.dapAnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.74689F));
-            this.dapAnPanel.Size = new System.Drawing.Size(1236, 241);
+            this.dapAnPanel.Size = new System.Drawing.Size(926, 198);
             this.dapAnPanel.TabIndex = 3;
             // 
             // txtDapAnPanel
@@ -282,23 +295,24 @@
             this.txtDapAnPanel.Controls.Add(this.lblCauC, 0, 2);
             this.txtDapAnPanel.Controls.Add(this.txtCauC, 0, 3);
             this.txtDapAnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDapAnPanel.Location = new System.Drawing.Point(3, 3);
+            this.txtDapAnPanel.Location = new System.Drawing.Point(2, 2);
+            this.txtDapAnPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDapAnPanel.Name = "txtDapAnPanel";
             this.txtDapAnPanel.RowCount = 4;
             this.txtDapAnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
             this.txtDapAnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
-            this.txtDapAnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.txtDapAnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.txtDapAnPanel.Size = new System.Drawing.Size(1230, 185);
+            this.txtDapAnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.txtDapAnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.txtDapAnPanel.Size = new System.Drawing.Size(922, 152);
             this.txtDapAnPanel.TabIndex = 0;
             // 
             // txtCauD
             // 
             this.txtCauD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCauD.Location = new System.Drawing.Point(635, 143);
-            this.txtCauD.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.txtCauD.Location = new System.Drawing.Point(476, 117);
+            this.txtCauD.Margin = new System.Windows.Forms.Padding(15, 2, 2, 2);
             this.txtCauD.Name = "txtCauD";
-            this.txtCauD.Size = new System.Drawing.Size(592, 34);
+            this.txtCauD.Size = new System.Drawing.Size(444, 29);
             this.txtCauD.TabIndex = 10;
             // 
             // lblCauD
@@ -306,10 +320,10 @@
             this.lblCauD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCauD.AutoSize = true;
-            this.lblCauD.Location = new System.Drawing.Point(635, 100);
-            this.lblCauD.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.lblCauD.Location = new System.Drawing.Point(476, 83);
+            this.lblCauD.Margin = new System.Windows.Forms.Padding(15, 0, 2, 0);
             this.lblCauD.Name = "lblCauD";
-            this.lblCauD.Size = new System.Drawing.Size(68, 40);
+            this.lblCauD.Size = new System.Drawing.Size(55, 32);
             this.lblCauD.TabIndex = 9;
             this.lblCauD.Text = "Câu D";
             this.lblCauD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -317,10 +331,10 @@
             // txtCauB
             // 
             this.txtCauB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCauB.Location = new System.Drawing.Point(635, 47);
-            this.txtCauB.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.txtCauB.Location = new System.Drawing.Point(476, 39);
+            this.txtCauB.Margin = new System.Windows.Forms.Padding(15, 2, 2, 2);
             this.txtCauB.Name = "txtCauB";
-            this.txtCauB.Size = new System.Drawing.Size(592, 34);
+            this.txtCauB.Size = new System.Drawing.Size(444, 29);
             this.txtCauB.TabIndex = 8;
             // 
             // lblCauB
@@ -328,10 +342,10 @@
             this.lblCauB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCauB.AutoSize = true;
-            this.lblCauB.Location = new System.Drawing.Point(635, 0);
-            this.lblCauB.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.lblCauB.Location = new System.Drawing.Point(476, 0);
+            this.lblCauB.Margin = new System.Windows.Forms.Padding(15, 0, 2, 0);
             this.lblCauB.Name = "lblCauB";
-            this.lblCauB.Size = new System.Drawing.Size(66, 44);
+            this.lblCauB.Size = new System.Drawing.Size(53, 37);
             this.lblCauB.TabIndex = 7;
             this.lblCauB.Text = "Câu B";
             this.lblCauB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -341,9 +355,10 @@
             this.lblCauA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCauA.AutoSize = true;
-            this.lblCauA.Location = new System.Drawing.Point(3, 0);
+            this.lblCauA.Location = new System.Drawing.Point(2, 0);
+            this.lblCauA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCauA.Name = "lblCauA";
-            this.lblCauA.Size = new System.Drawing.Size(67, 44);
+            this.lblCauA.Size = new System.Drawing.Size(54, 37);
             this.lblCauA.TabIndex = 3;
             this.lblCauA.Text = "Câu A";
             this.lblCauA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -351,10 +366,10 @@
             // txtCauA
             // 
             this.txtCauA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCauA.Location = new System.Drawing.Point(3, 47);
-            this.txtCauA.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.txtCauA.Location = new System.Drawing.Point(2, 39);
+            this.txtCauA.Margin = new System.Windows.Forms.Padding(2, 2, 15, 2);
             this.txtCauA.Name = "txtCauA";
-            this.txtCauA.Size = new System.Drawing.Size(592, 34);
+            this.txtCauA.Size = new System.Drawing.Size(444, 29);
             this.txtCauA.TabIndex = 4;
             // 
             // lblCauC
@@ -362,9 +377,10 @@
             this.lblCauC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCauC.AutoSize = true;
-            this.lblCauC.Location = new System.Drawing.Point(3, 100);
+            this.lblCauC.Location = new System.Drawing.Point(2, 83);
+            this.lblCauC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCauC.Name = "lblCauC";
-            this.lblCauC.Size = new System.Drawing.Size(65, 40);
+            this.lblCauC.Size = new System.Drawing.Size(53, 32);
             this.lblCauC.TabIndex = 5;
             this.lblCauC.Text = "Câu C";
             this.lblCauC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -372,41 +388,44 @@
             // txtCauC
             // 
             this.txtCauC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCauC.Location = new System.Drawing.Point(3, 143);
-            this.txtCauC.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.txtCauC.Location = new System.Drawing.Point(2, 117);
+            this.txtCauC.Margin = new System.Windows.Forms.Padding(2, 2, 15, 2);
             this.txtCauC.Name = "txtCauC";
-            this.txtCauC.Size = new System.Drawing.Size(592, 34);
+            this.txtCauC.Size = new System.Drawing.Size(444, 29);
             this.txtCauC.TabIndex = 6;
             // 
             // btnLuu
             // 
             this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLuu.Location = new System.Drawing.Point(1029, 201);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.btnLuu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLuu.Location = new System.Drawing.Point(771, 164);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(2, 8, 2, 2);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(204, 37);
+            this.btnLuu.Size = new System.Drawing.Size(153, 32);
             this.btnLuu.TabIndex = 1;
-            this.btnLuu.Text = "Thêm câu hỏi";
+            this.btnLuu.Text = "LƯU";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 37);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1254, 612);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Size = new System.Drawing.Size(938, 497);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Thêm từ file";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // fThemCauHoi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 653);
+            this.ClientSize = new System.Drawing.Size(946, 531);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "fThemCauHoi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm câu hỏi";
