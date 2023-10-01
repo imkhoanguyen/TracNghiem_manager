@@ -40,7 +40,24 @@ namespace TracNghiemManager.DAO
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection connection = DbConnection.GetSqlConnection())
+                {
+                    string query = "update mon_hoc set trang_thai = 0 where ma_mon_hoc = @ma_mon_hoc";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ma_mon_hoc", id);
+                        int rowsChanged = command.ExecuteNonQuery();
+                        return rowsChanged > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
         }
 
         public List<MonHocDTO> GetAll()
@@ -97,7 +114,25 @@ namespace TracNghiemManager.DAO
 
         public bool Update(MonHocDTO t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection connection = DbConnection.GetSqlConnection())
+                {
+                    string query = "update mon_hoc set ten_mon_hoc = @ten_mon_hoc where ma_mon_hoc = @ma_mon_hoc; ";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ten_mon_hoc", t.TenMonHoc);
+                        command.Parameters.AddWithValue("@ma_mon_hoc", t.MaMonHoc);
+                        int rowsChanged = command.ExecuteNonQuery();
+                        return rowsChanged > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
         }
         public int GetAutoIncrement()
         {

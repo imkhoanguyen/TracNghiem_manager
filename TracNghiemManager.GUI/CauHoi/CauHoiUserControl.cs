@@ -23,6 +23,7 @@ namespace TracNghiemManager.GUI.CauHoi
         private int index; // row được select
         private MonHocDTO indexSreachMonHoc; // search
         private string indexSearchDoKho; // search
+        List<MonHocDTO> listmh;
         public CauHoiUserControl()
         {
 
@@ -32,14 +33,14 @@ namespace TracNghiemManager.GUI.CauHoi
             chBus = new CauHoiBUS();
             mhBus = new MonHocBUS();
             listch = chBus.getAll();
-            loadComboBoxMonHoc();
+            listmh = mhBus.getAll();
+            loadComboBoxMonHoc(listmh);
             loadComboBoxDoKho();
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("Nội dung câu hỏi", typeof(string));
             dt.Columns.Add("Môn học", typeof(string));
             dt.Columns.Add("Độ khó", typeof(string));
             loadDataTable(listch);
-
         }
         public void loadDataTable(List<CauHoiDTO> list)
         {
@@ -97,7 +98,6 @@ namespace TracNghiemManager.GUI.CauHoi
                 listch.RemoveAt(index);
                 loadDataTable(listch);
             }
-            
         }
 
         public void Search()
@@ -142,25 +142,37 @@ namespace TracNghiemManager.GUI.CauHoi
 
                 // Đặt nguồn dữ liệu cho DataGridView
                 dataGridView1.DataSource = listCauHoiTimKiemFilter;
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 dataGridView1.DataSource = listch;
             }
-            
+
         }
 
-        public void loadComboBoxMonHoc()
+        public void loadComboBoxMonHoc(List<MonHocDTO> l)
         {
+            int t = -1;
+            // Clear datasouce
+            comboBoxMonHoc.DataSource = null;
             comboBoxMonHoc.ValueMember = "MaMonHoc";
             comboBoxMonHoc.DisplayMember = "TenMonHoc";
-            List<MonHocDTO> listmh = mhBus.getAll();
+            List<MonHocDTO> list = l;
             MonHocDTO chonMonHocItem = new MonHocDTO
             {
                 TenMonHoc = "Chọn môn học",
                 MaMonHoc = -1,
             };
-            listmh.Insert(0, chonMonHocItem);
-            comboBoxMonHoc.DataSource = listmh;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].MaMonHoc == -1) t = 1;
+            }
+            if (t!=1)
+            {
+                list.Insert(0, chonMonHocItem);
+            }
+            comboBoxMonHoc.DataSource = list;
             comboBoxMonHoc.SelectedIndex = 0;
         }
         public void loadComboBoxDoKho()
@@ -173,11 +185,12 @@ namespace TracNghiemManager.GUI.CauHoi
         // load lại từ dtb không phải listch
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-
+            MonHocBUS newmhbus = new MonHocBUS();
+            listmh = newmhbus.getAll();
             listch = chBus.getAll();
             loadDataTable(listch);
+            loadComboBoxMonHoc(listmh);
             textBoxTimKiem.Text = "";
-            comboBoxMonHoc.SelectedIndex = 0;
             comboBoxDoKho.SelectedIndex = 0;
         }
 
@@ -195,15 +208,29 @@ namespace TracNghiemManager.GUI.CauHoi
         private void btnSua_Click(object sender, EventArgs e)
         {
             CauHoiDTO selectedCauHoi = chBus.getById(idSelected);
-            fThemCauHoi fThem = new fThemCauHoi(this, "edit", selectedCauHoi);
-            fThem.Visible = true;
+            if (selectedCauHoi == null)
+            {
+                MessageBox.Show("Chưa chọn hàng cần chỉnh sửa!");
+            } else
+            {
+                fThemCauHoi fThem = new fThemCauHoi(this, "edit", selectedCauHoi);
+                fThem.Visible = true;
+            }
+           
         }
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
             CauHoiDTO selectedCauHoi = chBus.getById(idSelected);
-            fThemCauHoi fThem = new fThemCauHoi(this, "view", selectedCauHoi);
-            fThem.Visible = true;
+            if(selectedCauHoi == null)
+            {
+                MessageBox.Show("Chưa chọn hàng cần xem!");
+            } else
+            {
+                fThemCauHoi fThem = new fThemCauHoi(this, "view", selectedCauHoi);
+                fThem.Visible = true;
+            }
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -231,7 +258,6 @@ namespace TracNghiemManager.GUI.CauHoi
             if (dataGridView1.Columns.Contains("Nộidungcâuhỏi"))
             {
                 dataGridView1.Columns["Nộidungcâuhỏi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
             }
             if (dataGridView1.Columns.Contains("Nộidungcâuhỏi")
                 || dataGridView1.Columns.Contains("MônHọc")
@@ -255,6 +281,8 @@ namespace TracNghiemManager.GUI.CauHoi
             if (cb.SelectedValue != null)
             {
                 indexSreachMonHoc = mhBus.getById(Convert.ToInt32(cb.SelectedValue));
+                if (indexSreachMonHoc != null)
+                    MessageBox.Show(indexSreachMonHoc.TenMonHoc);
             }
         }
 

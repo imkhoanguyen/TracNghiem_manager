@@ -36,6 +36,7 @@ namespace TracNghiemManager.DAO
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return false;
             }
         }
@@ -61,6 +62,7 @@ namespace TracNghiemManager.DAO
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return false;
             }
         }
@@ -83,6 +85,7 @@ namespace TracNghiemManager.DAO
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return false;
             }
         }

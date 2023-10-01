@@ -29,9 +29,17 @@ namespace TracNghiemManager.BUS
         {
             if(monHocDAO.Update(t))
             {
-                return "Cập nhật câu hỏi thành công!";
+                return "Cập nhật môn học thành công!";
             }
-            return "Cập nhật câu hỏi thất bại";
+            return "Cập nhật môn học thất bại";
+        }
+        public string Delete(int id)
+        {
+            if(monHocDAO.Delete(id))
+            {
+                return "Xóa môn học thành công!";
+            }
+            return "Xóa môn học thất bại";
         }
         public int GetAutoIncrement()
         {

@@ -55,6 +55,12 @@
     <Compile Include="CauHoi\fThemCauHoi.Designer.cs">
       <DependentUpon>fThemCauHoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="MonHoc\fThemMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonHoc\fThemMonHoc.Designer.cs">
+      <DependentUpon>fThemMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="MonHoc\MonHocUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CauHoi\fThemCauHoi.resx">
       <DependentUpon>fThemCauHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonHoc\fThemMonHoc.resx">
+      <DependentUpon>fThemMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MonHoc\MonHocUserControl.resx">
       <DependentUpon>MonHocUserControl.cs</DependentUpon>
