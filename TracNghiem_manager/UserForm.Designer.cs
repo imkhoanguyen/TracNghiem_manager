@@ -1,5 +1,7 @@
 ﻿using System.Windows.Forms;
 using TracNghiemManager.GUI.CauHoi;
+using TracNghiemManager.GUI.LopHoc;
+using TracNghiemManager.GUI.MonHoc;
 
 namespace TracNghiem_manager
 {
@@ -45,7 +47,6 @@ namespace TracNghiem_manager
             btnLopHoc = new Button();
             btnThoat = new Button();
             btnDeThi = new Button();
-            btnPhanQuyen = new Button();
             btnNguoiDung = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             containerPanel = new Panel();
@@ -55,7 +56,7 @@ namespace TracNghiem_manager
             cauHoiPanel = new CauHoiUserControl();
             deThiPanel = new DeThiUserControl();
             thongKePanel = new ThongKeUserControl();
-            PermissionUser = new PermissionUserControl();
+            userPanel = new Manager();
             containerBtnPanel.SuspendLayout();
             infoPanelBox.SuspendLayout();
             infoOwnerPanel.SuspendLayout();
@@ -70,6 +71,10 @@ namespace TracNghiem_manager
             containerBtnPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             containerBtnPanel.Controls.Add(infoPanelBox, 0, 0);
             containerBtnPanel.Controls.Add(btnHome, 0, 1);
+
+            containerBtnPanel.Controls.Add(btnNguoiDung);
+            containerBtnPanel.RowStyles.Add(new RowStyle());
+
             containerBtnPanel.Dock = DockStyle.Left;
             containerBtnPanel.Location = new Point(0, 0);
             containerBtnPanel.Margin = new Padding(10);
@@ -302,27 +307,6 @@ namespace TracNghiem_manager
             btnDeThi.UseVisualStyleBackColor = false;
             btnDeThi.Click += btnDeThi_Click;
             // 
-            // btnPhanQuyen
-            // 
-            btnPhanQuyen.BackColor = Color.White;
-            btnPhanQuyen.Cursor = Cursors.Hand;
-            btnPhanQuyen.FlatAppearance.BorderSize = 0;
-            btnPhanQuyen.FlatStyle = FlatStyle.Flat;
-            btnPhanQuyen.Font = new Font("Segoe UI", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPhanQuyen.Image = (Image)resources.GetObject("btnPhanQuyen.Image");
-            btnPhanQuyen.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPhanQuyen.Location = new Point(10, 689);
-            btnPhanQuyen.Margin = new Padding(10, 5, 10, 5);
-            btnPhanQuyen.MinimumSize = new Size(117, 46);
-            btnPhanQuyen.Name = "btnPhanQuyen";
-            btnPhanQuyen.Padding = new Padding(10, 0, 0, 0);
-            btnPhanQuyen.Size = new Size(310, 60);
-            btnPhanQuyen.TabIndex = 34;
-            btnPhanQuyen.Text = "  Phân Quyền";
-            btnPhanQuyen.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnPhanQuyen.UseVisualStyleBackColor = false;
-            btnPhanQuyen.Click += btnPhanQuyen_Click;
-            // 
             // btnNguoiDung
             // 
             btnNguoiDung.BackColor = Color.White;
@@ -370,7 +354,7 @@ namespace TracNghiem_manager
             containerPanel.Controls.Add(cauHoiPanel);
             containerPanel.Controls.Add(deThiPanel);
             containerPanel.Controls.Add(thongKePanel);
-            containerPanel.Controls.Add(PermissionUser);
+            containerPanel.Controls.Add(userPanel);
             containerPanel.Dock = DockStyle.Fill;
             containerPanel.Location = new Point(0, 0);
             containerPanel.Margin = new Padding(0);
@@ -428,14 +412,13 @@ namespace TracNghiem_manager
             thongKePanel.Size = new Size(1210, 845);
             thongKePanel.TabIndex = 5;
             // 
-            // PermissionUser
+            // userPanel
             // 
-            PermissionUser.Dock = DockStyle.Fill;
-            PermissionUser.Location = new Point(0, 0);
-            PermissionUser.Margin = new Padding(3, 2, 3, 2);
-            PermissionUser.Name = "PermissionUser";
-            PermissionUser.Size = new Size(1210, 845);
-            PermissionUser.TabIndex = 5;
+            thongKePanel.Dock = DockStyle.Fill;
+            thongKePanel.Location = new Point(0, 0);
+            thongKePanel.Name = "userPanel";
+            thongKePanel.Size = new Size(1210, 845);
+            thongKePanel.TabIndex = 6;
             // 
             // UserForm
             // 
@@ -469,7 +452,6 @@ namespace TracNghiem_manager
         private Button btnMonHoc;
 
 
-        //
         private Color hoverColor = ColorTranslator.FromHtml("#8eddf9");
         private Color defaultTitleBtnColor = ColorTranslator.FromHtml("#646568");
         private Color borderColor = ColorTranslator.FromHtml("#e9edee");
@@ -485,9 +467,8 @@ namespace TracNghiem_manager
         private CauHoiUserControl cauHoiPanel;
         private DeThiUserControl deThiPanel;
         private ThongKeUserControl thongKePanel;
-        private PermissionUserControl PermissionUser;
         private Panel containerPanel;
-        private Button btnPhanQuyen;
         private Button btnNguoiDung;
+        private Manager userPanel;
     }
 }

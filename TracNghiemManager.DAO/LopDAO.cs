@@ -8,53 +8,26 @@ using TracNghiemManager.DTO;
 
 namespace TracNghiemManager.DAO
 {
-    public class CauHoiDAO : IDAO<CauHoiDTO>
+    public class LopDAO : IDAO<LopDTO>
     {
-        public static CauHoiDAO getInstance()
+        public static LopDAO getInstance()
         {
-            return new CauHoiDAO();
+            return new LopDAO();
         }
-        public bool Add(CauHoiDTO t)
+        public bool Add(LopDTO t)
         {
             try
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "INSERT INTO cau_hoi (noi_dung, ma_nguoi_tao, ma_mon_hoc, do_kho, trang_thai)" +
-                        "VALUES (@noi_dung, @ma_nguoi_tao, @ma_mon_hoc, @do_kho, @trangThai)";
+                    string query = "INSERT INTO lop (ma_giao_vien, ten_lop, ma_moi, trang_thai)" +
+                        "VALUES (@ma_giao_vien, @ten_lop, @ma_moi, @trang_thai)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@noi_dung", t.NoiDung);
-                        command.Parameters.AddWithValue("@ma_nguoi_tao", t.MaNguoiTao);
-                        command.Parameters.AddWithValue("@ma_mon_hoc", t.MaMonHoc);
-                        command.Parameters.AddWithValue("@do_kho", t.DoKho);
-                        command.Parameters.AddWithValue("@trangThai", 1);
-                        int rowsChanged = command.ExecuteNonQuery();
-                        return rowsChanged > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return false;
-            }
-        }
-
-        public bool Update(CauHoiDTO t)
-        {
-            try
-            {
-                using (SqlConnection connection = DbConnection.GetSqlConnection())
-                {
-                    string query = "update cau_hoi set noi_dung = @noi_dung, ma_mon_hoc = @ma_mon_hoc, do_kho = @do_kho where ma_cau_hoi = @ma_cau_hoi; ";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@ma_cau_hoi", t.MaCauHoi);
-                        command.Parameters.AddWithValue("@noi_dung", t.NoiDung);
-                        command.Parameters.AddWithValue("@ma_mon_hoc", t.MaMonHoc);
-                        command.Parameters.AddWithValue("@do_kho", t.DoKho);
-
+                        command.Parameters.AddWithValue("@ma_giao_vien", t.MaGiaoVien);
+                        command.Parameters.AddWithValue("@ten_lop", t.TenLop);
+                        command.Parameters.AddWithValue("@ma_moi", t.MaMoi);
+                        command.Parameters.AddWithValue("@trang_thai", 1);
                         int rowsChanged = command.ExecuteNonQuery();
                         return rowsChanged > 0;
                     }
@@ -73,10 +46,10 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "update cau_hoi set trang_thai = @trang_thai where ma_cau_hoi = @ma_cau_hoi;";
+                    string query = "update lop set trang_thai = @trang_thai where ma_lop = @ma_lop";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@ma_cau_hoi", id);
+                        command.Parameters.AddWithValue("@ma_lop", id);
                         command.Parameters.AddWithValue("@trang_thai", 0);
                         int rowsChanged = command.ExecuteNonQuery();
                         return rowsChanged > 0;
@@ -90,42 +63,41 @@ namespace TracNghiemManager.DAO
             }
         }
 
-        public List<CauHoiDTO> GetAll()
+        public List<LopDTO> GetAll()
         {
-            List<CauHoiDTO> cauHoiList = new List<CauHoiDTO>();
+            List<LopDTO> lopList = new List<LopDTO>();
             using (SqlConnection connection = DbConnection.GetSqlConnection())
             {
-                string query = "Select * from cau_hoi Where trang_thai = 1";
+                string query = "Select * from lop Where trang_thai = 1";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            CauHoiDTO cauHoi = new CauHoiDTO
+                            LopDTO lop = new LopDTO
                             {
-                                MaCauHoi = Convert.ToInt32(reader["ma_cau_hoi"]),
-                                NoiDung = reader["noi_dung"].ToString(),
-                                DoKho = reader["do_kho"].ToString(),
-                                MaMonHoc = Convert.ToInt32(reader["ma_mon_hoc"]),
-                                MaNguoiTao = Convert.ToInt32(reader["ma_nguoi_tao"]),
+                                MaLop = Convert.ToInt32(reader["ma_lop"]),
+                                MaGiaoVien = Convert.ToInt32(reader["ma_giao_vien"]),
+                                TenLop = reader["ten_lop"].ToString(),
+                                MaMoi = reader["ma_moi"].ToString(),
                                 TrangThai = Convert.ToInt32(reader["trang_thai"])
                             };
-                            cauHoiList.Add(cauHoi);
+                            lopList.Add(lop);
                         }
                     }
 
                 }
             }
-            return cauHoiList;
+            return lopList;
         }
 
-        public CauHoiDTO GetById(int id)
+        public LopDTO GetById(int id)
         {
-            CauHoiDTO result = null;
+            LopDTO result = null;
             using (SqlConnection connection = DbConnection.GetSqlConnection())
             {
-                string query = "select * from cau_hoi where ma_cau_hoi = @id and trang_thai = 1";
+                string query = "select * from lop where ma_lop = @id and trang_thai = 1";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@id", id);
@@ -133,13 +105,12 @@ namespace TracNghiemManager.DAO
                     {
                         while (reader.Read())
                         {
-                            result = new CauHoiDTO
+                            result = new LopDTO
                             {
-                                MaCauHoi = Convert.ToInt32(reader["ma_cau_hoi"]),
-                                NoiDung = reader["noi_dung"].ToString(),
-                                DoKho = reader["do_kho"].ToString(),
-                                MaMonHoc = Convert.ToInt32(reader["ma_mon_hoc"]),
-                                MaNguoiTao = Convert.ToInt32(reader["ma_nguoi_tao"]),
+                                MaLop = Convert.ToInt32(reader["ma_lop"]),
+                                MaGiaoVien = Convert.ToInt32(reader["ma_giao_vien"]),
+                                TenLop = reader["ten_lop"].ToString(),
+                                MaMoi = reader["ma_moi"].ToString(),
                                 TrangThai = Convert.ToInt32(reader["trang_thai"])
                             };
                         }
@@ -149,7 +120,28 @@ namespace TracNghiemManager.DAO
             return result;
         }
 
-      
+        public bool Update(LopDTO t)
+        {
+            try
+            {
+                using (SqlConnection connection = DbConnection.GetSqlConnection())
+                {
+                    string query = "update lop set ten_lop = @ten_lop where ma_lop = @ma_lop";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ma_lop", t.MaLop);
+                        command.Parameters.AddWithValue("@ten_lop", t.TenLop);
+                        int rowsChanged = command.ExecuteNonQuery();
+                        return rowsChanged > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
         public int GetAutoIncrement()
         {
             int result = -1;
@@ -157,7 +149,7 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "SELECT ma_cau_hoi from cau_hoi where trang_thai = 1";
+                    string query = "SELECT ma_lop from lop where trang_thai = 1";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())

@@ -55,6 +55,42 @@
     <Compile Include="CauHoi\fThemCauHoi.Designer.cs">
       <DependentUpon>fThemCauHoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="LopHoc\fDeThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LopHoc\fDeThi.Designer.cs">
+      <DependentUpon>fDeThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LopHoc\fDoiTenLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LopHoc\fDoiTenLop.Designer.cs">
+      <DependentUpon>fDoiTenLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LopHoc\fThemLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LopHoc\fThemLop.Designer.cs">
+      <DependentUpon>fThemLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LopHoc\LopHocUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LopHoc\LopHocUserControl.Designer.cs">
+      <DependentUpon>LopHocUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonHoc\fThemMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonHoc\fThemMonHoc.Designer.cs">
+      <DependentUpon>fThemMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonHoc\MonHocUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MonHoc\MonHocUserControl.Designer.cs">
+      <DependentUpon>MonHocUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +99,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CauHoi\fThemCauHoi.resx">
       <DependentUpon>fThemCauHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LopHoc\fDeThi.resx">
+      <DependentUpon>fDeThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LopHoc\fDoiTenLop.resx">
+      <DependentUpon>fDoiTenLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LopHoc\fThemLop.resx">
+      <DependentUpon>fThemLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LopHoc\LopHocUserControl.resx">
+      <DependentUpon>LopHocUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonHoc\fThemMonHoc.resx">
+      <DependentUpon>fThemMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonHoc\MonHocUserControl.resx">
+      <DependentUpon>MonHocUserControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

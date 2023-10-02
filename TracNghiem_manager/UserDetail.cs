@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TracNghiem_manager
 {
-    public partial class LopHocUserControl : UserControl
+    public partial class UserDetail : Form
     {
-        public LopHocUserControl()
+        public UserDetail()
         {
             InitializeComponent();
         }

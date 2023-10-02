@@ -10,8 +10,21 @@ namespace TracNghiemManager.DTO
     {
         public int MaLop { get; set; }
         public int MaGiaoVien { get; set; }
-        public int MaMonHoc { get; set; }
-        public int TrangThai { get; set; }
+        public string TenLop { get; set; }
         public string MaMoi { get; set; }
+        public int TrangThai { get; set; }
+        public LopDTO()
+        {
+
+        }
+        public LopDTO(int maLop, int maGiaoVien, string tenLop, string maMoi, int trangThai)
+        {
+            MaLop = maLop;
+            MaGiaoVien = maGiaoVien;
+            TenLop = tenLop;
+            MaMoi = maMoi;
+            TrangThai = trangThai;
+        }
+
     }
 }

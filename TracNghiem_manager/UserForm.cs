@@ -33,7 +33,6 @@ namespace TracNghiem_manager
             AddColorChange(btnThongKe, hoverColor, hoverColor);
             AddColorChange(btnThoat, hoverColor, hoverColor);
             AddColorChange(btnNguoiDung, hoverColor, hoverColor);
-            AddColorChange(btnPhanQuyen, hoverColor, hoverColor);
 
             infoPanelBox.Paint += (sender, e) =>
             {
@@ -182,12 +181,12 @@ namespace TracNghiem_manager
 
         private void btnLopHoc_Click(object sender, EventArgs e)
         {
-
+            ShowUserControl(lopHocPanel);
         }
 
         private void btnMonHoc_Click(object sender, EventArgs e)
         {
-
+            ShowUserControl(monHocPanel);
         }
 
         private void btnCauHoi_Click(object sender, EventArgs e)
@@ -218,66 +217,54 @@ namespace TracNghiem_manager
 
         private void btnNguoiDung_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnPhanQuyen_Click(object sender, EventArgs e)
-        {
-            ShowUserControl(PermissionUser);
+            ShowUserControl(userPanel);
         }
 
         private void UserForm_Load(object sender, EventArgs e)
         {
-            List<ChucNangDTO> listChucNang = ChucNangDAO.Instance.GetTenChucNangBangUserId(Form1.USER_ID);
+            //    List<ChucNangDTO> listChucNang = ChucNangDAO.Instance.GetTenChucNangBangUserId(Form1.USER_ID);
 
-            for (int i = 0; i < listChucNang.Count; i++)
-            {
-                if (listChucNang[i].ten_chuc_nang.Equals("sửa user") || listChucNang[i].ten_chuc_nang.Equals("xóa user") ||
-                    listChucNang[i].ten_chuc_nang.Equals("thêm user"))
-                {
-                    containerBtnPanel.Controls.Add(btnNguoiDung, 0, 7);
-                    containerBtnPanel.RowStyles.Add(new RowStyle());
-                }
+            //    for (int i = 0; i < listChucNang.Count; i++)
+            //    {
+            //        if (listChucNang[i].ten_chuc_nang.Equals("sửa user") || listChucNang[i].ten_chuc_nang.Equals("xóa user") ||
+            //            listChucNang[i].ten_chuc_nang.Equals("thêm user"))
+            //        {
+            //            containerBtnPanel.Controls.Add(btnNguoiDung);
+            //            containerBtnPanel.RowStyles.Add(new RowStyle());
+            //        }
 
-                if (listChucNang[i].ten_chuc_nang.Equals("tạo lớp") || listChucNang[i].ten_chuc_nang.Equals("xóa lớp") ||
-                    listChucNang[i].ten_chuc_nang.Equals("sửa lớp"))
-                {
-                    containerBtnPanel.Controls.Add(btnLopHoc, 0, 2);
-                    containerBtnPanel.RowStyles.Add(new RowStyle());
-                }
+            //        if (listChucNang[i].ten_chuc_nang.Equals("tạo lớp") || listChucNang[i].ten_chuc_nang.Equals("xóa lớp") ||
+            //            listChucNang[i].ten_chuc_nang.Equals("sửa lớp"))
+            //        {
+            //            containerBtnPanel.Controls.Add(btnLopHoc);
+            //            containerBtnPanel.RowStyles.Add(new RowStyle());
+            //        }
 
-                if (listChucNang[i].ten_chuc_nang.Equals("tạo câu hỏi") || listChucNang[i].ten_chuc_nang.Equals("sửa câu hỏi") ||
-                    listChucNang[i].ten_chuc_nang.Equals("xóa câu hỏi"))
-                {
-                    containerBtnPanel.Controls.Add(btnCauHoi, 0, 4);
-                    containerBtnPanel.RowStyles.Add(new RowStyle());
-                }
+            //        if (listChucNang[i].ten_chuc_nang.Equals("tạo câu hỏi") || listChucNang[i].ten_chuc_nang.Equals("sửa câu hỏi") ||
+            //            listChucNang[i].ten_chuc_nang.Equals("xóa câu hỏi"))
+            //        {
+            //            containerBtnPanel.Controls.Add(btnCauHoi);
+            //            containerBtnPanel.RowStyles.Add(new RowStyle());
+            //        }
 
-                if (listChucNang[i].ten_chuc_nang.Equals("tạo đề thi") || listChucNang[i].ten_chuc_nang.Equals("xóa đề thi") ||
-                    listChucNang[i].ten_chuc_nang.Equals("sửa đề thi"))
-                {
-                    containerBtnPanel.Controls.Add(btnDeThi, 0, 5);
-                    containerBtnPanel.RowStyles.Add(new RowStyle());
-                }
+            //        if (listChucNang[i].ten_chuc_nang.Equals("tạo đề thi") || listChucNang[i].ten_chuc_nang.Equals("xóa đề thi") ||
+            //            listChucNang[i].ten_chuc_nang.Equals("sửa đề thi"))
+            //        {
+            //            containerBtnPanel.Controls.Add(btnDeThi);
+            //            containerBtnPanel.RowStyles.Add(new RowStyle());
+            //        }
 
-                if (listChucNang[i].ten_chuc_nang.Equals("tạo môn học") || listChucNang[i].ten_chuc_nang.Equals("sửa môn học") ||
-                    listChucNang[i].ten_chuc_nang.Equals("xóa môn học"))
-                {
-                    containerBtnPanel.Controls.Add(btnMonHoc, 0, 3);
-                    containerBtnPanel.RowStyles.Add(new RowStyle());
-                }
-
-                if (listChucNang[i].ten_chuc_nang.Equals("sửa chức năng") || listChucNang[i].ten_chuc_nang.Equals("xóa chức năng") ||
-                    listChucNang[i].ten_chuc_nang.Equals("thêm chức năng"))
-                {
-                    containerBtnPanel.Controls.Add(btnPhanQuyen, 0, 6);
-                    containerBtnPanel.RowStyles.Add(new RowStyle());
-                }
-            }
-            containerBtnPanel.Controls.Add(btnThongKe, 0, 8);
-            containerBtnPanel.RowStyles.Add(new RowStyle());
-            containerBtnPanel.Controls.Add(btnThoat, 0, 9);
-            containerBtnPanel.RowStyles.Add(new RowStyle());
+            //        if (listChucNang[i].ten_chuc_nang.Equals("tạo môn học") || listChucNang[i].ten_chuc_nang.Equals("sửa môn học") ||
+            //            listChucNang[i].ten_chuc_nang.Equals("xóa môn học"))
+            //        {
+            //            containerBtnPanel.Controls.Add(btnMonHoc);
+            //            containerBtnPanel.RowStyles.Add(new RowStyle());
+            //        }
+            //    }
+            //    containerBtnPanel.Controls.Add(btnThongKe);
+            //    containerBtnPanel.RowStyles.Add(new RowStyle());
+            //    containerBtnPanel.Controls.Add(btnThoat);
+            //    containerBtnPanel.RowStyles.Add(new RowStyle());
 
         }
 

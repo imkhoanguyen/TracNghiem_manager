@@ -8,27 +8,24 @@ using TracNghiemManager.DTO;
 
 namespace TracNghiemManager.DAO
 {
-    public class CauHoiDAO : IDAO<CauHoiDTO>
+    public class MonHocDAO : IDAO<MonHocDTO>
     {
-        public static CauHoiDAO getInstance()
+        public static MonHocDAO getInstance()
         {
-            return new CauHoiDAO();
+            return new MonHocDAO();
         }
-        public bool Add(CauHoiDTO t)
+        public bool Add(MonHocDTO t)
         {
             try
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "INSERT INTO cau_hoi (noi_dung, ma_nguoi_tao, ma_mon_hoc, do_kho, trang_thai)" +
-                        "VALUES (@noi_dung, @ma_nguoi_tao, @ma_mon_hoc, @do_kho, @trangThai)";
+                    string query = "INSERT INTO mon_hoc (ten_mon_hoc, trang_thai)" +
+                        "Values (@ten_mon_hoc, @trang_thai)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@noi_dung", t.NoiDung);
-                        command.Parameters.AddWithValue("@ma_nguoi_tao", t.MaNguoiTao);
-                        command.Parameters.AddWithValue("@ma_mon_hoc", t.MaMonHoc);
-                        command.Parameters.AddWithValue("@do_kho", t.DoKho);
-                        command.Parameters.AddWithValue("@trangThai", 1);
+                        command.Parameters.AddWithValue("@ten_mon_hoc", t.TenMonHoc);
+                        command.Parameters.AddWithValue("@trang_thai", 1);
                         int rowsChanged = command.ExecuteNonQuery();
                         return rowsChanged > 0;
                     }
@@ -36,33 +33,7 @@ namespace TracNghiemManager.DAO
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                return false;
-            }
-        }
-
-        public bool Update(CauHoiDTO t)
-        {
-            try
-            {
-                using (SqlConnection connection = DbConnection.GetSqlConnection())
-                {
-                    string query = "update cau_hoi set noi_dung = @noi_dung, ma_mon_hoc = @ma_mon_hoc, do_kho = @do_kho where ma_cau_hoi = @ma_cau_hoi; ";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@ma_cau_hoi", t.MaCauHoi);
-                        command.Parameters.AddWithValue("@noi_dung", t.NoiDung);
-                        command.Parameters.AddWithValue("@ma_mon_hoc", t.MaMonHoc);
-                        command.Parameters.AddWithValue("@do_kho", t.DoKho);
-
-                        int rowsChanged = command.ExecuteNonQuery();
-                        return rowsChanged > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -73,11 +44,10 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "update cau_hoi set trang_thai = @trang_thai where ma_cau_hoi = @ma_cau_hoi;";
+                    string query = "update mon_hoc set trang_thai = 0 where ma_mon_hoc = @ma_mon_hoc";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@ma_cau_hoi", id);
-                        command.Parameters.AddWithValue("@trang_thai", 0);
+                        command.Parameters.AddWithValue("@ma_mon_hoc", id);
                         int rowsChanged = command.ExecuteNonQuery();
                         return rowsChanged > 0;
                     }
@@ -90,42 +60,38 @@ namespace TracNghiemManager.DAO
             }
         }
 
-        public List<CauHoiDTO> GetAll()
+        public List<MonHocDTO> GetAll()
         {
-            List<CauHoiDTO> cauHoiList = new List<CauHoiDTO>();
+            List<MonHocDTO> monHocList = new List<MonHocDTO>();
             using (SqlConnection connection = DbConnection.GetSqlConnection())
             {
-                string query = "Select * from cau_hoi Where trang_thai = 1";
+                string query = "Select * from mon_hoc Where trang_thai = 1";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            CauHoiDTO cauHoi = new CauHoiDTO
+                            MonHocDTO monHoc = new MonHocDTO
                             {
-                                MaCauHoi = Convert.ToInt32(reader["ma_cau_hoi"]),
-                                NoiDung = reader["noi_dung"].ToString(),
-                                DoKho = reader["do_kho"].ToString(),
                                 MaMonHoc = Convert.ToInt32(reader["ma_mon_hoc"]),
-                                MaNguoiTao = Convert.ToInt32(reader["ma_nguoi_tao"]),
+                                TenMonHoc = reader["ten_mon_hoc"].ToString(),
                                 TrangThai = Convert.ToInt32(reader["trang_thai"])
                             };
-                            cauHoiList.Add(cauHoi);
+                            monHocList.Add(monHoc);
                         }
                     }
-
                 }
             }
-            return cauHoiList;
+            return monHocList;
         }
 
-        public CauHoiDTO GetById(int id)
+        public MonHocDTO GetById(int id)
         {
-            CauHoiDTO result = null;
+            MonHocDTO result = null;
             using (SqlConnection connection = DbConnection.GetSqlConnection())
             {
-                string query = "select * from cau_hoi where ma_cau_hoi = @id and trang_thai = 1";
+                string query = "select * from mon_hoc where ma_mon_hoc = @id and trang_thai = 1";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@id", id);
@@ -133,13 +99,10 @@ namespace TracNghiemManager.DAO
                     {
                         while (reader.Read())
                         {
-                            result = new CauHoiDTO
+                            result = new MonHocDTO
                             {
-                                MaCauHoi = Convert.ToInt32(reader["ma_cau_hoi"]),
-                                NoiDung = reader["noi_dung"].ToString(),
-                                DoKho = reader["do_kho"].ToString(),
                                 MaMonHoc = Convert.ToInt32(reader["ma_mon_hoc"]),
-                                MaNguoiTao = Convert.ToInt32(reader["ma_nguoi_tao"]),
+                                TenMonHoc = reader["ten_mon_hoc"].ToString(),
                                 TrangThai = Convert.ToInt32(reader["trang_thai"])
                             };
                         }
@@ -149,7 +112,28 @@ namespace TracNghiemManager.DAO
             return result;
         }
 
-      
+        public bool Update(MonHocDTO t)
+        {
+            try
+            {
+                using (SqlConnection connection = DbConnection.GetSqlConnection())
+                {
+                    string query = "update mon_hoc set ten_mon_hoc = @ten_mon_hoc where ma_mon_hoc = @ma_mon_hoc; ";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ten_mon_hoc", t.TenMonHoc);
+                        command.Parameters.AddWithValue("@ma_mon_hoc", t.MaMonHoc);
+                        int rowsChanged = command.ExecuteNonQuery();
+                        return rowsChanged > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
         public int GetAutoIncrement()
         {
             int result = -1;
@@ -157,7 +141,7 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "SELECT ma_cau_hoi from cau_hoi where trang_thai = 1";
+                    string query = "select ma_mon_hoc from mon_hoc where trang_thai = 1";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
