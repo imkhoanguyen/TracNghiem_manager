@@ -54,6 +54,7 @@ namespace TracNghiem_manager
             cauHoiPanel = new CauHoiUserControl();
             deThiPanel = new DeThiUserControl();
             thongKePanel = new ThongKeUserControl();
+            userPanel = new Manager();
             containerBtnPanel.SuspendLayout();
             infoPanelBox.SuspendLayout();
             infoOwnerPanel.SuspendLayout();
@@ -68,6 +69,10 @@ namespace TracNghiem_manager
             containerBtnPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             containerBtnPanel.Controls.Add(infoPanelBox, 0, 0);
             containerBtnPanel.Controls.Add(btnHome, 0, 1);
+
+            containerBtnPanel.Controls.Add(btnNguoiDung);
+            containerBtnPanel.RowStyles.Add(new RowStyle());
+
             containerBtnPanel.Dock = DockStyle.Left;
             containerBtnPanel.Location = new Point(0, 0);
             containerBtnPanel.Margin = new Padding(10);
@@ -347,6 +352,7 @@ namespace TracNghiem_manager
             containerPanel.Controls.Add(cauHoiPanel);
             containerPanel.Controls.Add(deThiPanel);
             containerPanel.Controls.Add(thongKePanel);
+            containerPanel.Controls.Add(userPanel);
             containerPanel.Dock = DockStyle.Fill;
             containerPanel.Location = new Point(0, 0);
             containerPanel.Margin = new Padding(0);
@@ -404,6 +410,14 @@ namespace TracNghiem_manager
             thongKePanel.Size = new Size(1210, 845);
             thongKePanel.TabIndex = 5;
             // 
+            // userPanel
+            // 
+            thongKePanel.Dock = DockStyle.Fill;
+            thongKePanel.Location = new Point(0, 0);
+            thongKePanel.Name = "userPanel";
+            thongKePanel.Size = new Size(1210, 845);
+            thongKePanel.TabIndex = 6;
+            // 
             // UserForm
             // 
             BackColor = Color.White;
@@ -453,5 +467,6 @@ namespace TracNghiem_manager
         private ThongKeUserControl thongKePanel;
         private Panel containerPanel;
         private Button btnNguoiDung;
+        private Manager userPanel;
     }
 }

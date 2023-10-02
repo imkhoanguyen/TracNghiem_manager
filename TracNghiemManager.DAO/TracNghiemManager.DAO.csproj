@@ -49,6 +49,7 @@
     <Compile Include="ChiTietQuyenDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuyenDAO.cs" />
+    <Compile Include="UserDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TracNghiemManager.DTO\TracNghiemManager.DTO.csproj">
