@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TracNghiem_manager
+namespace TracNghiemManager.GUI.LopHoc
 {
-    public partial class LopHocUserControl : UserControl
+    public partial class fDeThi : Form
     {
-        public LopHocUserControl()
+        public fDeThi()
         {
             InitializeComponent();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

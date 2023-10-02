@@ -17,6 +17,7 @@ namespace TracNghiemManager.GUI.CauHoi
     {
         CauHoiBUS chBus;
         MonHocBUS mhBus;
+        CauTraLoiBUS ctlBus;
         private List<CauHoiDTO> listch;
         DataTable dt;
         private int idSelected; // id của row được select
@@ -32,6 +33,7 @@ namespace TracNghiemManager.GUI.CauHoi
             dt = new DataTable();
             chBus = new CauHoiBUS();
             mhBus = new MonHocBUS();
+            ctlBus = new CauTraLoiBUS();
             listch = chBus.getAll();
             listmh = mhBus.getAll();
             loadComboBoxMonHoc(listmh);
@@ -208,12 +210,13 @@ namespace TracNghiemManager.GUI.CauHoi
         private void btnSua_Click(object sender, EventArgs e)
         {
             CauHoiDTO selectedCauHoi = chBus.getById(idSelected);
+            List<CauTraLoiDTO> l = ctlBus.getByMaCauHoi(idSelected);
             if (selectedCauHoi == null)
             {
                 MessageBox.Show("Chưa chọn hàng cần chỉnh sửa!");
             } else
             {
-                fThemCauHoi fThem = new fThemCauHoi(this, "edit", selectedCauHoi);
+                fThemCauHoi fThem = new fThemCauHoi(this, "edit", selectedCauHoi, l);
                 fThem.Visible = true;
             }
         }
@@ -221,12 +224,13 @@ namespace TracNghiemManager.GUI.CauHoi
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
             CauHoiDTO selectedCauHoi = chBus.getById(idSelected);
-            if(selectedCauHoi == null)
+            List<CauTraLoiDTO> l = ctlBus.getByMaCauHoi(idSelected);
+            if (selectedCauHoi == null)
             {
                 MessageBox.Show("Chưa chọn hàng cần xem!");
             } else
             {
-                fThemCauHoi fThem = new fThemCauHoi(this, "view", selectedCauHoi);
+                fThemCauHoi fThem = new fThemCauHoi(this, "view", selectedCauHoi,l);
                 fThem.Visible = true;
             }
             

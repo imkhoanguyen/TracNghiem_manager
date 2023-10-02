@@ -14,7 +14,7 @@ namespace TracNghiemManager.BUS
         public CauHoiDAO cauHoiDAO;
         public CauHoiBUS()
         {
-            cauHoiDAO = new CauHoiDAO();
+            cauHoiDAO = CauHoiDAO.getInstance();
         }
         public List<CauHoiDTO> getAll()
         {

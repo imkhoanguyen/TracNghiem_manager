@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using TracNghiemManager.GUI.CauHoi;
+using TracNghiemManager.GUI.LopHoc;
 using TracNghiemManager.GUI.MonHoc;
 
 namespace TracNghiem_manager

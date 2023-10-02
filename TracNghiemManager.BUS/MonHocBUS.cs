@@ -11,7 +11,8 @@ namespace TracNghiemManager.BUS
     public class MonHocBUS
     {
         public MonHocDAO monHocDAO;
-        public MonHocBUS() {
+        public MonHocBUS()
+        {
             monHocDAO = MonHocDAO.getInstance();
         }
         public List<MonHocDTO> getAll()
@@ -20,7 +21,7 @@ namespace TracNghiemManager.BUS
         }
         public string Add(MonHocDTO t)
         {
-            if(monHocDAO.Add(t))
+            if (monHocDAO.Add(t))
             {
                 return "Thêm môn học thành công!";
             }
@@ -28,7 +29,7 @@ namespace TracNghiemManager.BUS
         }
         public string Update(MonHocDTO t)
         {
-            if(monHocDAO.Update(t))
+            if (monHocDAO.Update(t))
             {
                 return "Cập nhật môn học thành công!";
             }
@@ -36,7 +37,7 @@ namespace TracNghiemManager.BUS
         }
         public string Delete(int id)
         {
-            if(monHocDAO.Delete(id))
+            if (monHocDAO.Delete(id))
             {
                 return "Xóa môn học thành công!";
             }
@@ -48,7 +49,7 @@ namespace TracNghiemManager.BUS
         }
         public MonHocDTO getById(int id)
         {
-            return monHocDAO.GetById(id); 
+            return monHocDAO.GetById(id);
         }
     }
 }
