@@ -15,7 +15,6 @@ namespace TracNghiemManager.BUS
         {
             cauTraLoiDAO = CauTraLoiDAO.getInstance();
         }
-
         public string Add(CauTraLoiDTO t)
         {
             if (cauTraLoiDAO.Add(t))
