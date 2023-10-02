@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CauHoiBUS.cs" />
+    <Compile Include="CauTraLoiBUS.cs" />
     <Compile Include="MonHocBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

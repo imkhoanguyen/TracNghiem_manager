@@ -10,12 +10,13 @@ namespace TracNghiemManager.BUS
 {
     public class MonHocBUS
     {
-        public MonHocDAO monHocDAO = MonHocDAO.getInstance();
-        public List<MonHocDTO> listMonHoc = MonHocDAO.getInstance().GetAll();
-        public MonHocBUS() { }
+        public MonHocDAO monHocDAO;
+        public MonHocBUS() {
+            monHocDAO = MonHocDAO.getInstance();
+        }
         public List<MonHocDTO> getAll()
         {
-            return listMonHoc;
+            return monHocDAO.GetAll();
         }
         public string Add(MonHocDTO t)
         {

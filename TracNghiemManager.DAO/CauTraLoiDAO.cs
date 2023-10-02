@@ -16,15 +16,14 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "INSERT INTO cau_tra_loi (ma_cau_hoi, noi_dung, do_kho, la_dap_an, trang_thai)" +
-                        "VALUES (@idCauHoi, @noiDung, @doKho, @laDapAn, @trangThai)";
+                    string query = "INSERT INTO cau_tra_loi (ma_cau_hoi, noi_dung, la_dap_an, trang_thai)" +
+                        "VALUES (@ma_cau_hoi, @noi_dung, @la_dap_an, @trang_thai)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@idCauHoi", t.MaCauHoi);
-                        command.Parameters.AddWithValue("@noiDung", t.NoiDung);
-                        command.Parameters.AddWithValue("@doKho", t.DoKho);
-                        command.Parameters.AddWithValue("@laDapAn", t.DapAn);
-                        command.Parameters.AddWithValue("@trangThai", 1);
+                        command.Parameters.AddWithValue("@ma_cau_hoi", t.MaCauHoi);
+                        command.Parameters.AddWithValue("@noi_dung", t.NoiDung);
+                        command.Parameters.AddWithValue("@la_dap_an", t.DapAn);
+                        command.Parameters.AddWithValue("@trang_thai", 1);
                         int rowsChanged = command.ExecuteNonQuery();
                         return rowsChanged > 0;
                     }
@@ -32,7 +31,7 @@ namespace TracNghiemManager.DAO
             }
             catch (Exception ex)
             {
-                
+                Console.WriteLine(ex.ToString());
                 return false;
             }
         }
@@ -43,16 +42,12 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "Update cau_tra_loi Set ma_cau_hoi = @idCauHoi, noi_dung = @noiDung, " +
-                        "do_kho = @doKho, la_dap_an = @laDapAn, trang_thai = @trangThai Where ma_cau_tra_loi = @maCauTraLoi";
+                    string query = "update cau_tra_loi set noi_dung = @noidung, la_dap_an = @la_dap_an where ma_cau_tra_loi = @ma_cau_tra_loi;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@idCauHoi", t.MaCauHoi);
-                        command.Parameters.AddWithValue("@noiDung", t.NoiDung);
-                        command.Parameters.AddWithValue("@doKho", t.DoKho);
-                        command.Parameters.AddWithValue("@laDapAn", t.DapAn);
-                        command.Parameters.AddWithValue("@trangThai", t.TrangThai);
-                        command.Parameters.AddWithValue("@maCauTraLoi", t.MaCauTraLoi);
+                        command.Parameters.AddWithValue("@ma_cau_tra_loi", t.MaCauTraLoi);
+                        command.Parameters.AddWithValue("@noidungi", t.NoiDung);
+                        command.Parameters.AddWithValue("@la_dap_an", t.DapAn);
                         int rowsChanged = command.ExecuteNonQuery();
                         return rowsChanged > 0;
                     }
@@ -60,6 +55,7 @@ namespace TracNghiemManager.DAO
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return false;
             }
         }
@@ -80,6 +76,7 @@ namespace TracNghiemManager.DAO
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return false;
             }
         }
@@ -101,7 +98,6 @@ namespace TracNghiemManager.DAO
                                 MaCauHoi = Convert.ToInt32(reader["ma_cau_hoi"]),
                                 MaCauTraLoi = Convert.ToInt32(reader["ma_cau_tra_loi"]),
                                 NoiDung = reader["noi_dung"].ToString(),
-                                DoKho = reader["do_kho"].ToString(),
                                 DapAn = Convert.ToBoolean(reader["la_dap_an"]),
                                 TrangThai = Convert.ToInt32(reader["trang_thai"])
                             };
@@ -129,13 +125,10 @@ namespace TracNghiemManager.DAO
                             cauTraLoi.MaCauHoi = Convert.ToInt32(reader["ma_cau_hoi"]);
                             cauTraLoi.MaCauTraLoi = Convert.ToInt32(reader["ma_cau_tra_loi"]);
                             cauTraLoi.NoiDung = reader["noi_dung"].ToString();
-                            cauTraLoi.DoKho = reader["do_kho"].ToString();
-                            cauTraLoi.DapAn = Convert.ToBoolean(reader["la_dap_an"]);
                             cauTraLoi.DapAn = Convert.ToBoolean(reader["la_dap_an"]);
                             cauTraLoi.TrangThai = Convert.ToInt32(reader["trang_thai"]);
                         }
                     }
-
                 }
             }
             return cauTraLoi;

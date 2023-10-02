@@ -11,16 +11,15 @@ namespace TracNghiemManager.BUS
 {
     public class CauHoiBUS
     {
-        public CauHoiDAO cauHoiDAO = CauHoiDAO.getInstance();
-        public List<CauHoiDTO> listCauHoi = CauHoiDAO.getInstance().GetAll();
+        public CauHoiDAO cauHoiDAO;
         public CauHoiBUS()
         {
-
+            cauHoiDAO = new CauHoiDAO();
         }
         public List<CauHoiDTO> getAll()
         {
 
-            return listCauHoi;
+            return cauHoiDAO.GetAll();
         }
 
         public string Add(CauHoiDTO t)
