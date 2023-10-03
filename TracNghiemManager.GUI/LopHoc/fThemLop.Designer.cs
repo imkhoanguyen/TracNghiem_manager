@@ -47,7 +47,7 @@
             // txtTenlop
             // 
             this.txtTenlop.Location = new System.Drawing.Point(164, 71);
-            this.txtTenlop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenlop.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenlop.Multiline = true;
             this.txtTenlop.Name = "txtTenlop";
             this.txtTenlop.Size = new System.Drawing.Size(311, 32);
@@ -66,12 +66,13 @@
             // 
             // btnThem
             // 
+            this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThem.Location = new System.Drawing.Point(332, 124);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(144, 42);
             this.btnThem.TabIndex = 3;
-            this.btnThem.Text = "Thêm ";
+            this.btnThem.Text = "Lưu ";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -84,10 +85,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTenlop);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fThemLop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fThemLop";
+            this.Text = "Thêm lớp";
             this.ResumeLayout(false);
             this.PerformLayout();
 

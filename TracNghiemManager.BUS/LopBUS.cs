@@ -38,5 +38,10 @@ namespace TracNghiemManager.BUS
         {
             return lopDAO.GetAutoIncrement();
         }
+
+        public LopDTO getById(int id)
+        {
+            return lopDAO.GetById(id);
+        }
     }
 }

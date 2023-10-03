@@ -30,6 +30,8 @@ namespace TracNghiemManager.GUI.LopHoc
             if (hanhDong.Equals("edit"))
             {
                 objUpdate = lop;
+                txtTenlop.Text = objUpdate.TenLop;
+                this.Text = "Cập nhật lớp";
             }
         }
 
@@ -44,6 +46,8 @@ namespace TracNghiemManager.GUI.LopHoc
                         LopDTO l = new LopDTO(lBus.GetAutoIncrement(), 1, txtTenlop.Text, maMoi, 1);
                         lopHocUserControl.AddLop(l);
                         this.Close();
+                        MessageBox.Show("Thêm lớp học thành công!");
+                        this.Dispose();
                     }
                 }
                 catch (Exception ex)
@@ -55,7 +59,18 @@ namespace TracNghiemManager.GUI.LopHoc
             {
                 if (checkValidInput())
                 {
-                    lopHocUserControl.Update();
+                    try
+                    {
+                        LopDTO l = new LopDTO(objUpdate.MaLop, 1, txtTenlop.Text, maMoi, 1);
+                        lopHocUserControl.UpdateLop(l);
+                        this.Close();
+                        MessageBox.Show("Cập nhật tên lớp thành công!");
+                        this.Dispose();
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
             }
         }
