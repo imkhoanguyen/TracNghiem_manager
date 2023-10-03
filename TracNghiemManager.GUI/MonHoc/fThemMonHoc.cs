@@ -50,6 +50,7 @@ namespace TracNghiemManager.GUI.MonHoc
                         monHocUserControl.AddMonHoc(obj);
                         this.Close();
                         MessageBox.Show("Thêm môn học thành công!");
+                        this.Dispose();
                     }
                     catch (Exception ex)
                     {
@@ -66,6 +67,7 @@ namespace TracNghiemManager.GUI.MonHoc
                         monHocUserControl.UpdateMonHoc(obj);
                         this.Close();
                         MessageBox.Show("Cập nhật môn học thành công!");
+                        this.Dispose();
                     }
                     catch (Exception ex)
                     {

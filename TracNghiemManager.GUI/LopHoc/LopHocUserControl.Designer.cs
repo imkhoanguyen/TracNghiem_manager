@@ -31,13 +31,17 @@ namespace TracNghiemManager.GUI.LopHoc
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LopHocUserControl));
             this.mainPanel = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panelHeading = new System.Windows.Forms.TableLayoutPanel();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.lblHeading = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.mainPanel.SuspendLayout();
+            this.panelHeading.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -46,43 +50,79 @@ namespace TracNghiemManager.GUI.LopHoc
             this.mainPanel.ColumnCount = 1;
             this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.mainPanel.Controls.Add(this.flowLayoutPanel1, 0, 1);
-            this.mainPanel.Controls.Add(this.button1, 0, 0);
+            this.mainPanel.Controls.Add(this.panelHeading, 0, 0);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
-            this.mainPanel.Margin = new System.Windows.Forms.Padding(17, 18, 17, 18);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(23, 22, 23, 22);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.RowCount = 2;
             this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.56185F));
             this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.43815F));
-            this.mainPanel.Size = new System.Drawing.Size(1180, 671);
+            this.mainPanel.Size = new System.Drawing.Size(1573, 826);
             this.mainPanel.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 94);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 116);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1174, 574);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1565, 706);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // button1
+            // panelHeading
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 53);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Tạo Lớp học ";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panelHeading.ColumnCount = 2;
+            this.panelHeading.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.47734F));
+            this.panelHeading.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.52266F));
+            this.panelHeading.Controls.Add(this.btnThem, 1, 0);
+            this.panelHeading.Controls.Add(this.lblHeading, 0, 0);
+            this.panelHeading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelHeading.Location = new System.Drawing.Point(3, 3);
+            this.panelHeading.Name = "panelHeading";
+            this.panelHeading.RowCount = 1;
+            this.panelHeading.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelHeading.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelHeading.Size = new System.Drawing.Size(1567, 106);
+            this.panelHeading.TabIndex = 2;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(215)))), ((int)(((byte)(251)))));
+            this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThem.FlatAppearance.BorderSize = 0;
+            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.Location = new System.Drawing.Point(1240, 25);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 4, 75, 4);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(252, 55);
+            this.btnThem.TabIndex = 1;
+            this.btnThem.Text = "  Tạo lớp học";
+            this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // lblHeading
+            // 
+            this.lblHeading.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblHeading.AutoSize = true;
+            this.lblHeading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.lblHeading.Font = new System.Drawing.Font("Bahnschrift", 36F, System.Drawing.FontStyle.Bold);
+            this.lblHeading.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblHeading.Location = new System.Drawing.Point(3, 17);
+            this.lblHeading.Name = "lblHeading";
+            this.lblHeading.Size = new System.Drawing.Size(669, 72);
+            this.lblHeading.TabIndex = 2;
+            this.lblHeading.Text = "Các lớp học đã tham gia";
             // 
             // button2
             // 
@@ -113,13 +153,15 @@ namespace TracNghiemManager.GUI.LopHoc
             // 
             // LopHocUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.mainPanel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LopHocUserControl";
-            this.Size = new System.Drawing.Size(1180, 671);
+            this.Size = new System.Drawing.Size(1573, 826);
             this.mainPanel.ResumeLayout(false);
+            this.panelHeading.ResumeLayout(false);
+            this.panelHeading.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -128,9 +170,11 @@ namespace TracNghiemManager.GUI.LopHoc
 
         private TableLayoutPanel mainPanel;
         private Button button2;
-        private Button button1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private TableLayoutPanel panelHeading;
+        private Button btnThem;
+        private Label lblHeading;
     }
 }

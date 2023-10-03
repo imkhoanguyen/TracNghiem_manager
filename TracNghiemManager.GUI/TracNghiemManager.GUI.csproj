@@ -61,12 +61,6 @@
     <Compile Include="LopHoc\fDeThi.Designer.cs">
       <DependentUpon>fDeThi.cs</DependentUpon>
     </Compile>
-    <Compile Include="LopHoc\fDoiTenLop.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LopHoc\fDoiTenLop.Designer.cs">
-      <DependentUpon>fDoiTenLop.cs</DependentUpon>
-    </Compile>
     <Compile Include="LopHoc\fThemLop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,9 +96,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LopHoc\fDeThi.resx">
       <DependentUpon>fDeThi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LopHoc\fDoiTenLop.resx">
-      <DependentUpon>fDoiTenLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LopHoc\fThemLop.resx">
       <DependentUpon>fThemLop.cs</DependentUpon>
