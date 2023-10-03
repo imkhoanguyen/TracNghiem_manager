@@ -116,6 +116,7 @@ namespace TracNghiemManager.GUI.CauHoi
                         this.AddCauTraLoi(selectedSoDapAn, mch);
                         this.Close();
                         MessageBox.Show("Thêm câu hỏi thành công!");
+                        this.Dispose();
                     }
                     catch (Exception ex)
                     {
@@ -127,13 +128,17 @@ namespace TracNghiemManager.GUI.CauHoi
             {
                 if (selectedSoDapAn == 2 && listctl.Count == 4)
                 {
-                    DeleteCauTraLoi(listctl[2].MaCauTraLoi);
-                    DeleteCauTraLoi(listctl[3].MaCauTraLoi);
+
                     if (listctl[2].DapAn == true || listctl[3].DapAn == true)
                     {
                         checkDA3.Checked = false;
                         checkDA4.Checked = false;
                     }
+                    DeleteCauTraLoi(listctl[2].MaCauTraLoi);
+                    DeleteCauTraLoi(listctl[3].MaCauTraLoi);
+                    listctl.RemoveAt(2);
+                    int count = listctl.Count;
+                    listctl.RemoveAt(count - 1);
                 }
                 if (checkValidInput())
                 {
@@ -141,10 +146,11 @@ namespace TracNghiemManager.GUI.CauHoi
                     {
                         CauHoiDTO c = new CauHoiDTO(cauHoiObj.MaCauHoi, txtNoiDung.Text, selectedDoKho, selectedMonHoc.MaMonHoc, 1, 1);
                         cauHoiUserControl.UpdateCauHoi(c);
-                        
+
                         UpdateCauTraLoi(listctl);
                         this.Close();
                         MessageBox.Show("Cập nhật câu hỏi thành công!");
+                        this.Dispose();
                     }
                     catch (Exception ex)
                     {
@@ -175,6 +181,10 @@ namespace TracNghiemManager.GUI.CauHoi
         public void UpdateCauTraLoi(List<CauTraLoiDTO> l)
         {
             int count = l.Count;
+            if (selectedSoDapAn == 4 && count == 2)
+            {
+                count = selectedSoDapAn;
+            }
 
             for (int i = 0; i < count; i++)
             {
@@ -187,9 +197,16 @@ namespace TracNghiemManager.GUI.CauHoi
                                  (i == 1) ? txtInputDA2.Text :
                                  (i == 2) ? txtInputDA3.Text :
                                             txtInputDA4.Text;
-
-                CauTraLoiDTO cauTraLoi = new CauTraLoiDTO(l[i].MaCauTraLoi, l[i].MaCauHoi, noiDung, dapAn, 1);
-                ctlBus.Update(cauTraLoi);
+                if ((i == 2 || i == 3))
+                {
+                    CauTraLoiDTO cauTraLoiUP = new CauTraLoiDTO(ctlBus.GetAutoIncrement(), l[0].MaCauHoi, noiDung, dapAn, 1);
+                    ctlBus.Add(cauTraLoiUP);
+                }
+                else
+                {
+                    CauTraLoiDTO cauTraLoi = new CauTraLoiDTO(l[i].MaCauTraLoi, l[i].MaCauHoi, noiDung, dapAn, 1);
+                    ctlBus.Update(cauTraLoi);
+                }
             }
         }
 
@@ -265,6 +282,21 @@ namespace TracNghiemManager.GUI.CauHoi
             // check chi chon 1 cau tra loi
             int selectedCount = 0;
 
+            if (checkDA3.Checked)
+            {
+                selectedCount++;
+            }
+
+            if (checkDA4.Checked)
+            {
+                selectedCount++;
+            }
+
+            if(selectedSoDapAn == 2)
+            {
+                selectedCount = 0;
+            }
+
             if (checkDA1.Checked)
             {
                 selectedCount++;
@@ -275,15 +307,7 @@ namespace TracNghiemManager.GUI.CauHoi
                 selectedCount++;
             }
 
-            if (checkDA3.Checked)
-            {
-                selectedCount++;
-            }
 
-            if (checkDA4.Checked)
-            {
-                selectedCount++;
-            }
 
             // check nhung cai khac
             if (selectedCount != 1)

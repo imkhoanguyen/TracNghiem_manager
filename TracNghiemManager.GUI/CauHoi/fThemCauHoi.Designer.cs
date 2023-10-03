@@ -43,23 +43,23 @@
             this.containerDapAnPanel = new System.Windows.Forms.TableLayoutPanel();
             this.dapAnPanel = new System.Windows.Forms.TableLayoutPanel();
             this.btnLuu = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.containerInputCtl = new System.Windows.Forms.TableLayoutPanel();
-            this.PanelInputCtl1 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkDA1 = new System.Windows.Forms.CheckBox();
-            this.txtInputDA1 = new System.Windows.Forms.TextBox();
-            this.PanelInputCtl2 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkDA2 = new System.Windows.Forms.CheckBox();
-            this.txtInputDA2 = new System.Windows.Forms.TextBox();
-            this.PanelInputCtl3 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkDA3 = new System.Windows.Forms.CheckBox();
-            this.txtInputDA3 = new System.Windows.Forms.TextBox();
             this.PanelInputCtl4 = new System.Windows.Forms.TableLayoutPanel();
             this.checkDA4 = new System.Windows.Forms.CheckBox();
             this.txtInputDA4 = new System.Windows.Forms.TextBox();
+            this.PanelInputCtl3 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkDA3 = new System.Windows.Forms.CheckBox();
+            this.txtInputDA3 = new System.Windows.Forms.TextBox();
+            this.PanelInputCtl2 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkDA2 = new System.Windows.Forms.CheckBox();
+            this.txtInputDA2 = new System.Windows.Forms.TextBox();
+            this.PanelInputCtl1 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkDA1 = new System.Windows.Forms.CheckBox();
+            this.txtInputDA1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblDanAn = new System.Windows.Forms.Label();
             this.cbSoDapAn = new System.Windows.Forms.ComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.mainThemThuCongPanel.SuspendLayout();
@@ -69,10 +69,10 @@
             this.containerDapAnPanel.SuspendLayout();
             this.dapAnPanel.SuspendLayout();
             this.containerInputCtl.SuspendLayout();
-            this.PanelInputCtl1.SuspendLayout();
-            this.PanelInputCtl2.SuspendLayout();
-            this.PanelInputCtl3.SuspendLayout();
             this.PanelInputCtl4.SuspendLayout();
+            this.PanelInputCtl3.SuspendLayout();
+            this.PanelInputCtl2.SuspendLayout();
+            this.PanelInputCtl1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,7 +111,7 @@
             this.mainThemThuCongPanel.Controls.Add(this.containerDapAnPanel, 0, 1);
             this.mainThemThuCongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainThemThuCongPanel.Location = new System.Drawing.Point(3, 2);
-            this.mainThemThuCongPanel.Margin = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.mainThemThuCongPanel.Margin = new System.Windows.Forms.Padding(20);
             this.mainThemThuCongPanel.Name = "mainThemThuCongPanel";
             this.mainThemThuCongPanel.RowCount = 2;
             this.mainThemThuCongPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
@@ -290,17 +290,6 @@
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 37);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1253, 613);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Thêm từ file";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // containerInputCtl
             // 
             this.containerInputCtl.ColumnCount = 2;
@@ -318,114 +307,6 @@
             this.containerInputCtl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.containerInputCtl.Size = new System.Drawing.Size(1229, 189);
             this.containerInputCtl.TabIndex = 2;
-            // 
-            // PanelInputCtl1
-            // 
-            this.PanelInputCtl1.ColumnCount = 2;
-            this.PanelInputCtl1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.223684F));
-            this.PanelInputCtl1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.77631F));
-            this.PanelInputCtl1.Controls.Add(this.checkDA1, 0, 0);
-            this.PanelInputCtl1.Controls.Add(this.txtInputDA1, 1, 0);
-            this.PanelInputCtl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelInputCtl1.Location = new System.Drawing.Point(3, 3);
-            this.PanelInputCtl1.Name = "PanelInputCtl1";
-            this.PanelInputCtl1.RowCount = 1;
-            this.PanelInputCtl1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PanelInputCtl1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PanelInputCtl1.Size = new System.Drawing.Size(608, 88);
-            this.PanelInputCtl1.TabIndex = 0;
-            // 
-            // checkDA1
-            // 
-            this.checkDA1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkDA1.AutoSize = true;
-            this.checkDA1.Location = new System.Drawing.Point(22, 35);
-            this.checkDA1.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.checkDA1.Name = "checkDA1";
-            this.checkDA1.Size = new System.Drawing.Size(18, 17);
-            this.checkDA1.TabIndex = 0;
-            this.checkDA1.UseVisualStyleBackColor = true;
-            // 
-            // txtInputDA1
-            // 
-            this.txtInputDA1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtInputDA1.Location = new System.Drawing.Point(55, 27);
-            this.txtInputDA1.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.txtInputDA1.Name = "txtInputDA1";
-            this.txtInputDA1.Size = new System.Drawing.Size(433, 34);
-            this.txtInputDA1.TabIndex = 1;
-            // 
-            // PanelInputCtl2
-            // 
-            this.PanelInputCtl2.ColumnCount = 2;
-            this.PanelInputCtl2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.223684F));
-            this.PanelInputCtl2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.77631F));
-            this.PanelInputCtl2.Controls.Add(this.checkDA2, 0, 0);
-            this.PanelInputCtl2.Controls.Add(this.txtInputDA2, 1, 0);
-            this.PanelInputCtl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelInputCtl2.Location = new System.Drawing.Point(617, 3);
-            this.PanelInputCtl2.Name = "PanelInputCtl2";
-            this.PanelInputCtl2.RowCount = 1;
-            this.PanelInputCtl2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PanelInputCtl2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PanelInputCtl2.Size = new System.Drawing.Size(609, 88);
-            this.PanelInputCtl2.TabIndex = 1;
-            // 
-            // checkDA2
-            // 
-            this.checkDA2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkDA2.AutoSize = true;
-            this.checkDA2.Location = new System.Drawing.Point(22, 35);
-            this.checkDA2.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.checkDA2.Name = "checkDA2";
-            this.checkDA2.Size = new System.Drawing.Size(18, 17);
-            this.checkDA2.TabIndex = 0;
-            this.checkDA2.UseVisualStyleBackColor = true;
-            // 
-            // txtInputDA2
-            // 
-            this.txtInputDA2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtInputDA2.Location = new System.Drawing.Point(55, 27);
-            this.txtInputDA2.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.txtInputDA2.Name = "txtInputDA2";
-            this.txtInputDA2.Size = new System.Drawing.Size(433, 34);
-            this.txtInputDA2.TabIndex = 1;
-            // 
-            // PanelInputCtl3
-            // 
-            this.PanelInputCtl3.ColumnCount = 2;
-            this.PanelInputCtl3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.223684F));
-            this.PanelInputCtl3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.77631F));
-            this.PanelInputCtl3.Controls.Add(this.checkDA3, 0, 0);
-            this.PanelInputCtl3.Controls.Add(this.txtInputDA3, 1, 0);
-            this.PanelInputCtl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelInputCtl3.Location = new System.Drawing.Point(3, 97);
-            this.PanelInputCtl3.Name = "PanelInputCtl3";
-            this.PanelInputCtl3.RowCount = 1;
-            this.PanelInputCtl3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PanelInputCtl3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PanelInputCtl3.Size = new System.Drawing.Size(608, 89);
-            this.PanelInputCtl3.TabIndex = 2;
-            // 
-            // checkDA3
-            // 
-            this.checkDA3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkDA3.AutoSize = true;
-            this.checkDA3.Location = new System.Drawing.Point(22, 36);
-            this.checkDA3.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.checkDA3.Name = "checkDA3";
-            this.checkDA3.Size = new System.Drawing.Size(18, 17);
-            this.checkDA3.TabIndex = 0;
-            this.checkDA3.UseVisualStyleBackColor = true;
-            // 
-            // txtInputDA3
-            // 
-            this.txtInputDA3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtInputDA3.Location = new System.Drawing.Point(55, 27);
-            this.txtInputDA3.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.txtInputDA3.Name = "txtInputDA3";
-            this.txtInputDA3.Size = new System.Drawing.Size(433, 34);
-            this.txtInputDA3.TabIndex = 1;
             // 
             // PanelInputCtl4
             // 
@@ -463,6 +344,114 @@
             this.txtInputDA4.Size = new System.Drawing.Size(433, 34);
             this.txtInputDA4.TabIndex = 1;
             // 
+            // PanelInputCtl3
+            // 
+            this.PanelInputCtl3.ColumnCount = 2;
+            this.PanelInputCtl3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.223684F));
+            this.PanelInputCtl3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.77631F));
+            this.PanelInputCtl3.Controls.Add(this.checkDA3, 0, 0);
+            this.PanelInputCtl3.Controls.Add(this.txtInputDA3, 1, 0);
+            this.PanelInputCtl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelInputCtl3.Location = new System.Drawing.Point(3, 97);
+            this.PanelInputCtl3.Name = "PanelInputCtl3";
+            this.PanelInputCtl3.RowCount = 1;
+            this.PanelInputCtl3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PanelInputCtl3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PanelInputCtl3.Size = new System.Drawing.Size(608, 89);
+            this.PanelInputCtl3.TabIndex = 2;
+            // 
+            // checkDA3
+            // 
+            this.checkDA3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.checkDA3.AutoSize = true;
+            this.checkDA3.Location = new System.Drawing.Point(22, 36);
+            this.checkDA3.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.checkDA3.Name = "checkDA3";
+            this.checkDA3.Size = new System.Drawing.Size(18, 17);
+            this.checkDA3.TabIndex = 0;
+            this.checkDA3.UseVisualStyleBackColor = true;
+            // 
+            // txtInputDA3
+            // 
+            this.txtInputDA3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtInputDA3.Location = new System.Drawing.Point(55, 27);
+            this.txtInputDA3.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.txtInputDA3.Name = "txtInputDA3";
+            this.txtInputDA3.Size = new System.Drawing.Size(433, 34);
+            this.txtInputDA3.TabIndex = 1;
+            // 
+            // PanelInputCtl2
+            // 
+            this.PanelInputCtl2.ColumnCount = 2;
+            this.PanelInputCtl2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.223684F));
+            this.PanelInputCtl2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.77631F));
+            this.PanelInputCtl2.Controls.Add(this.checkDA2, 0, 0);
+            this.PanelInputCtl2.Controls.Add(this.txtInputDA2, 1, 0);
+            this.PanelInputCtl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelInputCtl2.Location = new System.Drawing.Point(617, 3);
+            this.PanelInputCtl2.Name = "PanelInputCtl2";
+            this.PanelInputCtl2.RowCount = 1;
+            this.PanelInputCtl2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PanelInputCtl2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PanelInputCtl2.Size = new System.Drawing.Size(609, 88);
+            this.PanelInputCtl2.TabIndex = 1;
+            // 
+            // checkDA2
+            // 
+            this.checkDA2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.checkDA2.AutoSize = true;
+            this.checkDA2.Location = new System.Drawing.Point(22, 35);
+            this.checkDA2.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.checkDA2.Name = "checkDA2";
+            this.checkDA2.Size = new System.Drawing.Size(18, 17);
+            this.checkDA2.TabIndex = 0;
+            this.checkDA2.UseVisualStyleBackColor = true;
+            // 
+            // txtInputDA2
+            // 
+            this.txtInputDA2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtInputDA2.Location = new System.Drawing.Point(55, 27);
+            this.txtInputDA2.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.txtInputDA2.Name = "txtInputDA2";
+            this.txtInputDA2.Size = new System.Drawing.Size(433, 34);
+            this.txtInputDA2.TabIndex = 1;
+            // 
+            // PanelInputCtl1
+            // 
+            this.PanelInputCtl1.ColumnCount = 2;
+            this.PanelInputCtl1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.223684F));
+            this.PanelInputCtl1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 91.77631F));
+            this.PanelInputCtl1.Controls.Add(this.checkDA1, 0, 0);
+            this.PanelInputCtl1.Controls.Add(this.txtInputDA1, 1, 0);
+            this.PanelInputCtl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelInputCtl1.Location = new System.Drawing.Point(3, 3);
+            this.PanelInputCtl1.Name = "PanelInputCtl1";
+            this.PanelInputCtl1.RowCount = 1;
+            this.PanelInputCtl1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PanelInputCtl1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PanelInputCtl1.Size = new System.Drawing.Size(608, 88);
+            this.PanelInputCtl1.TabIndex = 0;
+            // 
+            // checkDA1
+            // 
+            this.checkDA1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.checkDA1.AutoSize = true;
+            this.checkDA1.Location = new System.Drawing.Point(22, 35);
+            this.checkDA1.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.checkDA1.Name = "checkDA1";
+            this.checkDA1.Size = new System.Drawing.Size(18, 17);
+            this.checkDA1.TabIndex = 0;
+            this.checkDA1.UseVisualStyleBackColor = true;
+            // 
+            // txtInputDA1
+            // 
+            this.txtInputDA1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtInputDA1.Location = new System.Drawing.Point(55, 27);
+            this.txtInputDA1.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.txtInputDA1.Name = "txtInputDA1";
+            this.txtInputDA1.Size = new System.Drawing.Size(433, 34);
+            this.txtInputDA1.TabIndex = 1;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -496,11 +485,22 @@
             // 
             this.cbSoDapAn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbSoDapAn.FormattingEnabled = true;
-            this.cbSoDapAn.Location = new System.Drawing.Point(205, 5);
+            this.cbSoDapAn.Location = new System.Drawing.Point(205, 11);
             this.cbSoDapAn.Name = "cbSoDapAn";
             this.cbSoDapAn.Size = new System.Drawing.Size(132, 36);
             this.cbSoDapAn.TabIndex = 4;
             this.cbSoDapAn.SelectedValueChanged += new System.EventHandler(this.cbSoDapAn_SelectedValueChanged);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 37);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Size = new System.Drawing.Size(1253, 613);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Thêm từ file";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // fThemCauHoi
             // 
@@ -523,14 +523,14 @@
             this.containerDapAnPanel.ResumeLayout(false);
             this.dapAnPanel.ResumeLayout(false);
             this.containerInputCtl.ResumeLayout(false);
-            this.PanelInputCtl1.ResumeLayout(false);
-            this.PanelInputCtl1.PerformLayout();
-            this.PanelInputCtl2.ResumeLayout(false);
-            this.PanelInputCtl2.PerformLayout();
-            this.PanelInputCtl3.ResumeLayout(false);
-            this.PanelInputCtl3.PerformLayout();
             this.PanelInputCtl4.ResumeLayout(false);
             this.PanelInputCtl4.PerformLayout();
+            this.PanelInputCtl3.ResumeLayout(false);
+            this.PanelInputCtl3.PerformLayout();
+            this.PanelInputCtl2.ResumeLayout(false);
+            this.PanelInputCtl2.PerformLayout();
+            this.PanelInputCtl1.ResumeLayout(false);
+            this.PanelInputCtl1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
