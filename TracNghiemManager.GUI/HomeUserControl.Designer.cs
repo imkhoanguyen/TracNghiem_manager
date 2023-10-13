@@ -1,7 +1,8 @@
 ﻿using Microsoft.VisualBasic;
+using System.Drawing;
 using System.Windows.Forms;
 
-namespace TracNghiem_manager
+namespace TracNghiemManager.GUI
 {
     partial class HomeUserControl
     {

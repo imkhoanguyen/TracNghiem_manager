@@ -7,19 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TracNghiemManager.DTO;
 
 namespace TracNghiemManager.GUI.LopHoc
 {
-    public partial class fDeThi : Form
+    public partial class fChiTietLop : Form
     {
-        public fDeThi()
+        LopDTO lop;
+        public fChiTietLop(LopDTO obj)
         {
             InitializeComponent();
+            lop = obj;
+            loadCTLop();
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        public void loadCTLop()
         {
-
+            lblMaMoi.Text = lop.MaMoi;
+            lblTenLop.Text = lop.TenLop;
         }
     }
 }

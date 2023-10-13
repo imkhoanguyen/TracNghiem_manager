@@ -183,5 +183,36 @@ namespace TracNghiemManager.DAO
             }
             return result + 1;
         }
-    }
+		public Dictionary<string, List<Tuple<string, bool>>> GetCauHoiVaCauTraLoi()
+		{
+			Dictionary<string, List<Tuple<string, bool>>> dict = new Dictionary<string, List<Tuple<string, bool>>>();
+
+			using (SqlConnection connection = DbConnection.GetSqlConnection())
+			{
+				string query = "SELECT ch.noi_dung, ctl.noi_dung, ctl.la_dap_an FROM cau_hoi ch JOIN cau_tra_loi ctl ON ch.ma_cau_hoi = ctl.ma_cau_hoi";
+
+				using (SqlCommand command = new SqlCommand(query, connection))
+				{
+					using (SqlDataReader reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							string cauHoi = reader.GetString(0);
+							string cauTraLoi = reader.GetString(1);
+							bool dapAn = reader.GetBoolean(2);
+
+							if (!dict.ContainsKey(cauHoi))
+							{
+								dict[cauHoi] = new List<Tuple<string, bool>>();
+							}
+
+							dict[cauHoi].Add(new Tuple<string, bool>(cauTraLoi, dapAn));
+						}
+					}
+				}
+			}
+
+			return dict;
+		}
+	}
 }

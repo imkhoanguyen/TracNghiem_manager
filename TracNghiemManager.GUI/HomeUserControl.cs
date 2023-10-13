@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TracNghiem_manager
+namespace TracNghiemManager.GUI
 {
     public partial class HomeUserControl : UserControl
     {

@@ -55,11 +55,41 @@
     <Compile Include="CauHoi\fThemCauHoi.Designer.cs">
       <DependentUpon>fThemCauHoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="LopHoc\fDeThi.cs">
+    <Compile Include="DeThi\fThemChiTietDeThi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LopHoc\fDeThi.Designer.cs">
-      <DependentUpon>fDeThi.cs</DependentUpon>
+    <Compile Include="DeThi\fThemChiTietDeThi.Designer.cs">
+      <DependentUpon>fThemChiTietDeThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeThi\fThemDeThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeThi\fThemDeThi.Designer.cs">
+      <DependentUpon>fThemDeThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeThi\DeThiUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeThi\DeThiUserControl.Designer.cs">
+      <DependentUpon>DeThiUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HomeUserControl.Designer.cs">
+      <DependentUpon>HomeUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LopHoc\fChiTietLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LopHoc\fChiTietLop.Designer.cs">
+      <DependentUpon>fChiTietLop.cs</DependentUpon>
     </Compile>
     <Compile Include="LopHoc\fThemLop.cs">
       <SubType>Form</SubType>
@@ -91,6 +121,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CauHoi\CauHoiUserControl.resx">
@@ -99,8 +135,23 @@
     <EmbeddedResource Include="CauHoi\fThemCauHoi.resx">
       <DependentUpon>fThemCauHoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LopHoc\fDeThi.resx">
-      <DependentUpon>fDeThi.cs</DependentUpon>
+    <EmbeddedResource Include="DeThi\fThemChiTietDeThi.resx">
+      <DependentUpon>fThemChiTietDeThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeThi\fThemDeThi.resx">
+      <DependentUpon>fThemDeThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeThi\DeThiUserControl.resx">
+      <DependentUpon>DeThiUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeUserControl.resx">
+      <DependentUpon>HomeUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LopHoc\fChiTietLop.resx">
+      <DependentUpon>fChiTietLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LopHoc\fThemLop.resx">
       <DependentUpon>fThemLop.cs</DependentUpon>
@@ -117,6 +168,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

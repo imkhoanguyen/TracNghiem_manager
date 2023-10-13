@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace TracNghiem_manager
 {
-    public partial class Subject : UserControl
-    {
-        public Subject()
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class Subject : UserControl
+	{
+		public Subject()
+		{
+			InitializeComponent();
+		}
+	}
 }

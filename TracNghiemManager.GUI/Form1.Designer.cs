@@ -1,4 +1,7 @@
-﻿namespace TracNghiem_manager
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace TracNghiemManager.GUI
 {
     partial class Form1
     {

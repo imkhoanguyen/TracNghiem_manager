@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TracNghiemManager.BUS;
@@ -73,6 +74,13 @@ namespace TracNghiemManager.GUI.CauHoi
                 comboBoxMonHoc.Enabled = false;
                 cbSoDapAn.Enabled = false;
                 txtNoiDung.Enabled = false;
+                if(listctl.Count == 2)
+                {
+                    checkDA3.Visible = false;
+                    txtInputDA3.Visible = false;
+                    checkDA4.Visible = false;
+                    txtInputDA4.Visible = false;
+                }
             }
 
             if (listctl != null)
@@ -181,9 +189,11 @@ namespace TracNghiemManager.GUI.CauHoi
         public void UpdateCauTraLoi(List<CauTraLoiDTO> l)
         {
             int count = l.Count;
+            int t = -1;
             if (selectedSoDapAn == 4 && count == 2)
             {
                 count = selectedSoDapAn;
+                t = 1;
             }
 
             for (int i = 0; i < count; i++)
@@ -197,7 +207,8 @@ namespace TracNghiemManager.GUI.CauHoi
                                  (i == 1) ? txtInputDA2.Text :
                                  (i == 2) ? txtInputDA3.Text :
                                             txtInputDA4.Text;
-                if ((i == 2 || i == 3))
+                
+                if ((i == 2 || i == 3) && t != -1)
                 {
                     CauTraLoiDTO cauTraLoiUP = new CauTraLoiDTO(ctlBus.GetAutoIncrement(), l[0].MaCauHoi, noiDung, dapAn, 1);
                     ctlBus.Add(cauTraLoiUP);
@@ -379,6 +390,110 @@ namespace TracNghiemManager.GUI.CauHoi
             return true;
         }
 
+		private void btnThem_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			openFileDialog.Title = "Chọn File";
+			openFileDialog.Filter = "Word Document|*.docx";
 
-    }
+			if (openFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				string selectedFilePath = openFileDialog.FileName;
+				MessageBox.Show("File được chọn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+				string content = chBus.ImportFromWord(selectedFilePath);
+
+				if (!string.IsNullOrEmpty(content))
+				{
+					Regex monHoc = new Regex(@"Môn học: (.+?)(?=Câu \d+: |$)", RegexOptions.Singleline);
+					Regex cauHoiRegex = new Regex(@"Câu \d+: (.*?)(?=Câu \d+:|$)", RegexOptions.Singleline);
+					Regex cauTraLoiRegex = new Regex(@"[A-D]\. (.+?)(?=[A-D]|\n|$|Câu \d+:|$)", RegexOptions.Singleline);
+					List<string> underlinedSentences = chBus.ExtractUnderlinedSentences(selectedFilePath);
+					string underlineText = string.Join("\n", underlinedSentences);
+
+					bool foundSubject = false;
+					MatchCollection monHocMatches = monHoc.Matches(content);
+					foreach (Match monHocMatch in monHocMatches)
+					{
+						foundSubject = true;
+						string subject = monHocMatch.Groups[1].Value;
+						MonHocDTO t = mhBus.getAll().FirstOrDefault(mh => mh.TenMonHoc.ToLower().Equals(subject.ToLower()));
+						if (t == null)
+						{
+							MonHocDTO obj = new MonHocDTO(mhBus.GetAutoIncrement(), subject, 1);
+							mhBus.Add(obj);
+							t = obj;
+						}
+						StringBuilder combinedText = new StringBuilder();
+						for (char currentAnswerKey = 'A'; currentAnswerKey <= 'D'; currentAnswerKey++)
+						{
+							foreach (string sentence in underlinedSentences)
+							{
+								if (sentence.Length > 2 && sentence[1] == '.')
+								{
+									currentAnswerKey = sentence[0];
+									combinedText.AppendLine(sentence);
+								}
+								else
+								{
+									combinedText.AppendLine(currentAnswerKey + ". " + sentence);
+								}
+							}
+						}
+						string result = combinedText.ToString();
+						MatchCollection cauHoiMatches = cauHoiRegex.Matches(content);
+
+						foreach (Match cauHoiMatch in cauHoiMatches)
+						{
+							string question = cauHoiMatch.Groups[1].Value.Trim();
+							List<string> answers = new List<string>();
+
+							MatchCollection cauTraLoiMatches = cauTraLoiRegex.Matches(cauHoiMatch.Value);
+							foreach (Match cauTraLoiMatch in cauTraLoiMatches)
+							{
+								string answer = cauTraLoiMatch.Value.Trim();
+								answer = Regex.Replace(answer, @"^[A-D]\.\s*", "");
+								answers.Add(answer);
+							}
+							Match matchdoKho = Regex.Match(question, @"(\*\*|\*)\s*");
+							string doKho = matchdoKho.Success ? (matchdoKho.Groups[1].Value == "**" ? "Khó" : "Bình thường") : "Dễ";
+							//
+							Regex regex = new Regex(@"^(.*?)A\.");
+							Match match = regex.Match(question);
+							Regex regex1 = new Regex(@"[A-D]\. (.+)");
+							if (match.Success)
+							{
+								string questiondtb = match.Groups[1].Value.Trim();
+
+								// Thêm câu hỏi vào database
+								int mch = chBus.GetAutoIncrement();
+								CauHoiDTO ch = new CauHoiDTO(mch, questiondtb, doKho, t.MaMonHoc, 1, 1);
+								chBus.Add(ch);
+
+								// Thêm các câu trả lời vào database
+								for (int i = 0; i < answers.Count; i++)
+								{
+									bool isCorrect = result.Contains(answers[i]);
+									CauTraLoiDTO ctl = new CauTraLoiDTO(ctlBus.GetAutoIncrement(), mch, answers[i], isCorrect, 1);
+									ctlBus.Add(ctl);
+								}
+							}
+						}
+
+					}
+					if (!foundSubject)
+					{
+						MessageBox.Show("File Word không chứa thông tin môn học.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						return;
+					}
+					MessageBox.Show("Thêm dữ liệu từ file thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					this.Dispose();
+				}
+				else
+				{
+					MessageBox.Show("File Word không chứa nội dung", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+		}
+	}
 }

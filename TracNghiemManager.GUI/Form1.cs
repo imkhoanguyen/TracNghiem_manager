@@ -1,6 +1,8 @@
-﻿using System.Diagnostics.Metrics;
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
 
-namespace TracNghiem_manager
+namespace TracNghiemManager.GUI
 {
     public partial class Form1 : Form
     {

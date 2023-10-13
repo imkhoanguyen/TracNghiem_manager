@@ -198,8 +198,26 @@ namespace TracNghiemManager.GUI.CauHoi
 
         private void btnXuatFile_Click(object sender, EventArgs e)
         {
+			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			saveFileDialog.Title = "Chọn File";
+			saveFileDialog.Filter = "Word Document|*.docx";
+			saveFileDialog.FilterIndex = 2;
+			saveFileDialog.RestoreDirectory = true;
 
-        }
+			if (saveFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				string filePath = saveFileDialog.FileName;
+				try
+				{
+					chBus.ExportToWord(filePath);
+					MessageBox.Show("Xuất file thành công!");
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Error: " + ex.Message);
+				}
+			}
+		}
 
         private void btnThem_Click(object sender, EventArgs e)
         {

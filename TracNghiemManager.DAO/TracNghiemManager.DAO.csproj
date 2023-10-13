@@ -45,6 +45,7 @@
     <Compile Include="CauHoiDAO.cs" />
     <Compile Include="ChucNangDAO.cs" />
     <Compile Include="DbConnection.cs" />
+    <Compile Include="DeThiDAO.cs" />
     <Compile Include="IDAO.cs" />
     <Compile Include="ChiTietQuyenDAO.cs" />
     <Compile Include="ChiTietQuyenDAO.cs" />

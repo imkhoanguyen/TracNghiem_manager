@@ -1,9 +1,11 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 using TracNghiemManager.GUI.CauHoi;
+using TracNghiemManager.GUI.DeThi;
 using TracNghiemManager.GUI.LopHoc;
 using TracNghiemManager.GUI.MonHoc;
 
-namespace TracNghiem_manager
+namespace TracNghiemManager.GUI
 {
     partial class UserForm
     {
@@ -56,8 +58,8 @@ namespace TracNghiem_manager
             monHocPanel = new MonHocUserControl();
             cauHoiPanel = new CauHoiUserControl();
             deThiPanel = new DeThiUserControl();
-            thongKePanel = new ThongKeUserControl();
-            PermissionUser = new PermissionUserControl();
+            //thongKePanel = new ThongKeUserControl();
+            //PermissionUser = new PermissionUserControl();
             containerBtnPanel.SuspendLayout();
             infoPanelBox.SuspendLayout();
             infoOwnerPanel.SuspendLayout();
@@ -371,8 +373,8 @@ namespace TracNghiem_manager
             containerPanel.Controls.Add(monHocPanel);
             containerPanel.Controls.Add(cauHoiPanel);
             containerPanel.Controls.Add(deThiPanel);
-            containerPanel.Controls.Add(thongKePanel);
-            containerPanel.Controls.Add(PermissionUser);
+            //containerPanel.Controls.Add(thongKePanel);
+            //containerPanel.Controls.Add(PermissionUser);
             containerPanel.Dock = DockStyle.Fill;
             containerPanel.Location = new Point(0, 0);
             containerPanel.Margin = new Padding(0);
@@ -424,20 +426,20 @@ namespace TracNghiem_manager
             // 
             // thongKePanel
             // 
-            thongKePanel.Dock = DockStyle.Fill;
-            thongKePanel.Location = new Point(0, 0);
-            thongKePanel.Name = "thongKePanel";
-            thongKePanel.Size = new Size(1210, 845);
-            thongKePanel.TabIndex = 5;
-            // 
-            // PermissionUser
-            // 
-            PermissionUser.Dock = DockStyle.Fill;
-            PermissionUser.Location = new Point(0, 0);
-            PermissionUser.Margin = new Padding(3, 2, 3, 2);
-            PermissionUser.Name = "PermissionUser";
-            PermissionUser.Size = new Size(1210, 845);
-            PermissionUser.TabIndex = 5;
+            //thongKePanel.Dock = DockStyle.Fill;
+            //thongKePanel.Location = new Point(0, 0);
+            //thongKePanel.Name = "thongKePanel";
+            //thongKePanel.Size = new Size(1210, 845);
+            //thongKePanel.TabIndex = 5;
+            //// 
+            //// PermissionUser
+            //// 
+            //PermissionUser.Dock = DockStyle.Fill;
+            //PermissionUser.Location = new Point(0, 0);
+            //PermissionUser.Margin = new Padding(3, 2, 3, 2);
+            //PermissionUser.Name = "PermissionUser";
+            //PermissionUser.Size = new Size(1210, 845);
+            //PermissionUser.TabIndex = 5;
             // 
             // UserForm
             // 
@@ -486,8 +488,8 @@ namespace TracNghiem_manager
         private MonHocUserControl monHocPanel;
         private CauHoiUserControl cauHoiPanel;
         private DeThiUserControl deThiPanel;
-        private ThongKeUserControl thongKePanel;
-        private PermissionUserControl PermissionUser;
+        //private ThongKeUserControl thongKePanel;
+        //private PermissionUserControl PermissionUser;
         private Panel containerPanel;
         private Button btnPhanQuyen;
         private Button btnNguoiDung;

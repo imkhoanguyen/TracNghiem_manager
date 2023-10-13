@@ -12,20 +12,20 @@ using TracNghiemManager.BUS;
 using TracNghiemManager.DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace TracNghiemManager.GUI.LopHoc
+namespace TracNghiemManager.GUI.DeThi
 {
-    public partial class LopHocUserControl : UserControl
+    public partial class DeThiUserControl : UserControl
     {
         System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
         private int counter = 1;
-        LopBUS lBus;
-        private List<LopDTO> listl;
-        public LopHocUserControl()
+        DeThiBUS dtBus;
+        private List<DeThiDTO> listdt;
+        public DeThiUserControl()
         {
             InitializeComponent();
-            lBus = new LopBUS();
-            listl = lBus.GetAll();
-            loadLop(listl);
+            dtBus = new DeThiBUS();
+            listdt = dtBus.GetAll();
+            loadLop(listdt);
         }
 
         private void textBoxTimKiem_TextChanged(object sender, EventArgs e)
@@ -36,34 +36,34 @@ namespace TracNghiemManager.GUI.LopHoc
         {
 
         }
-        public void loadLop(List<LopDTO> list)
+        public void loadLop(List<DeThiDTO> list)
         {
-            listl = list;
+            listdt = list;
             // Xóa tất cả các panel được tạo trước đó
             flowLayoutPanel1.Controls.Clear();
-            foreach (var l in listl)
+            foreach (var l in listdt)
             {
                 CreatePanel(l);
             }
         }
 
-        public void AddLop(LopDTO obj)
+        public void AddDeThi(DeThiDTO obj)
         {
-            lBus.Add(obj);
-            listl.Add(obj);
+            dtBus.Add(obj);
+            listdt.Add(obj);
             CreatePanel(obj);
         }
-        public void UpdateLop(LopDTO obj)
+        public void UpdateDeThi(DeThiDTO obj)
         {
-            lBus.Update(obj);
-            LopBUS lnew = new LopBUS();
-            List<LopDTO> newlist = lnew.GetAll();
+            dtBus.Update(obj);
+            DeThiBUS lnew = new DeThiBUS();
+            List<DeThiDTO> newlist = lnew.GetAll();
             loadLop(newlist);
         }
 
-        public void DeleteLop(int id)
+        public void DeleteDeThi(int id)
         {
-            lBus.Delete(id);
+            dtBus.Delete(id);
         }
 
         private string GenerateRandomCode(int length)
@@ -82,7 +82,7 @@ namespace TracNghiemManager.GUI.LopHoc
             return code.ToString();
         }
 
-        private void CreatePanel(LopDTO obj)
+        private void CreatePanel(DeThiDTO obj)
         {
             Panel panelContain = new Panel
             {
@@ -103,20 +103,20 @@ namespace TracNghiemManager.GUI.LopHoc
                 BackColor = GetRandomColor()
             };
 
-            Label labelMonhoc = new Label
+            Label lblTenDeThi = new Label
             {
                 AutoSize = false,
                 Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
                 Location = new Point(10, 9),
-                Name = "labelMonhoc" + counter.ToString(),
+                Name = "lblTenDeThi" + counter.ToString(),
                 Size = new Size(300, 200),
                 TabIndex = 0,
 
-                Text = obj.TenLop,
+                Text = obj.TenDeThi,
                 AutoEllipsis = true
             };
-            toolTip.SetToolTip(labelMonhoc, labelMonhoc.Text);
-            labelMonhoc.Click += (s, ev) => { labelMonhoc_Click(s, ev, obj); };
+            toolTip.SetToolTip(lblTenDeThi, lblTenDeThi.Text);
+            lblTenDeThi.Click += (s, ev) => { lblTenDeThi_Click(s, ev, obj); };
 
             Label labelHocsinh = new Label
             {
@@ -168,7 +168,7 @@ namespace TracNghiemManager.GUI.LopHoc
             {
                 buttonThamGia_Click(s, ev, obj);
             };
-            panelHead.Controls.AddRange(new Control[] { labelGiangvien, labelHocsinh, labelMonhoc });
+            panelHead.Controls.AddRange(new Control[] { labelGiangvien, labelHocsinh, lblTenDeThi });
             panelContain.Controls.AddRange(new Control[] { buttonThamGia, buttonXoa, panelHead });
 
             panelContain.Location = new Point(20, flowLayoutPanel1.Controls.Count * 150);
@@ -200,14 +200,14 @@ namespace TracNghiemManager.GUI.LopHoc
             return Color.FromArgb(r, g, b);
         }
 
-        private void labelMonhoc_Click(object sender, EventArgs e, LopDTO obj)
+        private void lblTenDeThi_Click(object sender, EventArgs e, DeThiDTO obj)
         {
-            fThemLop themLop = new fThemLop(this, "edit", GenerateRandomCode(10), obj);
-            themLop.Visible = true;
+            fThemDeThi themDeThi = new fThemDeThi(this, "edit", obj);
+            themDeThi.Visible = true;
         }
-        private void buttonXoa_Click(object sender, EventArgs e, LopDTO obj)
+        private void buttonXoa_Click(object sender, EventArgs e, DeThiDTO obj)
         {
-            DeleteLop(obj.MaLop);
+            
             System.Windows.Forms.Button clickedButton = (System.Windows.Forms.Button)sender;
             Panel panelContain = (Panel)clickedButton.Parent;
 
@@ -216,19 +216,20 @@ namespace TracNghiemManager.GUI.LopHoc
             if (result == DialogResult.Yes)
             {
                 flowLayoutPanel1.Controls.Remove(panelContain);
-            }
+				DeleteDeThi(obj.MaDeThi);
+			}
 
         }
-        private void buttonThamGia_Click(object sender, EventArgs e, LopDTO obj)
+        private void buttonThamGia_Click(object sender, EventArgs e, DeThiDTO obj)
         {
-            fChiTietLop fct = new fChiTietLop(obj);
-            fct.Visible = true;
+            fThemChiTietDeThi f = new fThemChiTietDeThi();
+            f.Visible = true;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
 
-            fThemLop themLop = new fThemLop(this, "add", GenerateRandomCode(10));
+            fThemDeThi themLop = new fThemDeThi(this, "add");
 
             themLop.Visible = true;
 
