@@ -31,7 +31,8 @@ namespace TracNghiemManager.GUI.LopHoc
             {
                 objUpdate = lop;
                 txtTenlop.Text = objUpdate.TenLop;
-                this.Text = "Cập nhật lớp";
+                this.Text = "Cập nhật lớp học";
+                label2.Text = "Cập nhật lớp học";
             }
         }
 

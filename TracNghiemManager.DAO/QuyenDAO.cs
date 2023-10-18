@@ -12,6 +12,7 @@ namespace TracNghiemManager.DAO
     public class QuyenDAO : IDAO<QuyenDTO>
     {
         public static QuyenDAO instance = new QuyenDAO();
+
         public bool Add(QuyenDTO t)
         {
             throw new NotImplementedException();

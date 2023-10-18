@@ -34,7 +34,7 @@ namespace TracNghiemManager.BUS
         {
             return deThiDAO.GetAll();
         }
-        public DeThiDTO Get(int id)
+        public DeThiDTO GetById(int id)
         {
             return deThiDAO.GetById(id);
         }

@@ -145,7 +145,7 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "SELECT ma_cau_tra_loi from cau_tra_loi where trang_thai = 1";
+                    string query = "SELECT ma_cau_tra_loi from cau_tra_loi";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())

@@ -91,6 +91,18 @@
     <Compile Include="LopHoc\fChiTietLop.Designer.cs">
       <DependentUpon>fChiTietLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="LopHoc\fDanhSachDeThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LopHoc\fDanhSachDeThi.Designer.cs">
+      <DependentUpon>fDanhSachDeThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LopHoc\fThemDeThiCuaLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LopHoc\fThemDeThiCuaLop.Designer.cs">
+      <DependentUpon>fThemDeThiCuaLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="LopHoc\fThemLop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +139,30 @@
     <Compile Include="UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\ManageUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\ManageUser.Designer.cs">
+      <DependentUpon>ManageUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\UserDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\UserDetail.Designer.cs">
+      <DependentUpon>UserDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\UserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\UserInfo.designer.cs">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CauHoi\CauHoiUserControl.resx">
@@ -153,6 +189,12 @@
     <EmbeddedResource Include="LopHoc\fChiTietLop.resx">
       <DependentUpon>fChiTietLop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LopHoc\fDanhSachDeThi.resx">
+      <DependentUpon>fDanhSachDeThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LopHoc\fThemDeThiCuaLop.resx">
+      <DependentUpon>fThemDeThiCuaLop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LopHoc\fThemLop.resx">
       <DependentUpon>fThemLop.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +213,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\ManageUser.resx">
+      <DependentUpon>ManageUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\UserDetail.resx">
+      <DependentUpon>UserDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\UserInfo.resx">
+      <DependentUpon>UserInfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

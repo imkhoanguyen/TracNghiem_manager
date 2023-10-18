@@ -487,7 +487,7 @@
 			// 
 			this.cbSoDapAn.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.cbSoDapAn.FormattingEnabled = true;
-			this.cbSoDapAn.Location = new System.Drawing.Point(205, 11);
+			this.cbSoDapAn.Location = new System.Drawing.Point(205, 5);
 			this.cbSoDapAn.Name = "cbSoDapAn";
 			this.cbSoDapAn.Size = new System.Drawing.Size(132, 36);
 			this.cbSoDapAn.TabIndex = 4;

@@ -96,7 +96,7 @@ namespace TracNghiemManager.GUI.LopHoc
 
             Panel panelHead = new Panel
             {
-                Location = new Point(3, 3),
+                Location = new Point(0,0),
                 Name = "panelHead",
                 Size = new Size(360, 290),
                 TabIndex = 1,
@@ -118,26 +118,6 @@ namespace TracNghiemManager.GUI.LopHoc
             toolTip.SetToolTip(labelMonhoc, labelMonhoc.Text);
             labelMonhoc.Click += (s, ev) => { labelMonhoc_Click(s, ev, obj); };
 
-            Label labelHocsinh = new Label
-            {
-                AutoSize = true,
-                Location = new Point(20, 250),
-                Name = "labelHocsinh1" + counter,
-                Size = new Size(110, 13),
-                TabIndex = 1,
-                Text = "Học sinh tham gia: ",
-
-            };
-
-            Label labelGiangvien = new Label
-            {
-                AutoSize = true,
-                Location = new Point(20, 220),
-                Name = "labelGiangvien" + counter,
-                Size = new Size(140, 13),
-                TabIndex = 2,
-                Text = "Nguyễn Thanh Thiên Tứ"
-            };
 
             System.Windows.Forms.Button buttonThamGia = new System.Windows.Forms.Button
             {
@@ -145,7 +125,7 @@ namespace TracNghiemManager.GUI.LopHoc
                 Name = "button2" + counter,
                 Size = new Size(100, 40),
                 TabIndex = 2,
-                Text = "Tham gia",
+                Text = "Vào lớp",
                 UseVisualStyleBackColor = true,
                 Cursor = System.Windows.Forms.Cursors.Hand,
             };
@@ -168,7 +148,7 @@ namespace TracNghiemManager.GUI.LopHoc
             {
                 buttonThamGia_Click(s, ev, obj);
             };
-            panelHead.Controls.AddRange(new Control[] { labelGiangvien, labelHocsinh, labelMonhoc });
+            panelHead.Controls.AddRange(new Control[] {  labelMonhoc });
             panelContain.Controls.AddRange(new Control[] { buttonThamGia, buttonXoa, panelHead });
 
             panelContain.Location = new Point(20, flowLayoutPanel1.Controls.Count * 150);
@@ -202,7 +182,7 @@ namespace TracNghiemManager.GUI.LopHoc
 
         private void labelMonhoc_Click(object sender, EventArgs e, LopDTO obj)
         {
-            fThemLop themLop = new fThemLop(this, "edit", GenerateRandomCode(10), obj);
+            fThemLop themLop = new fThemLop(this, "edit", obj.MaMoi, obj);
             themLop.Visible = true;
         }
         private void buttonXoa_Click(object sender, EventArgs e, LopDTO obj)
@@ -221,7 +201,7 @@ namespace TracNghiemManager.GUI.LopHoc
         }
         private void buttonThamGia_Click(object sender, EventArgs e, LopDTO obj)
         {
-            fChiTietLop fct = new fChiTietLop(obj);
+            fChiTietLop fct = new fChiTietLop(this,obj);
             fct.Visible = true;
         }
 

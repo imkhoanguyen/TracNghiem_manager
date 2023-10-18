@@ -20,10 +20,12 @@ namespace TracNghiemManager.GUI.DeThi
         private int counter = 1;
         DeThiBUS dtBus;
         private List<DeThiDTO> listdt;
+        MonHocBUS mhBus;
         public DeThiUserControl()
         {
             InitializeComponent();
             dtBus = new DeThiBUS();
+            mhBus = new MonHocBUS();
             listdt = dtBus.GetAll();
             loadLop(listdt);
         }
@@ -66,22 +68,6 @@ namespace TracNghiemManager.GUI.DeThi
             dtBus.Delete(id);
         }
 
-        private string GenerateRandomCode(int length)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz0123456789"; // Các ký tự và số có thể sử dụng
-            Random random = new Random();
-            StringBuilder code = new StringBuilder();
-
-            for (int i = 0; i < length; i++)
-            {
-                // sinh số ngẫu nhiên dựa theo độ dài của mảng ký tự
-                int index = random.Next(chars.Length);
-                code.Append(chars[index]);
-            }
-
-            return code.ToString();
-        }
-
         private void CreatePanel(DeThiDTO obj)
         {
             Panel panelContain = new Panel
@@ -100,7 +86,7 @@ namespace TracNghiemManager.GUI.DeThi
                 Name = "panelHead",
                 Size = new Size(360, 290),
                 TabIndex = 1,
-                BackColor = GetRandomColor()
+                BackColor = GetRandomColor(),
             };
 
             Label lblTenDeThi = new Label
@@ -118,41 +104,41 @@ namespace TracNghiemManager.GUI.DeThi
             toolTip.SetToolTip(lblTenDeThi, lblTenDeThi.Text);
             lblTenDeThi.Click += (s, ev) => { lblTenDeThi_Click(s, ev, obj); };
 
-            Label labelHocsinh = new Label
-            {
-                AutoSize = true,
-                Location = new Point(20, 250),
-                Name = "labelHocsinh1" + counter,
-                Size = new Size(110, 13),
-                TabIndex = 1,
-                Text = "Học sinh tham gia: ",
-
-            };
-
-            Label labelGiangvien = new Label
+            Label lblMonHoc = new Label
             {
                 AutoSize = true,
                 Location = new Point(20, 220),
-                Name = "labelGiangvien" + counter,
-                Size = new Size(140, 13),
+                Name = "lblMonHoc1" + counter,
+                Size = new Size(110, 13),
                 TabIndex = 2,
-                Text = "Nguyễn Thanh Thiên Tứ"
+                Text = "Môn học: " + mhBus.getById(obj.MaMonHoc).TenMonHoc,
+
             };
 
-            System.Windows.Forms.Button buttonThamGia = new System.Windows.Forms.Button
+            Label lblThoiGianLamBai = new Label
             {
-                Location = new Point(60, 300),
+                AutoSize = true,
+                Location = new Point(20, 250),
+                Name = "lblThoiGianLamBai" + counter,
+                Size = new Size(140, 13),
+                TabIndex = 1,
+                Text = "Thời gian làm bài: " + obj.ThoiGianLamBai
+            };
+
+            System.Windows.Forms.Button btnThemCauHoiVaoDe = new System.Windows.Forms.Button
+            {
+                Location = new Point(10, 300),
                 Name = "button2" + counter,
-                Size = new Size(100, 40),
+                Size = new Size(200, 40),
                 TabIndex = 2,
-                Text = "Tham gia",
+                Text = "Thêm câu hỏi vào đề",
                 UseVisualStyleBackColor = true,
                 Cursor = System.Windows.Forms.Cursors.Hand,
             };
 
             System.Windows.Forms.Button buttonXoa = new System.Windows.Forms.Button
             {
-                Location = new Point(200, 300),
+                Location = new Point(250, 300),
                 Name = "button3" + counter,
                 Size = new Size(100, 40),
                 TabIndex = 3,
@@ -164,12 +150,12 @@ namespace TracNghiemManager.GUI.DeThi
             {
                 buttonXoa_Click(s, ev, obj);
             };
-            buttonThamGia.Click += (s, ev) =>
+            btnThemCauHoiVaoDe.Click += (s, ev) =>
             {
-                buttonThamGia_Click(s, ev, obj);
+                btnThemCauHoiVaoDe_Click(s, ev, obj);
             };
-            panelHead.Controls.AddRange(new Control[] { labelGiangvien, labelHocsinh, lblTenDeThi });
-            panelContain.Controls.AddRange(new Control[] { buttonThamGia, buttonXoa, panelHead });
+            panelHead.Controls.AddRange(new Control[] { lblMonHoc, lblThoiGianLamBai, lblTenDeThi });
+            panelContain.Controls.AddRange(new Control[] { btnThemCauHoiVaoDe, buttonXoa, panelHead });
 
             panelContain.Location = new Point(20, flowLayoutPanel1.Controls.Count * 150);
             flowLayoutPanel1.Controls.Add(panelContain);
@@ -220,9 +206,9 @@ namespace TracNghiemManager.GUI.DeThi
 			}
 
         }
-        private void buttonThamGia_Click(object sender, EventArgs e, DeThiDTO obj)
+        private void btnThemCauHoiVaoDe_Click(object sender, EventArgs e, DeThiDTO obj)
         {
-            fThemChiTietDeThi f = new fThemChiTietDeThi();
+            fThemChiTietDeThi f = new fThemChiTietDeThi(obj);
             f.Visible = true;
         }
 

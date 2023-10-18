@@ -180,7 +180,16 @@ namespace TracNghiemManager.GUI.CauHoi
                     bool dapAn = currentCheckBox.Checked;
                     string noiDung = currentTextBox.Text;
 
-                    CauTraLoiDTO cauTraLoi = new CauTraLoiDTO(ctlBus.GetAutoIncrement(), maCauHoi, noiDung, dapAn, 1);
+					//switch (i)
+					//{
+					//	case 1: rd[i - 1].Location = new Point(9, 50); rd[i - 1].Tag = "A"; break;
+					//	case 2: rd[i - 1].Location = new Point(9, 96); rd[i - 1].Tag = "B"; break;
+					//	case 3: rd[i - 1].Location = new Point(9, 96 + 46); rd[i - 1].Tag = "C"; break;
+					//	case 4: rd[i - 1].Location = new Point(9, 96 + 46 + 46); rd[i - 1].Tag = "D"; break;
+
+					//}
+
+					CauTraLoiDTO cauTraLoi = new CauTraLoiDTO(ctlBus.GetAutoIncrement(), maCauHoi, noiDung, dapAn, 1);
                     ctlBus.Add(cauTraLoi);
                 }
             }
