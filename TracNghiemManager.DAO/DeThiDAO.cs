@@ -20,12 +20,11 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "INSERT INTO de_thi (ma_mon_hoc, ma_nguoi_tao, ten_de_thi, thoi_gian_lam_bai, trang_thai)" +
-                        "VALUES (@ma_mon_hoc, @ma_nguoi_tao, @ten_de_thi, @thoi_gian_lam_bai, @trang_thai)";
+                    string query = "INSERT INTO de_thi (ma_mon_hoc, ten_de_thi, thoi_gian_lam_bai, trang_thai)" +
+                        "VALUES (@ma_mon_hoc, @ten_de_thi, @thoi_gian_lam_bai, @trang_thai)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-						command.Parameters.AddWithValue("@ma_mon_hoc", t.MaNguoiTao);
-						command.Parameters.AddWithValue("@ma_nguoi_tao", t.MaNguoiTao);
+						command.Parameters.AddWithValue("@ma_mon_hoc", t.MaMonHoc);
                         command.Parameters.AddWithValue("@ten_de_thi", t.TenDeThi);
                         command.Parameters.AddWithValue("@thoi_gian_lam_bai", t.ThoiGianLamBai);
                         command.Parameters.AddWithValue("@trang_thai", 1);
@@ -79,8 +78,7 @@ namespace TracNghiemManager.DAO
                             DeThiDTO dt = new DeThiDTO
                             {
                                 MaDeThi = Convert.ToInt32(reader["ma_de_thi"]),
-                                MaNguoiTao = Convert.ToInt32(reader["ma_nguoi_tao"]),
-                                MaMonHoc = Convert.ToInt32(reader["ma_nguoi_tao"]),
+                                MaMonHoc = Convert.ToInt32(reader["ma_mon_hoc"]),
 								TenDeThi = reader["ten_de_thi"].ToString(),
                                 ThoiGianLamBai = Convert.ToInt32(reader["thoi_gian_lam_bai"]),
                                 TrangThai = Convert.ToInt32(reader["trang_thai"])
@@ -110,7 +108,6 @@ namespace TracNghiemManager.DAO
                             result = new DeThiDTO
                             {
                                 MaDeThi = Convert.ToInt32(reader["ma_de_thi"]),
-                                MaNguoiTao = Convert.ToInt32(reader["ma_nguoi_tao"]),
                                 MaMonHoc = Convert.ToInt32((reader["ma_mon_hoc"])),
                                 TenDeThi = reader["ten_de_thi"].ToString(),
                                 ThoiGianLamBai = Convert.ToInt32(reader["thoi_gian_lam_bai"]),

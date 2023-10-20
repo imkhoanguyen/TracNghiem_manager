@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Baithi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Baithi.Designer.cs">
+      <DependentUpon>Baithi.cs</DependentUpon>
+    </Compile>
     <Compile Include="CauHoi\CauHoiUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Baithi.resx">
+      <DependentUpon>Baithi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CauHoi\CauHoiUserControl.resx">
       <DependentUpon>CauHoiUserControl.cs</DependentUpon>
     </EmbeddedResource>

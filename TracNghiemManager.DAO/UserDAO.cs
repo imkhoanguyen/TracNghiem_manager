@@ -77,6 +77,11 @@ namespace TracNghiemManager.DAO
 							user.UserName = reader["username"].ToString();
 							user.avatar = reader["avatar"].ToString();
 							user.Password = reader["mat_khau"].ToString();
+							if (reader["ngay_tao"].ToString() != "")
+							{
+								user.ngayTao = Convert.ToDateTime(reader["ngay_tao"]);
+							}
+
 							List.Add(user);
 						}
 					}
@@ -238,6 +243,10 @@ namespace TracNghiemManager.DAO
 							if (reader["gioi_tinh"].ToString() != "")
 							{
 								user.gioiTinh = Convert.ToInt32(reader["gioi_tinh"]);
+							}
+							if (reader["ngay_tao"].ToString() != "")
+							{
+								user.ngayTao = Convert.ToDateTime(reader["ngay_tao"]);
 							}
 							user.UserName = reader["username"].ToString();
 							user.Password = reader["mat_khau"].ToString();

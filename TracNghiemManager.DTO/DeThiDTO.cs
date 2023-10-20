@@ -11,19 +11,17 @@ namespace TracNghiemManager.DTO
 		public int MaDeThi { get; set; }
 		public int MaMonHoc { get; set; }
 		public string TenDeThi { get; set; }
-		public int MaNguoiTao { get; set; }
 		public int ThoiGianLamBai { get; set; }
 		public int TrangThai { get; set; }
 		public DeThiDTO()
 		{
 
 		}
-		public DeThiDTO(int maDeThi, string tenDeThi, int maMonHoc, int maNuoiTao, int thoiGianLamBai, int trangThai)
+		public DeThiDTO(int maDeThi, string tenDeThi, int maMonHoc, int thoiGianLamBai, int trangThai)
 		{
 			MaDeThi = maDeThi;
 			MaMonHoc = maMonHoc;
 			TenDeThi = tenDeThi;
-			MaNguoiTao = maNuoiTao;
 			ThoiGianLamBai = thoiGianLamBai;
 			TrangThai = trangThai;
 		}

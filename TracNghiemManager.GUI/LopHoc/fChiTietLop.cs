@@ -210,7 +210,8 @@ namespace TracNghiemManager.GUI.LopHoc
 
 		private void btnLamBai_Click(object s, EventArgs ev, DeThiDTO obj)
 		{
-			throw new NotImplementedException();
+			Baithi baithi = new Baithi(obj.MaDeThi);
+			baithi.ShowDialog();
 		}
 
 		private void btnDong_Click(object s, EventArgs ev, DeThiDTO obj)
