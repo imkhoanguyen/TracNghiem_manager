@@ -48,5 +48,23 @@ namespace TracNghiemManager.BUS
 		{
 			return deThiCuaLopDAO.GetAutoIncrement();
 		}
+
+		public bool checkDeThiCoTrongLop(int ma_de_thi)
+		{
+			if(deThiCuaLopDAO.GetCountDeThi(ma_de_thi) >= 1)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public string DeleteByMaLopAndMaDeThi(int maLop, int maDeThi)
+		{
+			if(deThiCuaLopDAO.DeleteByMaLopAndMaDeThi(maLop, maDeThi))
+			{
+				return "thanh cong";
+			}
+			return "that bai";
+		}
 	}
 }

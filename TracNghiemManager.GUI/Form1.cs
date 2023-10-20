@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using TracNghiemManager.BUS;
+using TracNghiemManager.DTO;
 
 namespace TracNghiemManager.GUI
 {
@@ -71,21 +73,35 @@ namespace TracNghiemManager.GUI
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+			UserBUS userBUS = new UserBUS();
+			int id = userBUS.getIdByUsername(textBox1.Text.Trim());
+			if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
+			{
+				MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (id == -1)
+			{
+				MessageBox.Show("Username không tồn tại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 
+			UserDTO user = userBUS.getById(id);
+			user.Password = user.Password.Trim();
+			textBox2.Text = textBox2.Text.Trim();
+			if (user.Password != textBox2.Text)
+			{
+				MessageBox.Show("Mật Khẩu sai!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 
-            int id = Convert.ToInt32(textBox1.Text);
-            USER_ID = id;
+			USER_ID = id;
 
-            UserForm form = new UserForm();
-            form.Show();
-            this.Visible = false;
+			UserForm form = new UserForm();
+			form.Show();
+			this.Visible = false;
 
-        }
+		}
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)

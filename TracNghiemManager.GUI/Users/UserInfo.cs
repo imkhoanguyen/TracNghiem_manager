@@ -9,83 +9,108 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TracNghiemManager.BUS;
 using TracNghiemManager.DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TracNghiemManager.GUI.Users
 {
     public partial class UserInfo : Form
     {
-        UserBUS userBUS;
-        public UserInfo()
-        {
-            InitializeComponent();
-            userBUS = new UserBUS();
-            RenderUser();
-        }
+		UserBUS userBUS = new UserBUS();
+		int user_id = Form1.USER_ID;
+		UserDTO user;
+		public UserInfo()
+		{
+			InitializeComponent();
+			user = userBUS.getById(user_id);
+			RenderUser(user);
+		}
 
-        private void buttonUpImg_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofdImages = new OpenFileDialog();
-            ofdImages.Filter = "Ảnh (*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp";
-            if (ofdImages.ShowDialog() == DialogResult.OK)
-            {
-                string filepath = ofdImages.FileName;
+		private void buttonUpImg_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog ofdImages = new OpenFileDialog();
+			ofdImages.Filter = "Ảnh (*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp";
+			if (ofdImages.ShowDialog() == DialogResult.OK)
+			{
+				string filepath = ofdImages.FileName;
 
-                pictureBox1.Image = Image.FromFile(filepath);
-                pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+				pictureBox1.Image = Image.FromFile(filepath);
+				pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
 
-                string imagePath = filepath;
+				textBox1.Text = filepath;
+			}
+		}
 
-                MessageBox.Show(imagePath);
+		private void button1_Click(object sender, EventArgs e)
+		{
+			if (validate_form())
+			{
+				user = userBUS.getById(user_id);
+				DateTime date = dateTimePicker1.Value;
+				string gender = "";
+				if (rbNam.Checked) gender = rbNam.Tag.ToString();
+				if (RbNu.Checked) gender = RbNu.Tag.ToString();
 
-                // Resources.Add("ImagePath", filepath);
-            }
-        }
+				int gioi_tinh = Convert.ToInt32(gender);
+				user.Email = textBoxEmail.Text.Trim();
+				user.HoVaTen = textBoxName.Text.Trim();
+				user.ngaySinh = Convert.ToDateTime(textBox2.Text.Trim());
+				user.avatar = textBox1.Text.Trim();
+				user.gioiTinh = gioi_tinh;
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+				MessageBox.Show(userBUS.Update(user));
 
-        }
+				button1.Visible = false;
+				buttonUpImg.Visible = false;
+				panel1.Enabled = false;
+				textBoxName.Enabled = false;
+				textBoxEmail.Enabled = false;
+				dateTimePicker1.Enabled = false;
+			}
+		}
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DateTime s = dateTimePicker1.Value;
-            string gender = "";
-            if (rbNam.Checked) gender = rbNam.Tag.ToString();
-            if (RbNu.Checked) gender = RbNu.Tag.ToString();
+		private void button2_Click(object sender, EventArgs e)
+		{
+			button1.Visible = true;
+			buttonUpImg.Visible = true;
 
-            MessageBox.Show(s + " " + gender);
-        }
+			panel1.Enabled = true;
+			textBoxName.Enabled = true;
+			textBoxEmail.Enabled = true;
+			dateTimePicker1.Enabled = true;
+		}
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            
-        }
+		private void label5_Click(object sender, EventArgs e)
+		{
 
-        private void RenderUser()
-        {
-            UserDTO user = userBUS.GetById(Form1.USER_ID);
-            pictureBox1.ImageLocation = @"" + user.avatar;
+		}
 
-            textBoxName.Text = user.HoVaTen;
+		private void RenderUser(UserDTO user)
+		{
+			pictureBox1.ImageLocation = @"" + user.avatar;
 
-            textBoxEmail.Text = user.Email;
+			textBoxName.Text = user.HoVaTen;
 
-            if(user.ngaySinh == null)
-            {
-                dateTimePicker1.Value = user.ngaySinh;
-            }    
+			textBoxEmail.Text = user.Email;
 
-            if(user.gioiTinh != null)
-            {
-                if (user.gioiTinh == 1)
-                {
-                    rbNam.Checked = true;
-                }
-                if (user.gioiTinh == 0)
-                {
-                    RbNu.Checked = true;
-                }
-            }    
-        }
-    }
+			dateTimePicker1.Value = user.ngaySinh;
+
+			if (user.gioiTinh == 1)
+			{
+				rbNam.Checked = true;
+			}
+			if (user.gioiTinh == 0)
+			{
+				RbNu.Checked = true;
+			}
+		}
+		private bool validate_form()
+		{
+			return true;
+		}
+
+		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+		{
+			textBox2.Text = dateTimePicker1.Value.ToString();
+		}
+	}
 }

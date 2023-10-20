@@ -82,7 +82,7 @@ namespace TracNghiemManager.GUI.DeThi
 
             Panel panelHead = new Panel
             {
-                Location = new Point(3, 3),
+                Location = new Point(0, 0),
                 Name = "panelHead",
                 Size = new Size(360, 290),
                 TabIndex = 1,

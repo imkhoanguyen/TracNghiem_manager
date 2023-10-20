@@ -18,12 +18,16 @@ namespace TracNghiemManager.GUI.LopHoc
 		LopDTO lopDTO;
 		string hanhDong;
 		DeThiCuaLopBUS dtclBus;
-		public fThemDeThiCuaLop(DeThiDTO dt, LopDTO l, string hd = null)
+		fChiTietLop fctl;
+		fDanhSachDeThi fdsdt;
+		public fThemDeThiCuaLop(DeThiDTO dt, LopDTO l, fChiTietLop f, fDanhSachDeThi f1,string hd = null)
 		{
 			InitializeComponent();
 			deThiDTO = dt;
 			lopDTO = l;
+			fdsdt = f1;
 			hanhDong = hd;
+			fctl = f;
 			dtclBus = new DeThiCuaLopBUS();
 		}
 
@@ -38,8 +42,11 @@ namespace TracNghiemManager.GUI.LopHoc
 						DeThiCuaLopDTO obj = new DeThiCuaLopDTO(dtclBus.GetAutoIncrement(), deThiDTO.MaDeThi, lopDTO.MaLop, dtpThoiGianBatDau.Value, dtpThoiGianKetThuc.Value, 1); ;
 						dtclBus.Add(obj);
 						MessageBox.Show("Thêm đề thi vào lớp thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						fctl.loadDeThi();
 						this.Dispose();
 						this.Close();
+						fdsdt.Dispose();
+						fdsdt.Close();
 					}catch(Exception ex)
 					{
 						Console.WriteLine(ex);
@@ -77,6 +84,11 @@ namespace TracNghiemManager.GUI.LopHoc
 			{
 				MessageBox.Show("Thời gian bất đầu phải lớn hơn thời gian hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				// Trả về false nếu dtpThoiGianBatDau nhỏ hơn hoặc bằng thời gian hiện tại
+				return false;
+			}
+			if(dtclBus.checkDeThiCoTrongLop(deThiDTO.MaDeThi))
+			{
+				MessageBox.Show("Đề thi đã có trong lớp rồi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;
 			}
 

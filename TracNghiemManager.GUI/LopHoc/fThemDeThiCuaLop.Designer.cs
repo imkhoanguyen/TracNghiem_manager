@@ -68,6 +68,7 @@
 			// 
 			// btnLuu
 			// 
+			this.btnLuu.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnLuu.Location = new System.Drawing.Point(453, 320);
 			this.btnLuu.Name = "btnLuu";
@@ -105,6 +106,7 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Name = "fThemDeThiCuaLop";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "fThemDeThiCuaLop";
 			this.ResumeLayout(false);
 			this.PerformLayout();

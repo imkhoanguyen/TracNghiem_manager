@@ -104,6 +104,7 @@
 			this.lbCauHoi.Size = new System.Drawing.Size(486, 529);
 			this.lbCauHoi.TabIndex = 1;
 			this.lbCauHoi.SelectedIndexChanged += new System.EventHandler(this.lbCauHoi_SelectedIndexChanged);
+			this.lbCauHoi.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbCauHoi_MouseDoubleClick);
 			// 
 			// rightPanel
 			// 

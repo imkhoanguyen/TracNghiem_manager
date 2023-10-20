@@ -63,7 +63,8 @@ namespace TracNghiemManager.GUI.DeThi
 
 		private void lbCauHoi_SelectedIndexChanged(object sender, EventArgs e)
 		{
-
+			
+			
 		}
 
 		private void btnRightToLeft_Click(object sender, EventArgs e)
@@ -133,6 +134,20 @@ namespace TracNghiemManager.GUI.DeThi
 
 			}
 
+		}
+
+		private void lbCauHoi_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			// Lấy chỉ mục của mục được double click
+			int index = lbCauHoi.IndexFromPoint(e.Location);
+
+			// Đảm bảo chỉ thực hiện khi double click vào một mục cụ thể
+			if (index != ListBox.NoMatches)
+			{
+				// Lấy đối tượng được double click
+				CauHoiDTO selectedItem = (CauHoiDTO)lbCauHoi.Items[index];
+				MessageBox.Show(selectedItem.NoiDung);
+			}
 		}
 
 		private void btnLeftToRight_Click(object sender, EventArgs e)

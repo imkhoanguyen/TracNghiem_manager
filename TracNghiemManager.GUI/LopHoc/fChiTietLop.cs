@@ -37,14 +37,14 @@ namespace TracNghiemManager.GUI.LopHoc
 			loadDeThi();
 		}
 
-		void loadDeThi()
+		public void loadDeThi()
 		{
 			listdtcl = dtclBus.GetAll(lop.MaLop);
 			flowLayoutPanel1.Controls.Clear();
 			foreach (var item in listdtcl)
 			{
 				DeThiDTO dt = dtBus.GetById(item.MaDeThi);
-				CreatePanel(dt);
+				CreatePanel(dt, item);
 			}
 		}
 
@@ -56,7 +56,7 @@ namespace TracNghiemManager.GUI.LopHoc
 
 		private void btnThem_Click(object sender, EventArgs e)
 		{
-			fDanhSachDeThi f = new fDanhSachDeThi(lop);
+			fDanhSachDeThi f = new fDanhSachDeThi(lop, this);
 			f.Visible = true;
 		}
 
@@ -82,11 +82,15 @@ namespace TracNghiemManager.GUI.LopHoc
 			r = r > 255 ? 255 : r;
 			g = g > 255 ? 255 : g;
 			b = b > 255 ? 255 : b;
-
+			
+			if (r == 134 && r == 142 && r==150)
+			{
+				return GetRandomColor();
+			}
 			return Color.FromArgb(r, g, b);
 		}
 
-		private void CreatePanel(DeThiDTO obj)
+		private void CreatePanel(DeThiDTO obj, DeThiCuaLopDTO baiThi)
 		{
 			Panel panelContain = new Panel
 			{
@@ -96,6 +100,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				TabIndex = 0,
 				BorderStyle = BorderStyle.FixedSingle,
 				Margin = new Padding(10, 10, 10, 10),
+				Enabled = baiThi.TrangThai == 0 ? false : true,
 			};
 
 			Panel panelHead = new Panel
@@ -104,7 +109,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				Name = "panelHead",
 				Size = new Size(390, 290),
 				TabIndex = 1,
-				BackColor = GetRandomColor()
+				BackColor = baiThi.TrangThai == 1 ? GetRandomColor() : Color.FromArgb(134,142,150)
 			};
 
 			Label lblTenDeThi = new Label
@@ -142,7 +147,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				Name = "lblThoiGianLamBai" + counter,
 				Size = new Size(140, 13),
 				TabIndex = 2,
-				Text = "Thời gian làm bài: " + obj.ThoiGianLamBai,
+				Text = "Thời gian làm bài: " + obj.ThoiGianLamBai + " phút",
 				Font = new Font("Segoe UI", 10, FontStyle.Regular)
 
 			};
@@ -154,7 +159,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				Name = "lblMonHoc1" + counter,
 				Size = new Size(110, 13),
 				TabIndex = 1,
-				Text = obj.TrangThai == 1 ? "Trạng thái: Đang mở" : "Trạng thái: Đang đóng",
+				Text = baiThi.TrangThai == 1 ? "Trạng thái: Đang mở" : "Trạng thái: Đã đóng",
 				Font = new Font("Segoe UI", 10, FontStyle.Regular)
 
 			};
@@ -178,7 +183,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				Name = "button2" + counter,
 				Size = new Size(100, 41),
 				TabIndex = 2,
-				Text = "Xem",
+				Text = "Đóng",
 				UseVisualStyleBackColor = true,
 				Cursor = System.Windows.Forms.Cursors.Hand,
 				Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
@@ -210,7 +215,8 @@ namespace TracNghiemManager.GUI.LopHoc
 
 		private void btnDong_Click(object s, EventArgs ev, DeThiDTO obj)
 		{
-			throw new NotImplementedException();
+			dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, obj.MaDeThi);
+			loadDeThi();
 		}
 
 		private void lblTenLop_Click_1(object sender, EventArgs e)

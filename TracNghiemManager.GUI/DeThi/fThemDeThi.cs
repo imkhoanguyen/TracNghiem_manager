@@ -39,12 +39,12 @@ namespace TracNghiemManager.GUI.DeThi
 			loadCbMonHoc();
 		}
 
-		public fThemDeThi()
+		public fThemDeThi(string hd = null)
 		{
 			InitializeComponent();
 			dtBus = new DeThiBUS();
 			mhBus = new MonHocBUS();
-			
+			hanhDong = hd;
 			loadCbMonHoc();
 		}
 

@@ -162,5 +162,50 @@ namespace TracNghiemManager.DAO
 			}
 			return result + 1;
 		}
+
+		public int GetCountDeThi(int ma_de_thi)
+		{
+			int count = -1;
+			try
+			{
+				using (SqlConnection connection = DbConnection.GetSqlConnection())
+				{
+					string query = "SELECT COUNT(ma_de_thi) FROM bai_thi WHERE ma_de_thi = " + ma_de_thi;
+					using (SqlCommand command = new SqlCommand(query, connection))
+					{
+						count = (int)command.ExecuteScalar();
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+			}
+			return count;
+		}
+
+		public bool DeleteByMaLopAndMaDeThi(int maLop, int maDeThi)
+		{
+			try
+			{
+				using (SqlConnection connection = DbConnection.GetSqlConnection())
+				{
+					string query = "update bai_thi set trang_thai = @trang_thai where ma_lop = @ma_lop and ma_de_thi = @ma_de_thi";
+					using (SqlCommand command = new SqlCommand(query, connection))
+					{
+						command.Parameters.AddWithValue("@ma_lop", maLop);
+						command.Parameters.AddWithValue("@ma_de_thi", maDeThi);
+						command.Parameters.AddWithValue("@trang_thai", 0);
+						int rowsChanged = command.ExecuteNonQuery();
+						return rowsChanged > 0;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+				return false;
+			}
+		}
 	}
 }

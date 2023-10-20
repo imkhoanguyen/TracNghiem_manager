@@ -23,40 +23,17 @@ namespace TracNghiemManager.GUI.LopHoc
 		MonHocBUS mhBus;
 		MonHocDTO selectedMonHoc;
 		LopDTO lopDTO;
-		DeThiCuaLopBUS dtclBus;
-		public fDanhSachDeThi(LopDTO l)
+		fChiTietLop fctl;
+		public fDanhSachDeThi(LopDTO l, fChiTietLop f)
 		{
 			InitializeComponent();
 			dtBus = new DeThiBUS();
 			mhBus = new MonHocBUS();
-			dtclBus = new DeThiCuaLopBUS();
 			lopDTO = l;
-			loadTextBox();
+			fctl = f;
 			listdt = dtBus.GetAll();
 			loadDeThi(listdt);
 			loadCbMonHoc();
-		}
-		void loadTextBox()
-		{
-			txtDeThi.Text = "Nhập tên đề thi cần tìm kiếm tại đây...";
-			txtDeThi.ForeColor = Color.Gray;
-		}
-
-		private void txtDeThi_Click(object sender, EventArgs e)
-		{
-			if (txtDeThi.Text.Equals("Nhập tên đề thi cần tìm kiếm tại đây..."))
-			{
-				txtDeThi.Text = "";
-			}
-			txtDeThi.ForeColor = Color.Black;
-		}
-
-		private void txtDeThi_Leave(object sender, EventArgs e)
-		{
-			if (string.IsNullOrEmpty(txtDeThi.Text))
-			{
-				loadTextBox();
-			}
 		}
 
 		void loadDeThi(List<DeThiDTO> list)
@@ -124,14 +101,13 @@ namespace TracNghiemManager.GUI.LopHoc
 				AutoEllipsis = true
 			};
 			toolTip.SetToolTip(lblTenDeThi, lblTenDeThi.Text);
-			lblTenDeThi.Click += (s, ev) => { lblTenDeThi_Click(s, ev, obj); };
 
 
 
 			Label lblMonHoc = new Label
 			{
 				AutoSize = true,
-				Location = new Point(20, 190),
+				Location = new Point(20, 220),
 				Name = "lblMonHoc1" + counter,
 				Size = new Size(110, 13),
 				TabIndex = 1,
@@ -143,23 +119,11 @@ namespace TracNghiemManager.GUI.LopHoc
 			Label lblThoiGianLamBai = new Label
 			{
 				AutoSize = true,
-				Location = new Point(20, 220),
+				Location = new Point(20, 250),
 				Name = "lblThoiGianLamBai" + counter,
 				Size = new Size(140, 13),
 				TabIndex = 2,
-				Text = "Thời gian làm bài: " + obj.ThoiGianLamBai,
-				Font = new Font("Segoe UI", 10, FontStyle.Regular)
-
-			};
-
-			Label lblTrangThai = new Label
-			{
-				AutoSize = true,
-				Location = new Point(20, 250),
-				Name = "lblMonHoc1" + counter,
-				Size = new Size(110, 13),
-				TabIndex = 1,
-				Text = obj.TrangThai == 1 ? "Trạng thái: Đang mở" : "Trạng thái: Đang đóng",
+				Text = "Thời gian làm bài: " + obj.ThoiGianLamBai + " phút",
 				Font = new Font("Segoe UI", 10, FontStyle.Regular)
 
 			};
@@ -194,8 +158,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				{
 					btnThem_Click(s, ev, obj);
 				};
-			panelHead.Controls.AddRange(new Control[] { lblThoiGianLamBai, lblMonHoc, lblTenDeThi, lblTrangThai
-});
+			panelHead.Controls.AddRange(new Control[] { lblThoiGianLamBai, lblMonHoc, lblTenDeThi, });
 
 			panelContain.Location = new Point(20, flowLayoutPanel1.Controls.Count * 150);
 			flowLayoutPanel1.Controls.Add(panelContain);
@@ -208,13 +171,8 @@ namespace TracNghiemManager.GUI.LopHoc
 
 		private void btnThem_Click(object s, EventArgs ev, DeThiDTO obj)
 		{
-			fThemDeThiCuaLop f = new fThemDeThiCuaLop(obj, lopDTO, "add");
+			fThemDeThiCuaLop f = new fThemDeThiCuaLop(obj, lopDTO, fctl, this,"add");
 			f.Visible = true;
-		}
-
-		private void lblTenDeThi_Click(object s, EventArgs ev, DeThiDTO obj)
-		{
-			throw new NotImplementedException();
 		}
 
 		private void cbMonHoc_SelectedValueChanged(object sender, EventArgs e)
@@ -238,21 +196,25 @@ namespace TracNghiemManager.GUI.LopHoc
 			try
 			{
 				string noiDungTimKiem = txtDeThi.Text;
-				List<DeThiDTO> list = listdt.Where(ch => ch.TenDeThi.Contains(noiDungTimKiem)).ToList();
-				foreach (DeThiDTO deThi in list)
-				{
-					MessageBox.Show(deThi.TenDeThi);
+				List<DeThiDTO> listDt = dtBus.GetAll();
+				List<DeThiDTO> filteredList = listDt;
 
-				}
-				if (selectedMonHoc!=null)
+				if (selectedMonHoc != null)
 				{
-					list = list.Where(ch => ch.MaMonHoc == selectedMonHoc.MaMonHoc).ToList();
+					filteredList = filteredList.Where(deThi => deThi.MaMonHoc == selectedMonHoc.MaMonHoc).ToList();
 				}
-				
-				loadDeThi(list);
-			} catch(Exception ex)
+
+				if (!string.IsNullOrEmpty(noiDungTimKiem))
+				{
+					filteredList = filteredList.Where(deThi => deThi.TenDeThi.ToLower().Contains(noiDungTimKiem.ToLower())).ToList();
+				}
+
+				loadDeThi(filteredList);
+			}
+			catch (Exception ex)
 			{
-				ex.ToString();
+				loadDeThi(dtBus.GetAll());
+				MessageBox.Show(ex.ToString());
 			}
 		}
 

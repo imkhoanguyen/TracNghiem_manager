@@ -37,8 +37,8 @@
 			this.txtDeThi = new System.Windows.Forms.TextBox();
 			this.cbMonHoc = new System.Windows.Forms.ComboBox();
 			this.btnTimKiem = new System.Windows.Forms.Button();
-			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.button1 = new System.Windows.Forms.Button();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.mainPanel.SuspendLayout();
 			this.headingPanel.SuspendLayout();
 			this.searchPanel.SuspendLayout();
@@ -94,7 +94,7 @@
 			this.searchPanel.ColumnCount = 3;
 			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.81227F));
 			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.18773F));
-			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
+			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
 			this.searchPanel.Controls.Add(this.lblTenDeThi, 0, 0);
 			this.searchPanel.Controls.Add(this.lblMonHoc, 0, 1);
 			this.searchPanel.Controls.Add(this.txtDeThi, 1, 0);
@@ -135,12 +135,10 @@
 			// 
 			this.txtDeThi.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.txtDeThi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtDeThi.Location = new System.Drawing.Point(145, 8);
+			this.txtDeThi.Location = new System.Drawing.Point(144, 8);
 			this.txtDeThi.Name = "txtDeThi";
 			this.txtDeThi.Size = new System.Drawing.Size(402, 34);
 			this.txtDeThi.TabIndex = 1;
-			this.txtDeThi.Click += new System.EventHandler(this.txtDeThi_Click);
-			this.txtDeThi.Leave += new System.EventHandler(this.txtDeThi_Leave);
 			// 
 			// cbMonHoc
 			// 
@@ -148,7 +146,7 @@
 			this.cbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbMonHoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cbMonHoc.FormattingEnabled = true;
-			this.cbMonHoc.Location = new System.Drawing.Point(145, 57);
+			this.cbMonHoc.Location = new System.Drawing.Point(144, 57);
 			this.cbMonHoc.Name = "cbMonHoc";
 			this.cbMonHoc.Size = new System.Drawing.Size(402, 36);
 			this.cbMonHoc.TabIndex = 2;
@@ -157,6 +155,7 @@
 			// btnTimKiem
 			// 
 			this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.btnTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnTimKiem.Location = new System.Drawing.Point(583, 54);
 			this.btnTimKiem.Name = "btnTimKiem";
@@ -166,6 +165,16 @@
 			this.btnTimKiem.UseVisualStyleBackColor = true;
 			this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(552, 3);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 4;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// flowLayoutPanel1
 			// 
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -174,16 +183,6 @@
 			this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(1276, 359);
 			this.flowLayoutPanel1.TabIndex = 1;
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(553, 3);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 4;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// fDanhSachDeThi
 			// 

@@ -99,7 +99,7 @@ namespace TracNghiemManager.DAO
             DeThiDTO result = null;
             using (SqlConnection connection = DbConnection.GetSqlConnection())
             {
-                string query = "select * from de_thi where ma_de_thi = @id and trang_thai = 1";
+                string query = "select * from de_thi where ma_de_thi = @id";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@id", id);
