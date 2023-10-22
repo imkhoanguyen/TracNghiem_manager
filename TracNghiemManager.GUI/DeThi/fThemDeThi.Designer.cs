@@ -96,7 +96,7 @@
 			this.nud.Location = new System.Drawing.Point(223, 136);
 			this.nud.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.nud.Maximum = new decimal(new int[] {
-            200,
+            201,
             0,
             0,
             0});

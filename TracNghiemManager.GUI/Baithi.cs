@@ -38,20 +38,17 @@ namespace TracNghiemManager.GUI
 		private MonHocBUS monHocBUS;
 		public int soCauChuaChon;
 		private KetQuaBUS kqBus;
-		private fChiTietLop fchiTietLop;
-		private DeThiCuaLopBUS dtclBus;
+
 		private int flag = -1; // dat co dong form
-		public Baithi(DeThiDTO dt, DeThiCuaLopDTO bt, LopDTO l, fChiTietLop fctl)
+		public Baithi(DeThiDTO dt, DeThiCuaLopDTO bt, LopDTO l)
 		{
 			chiTietDeThi = new ChiTietDeThiBUS();
 			userBUS = new UserBUS();
 			monHocBUS = new MonHocBUS();
 			kqBus = new KetQuaBUS();
-			dtclBus = new DeThiCuaLopBUS();
 			baiThi = bt;
 			deThi = dt;
 			lop = l;
-			fchiTietLop = fctl;
 			soCauChuaChon = 0;
 			List<CauHoiDTO> dsCauHoi = chiTietDeThi.GetAllCauHoiOfDeThi(deThi.MaDeThi);
 			so_cau_hoi = dsCauHoi.Count;
@@ -170,8 +167,6 @@ namespace TracNghiemManager.GUI
 				kqBus.Add(kq);
 				this.Dispose();
 				this.Close();
-				dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, baiThi.MaDeThi);
-				fchiTietLop.loadDeThi();
 				fKetQua f = new fKetQua(deThi, lop, kq);
 				f.Visible = true;
 			}
@@ -200,9 +195,6 @@ namespace TracNghiemManager.GUI
 			kqBus.Add(kq);
 			this.Dispose();
 			this.Close();
-
-			dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, baiThi.MaDeThi);
-			fchiTietLop.loadDeThi();
 			fKetQua f = new fKetQua(deThi, lop, kq);
 			f.Visible = true;
 

@@ -261,7 +261,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			};
 			btnLamBai.Click += (s, ev) =>
 			{
-				btnLamBai_Click(s, ev, obj, baiThi, lop, this);
+				btnLamBai_Click(s, ev, obj, baiThi, lop);
 			};
 			panelHead.Controls.AddRange(new Control[] { lblThoiGianLamBai, lblMonHoc, lblTenDeThi, lblTrangThai });
 
@@ -294,7 +294,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			}
 		}
 
-		private void btnLamBai_Click(object s, EventArgs ev, DeThiDTO obj, DeThiCuaLopDTO baiThi, LopDTO lop, fChiTietLop l)
+		private void btnLamBai_Click(object s, EventArgs ev, DeThiDTO obj, DeThiCuaLopDTO baiThi, LopDTO lop)
 		{
 			TimeSpan khoangThoiGian = baiThi.ThoiGianKetThuc - DateTime.Now;
 
@@ -308,8 +308,12 @@ namespace TracNghiemManager.GUI.LopHoc
 			else
 			{
 				// Nếu còn thời gian mở, cho phép làm bài thi
-				Baithi baithi = new Baithi(obj, baiThi, lop, l);
+				Baithi baithi = new Baithi(obj, baiThi, lop);
 				baithi.ShowDialog();
+			}
+			if(ketQuaBus.Get(baiThi.MaBaiThi, Form1.USER_ID) == null)
+			{
+				MessageBox.Show("Bạn đã làm bài thi này rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}
 
