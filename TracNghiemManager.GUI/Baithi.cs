@@ -38,14 +38,15 @@ namespace TracNghiemManager.GUI
 		private MonHocBUS monHocBUS;
 		public int soCauChuaChon;
 		private KetQuaBUS kqBus;
-
+		private fChiTietLop fctl;
 		private int flag = -1; // dat co dong form
-		public Baithi(DeThiDTO dt, DeThiCuaLopDTO bt, LopDTO l)
+		public Baithi(DeThiDTO dt, DeThiCuaLopDTO bt, LopDTO l, fChiTietLop f)
 		{
 			chiTietDeThi = new ChiTietDeThiBUS();
 			userBUS = new UserBUS();
 			monHocBUS = new MonHocBUS();
 			kqBus = new KetQuaBUS();
+			fctl = f;
 			baiThi = bt;
 			deThi = dt;
 			lop = l;
@@ -162,11 +163,13 @@ namespace TracNghiemManager.GUI
 			if (result == DialogResult.OK)
 			{
 				double diemCuaMotCauDung = (10.0f / so_cau_hoi);
-				double diem = d * diemCuaMotCauDung;
+				double diem = Math.Round(d * diemCuaMotCauDung, 2);
+				
 				KetQuaDTO kq = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
 				kqBus.Add(kq);
 				this.Dispose();
 				this.Close();
+				fctl.loadDeThi();
 				fKetQua f = new fKetQua(deThi, lop, kq);
 				f.Visible = true;
 			}
@@ -195,6 +198,7 @@ namespace TracNghiemManager.GUI
 			kqBus.Add(kq);
 			this.Dispose();
 			this.Close();
+			fctl.loadDeThi();
 			fKetQua f = new fKetQua(deThi, lop, kq);
 			f.Visible = true;
 

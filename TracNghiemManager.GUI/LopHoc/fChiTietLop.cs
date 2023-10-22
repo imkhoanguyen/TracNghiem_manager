@@ -205,6 +205,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				thoiGianText = "Hết hạn";
 			}
 			lblTrangThai.Text = baiThi.TrangThai == 1 ? $"Trạng thái: Đang mở ({thoiGianText})" : "Trạng thái: Đã đóng";
+			KetQuaDTO kq = ketQuaBus.Get(baiThi.MaBaiThi, Form1.USER_ID);
 
 			System.Windows.Forms.Button btnLamBai = new System.Windows.Forms.Button
 			{
@@ -279,6 +280,10 @@ namespace TracNghiemManager.GUI.LopHoc
 				btnDong.Visible = false;
 				btnXemKq.Location = new Point(260, 300);
 			}
+			if(kq!=null)
+			{
+				btnLamBai.Enabled = false;
+			} 
 		}
 
 		private void btnXemKq_Click(object s, EventArgs ev, DeThiDTO obj, DeThiCuaLopDTO bt)
@@ -321,7 +326,7 @@ namespace TracNghiemManager.GUI.LopHoc
 					else
 					{
 						// Nếu còn thời gian mở, cho phép làm bài thi
-						Baithi baithi = new Baithi(obj, baiThi, lop);
+						Baithi baithi = new Baithi(obj, baiThi, lop, this);
 						baithi.ShowDialog();
 					}
 

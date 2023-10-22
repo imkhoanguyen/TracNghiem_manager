@@ -19,7 +19,7 @@ namespace TracNghiemManager.DAO
 			{
 				using (SqlConnection connection = DbConnection.GetSqlConnection())
 				{
-					string query = "INSERT INTO users (username, mat_khau, ngay_tao, trang_thai, ngay_sinh, gioi_tinh) VALUES (@username, @password, @ngayTao, 1, @ngay_tao, 1) SELECT @@IDENTITY AS id";
+					string query = "INSERT INTO users (username, mat_khau, ngay_tao, trang_thai, ngay_sinh, gioi_tinh) VALUES (@username, @password, @ngayTao, 1, @ngayTao, 1) SELECT @@IDENTITY AS id";
 					using (SqlCommand command = new SqlCommand(query, connection))
 					{
 						command.Parameters.AddWithValue("@username", t.UserName);
