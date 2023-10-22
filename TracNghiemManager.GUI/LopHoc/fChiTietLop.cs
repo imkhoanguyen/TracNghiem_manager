@@ -261,7 +261,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			};
 			btnLamBai.Click += (s, ev) =>
 			{
-				btnLamBai_Click(s, ev, obj, baiThi, lop);
+				btnLamBai_Click(s, ev, obj, baiThi, lop, this);
 			};
 			panelHead.Controls.AddRange(new Control[] { lblThoiGianLamBai, lblMonHoc, lblTenDeThi, lblTrangThai });
 
@@ -294,7 +294,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			}
 		}
 
-		private void btnLamBai_Click(object s, EventArgs ev, DeThiDTO obj, DeThiCuaLopDTO baiThi, LopDTO lop)
+		private void btnLamBai_Click(object s, EventArgs ev, DeThiDTO obj, DeThiCuaLopDTO baiThi, LopDTO lop, fChiTietLop l)
 		{
 			TimeSpan khoangThoiGian = baiThi.ThoiGianKetThuc - DateTime.Now;
 
@@ -308,7 +308,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			else
 			{
 				// Nếu còn thời gian mở, cho phép làm bài thi
-				Baithi baithi = new Baithi(obj, baiThi, lop);
+				Baithi baithi = new Baithi(obj, baiThi, lop, l);
 				baithi.ShowDialog();
 			}
 		}
@@ -319,6 +319,11 @@ namespace TracNghiemManager.GUI.LopHoc
 			//donng
 			dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, obj.MaDeThi);
 			loadDeThi();
+		}
+
+		public void delete()
+		{
+			
 		}
 
 		private void lblTenLop_Click_1(object sender, EventArgs e)

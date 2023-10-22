@@ -16,6 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Reflection;
 using TracNghiemManager.DTO;
 using TracNghiemManager.BUS;
+using TracNghiemManager.GUI.LopHoc;
 
 namespace TracNghiemManager.GUI
 {
@@ -37,15 +38,20 @@ namespace TracNghiemManager.GUI
 		private MonHocBUS monHocBUS;
 		public int soCauChuaChon;
 		private KetQuaBUS kqBus;
-		public Baithi(DeThiDTO dt, DeThiCuaLopDTO bt, LopDTO l)
+		private fChiTietLop fchiTietLop;
+		private DeThiCuaLopBUS dtclBus;
+		private int flag = -1; // dat co dong form
+		public Baithi(DeThiDTO dt, DeThiCuaLopDTO bt, LopDTO l, fChiTietLop fctl)
 		{
 			chiTietDeThi = new ChiTietDeThiBUS();
 			userBUS = new UserBUS();
 			monHocBUS = new MonHocBUS();
 			kqBus = new KetQuaBUS();
+			dtclBus = new DeThiCuaLopBUS();
 			baiThi = bt;
 			deThi = dt;
 			lop = l;
+			fchiTietLop = fctl;
 			soCauChuaChon = 0;
 			List<CauHoiDTO> dsCauHoi = chiTietDeThi.GetAllCauHoiOfDeThi(deThi.MaDeThi);
 			so_cau_hoi = dsCauHoi.Count;
@@ -118,7 +124,7 @@ namespace TracNghiemManager.GUI
 									isAnswer = true;
 									break;
 								}
-							} 
+							}
 						}
 					}
 					// Kiểm tra nếu không có RadioButton nào được chọn, tăng giá trị của soCauChuaChon
@@ -140,6 +146,7 @@ namespace TracNghiemManager.GUI
 		}
 		private void button1_Click(object sender, EventArgs e)
 		{
+			flag = 1;
 			int d = 0;
 			int s = 0;
 			for (int i = 0; i < so_cau_hoi; i++)
@@ -147,27 +154,33 @@ namespace TracNghiemManager.GUI
 				if (GetTagValue(groupBox[i]))
 				{
 					d++;
-				} else
+				}
+				else
 				{
 					s++;
 				}
 
 			}
 			DialogResult result = MessageBox.Show("Xác nhận nộp bài", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-			if(result == DialogResult.OK)
+			if (result == DialogResult.OK)
 			{
 				double diemCuaMotCauDung = (10.0f / so_cau_hoi);
 				double diem = d * diemCuaMotCauDung;
 				KetQuaDTO kq = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
 				kqBus.Add(kq);
+				this.Dispose();
+				this.Close();
+				dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, baiThi.MaDeThi);
+				fchiTietLop.loadDeThi();
 				fKetQua f = new fKetQua(deThi, lop, kq);
 				f.Visible = true;
 			}
-			
+
 		}
-		
+
 		private void NopBai()
 		{
+			flag = 1;
 			int d = 0;
 			int s = 0;
 			for (int i = 0; i < so_cau_hoi; i++)
@@ -185,8 +198,14 @@ namespace TracNghiemManager.GUI
 			double diem = d * diemCuaMotCauDung;
 			KetQuaDTO kq = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
 			kqBus.Add(kq);
+			this.Dispose();
+			this.Close();
+
+			dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, baiThi.MaDeThi);
+			fchiTietLop.loadDeThi();
 			fKetQua f = new fKetQua(deThi, lop, kq);
 			f.Visible = true;
+
 		}
 
 		private void TaoDapAn(GroupBox g, int ma_cau_hoi)
@@ -199,7 +218,7 @@ namespace TracNghiemManager.GUI
 				rd[i - 1] = new RadioButton();
 				rd[i - 1].AutoSize = true;
 				rd[i - 1].Name = "radioButton_" + i + g.Text;
-				rd[i-1].Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+				rd[i - 1].Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 				switch (i)
 				{
 					case 1: rd[i - 1].Location = new Point(15, 63); if (cauTraLoiList[i - 1].DapAn == true) { rd[i - 1].Tag = "true"; } else { rd[i - 1].Tag = "false"; } break;
@@ -253,7 +272,7 @@ namespace TracNghiemManager.GUI
 				slide[i - 1].Name = "slide" + i;
 				slide[i - 1].Size = panel1.Size;
 				slide[i - 1].BackColor = Color.BurlyWood;
-				string cauhoi = "Câu " + i  + ": " + cauHoiList[i - 1].NoiDung;
+				string cauhoi = "Câu " + i + ": " + cauHoiList[i - 1].NoiDung;
 				string cautraloi = "";
 
 				RichTextBox richTextBox1 = new RichTextBox();
@@ -334,6 +353,23 @@ namespace TracNghiemManager.GUI
 			}
 			// Call the base method for other keys
 			return base.ProcessCmdKey(ref msg, keyData);
+		}
+
+		private void Baithi_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if(flag == -1)
+			{
+				DialogResult rs = MessageBox.Show("Thoát đồng nghĩa với nộp bài. Bạn có muốn thoát", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+				if (rs == DialogResult.OK)
+				{
+					NopBai();
+				}
+				if (rs == DialogResult.Cancel)
+				{
+					e.Cancel = true;
+				}
+			}
+			
 		}
 	}
 }

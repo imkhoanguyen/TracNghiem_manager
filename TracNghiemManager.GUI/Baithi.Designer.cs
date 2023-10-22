@@ -66,10 +66,9 @@ namespace TracNghiemManager.GUI
 			// 
 			// panel1
 			// 
-			this.panel1.Location = new System.Drawing.Point(1, 12);
-			this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.panel1.Location = new System.Drawing.Point(1, 10);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(900, 336);
+			this.panel1.Size = new System.Drawing.Size(675, 273);
 			this.panel1.TabIndex = 0;
 			// 
 			// panel2
@@ -90,18 +89,16 @@ namespace TracNghiemManager.GUI
 			this.panel2.Controls.Add(this.lbl2);
 			this.panel2.Controls.Add(this.lbl1);
 			this.panel2.Controls.Add(this.lbl);
-			this.panel2.Location = new System.Drawing.Point(909, 12);
-			this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.panel2.Location = new System.Drawing.Point(682, 10);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(371, 367);
+			this.panel2.Size = new System.Drawing.Size(278, 298);
 			this.panel2.TabIndex = 1;
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Location = new System.Drawing.Point(136, 4);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pictureBox1.Location = new System.Drawing.Point(102, 3);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(115, 117);
+			this.pictureBox1.Size = new System.Drawing.Size(86, 95);
 			this.pictureBox1.TabIndex = 2;
 			this.pictureBox1.TabStop = false;
 			// 
@@ -109,10 +106,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.lblMonThi.AutoSize = true;
 			this.lblMonThi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblMonThi.Location = new System.Drawing.Point(101, 209);
-			this.lblMonThi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblMonThi.Location = new System.Drawing.Point(76, 170);
 			this.lblMonThi.Name = "lblMonThi";
-			this.lblMonThi.Size = new System.Drawing.Size(55, 23);
+			this.lblMonThi.Size = new System.Drawing.Size(45, 19);
 			this.lblMonThi.TabIndex = 1;
 			this.lblMonThi.Text = "label9";
 			// 
@@ -120,10 +116,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.lblThoiGianLamBai.AutoSize = true;
 			this.lblThoiGianLamBai.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblThoiGianLamBai.Location = new System.Drawing.Point(209, 327);
-			this.lblThoiGianLamBai.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblThoiGianLamBai.Location = new System.Drawing.Point(157, 266);
 			this.lblThoiGianLamBai.Name = "lblThoiGianLamBai";
-			this.lblThoiGianLamBai.Size = new System.Drawing.Size(55, 23);
+			this.lblThoiGianLamBai.Size = new System.Drawing.Size(45, 19);
 			this.lblThoiGianLamBai.TabIndex = 1;
 			this.lblThoiGianLamBai.Text = "label9";
 			// 
@@ -131,10 +126,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.lblTenThiSinh.AutoSize = true;
 			this.lblTenThiSinh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblTenThiSinh.Location = new System.Drawing.Point(121, 149);
-			this.lblTenThiSinh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblTenThiSinh.Location = new System.Drawing.Point(91, 121);
 			this.lblTenThiSinh.Name = "lblTenThiSinh";
-			this.lblTenThiSinh.Size = new System.Drawing.Size(55, 23);
+			this.lblTenThiSinh.Size = new System.Drawing.Size(45, 19);
 			this.lblTenThiSinh.TabIndex = 1;
 			this.lblTenThiSinh.Text = "label9";
 			// 
@@ -142,10 +136,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.lblNgaySinh.AutoSize = true;
 			this.lblNgaySinh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblNgaySinh.Location = new System.Drawing.Point(121, 177);
-			this.lblNgaySinh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblNgaySinh.Location = new System.Drawing.Point(91, 144);
 			this.lblNgaySinh.Name = "lblNgaySinh";
-			this.lblNgaySinh.Size = new System.Drawing.Size(55, 23);
+			this.lblNgaySinh.Size = new System.Drawing.Size(45, 19);
 			this.lblNgaySinh.TabIndex = 1;
 			this.lblNgaySinh.Text = "label9";
 			// 
@@ -153,10 +146,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.lblSoCauHoi.AutoSize = true;
 			this.lblSoCauHoi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblSoCauHoi.Location = new System.Drawing.Point(131, 295);
-			this.lblSoCauHoi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblSoCauHoi.Location = new System.Drawing.Point(98, 240);
 			this.lblSoCauHoi.Name = "lblSoCauHoi";
-			this.lblSoCauHoi.Size = new System.Drawing.Size(55, 23);
+			this.lblSoCauHoi.Size = new System.Drawing.Size(45, 19);
 			this.lblSoCauHoi.TabIndex = 1;
 			this.lblSoCauHoi.Text = "label9";
 			// 
@@ -164,10 +156,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.lblNgayThi.AutoSize = true;
 			this.lblNgayThi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblNgayThi.Location = new System.Drawing.Point(169, 266);
-			this.lblNgayThi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblNgayThi.Location = new System.Drawing.Point(127, 216);
 			this.lblNgayThi.Name = "lblNgayThi";
-			this.lblNgayThi.Size = new System.Drawing.Size(55, 23);
+			this.lblNgayThi.Size = new System.Drawing.Size(45, 19);
 			this.lblNgayThi.TabIndex = 1;
 			this.lblNgayThi.Text = "label9";
 			// 
@@ -175,10 +166,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.lblLop.AutoSize = true;
 			this.lblLop.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblLop.Location = new System.Drawing.Point(64, 236);
-			this.lblLop.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblLop.Location = new System.Drawing.Point(48, 192);
 			this.lblLop.Name = "lblLop";
-			this.lblLop.Size = new System.Drawing.Size(55, 23);
+			this.lblLop.Size = new System.Drawing.Size(45, 19);
 			this.lblLop.TabIndex = 1;
 			this.lblLop.Text = "label9";
 			// 
@@ -187,10 +177,9 @@ namespace TracNghiemManager.GUI
 			this.lbl6.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lbl6.AutoSize = true;
 			this.lbl6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl6.Location = new System.Drawing.Point(4, 327);
-			this.lbl6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbl6.Location = new System.Drawing.Point(3, 266);
 			this.lbl6.Name = "lbl6";
-			this.lbl6.Size = new System.Drawing.Size(207, 23);
+			this.lbl6.Size = new System.Drawing.Size(165, 19);
 			this.lbl6.TabIndex = 0;
 			this.lbl6.Text = "Thời gian làm bài (phút):  ";
 			// 
@@ -199,10 +188,9 @@ namespace TracNghiemManager.GUI
 			this.lbl4.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lbl4.AutoSize = true;
 			this.lbl4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl4.Location = new System.Drawing.Point(4, 266);
-			this.lbl4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbl4.Location = new System.Drawing.Point(3, 216);
 			this.lbl4.Name = "lbl4";
-			this.lbl4.Size = new System.Drawing.Size(147, 23);
+			this.lbl4.Size = new System.Drawing.Size(118, 19);
 			this.lbl4.TabIndex = 0;
 			this.lbl4.Text = "Thời gian vào thi: ";
 			// 
@@ -211,20 +199,18 @@ namespace TracNghiemManager.GUI
 			this.lbl5.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lbl5.AutoSize = true;
 			this.lbl5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl5.Location = new System.Drawing.Point(4, 295);
-			this.lbl5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbl5.Location = new System.Drawing.Point(3, 240);
 			this.lbl5.Name = "lbl5";
-			this.lbl5.Size = new System.Drawing.Size(99, 23);
+			this.lbl5.Size = new System.Drawing.Size(79, 19);
 			this.lbl5.TabIndex = 0;
 			this.lbl5.Text = "Sô câu hỏi: ";
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(4, 266);
-			this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label5.Location = new System.Drawing.Point(3, 216);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(0, 16);
+			this.label5.Size = new System.Drawing.Size(0, 13);
 			this.label5.TabIndex = 0;
 			// 
 			// lbl3
@@ -232,10 +218,9 @@ namespace TracNghiemManager.GUI
 			this.lbl3.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lbl3.AutoSize = true;
 			this.lbl3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl3.Location = new System.Drawing.Point(4, 236);
-			this.lbl3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbl3.Location = new System.Drawing.Point(3, 192);
 			this.lbl3.Name = "lbl3";
-			this.lbl3.Size = new System.Drawing.Size(47, 23);
+			this.lbl3.Size = new System.Drawing.Size(39, 19);
 			this.lbl3.TabIndex = 0;
 			this.lbl3.Text = "Lớp: ";
 			// 
@@ -244,10 +229,9 @@ namespace TracNghiemManager.GUI
 			this.lbl2.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lbl2.AutoSize = true;
 			this.lbl2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl2.Location = new System.Drawing.Point(4, 209);
-			this.lbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbl2.Location = new System.Drawing.Point(3, 170);
 			this.lbl2.Name = "lbl2";
-			this.lbl2.Size = new System.Drawing.Size(79, 23);
+			this.lbl2.Size = new System.Drawing.Size(65, 19);
 			this.lbl2.TabIndex = 0;
 			this.lbl2.Text = "Môn thi: ";
 			// 
@@ -256,10 +240,9 @@ namespace TracNghiemManager.GUI
 			this.lbl1.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lbl1.AutoSize = true;
 			this.lbl1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl1.Location = new System.Drawing.Point(4, 177);
-			this.lbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbl1.Location = new System.Drawing.Point(3, 144);
 			this.lbl1.Name = "lbl1";
-			this.lbl1.Size = new System.Drawing.Size(95, 23);
+			this.lbl1.Size = new System.Drawing.Size(77, 19);
 			this.lbl1.TabIndex = 0;
 			this.lbl1.Text = "Ngày sinh: ";
 			// 
@@ -268,10 +251,9 @@ namespace TracNghiemManager.GUI
 			this.lbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lbl.AutoSize = true;
 			this.lbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl.Location = new System.Drawing.Point(4, 149);
-			this.lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbl.Location = new System.Drawing.Point(3, 121);
 			this.lbl.Name = "lbl";
-			this.lbl.Size = new System.Drawing.Size(101, 23);
+			this.lbl.Size = new System.Drawing.Size(82, 19);
 			this.lbl.TabIndex = 0;
 			this.lbl.Text = "Tên thí sinh:";
 			// 
@@ -282,20 +264,18 @@ namespace TracNghiemManager.GUI
 			this.panel3.Controls.Add(this.label18);
 			this.panel3.Controls.Add(this.label17);
 			this.panel3.Controls.Add(this.label13);
-			this.panel3.Location = new System.Drawing.Point(1, 412);
-			this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.panel3.Location = new System.Drawing.Point(1, 335);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(93, 234);
+			this.panel3.Size = new System.Drawing.Size(70, 190);
 			this.panel3.TabIndex = 3;
 			// 
 			// label20
 			// 
 			this.label20.AutoSize = true;
 			this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label20.Location = new System.Drawing.Point(28, 150);
-			this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label20.Location = new System.Drawing.Point(21, 122);
 			this.label20.Name = "label20";
-			this.label20.Size = new System.Drawing.Size(23, 28);
+			this.label20.Size = new System.Drawing.Size(19, 21);
 			this.label20.TabIndex = 8;
 			this.label20.Text = "3";
 			// 
@@ -303,10 +283,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.label19.AutoSize = true;
 			this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label19.Location = new System.Drawing.Point(28, 199);
-			this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label19.Location = new System.Drawing.Point(21, 162);
 			this.label19.Name = "label19";
-			this.label19.Size = new System.Drawing.Size(23, 28);
+			this.label19.Size = new System.Drawing.Size(19, 21);
 			this.label19.TabIndex = 7;
 			this.label19.Text = "4";
 			// 
@@ -314,10 +293,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.label18.AutoSize = true;
 			this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label18.Location = new System.Drawing.Point(28, 53);
-			this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label18.Location = new System.Drawing.Point(21, 43);
 			this.label18.Name = "label18";
-			this.label18.Size = new System.Drawing.Size(23, 28);
+			this.label18.Size = new System.Drawing.Size(19, 21);
 			this.label18.TabIndex = 6;
 			this.label18.Text = "1";
 			// 
@@ -325,10 +303,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.label17.AutoSize = true;
 			this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label17.Location = new System.Drawing.Point(28, 102);
-			this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label17.Location = new System.Drawing.Point(21, 83);
 			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(23, 28);
+			this.label17.Size = new System.Drawing.Size(19, 21);
 			this.label17.TabIndex = 5;
 			this.label17.Text = "2";
 			// 
@@ -336,21 +313,19 @@ namespace TracNghiemManager.GUI
 			// 
 			this.label13.AutoSize = true;
 			this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label13.Location = new System.Drawing.Point(12, 10);
-			this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label13.Location = new System.Drawing.Point(9, 8);
 			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(75, 28);
+			this.label13.Size = new System.Drawing.Size(62, 21);
 			this.label13.TabIndex = 4;
 			this.label13.Text = "Answer";
 			// 
 			// flowLayoutPanel1
 			// 
 			this.flowLayoutPanel1.AutoScroll = true;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(103, 412);
-			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(77, 335);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(1177, 255);
+			this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(883, 207);
 			this.flowLayoutPanel1.TabIndex = 4;
 			this.flowLayoutPanel1.WrapContents = false;
 			// 
@@ -358,10 +333,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.Location = new System.Drawing.Point(1156, 674);
-			this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button1.Location = new System.Drawing.Point(867, 548);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(124, 42);
+			this.button1.Size = new System.Drawing.Size(93, 34);
 			this.button1.TabIndex = 5;
 			this.button1.Text = "Nộp bài";
 			this.button1.UseVisualStyleBackColor = true;
@@ -371,10 +345,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(801, 356);
-			this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button2.Location = new System.Drawing.Point(601, 289);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(100, 43);
+			this.button2.Size = new System.Drawing.Size(75, 35);
 			this.button2.TabIndex = 6;
 			this.button2.Text = ">>";
 			this.button2.UseVisualStyleBackColor = true;
@@ -384,10 +357,9 @@ namespace TracNghiemManager.GUI
 			// 
 			this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(653, 357);
-			this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button3.Location = new System.Drawing.Point(490, 290);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(100, 43);
+			this.button3.Size = new System.Drawing.Size(75, 35);
 			this.button3.TabIndex = 7;
 			this.button3.Text = "<<";
 			this.button3.UseVisualStyleBackColor = true;
@@ -395,9 +367,9 @@ namespace TracNghiemManager.GUI
 			// 
 			// Baithi
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1293, 730);
+			this.ClientSize = new System.Drawing.Size(970, 593);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
@@ -405,10 +377,10 @@ namespace TracNghiemManager.GUI
 			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "Baithi";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Baithi";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Baithi_FormClosing);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
