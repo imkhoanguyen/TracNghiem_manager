@@ -29,6 +29,7 @@ namespace TracNghiemManager.GUI.LopHoc
 		UserBUS userBUS;
 		private ChiTietQuyenBUS chiTietQuyenBus;
 		private List<ChiTietQuyenDTO> userRoles;
+		private ChiTietDeThiBUS chiTietDeThiBus;
 		private string tenQuyen;
 		public fChiTietLop(LopHocUserControl lhuc, LopDTO obj)
 		{
@@ -39,6 +40,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			ketQuaBus = new KetQuaBUS();
 			userBUS = new UserBUS();
 			chiTietQuyenBus = new ChiTietQuyenBUS();
+			chiTietDeThiBus = new ChiTietDeThiBUS();
 			lop = obj;
 			lopHocUserControl = lhuc;
 			userRoles = chiTietQuyenBus.GetRoleByUserId(Form1.USER_ID);
@@ -236,7 +238,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				Cursor = System.Windows.Forms.Cursors.Hand,
 				Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
 				TextAlign = ContentAlignment.MiddleCenter, // Đặt văn bản ở giữa theo cả hai chiều
-				Visible = tenQuyen.Contains("Học sinh") || tenQuyen.Contains("Full") ? true : false,
+				Visible = tenQuyen.Contains("Học sinh") || tenQuyen.Contains("Full") || tenQuyen.Contains("Giáo viên") ? true : false,
 			};
 
 			System.Windows.Forms.Button btnDong = new System.Windows.Forms.Button
@@ -296,25 +298,42 @@ namespace TracNghiemManager.GUI.LopHoc
 
 		private void btnLamBai_Click(object s, EventArgs ev, DeThiDTO obj, DeThiCuaLopDTO baiThi, LopDTO lop)
 		{
-			TimeSpan khoangThoiGian = baiThi.ThoiGianKetThuc - DateTime.Now;
+			List<CauHoiDTO> l = chiTietDeThiBus.GetAllCauHoiOfDeThi(baiThi.MaDeThi);
+			if(l.Count > 0)
+			{
+				TimeSpan khoangThoiGian = baiThi.ThoiGianKetThuc - DateTime.Now;
 
-			if (khoangThoiGian <= TimeSpan.Zero)
+				if (khoangThoiGian <= TimeSpan.Zero)
+				{
+
+					// Thời gian mở đã hết hoặc không còn thời gian mở, xử lý xóa và làm mới danh sách đề thi
+					dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, obj.MaDeThi);
+					MessageBox.Show("Đã quá hạn làm bài thi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					loadDeThi();
+				}
+				else
+				{
+					KetQuaDTO kq = ketQuaBus.Get(baiThi.MaBaiThi, Form1.USER_ID);
+					if (kq != null)
+					{
+						MessageBox.Show("Bạn đã làm bài thi này rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+					else
+					{
+						// Nếu còn thời gian mở, cho phép làm bài thi
+						Baithi baithi = new Baithi(obj, baiThi, lop);
+						baithi.ShowDialog();
+					}
+
+				}
+			} else
 			{
-				// Thời gian mở đã hết hoặc không còn thời gian mở, xử lý xóa và làm mới danh sách đề thi
-				dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, obj.MaDeThi);
-				MessageBox.Show("Đã quá hạn làm bài thi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				loadDeThi();
+				MessageBox.Show("Không thể làm bài (Giáo viên chưa thêm câu hỏi vào đề)", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
-			else
-			{
-				// Nếu còn thời gian mở, cho phép làm bài thi
-				Baithi baithi = new Baithi(obj, baiThi, lop);
-				baithi.ShowDialog();
-			}
-			if(ketQuaBus.Get(baiThi.MaBaiThi, Form1.USER_ID) == null)
-			{
-				MessageBox.Show("Bạn đã làm bài thi này rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
+
+
+
+
 		}
 
 		private void btnDong_Click(object s, EventArgs ev, DeThiDTO obj, DeThiCuaLopDTO bt)
@@ -323,11 +342,6 @@ namespace TracNghiemManager.GUI.LopHoc
 			//donng
 			dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, obj.MaDeThi);
 			loadDeThi();
-		}
-
-		public void delete()
-		{
-			
 		}
 
 		private void lblTenLop_Click_1(object sender, EventArgs e)

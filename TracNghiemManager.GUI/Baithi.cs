@@ -66,7 +66,7 @@ namespace TracNghiemManager.GUI
 			lblLop.Text = lop.TenLop.ToString();
 			lblNgayThi.Text = DateTime.Now.ToString();
 			lblSoCauHoi.Text = so_cau_hoi.ToString();
-			lblThoiGianLamBai.Text = deThi.ThoiGianLamBai.ToString();
+
 			// Khởi tạo đối tượng Timer và cấu hình nó
 			countdownTimer = new System.Windows.Forms.Timer();
 			countdownTimer.Interval = 1000; // Mỗi lần đếm là 1 giây (1000 ms)
@@ -74,7 +74,7 @@ namespace TracNghiemManager.GUI
 			countdownTimer.Start();
 
 			// Đặt thời gian ban đầu là 15 phút (900 giây)
-			remainingTimeInSeconds = 900;
+			remainingTimeInSeconds = deThi.ThoiGianLamBai * 60;
 			UpdateTimerLabel();
 		}
 
