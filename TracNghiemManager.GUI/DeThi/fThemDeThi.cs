@@ -102,6 +102,11 @@ namespace TracNghiemManager.GUI.DeThi
 				MessageBox.Show("Thời gian làm bài phải >= 15p", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;
 			}
+			if ((int)nud.Value > 200)
+			{
+				MessageBox.Show("Thời gian làm bài không được quá 200p", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
 			return true;
 		}
 

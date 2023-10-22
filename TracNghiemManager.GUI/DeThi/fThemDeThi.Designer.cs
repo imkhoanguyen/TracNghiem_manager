@@ -44,30 +44,27 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(47, 106);
-			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label1.Location = new System.Drawing.Point(35, 86);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(152, 28);
+			this.label1.Size = new System.Drawing.Size(120, 21);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Nhập tên đề thi:";
 			// 
 			// txtTenlop
 			// 
 			this.txtTenlop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtTenlop.Location = new System.Drawing.Point(297, 106);
-			this.txtTenlop.Margin = new System.Windows.Forms.Padding(4);
+			this.txtTenlop.Location = new System.Drawing.Point(223, 86);
 			this.txtTenlop.Name = "txtTenlop";
-			this.txtTenlop.Size = new System.Drawing.Size(311, 34);
+			this.txtTenlop.Size = new System.Drawing.Size(234, 29);
 			this.txtTenlop.TabIndex = 1;
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(216, 25);
-			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label2.Location = new System.Drawing.Point(162, 20);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(256, 50);
+			this.label2.Size = new System.Drawing.Size(209, 41);
 			this.label2.TabIndex = 2;
 			this.label2.Text = "THÊM ĐỀ THI";
 			// 
@@ -75,10 +72,9 @@
 			// 
 			this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnThem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnThem.Location = new System.Drawing.Point(464, 291);
-			this.btnThem.Margin = new System.Windows.Forms.Padding(4);
+			this.btnThem.Location = new System.Drawing.Point(348, 236);
 			this.btnThem.Name = "btnThem";
-			this.btnThem.Size = new System.Drawing.Size(144, 42);
+			this.btnThem.Size = new System.Drawing.Size(108, 34);
 			this.btnThem.TabIndex = 3;
 			this.btnThem.Text = "Lưu ";
 			this.btnThem.UseVisualStyleBackColor = true;
@@ -88,29 +84,33 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(47, 170);
-			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label3.Location = new System.Drawing.Point(35, 138);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(221, 28);
+			this.label3.Size = new System.Drawing.Size(176, 21);
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Nhập thời gian làm bài: ";
 			// 
 			// nud
 			// 
 			this.nud.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.nud.Location = new System.Drawing.Point(297, 168);
+			this.nud.Location = new System.Drawing.Point(223, 136);
+			this.nud.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.nud.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
 			this.nud.Name = "nud";
-			this.nud.Size = new System.Drawing.Size(66, 34);
+			this.nud.Size = new System.Drawing.Size(50, 29);
 			this.nud.TabIndex = 4;
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(382, 170);
-			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label4.Location = new System.Drawing.Point(286, 138);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(53, 28);
+			this.label4.Size = new System.Drawing.Size(42, 21);
 			this.label4.TabIndex = 0;
 			this.label4.Text = "phút";
 			// 
@@ -118,9 +118,10 @@
 			// 
 			this.lblChonMonHoc.AutoSize = true;
 			this.lblChonMonHoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblChonMonHoc.Location = new System.Drawing.Point(47, 225);
+			this.lblChonMonHoc.Location = new System.Drawing.Point(35, 183);
+			this.lblChonMonHoc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblChonMonHoc.Name = "lblChonMonHoc";
-			this.lblChonMonHoc.Size = new System.Drawing.Size(149, 28);
+			this.lblChonMonHoc.Size = new System.Drawing.Size(119, 21);
 			this.lblChonMonHoc.TabIndex = 5;
 			this.lblChonMonHoc.Text = "Chọn môn học: ";
 			// 
@@ -129,17 +130,18 @@
 			this.cbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbMonHoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cbMonHoc.FormattingEnabled = true;
-			this.cbMonHoc.Location = new System.Drawing.Point(297, 222);
+			this.cbMonHoc.Location = new System.Drawing.Point(223, 180);
+			this.cbMonHoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.cbMonHoc.Name = "cbMonHoc";
-			this.cbMonHoc.Size = new System.Drawing.Size(312, 36);
+			this.cbMonHoc.Size = new System.Drawing.Size(235, 29);
 			this.cbMonHoc.TabIndex = 6;
 			this.cbMonHoc.SelectedValueChanged += new System.EventHandler(this.cbMonHoc_SelectedValueChanged);
 			// 
 			// fThemDeThi
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(661, 346);
+			this.ClientSize = new System.Drawing.Size(496, 281);
 			this.Controls.Add(this.cbMonHoc);
 			this.Controls.Add(this.lblChonMonHoc);
 			this.Controls.Add(this.nud);
@@ -149,7 +151,6 @@
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label1);
-			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "fThemDeThi";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Thêm đề thi";
