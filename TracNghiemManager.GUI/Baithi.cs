@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using static System.Windows.Forms.LinkLabel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using RadioButton = System.Windows.Forms.RadioButton;
-using System.Linq;
 using GroupBox = System.Windows.Forms.GroupBox;
 using System.Drawing.Printing;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -25,17 +24,77 @@ namespace TracNghiemManager.GUI
 		private GroupBox[] groupBox;
 		private int currentIndex = 0;
 		private Panel[] slide;
-		private ChiTietDeThiBUS chiTietDeThi = new ChiTietDeThiBUS();
+		private ChiTietDeThiBUS chiTietDeThi;
 		private CauTraLoiBUS cauTraLoi = new CauTraLoiBUS();
 		private CauHoiBUS cauHoi = new CauHoiBUS();
 		private int so_cau_hoi;
-		public Baithi(int maDeThi)
+		private DeThiCuaLopDTO baiThi;
+		private UserBUS userBUS;
+		private DeThiDTO deThi;
+		private LopDTO lop;
+		private System.Windows.Forms.Timer countdownTimer;
+		private int remainingTimeInSeconds; // Số giây còn lại
+		private MonHocBUS monHocBUS;
+		public int soCauChuaChon;
+		private KetQuaBUS kqBus;
+		public Baithi(DeThiDTO dt, DeThiCuaLopDTO bt, LopDTO l)
 		{
-			List<CauHoiDTO> dsCauHoi = chiTietDeThi.GetAllCauHoiOfDeThi(maDeThi);
+			chiTietDeThi = new ChiTietDeThiBUS();
+			userBUS = new UserBUS();
+			monHocBUS = new MonHocBUS();
+			kqBus = new KetQuaBUS();
+			baiThi = bt;
+			deThi = dt;
+			lop = l;
+			soCauChuaChon = 0;
+			List<CauHoiDTO> dsCauHoi = chiTietDeThi.GetAllCauHoiOfDeThi(deThi.MaDeThi);
 			so_cau_hoi = dsCauHoi.Count;
 			InitializeComponent();
 			TaoCauHoi(so_cau_hoi);
 			tao_slide(so_cau_hoi);
+			loadInfo();
+		}
+
+		private void loadInfo()
+		{
+			lblTenThiSinh.Text = userBUS.getById(Form1.USER_ID).HoVaTen;
+			lblNgaySinh.Text = userBUS.getById(Form1.USER_ID).ngaySinh.ToString();
+			lblMonThi.Text = monHocBUS.getById(deThi.MaMonHoc).TenMonHoc;
+			lblLop.Text = lop.TenLop.ToString();
+			lblNgayThi.Text = DateTime.Now.ToString();
+			lblSoCauHoi.Text = so_cau_hoi.ToString();
+			lblThoiGianLamBai.Text = deThi.ThoiGianLamBai.ToString();
+			// Khởi tạo đối tượng Timer và cấu hình nó
+			countdownTimer = new System.Windows.Forms.Timer();
+			countdownTimer.Interval = 1000; // Mỗi lần đếm là 1 giây (1000 ms)
+			countdownTimer.Tick += new EventHandler(CountdownTimer_Tick);
+			countdownTimer.Start();
+
+			// Đặt thời gian ban đầu là 15 phút (900 giây)
+			remainingTimeInSeconds = 900;
+			UpdateTimerLabel();
+		}
+
+		private void CountdownTimer_Tick(object sender, EventArgs e)
+		{
+			if (remainingTimeInSeconds > 0)
+			{
+				remainingTimeInSeconds--;
+				UpdateTimerLabel();
+			}
+			else
+			{
+				// Thời gian đã hết, bạn có thể thực hiện các hành động tương ứng ở đây.
+				countdownTimer.Stop();
+				NopBai();
+			}
+		}
+
+		private void UpdateTimerLabel()
+		{
+			int minutes = remainingTimeInSeconds / 60;
+			int seconds = remainingTimeInSeconds % 60;
+			lblThoiGianLamBai.Text = $"{minutes:00}:{seconds:00}";
 		}
 
 		private bool GetTagValue(GroupBox grp)
@@ -45,6 +104,7 @@ namespace TracNghiemManager.GUI
 			{
 				try
 				{
+					bool anyRadioButtonChecked = false; // Biến này để kiểm tra xem có RadioButton nào được chọn hay không
 					foreach (Control ctl in grp.Controls) // Duyệt qua tất cả các control trong groupbox
 					{
 						if (ctl is RadioButton)
@@ -52,18 +112,24 @@ namespace TracNghiemManager.GUI
 							RadioButton rbtn = (RadioButton)ctl; // Ép kiểu control thành radiobutton
 							if (rbtn.Checked)
 							{
+								anyRadioButtonChecked = true;
 								if (rbtn.Tag.ToString() == "true")
 								{
 									isAnswer = true;
 									break;
 								}
-							}
+							} 
 						}
+					}
+					// Kiểm tra nếu không có RadioButton nào được chọn, tăng giá trị của soCauChuaChon
+					if (!anyRadioButtonChecked)
+					{
+						soCauChuaChon++;
 					}
 				}
 				catch (Exception ex)
 				{
-					throw;
+					Console.WriteLine(ex);
 				}
 			}
 			else
@@ -75,17 +141,52 @@ namespace TracNghiemManager.GUI
 		private void button1_Click(object sender, EventArgs e)
 		{
 			int d = 0;
+			int s = 0;
+			for (int i = 0; i < so_cau_hoi; i++)
+			{
+				if (GetTagValue(groupBox[i]))
+				{
+					d++;
+				} else
+				{
+					s++;
+				}
+
+			}
+			DialogResult result = MessageBox.Show("Xác nhận nộp bài", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+			if(result == DialogResult.OK)
+			{
+				double diemCuaMotCauDung = (10.0f / so_cau_hoi);
+				double diem = d * diemCuaMotCauDung;
+				KetQuaDTO kq = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
+				kqBus.Add(kq);
+				fKetQua f = new fKetQua(deThi, lop, kq);
+				f.Visible = true;
+			}
+			
+		}
+		
+		private void NopBai()
+		{
+			int d = 0;
+			int s = 0;
 			for (int i = 0; i < so_cau_hoi; i++)
 			{
 				if (GetTagValue(groupBox[i]))
 				{
 					d++;
 				}
-
+				else
+				{
+					s++;
+				}
 			}
-			MessageBox.Show("Bạn có muốn tiếp tục không?", "Xác nhận", MessageBoxButtons.OKCancel);
-			label14.Text = "" + d;
-
+			double diemCuaMotCauDung = (10.0f / so_cau_hoi);
+			double diem = d * diemCuaMotCauDung;
+			KetQuaDTO kq = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
+			kqBus.Add(kq);
+			fKetQua f = new fKetQua(deThi, lop, kq);
+			f.Visible = true;
 		}
 
 		private void TaoDapAn(GroupBox g, int ma_cau_hoi)
@@ -98,12 +199,13 @@ namespace TracNghiemManager.GUI
 				rd[i - 1] = new RadioButton();
 				rd[i - 1].AutoSize = true;
 				rd[i - 1].Name = "radioButton_" + i + g.Text;
+				rd[i-1].Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 				switch (i)
 				{
-					case 1: rd[i - 1].Location = new Point(9, 50); if (cauTraLoiList[i - 1].DapAn == true) { rd[i - 1].Tag = "true"; } else { rd[i - 1].Tag = "false"; } break;
-					case 2: rd[i - 1].Location = new Point(9, 96); if (cauTraLoiList[i - 1].DapAn == true) { rd[i - 1].Tag = "true"; } else { rd[i - 1].Tag = "false"; } break;
-					case 3: rd[i - 1].Location = new Point(9, 96 + 46); if (cauTraLoiList[i - 1].DapAn == true) { rd[i - 1].Tag = "true"; } else { rd[i - 1].Tag = "false"; } break;
-					case 4: rd[i - 1].Location = new Point(9, 96 + 46 + 46); if (cauTraLoiList[i - 1].DapAn == true) { rd[i - 1].Tag = "true"; } else { rd[i - 1].Tag = "false"; } break;
+					case 1: rd[i - 1].Location = new Point(15, 63); if (cauTraLoiList[i - 1].DapAn == true) { rd[i - 1].Tag = "true"; } else { rd[i - 1].Tag = "false"; } break;
+					case 2: rd[i - 1].Location = new Point(15, 125); if (cauTraLoiList[i - 1].DapAn == true) { rd[i - 1].Tag = "true"; } else { rd[i - 1].Tag = "false"; } break;
+					case 3: rd[i - 1].Location = new Point(15, 185); if (cauTraLoiList[i - 1].DapAn == true) { rd[i - 1].Tag = "true"; } else { rd[i - 1].Tag = "false"; } break;
+					case 4: rd[i - 1].Location = new Point(15, 245); if (cauTraLoiList[i - 1].DapAn == true) { rd[i - 1].Tag = "true"; } else { rd[i - 1].Tag = "false"; } break;
 
 				}
 				rd[i - 1].Size = new Size(14, 13);
@@ -124,12 +226,14 @@ namespace TracNghiemManager.GUI
 				groupBox[i - 1] = new GroupBox();
 				groupBox[i - 1].Name = "groupBox" + i;
 				groupBox[i - 1].Location = new Point(5, 5);
-				groupBox[i - 1].Margin = new Padding(0, 0, 5, 0);
-				groupBox[i - 1].Size = new Size(34, 219);
+				groupBox[i - 1].Margin = new Padding(0, 10, 5, 0);
+				groupBox[i - 1].Size = new Size(50, 290);
 				groupBox[i - 1].TabIndex = 0;
 				groupBox[i - 1].TabStop = false;
 				groupBox[i - 1].Text = "" + i;
 				groupBox[i - 1].MouseUp += GroupBox_MouseUp;
+				groupBox[i - 1].Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
 
 				TaoDapAn(groupBox[i - 1], cauHoiList[i - 1].MaCauHoi);
 
@@ -149,7 +253,7 @@ namespace TracNghiemManager.GUI
 				slide[i - 1].Name = "slide" + i;
 				slide[i - 1].Size = panel1.Size;
 				slide[i - 1].BackColor = Color.BurlyWood;
-				string cauhoi = "" + cauHoiList[i - 1].NoiDung;
+				string cauhoi = "Câu " + i  + ": " + cauHoiList[i - 1].NoiDung;
 				string cautraloi = "";
 
 				RichTextBox richTextBox1 = new RichTextBox();
@@ -159,14 +263,16 @@ namespace TracNghiemManager.GUI
 				richTextBox1.Name = "richTextBox" + i;
 				richTextBox1.Size = new System.Drawing.Size(725, 273);
 				richTextBox1.TabIndex = 0;
+				richTextBox1.Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
 				for (int j = 0; j < cauTraLoiList.Count; j++)
 				{
-					cautraloi += (j + 1) + "." + cauTraLoiList[j].NoiDung + "\n";
+					cautraloi += (j + 1) + ". " + cauTraLoiList[j].NoiDung + "\n";
 				}
 
-				richTextBox1.Enabled = false;
-				richTextBox1.Text = cauhoi + "\n" + cautraloi;
+				richTextBox1.Enabled = true;
+				richTextBox1.ReadOnly = true;
+				richTextBox1.Text = cauhoi + "\n\n" + cautraloi;
 
 				slide[i - 1].Controls.Add(richTextBox1);
 				panel1.Controls.Add(slide[i - 1]);

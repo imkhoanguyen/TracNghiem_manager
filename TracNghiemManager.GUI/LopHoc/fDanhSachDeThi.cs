@@ -31,7 +31,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			mhBus = new MonHocBUS();
 			lopDTO = l;
 			fctl = f;
-			listdt = dtBus.GetAll();
+			listdt = dtBus.GetAll(Form1.USER_ID);
 			loadDeThi(listdt);
 			loadCbMonHoc();
 		}
@@ -196,7 +196,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			try
 			{
 				string noiDungTimKiem = txtDeThi.Text;
-				List<DeThiDTO> listDt = dtBus.GetAll();
+				List<DeThiDTO> listDt = dtBus.GetAll(Form1.USER_ID);
 				List<DeThiDTO> filteredList = listDt;
 
 				if (selectedMonHoc != null)
@@ -221,7 +221,6 @@ namespace TracNghiemManager.GUI.LopHoc
 		private void btnTimKiem_Click(object sender, EventArgs e)
 		{
 			Search();
-
 		}
 
 		private void button1_Click(object sender, EventArgs e)

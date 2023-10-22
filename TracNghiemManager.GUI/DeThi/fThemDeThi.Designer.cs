@@ -126,6 +126,7 @@
 			// 
 			// cbMonHoc
 			// 
+			this.cbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbMonHoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cbMonHoc.FormattingEnabled = true;
 			this.cbMonHoc.Location = new System.Drawing.Point(297, 222);

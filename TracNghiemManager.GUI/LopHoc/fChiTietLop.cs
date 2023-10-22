@@ -25,14 +25,32 @@ namespace TracNghiemManager.GUI.LopHoc
 		List<DeThiCuaLopDTO> listdtcl;
 		MonHocBUS mhBus;
 		DeThiCuaLopBUS dtclBus;
+		KetQuaBUS ketQuaBus;
+		UserBUS userBUS;
+		private ChiTietQuyenBUS chiTietQuyenBus;
+		private List<ChiTietQuyenDTO> userRoles;
+		private string tenQuyen;
 		public fChiTietLop(LopHocUserControl lhuc, LopDTO obj)
 		{
 			InitializeComponent();
 			dtclBus = new DeThiCuaLopBUS();
 			dtBus = new DeThiBUS();
 			mhBus = new MonHocBUS();
+			ketQuaBus = new KetQuaBUS();
+			userBUS = new UserBUS();
+			chiTietQuyenBus = new ChiTietQuyenBUS();
 			lop = obj;
 			lopHocUserControl = lhuc;
+			userRoles = chiTietQuyenBus.GetRoleByUserId(Form1.USER_ID);
+			for(int i=0; i<userRoles.Count; i++)
+			{
+				tenQuyen += userRoles[i].ten_quyen;
+			}
+			if(tenQuyen.Equals("Học sinh"))
+			{
+				btnThem.Visible = false;
+				lblTenLop.Image = null;
+			}
 			loadCTLop();
 			loadDeThi();
 		}
@@ -52,6 +70,7 @@ namespace TracNghiemManager.GUI.LopHoc
 		{
 			lblMaMoi.Text = lop.MaMoi;
 			lblTenLop.Text = lop.TenLop + "   ";
+			lblTenGV.Text = userBUS.getById(lop.MaGiaoVien).HoVaTen;
 		}
 
 		private void btnThem_Click(object sender, EventArgs e)
@@ -82,8 +101,8 @@ namespace TracNghiemManager.GUI.LopHoc
 			r = r > 255 ? 255 : r;
 			g = g > 255 ? 255 : g;
 			b = b > 255 ? 255 : b;
-			
-			if (r == 134 && r == 142 && r==150)
+
+			if (r == 134 && r == 142 && r == 150)
 			{
 				return GetRandomColor();
 			}
@@ -100,7 +119,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				TabIndex = 0,
 				BorderStyle = BorderStyle.FixedSingle,
 				Margin = new Padding(10, 10, 10, 10),
-				Enabled = baiThi.TrangThai == 0 ? false : true,
+
 			};
 
 			Panel panelHead = new Panel
@@ -109,7 +128,8 @@ namespace TracNghiemManager.GUI.LopHoc
 				Name = "panelHead",
 				Size = new Size(390, 290),
 				TabIndex = 1,
-				BackColor = baiThi.TrangThai == 1 ? GetRandomColor() : Color.FromArgb(134,142,150)
+				BackColor = baiThi.TrangThai == 1 ? GetRandomColor() : Color.FromArgb(134, 142, 150),
+				Enabled = baiThi.TrangThai == 0 ? false : true,
 			};
 
 			Label lblTenDeThi = new Label
@@ -159,27 +179,69 @@ namespace TracNghiemManager.GUI.LopHoc
 				Name = "lblMonHoc1" + counter,
 				Size = new Size(110, 13),
 				TabIndex = 1,
-				Text = baiThi.TrangThai == 1 ? "Trạng thái: Đang mở" : "Trạng thái: Đã đóng",
 				Font = new Font("Segoe UI", 10, FontStyle.Regular)
 
 			};
+
+			TimeSpan khoangThoiGian = baiThi.ThoiGianKetThuc - DateTime.Now;
+			string thoiGianText = "";
+
+			if (khoangThoiGian.Days > 0)
+			{
+				thoiGianText = $"Còn {khoangThoiGian.Days} ngày";
+			}
+			else if (khoangThoiGian.Hours > 0)
+			{
+				thoiGianText = $"Còn {khoangThoiGian.Hours} giờ {khoangThoiGian.Minutes} phút";
+			}
+			else if (khoangThoiGian.Minutes > 0)
+			{
+				thoiGianText = $"Còn {khoangThoiGian.Minutes} phút";
+			}
+			else
+			{
+				thoiGianText = "Hết hạn";
+			}
+			lblTrangThai.Text = baiThi.TrangThai == 1 ? $"Trạng thái: Đang mở ({thoiGianText})" : "Trạng thái: Đã đóng";
 
 			System.Windows.Forms.Button btnLamBai = new System.Windows.Forms.Button
 			{
 				Location = new Point(10, 300),
 				Name = "button2" + counter,
-				Size = new Size(200, 41),
+				Size = new Size(120, 41),
 				TabIndex = 2,
 				Text = "Làm bài thi",
 				UseVisualStyleBackColor = true,
 				Cursor = System.Windows.Forms.Cursors.Hand,
 				Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-				TextAlign = ContentAlignment.MiddleCenter // Đặt văn bản ở giữa theo cả hai chiều
+				TextAlign = ContentAlignment.MiddleCenter, // Đặt văn bản ở giữa theo cả hai chiều
+				Enabled = baiThi.TrangThai == 0 ? false : true,
+			};
+
+			List<ChiTietQuyenDTO> userRoles = chiTietQuyenBus.GetRoleByUserId(Form1.USER_ID);
+			string tenQuyen = "";
+			for(int i=0;i < userRoles.Count; i++)
+			{
+				tenQuyen += userRoles[i].ten_quyen;
+			}
+
+			System.Windows.Forms.Button btnXemKq = new System.Windows.Forms.Button
+			{
+				Location = new Point(145, 300),
+				Name = "button2" + counter,
+				Size = new Size(120, 41),
+				TabIndex = 2,
+				Text = "Xem kết quả",
+				UseVisualStyleBackColor = true,
+				Cursor = System.Windows.Forms.Cursors.Hand,
+				Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+				TextAlign = ContentAlignment.MiddleCenter, // Đặt văn bản ở giữa theo cả hai chiều
+				Visible = tenQuyen.Contains("Học sinh") || tenQuyen.Contains("Full") ? true : false,
 			};
 
 			System.Windows.Forms.Button btnDong = new System.Windows.Forms.Button
 			{
-				Location = new Point(250, 300),
+				Location = new Point(280, 300),
 				Name = "button2" + counter,
 				Size = new Size(100, 41),
 				TabIndex = 2,
@@ -189,41 +251,84 @@ namespace TracNghiemManager.GUI.LopHoc
 				Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
 				TextAlign = ContentAlignment.MiddleCenter // Đặt văn bản ở giữa theo cả hai chiều
 			};
+			btnXemKq.Click += (s, ev) =>
+			{
+				btnXemKq_Click(s, ev, obj, baiThi);
+			};
 			btnDong.Click += (s, ev) =>
 			{
-				btnDong_Click(s, ev, obj);
+				btnDong_Click(s, ev, obj, baiThi);
 			};
 			btnLamBai.Click += (s, ev) =>
 			{
-				btnLamBai_Click(s, ev, obj);
+				btnLamBai_Click(s, ev, obj, baiThi, lop);
 			};
-			panelHead.Controls.AddRange(new Control[] { lblThoiGianLamBai, lblMonHoc, lblTenDeThi, lblTrangThai});
+			panelHead.Controls.AddRange(new Control[] { lblThoiGianLamBai, lblMonHoc, lblTenDeThi, lblTrangThai });
 
 			panelContain.Location = new Point(20, flowLayoutPanel1.Controls.Count * 150);
 			flowLayoutPanel1.Controls.Add(panelContain);
-			panelContain.Controls.AddRange(new Control[] { btnDong, panelHead, btnLamBai });
+			panelContain.Controls.AddRange(new Control[] { btnDong, panelHead, btnLamBai, btnXemKq });
 
 			flowLayoutPanel1.AutoScroll = true;
 
 			counter++;
+			if(tenQuyen.Equals("Học sinh"))
+			{
+				btnDong.Visible = false;
+				btnXemKq.Location = new Point(260, 300);
+			}
 		}
 
-		private void btnLamBai_Click(object s, EventArgs ev, DeThiDTO obj)
+		private void btnXemKq_Click(object s, EventArgs ev, DeThiDTO obj, DeThiCuaLopDTO bt)
 		{
-			Baithi baithi = new Baithi(obj.MaDeThi);
-			baithi.ShowDialog();
+			//xemkq
+			KetQuaDTO kq = ketQuaBus.Get(bt.MaBaiThi, Form1.USER_ID);
+			if (kq != null)
+			{
+				fKetQua f = new fKetQua(obj, lop, kq);
+				f.Visible = true;
+			}
+			else
+			{
+				MessageBox.Show("Bạn chưa làm bài thi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
 		}
 
-		private void btnDong_Click(object s, EventArgs ev, DeThiDTO obj)
+		private void btnLamBai_Click(object s, EventArgs ev, DeThiDTO obj, DeThiCuaLopDTO baiThi, LopDTO lop)
 		{
+			TimeSpan khoangThoiGian = baiThi.ThoiGianKetThuc - DateTime.Now;
+
+			if (khoangThoiGian <= TimeSpan.Zero)
+			{
+				// Thời gian mở đã hết hoặc không còn thời gian mở, xử lý xóa và làm mới danh sách đề thi
+				dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, obj.MaDeThi);
+				MessageBox.Show("Đã quá hạn làm bài thi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				loadDeThi();
+			}
+			else
+			{
+				// Nếu còn thời gian mở, cho phép làm bài thi
+				Baithi baithi = new Baithi(obj, baiThi, lop);
+				baithi.ShowDialog();
+			}
+		}
+
+		private void btnDong_Click(object s, EventArgs ev, DeThiDTO obj, DeThiCuaLopDTO bt)
+		{
+
+			//donng
 			dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, obj.MaDeThi);
 			loadDeThi();
 		}
 
 		private void lblTenLop_Click_1(object sender, EventArgs e)
 		{
-			fThemLop f = new fThemLop(lopHocUserControl, "edit", null, lop);
-			f.Visible = true; 
+			if(!tenQuyen.Equals("Học sinh"))
+			{
+				fThemLop f = new fThemLop(lopHocUserControl, "edit", null, lop);
+				f.Visible = true;
+			}
+			
 		}
 	}
 }

@@ -30,7 +30,6 @@ namespace TracNghiemManager.DAO
 						newIdOfUser = id;
 						return id > 0;
 					}
-					connection.Close();
 				}
 			}
 			catch (SqlException ex)
@@ -56,6 +55,7 @@ namespace TracNghiemManager.DAO
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex);
 				return false;
 			}
 		}
@@ -305,7 +305,6 @@ namespace TracNghiemManager.DAO
 						return true;
 					}
 				}
-				connection.Close();
 			}
 		}
 	}

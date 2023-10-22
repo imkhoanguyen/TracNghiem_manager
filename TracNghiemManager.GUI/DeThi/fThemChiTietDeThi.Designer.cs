@@ -28,231 +28,259 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.mainPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.leftPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.lblCauHoi = new System.Windows.Forms.Label();
 			this.lbCauHoi = new System.Windows.Forms.ListBox();
-			this.rightPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.lblCHDT = new System.Windows.Forms.Label();
 			this.lbDeThi = new System.Windows.Forms.ListBox();
-			this.centerPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLeftToRight = new System.Windows.Forms.Button();
 			this.btnRightToLeft = new System.Windows.Forms.Button();
 			this.btnLeftToRightAll = new System.Windows.Forms.Button();
 			this.btnRightToLeftAll = new System.Windows.Forms.Button();
-			this.mainPanel.SuspendLayout();
-			this.leftPanel.SuspendLayout();
-			this.rightPanel.SuspendLayout();
-			this.centerPanel.SuspendLayout();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.txt = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.cbDoKho = new System.Windows.Forms.ComboBox();
+			this.cbMonHoc = new System.Windows.Forms.ComboBox();
+			this.btnTimKiem = new System.Windows.Forms.Button();
+			this.btnLamMoi = new System.Windows.Forms.Button();
 			this.SuspendLayout();
-			// 
-			// mainPanel
-			// 
-			this.mainPanel.ColumnCount = 3;
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500F));
-			this.mainPanel.Controls.Add(this.leftPanel, 0, 0);
-			this.mainPanel.Controls.Add(this.rightPanel, 2, 0);
-			this.mainPanel.Controls.Add(this.centerPanel, 1, 0);
-			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPanel.Location = new System.Drawing.Point(0, 0);
-			this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.mainPanel.Name = "mainPanel";
-			this.mainPanel.RowCount = 1;
-			this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-			this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-			this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-			this.mainPanel.Size = new System.Drawing.Size(1192, 649);
-			this.mainPanel.TabIndex = 0;
-			// 
-			// leftPanel
-			// 
-			this.leftPanel.ColumnCount = 1;
-			this.leftPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.leftPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.leftPanel.Controls.Add(this.lblCauHoi, 0, 0);
-			this.leftPanel.Controls.Add(this.lbCauHoi, 0, 1);
-			this.leftPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.leftPanel.Location = new System.Drawing.Point(3, 2);
-			this.leftPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.leftPanel.Name = "leftPanel";
-			this.leftPanel.RowCount = 2;
-			this.leftPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.826F));
-			this.leftPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.174F));
-			this.leftPanel.Size = new System.Drawing.Size(494, 645);
-			this.leftPanel.TabIndex = 0;
-			// 
-			// lblCauHoi
-			// 
-			this.lblCauHoi.AutoSize = true;
-			this.lblCauHoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblCauHoi.Location = new System.Drawing.Point(3, 0);
-			this.lblCauHoi.Name = "lblCauHoi";
-			this.lblCauHoi.Size = new System.Drawing.Size(78, 28);
-			this.lblCauHoi.TabIndex = 0;
-			this.lblCauHoi.Text = "Câu hỏi";
 			// 
 			// lbCauHoi
 			// 
-			this.lbCauHoi.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lbCauHoi.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbCauHoi.FormattingEnabled = true;
-			this.lbCauHoi.ItemHeight = 16;
-			this.lbCauHoi.Location = new System.Drawing.Point(4, 112);
-			this.lbCauHoi.Margin = new System.Windows.Forms.Padding(4);
+			this.lbCauHoi.ItemHeight = 17;
+			this.lbCauHoi.Location = new System.Drawing.Point(12, 210);
 			this.lbCauHoi.Name = "lbCauHoi";
-			this.lbCauHoi.Size = new System.Drawing.Size(486, 529);
-			this.lbCauHoi.TabIndex = 1;
-			this.lbCauHoi.SelectedIndexChanged += new System.EventHandler(this.lbCauHoi_SelectedIndexChanged);
-			this.lbCauHoi.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbCauHoi_MouseDoubleClick);
-			// 
-			// rightPanel
-			// 
-			this.rightPanel.ColumnCount = 1;
-			this.rightPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.rightPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.rightPanel.Controls.Add(this.lblCHDT, 0, 0);
-			this.rightPanel.Controls.Add(this.lbDeThi, 0, 1);
-			this.rightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rightPanel.Location = new System.Drawing.Point(696, 4);
-			this.rightPanel.Margin = new System.Windows.Forms.Padding(4);
-			this.rightPanel.Name = "rightPanel";
-			this.rightPanel.RowCount = 2;
-			this.rightPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.69866F));
-			this.rightPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.30135F));
-			this.rightPanel.Size = new System.Drawing.Size(492, 641);
-			this.rightPanel.TabIndex = 1;
-			// 
-			// lblCHDT
-			// 
-			this.lblCHDT.AutoSize = true;
-			this.lblCHDT.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblCHDT.Location = new System.Drawing.Point(4, 0);
-			this.lblCHDT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lblCHDT.Name = "lblCHDT";
-			this.lblCHDT.Size = new System.Drawing.Size(187, 28);
-			this.lblCHDT.TabIndex = 0;
-			this.lblCHDT.Text = "Câu hỏi trong đề thi";
+			this.lbCauHoi.Size = new System.Drawing.Size(369, 378);
+			this.lbCauHoi.TabIndex = 0;
+			this.lbCauHoi.DoubleClick += new System.EventHandler(this.lbCauHoi_DoubleClick);
 			// 
 			// lbDeThi
 			// 
-			this.lbDeThi.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lbDeThi.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbDeThi.FormattingEnabled = true;
-			this.lbDeThi.ItemHeight = 16;
-			this.lbDeThi.Location = new System.Drawing.Point(4, 111);
-			this.lbDeThi.Margin = new System.Windows.Forms.Padding(4);
+			this.lbDeThi.ItemHeight = 17;
+			this.lbDeThi.Location = new System.Drawing.Point(565, 210);
 			this.lbDeThi.Name = "lbDeThi";
-			this.lbDeThi.Size = new System.Drawing.Size(484, 526);
-			this.lbDeThi.TabIndex = 1;
-			// 
-			// centerPanel
-			// 
-			this.centerPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.centerPanel.ColumnCount = 2;
-			this.centerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.centerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.centerPanel.Controls.Add(this.btnLeftToRight, 0, 0);
-			this.centerPanel.Controls.Add(this.btnRightToLeft, 1, 0);
-			this.centerPanel.Controls.Add(this.btnLeftToRightAll, 0, 1);
-			this.centerPanel.Controls.Add(this.btnRightToLeftAll, 1, 1);
-			this.centerPanel.Location = new System.Drawing.Point(504, 263);
-			this.centerPanel.Margin = new System.Windows.Forms.Padding(4);
-			this.centerPanel.Name = "centerPanel";
-			this.centerPanel.RowCount = 2;
-			this.centerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.centerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.centerPanel.Size = new System.Drawing.Size(184, 123);
-			this.centerPanel.TabIndex = 2;
+			this.lbDeThi.Size = new System.Drawing.Size(369, 378);
+			this.lbDeThi.TabIndex = 0;
+			this.lbDeThi.DoubleClick += new System.EventHandler(this.lbDeThi_DoubleClick);
 			// 
 			// btnLeftToRight
 			// 
-			this.btnLeftToRight.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.btnLeftToRight.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnLeftToRight.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnLeftToRight.Location = new System.Drawing.Point(4, 16);
-			this.btnLeftToRight.Margin = new System.Windows.Forms.Padding(4);
+			this.btnLeftToRight.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnLeftToRight.Location = new System.Drawing.Point(415, 342);
 			this.btnLeftToRight.Name = "btnLeftToRight";
-			this.btnLeftToRight.Size = new System.Drawing.Size(84, 28);
-			this.btnLeftToRight.TabIndex = 0;
+			this.btnLeftToRight.Size = new System.Drawing.Size(55, 37);
+			this.btnLeftToRight.TabIndex = 1;
 			this.btnLeftToRight.Text = ">";
 			this.btnLeftToRight.UseVisualStyleBackColor = true;
-			this.btnLeftToRight.Click += new System.EventHandler(this.btnLeftToRight_Click);
+			this.btnLeftToRight.Click += new System.EventHandler(this.btnLeftToRight_Click_1);
 			// 
 			// btnRightToLeft
 			// 
-			this.btnRightToLeft.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.btnRightToLeft.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnRightToLeft.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnRightToLeft.Location = new System.Drawing.Point(96, 16);
-			this.btnRightToLeft.Margin = new System.Windows.Forms.Padding(4);
+			this.btnRightToLeft.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnRightToLeft.Location = new System.Drawing.Point(476, 342);
 			this.btnRightToLeft.Name = "btnRightToLeft";
-			this.btnRightToLeft.Size = new System.Drawing.Size(84, 28);
+			this.btnRightToLeft.Size = new System.Drawing.Size(55, 37);
 			this.btnRightToLeft.TabIndex = 1;
 			this.btnRightToLeft.Text = "<";
 			this.btnRightToLeft.UseVisualStyleBackColor = true;
-			this.btnRightToLeft.Click += new System.EventHandler(this.btnRightToLeft_Click);
+			this.btnRightToLeft.Click += new System.EventHandler(this.btnRightToLeft_Click_1);
 			// 
 			// btnLeftToRightAll
 			// 
-			this.btnLeftToRightAll.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.btnLeftToRightAll.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnLeftToRightAll.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnLeftToRightAll.Location = new System.Drawing.Point(4, 78);
-			this.btnLeftToRightAll.Margin = new System.Windows.Forms.Padding(4);
+			this.btnLeftToRightAll.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnLeftToRightAll.Location = new System.Drawing.Point(415, 385);
 			this.btnLeftToRightAll.Name = "btnLeftToRightAll";
-			this.btnLeftToRightAll.Size = new System.Drawing.Size(84, 28);
-			this.btnLeftToRightAll.TabIndex = 2;
+			this.btnLeftToRightAll.Size = new System.Drawing.Size(55, 37);
+			this.btnLeftToRightAll.TabIndex = 1;
 			this.btnLeftToRightAll.Text = ">>";
 			this.btnLeftToRightAll.UseVisualStyleBackColor = true;
-			this.btnLeftToRightAll.Click += new System.EventHandler(this.btnLeftToRightAll_Click);
+			this.btnLeftToRightAll.Click += new System.EventHandler(this.btnLeftToRightAll_Click_1);
 			// 
 			// btnRightToLeftAll
 			// 
-			this.btnRightToLeftAll.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.btnRightToLeftAll.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnRightToLeftAll.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnRightToLeftAll.Location = new System.Drawing.Point(96, 78);
-			this.btnRightToLeftAll.Margin = new System.Windows.Forms.Padding(4);
+			this.btnRightToLeftAll.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnRightToLeftAll.Location = new System.Drawing.Point(476, 385);
 			this.btnRightToLeftAll.Name = "btnRightToLeftAll";
-			this.btnRightToLeftAll.Size = new System.Drawing.Size(84, 28);
-			this.btnRightToLeftAll.TabIndex = 3;
+			this.btnRightToLeftAll.Size = new System.Drawing.Size(55, 37);
+			this.btnRightToLeftAll.TabIndex = 1;
 			this.btnRightToLeftAll.Text = "<<";
 			this.btnRightToLeftAll.UseVisualStyleBackColor = true;
-			this.btnRightToLeftAll.Click += new System.EventHandler(this.btnRightToLeftAll_Click);
+			this.btnRightToLeftAll.Click += new System.EventHandler(this.btnRightToLeftAll_Click_1);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(295, 19);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(379, 45);
+			this.label1.TabIndex = 2;
+			this.label1.Text = "Thêm câu hỏi vào đề thi";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(12, 177);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(149, 21);
+			this.label2.TabIndex = 3;
+			this.label2.Text = "Danh sách câu hỏi";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Location = new System.Drawing.Point(561, 177);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(339, 21);
+			this.label3.TabIndex = 3;
+			this.label3.Text = "Danh sách câu hỏi đã được thêm vào đề thi";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(57, 85);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(175, 21);
+			this.label4.TabIndex = 4;
+			this.label4.Text = "Nhập nội dung câu hỏi: ";
+			// 
+			// txt
+			// 
+			this.txt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txt.Location = new System.Drawing.Point(238, 82);
+			this.txt.Name = "txt";
+			this.txt.Size = new System.Drawing.Size(504, 29);
+			this.txt.TabIndex = 5;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.Location = new System.Drawing.Point(57, 134);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(106, 21);
+			this.label5.TabIndex = 6;
+			this.label5.Text = "Chọn độ khó: ";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.Location = new System.Drawing.Point(407, 134);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(119, 21);
+			this.label6.TabIndex = 6;
+			this.label6.Text = "Chọn môn học: ";
+			// 
+			// cbDoKho
+			// 
+			this.cbDoKho.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.cbDoKho.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cbDoKho.FormattingEnabled = true;
+			this.cbDoKho.Location = new System.Drawing.Point(238, 131);
+			this.cbDoKho.Name = "cbDoKho";
+			this.cbDoKho.Size = new System.Drawing.Size(138, 29);
+			this.cbDoKho.TabIndex = 7;
+			this.cbDoKho.SelectedValueChanged += new System.EventHandler(this.cbDoKho_SelectedValueChanged);
+			// 
+			// cbMonHoc
+			// 
+			this.cbMonHoc.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.cbMonHoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cbMonHoc.FormattingEnabled = true;
+			this.cbMonHoc.Location = new System.Drawing.Point(546, 126);
+			this.cbMonHoc.Name = "cbMonHoc";
+			this.cbMonHoc.Size = new System.Drawing.Size(196, 29);
+			this.cbMonHoc.TabIndex = 7;
+			this.cbMonHoc.SelectedValueChanged += new System.EventHandler(this.cbMonHoc_SelectedValueChanged);
+			// 
+			// btnTimKiem
+			// 
+			this.btnTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnTimKiem.Location = new System.Drawing.Point(773, 82);
+			this.btnTimKiem.Name = "btnTimKiem";
+			this.btnTimKiem.Size = new System.Drawing.Size(88, 32);
+			this.btnTimKiem.TabIndex = 8;
+			this.btnTimKiem.Text = "Tìm kiếm";
+			this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.btnTimKiem.UseVisualStyleBackColor = true;
+			this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+			// 
+			// btnLamMoi
+			// 
+			this.btnLamMoi.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnLamMoi.Location = new System.Drawing.Point(773, 129);
+			this.btnLamMoi.Name = "btnLamMoi";
+			this.btnLamMoi.Size = new System.Drawing.Size(88, 32);
+			this.btnLamMoi.TabIndex = 9;
+			this.btnLamMoi.Text = "Làm mới";
+			this.btnLamMoi.UseVisualStyleBackColor = true;
+			this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
 			// 
 			// fThemChiTietDeThi
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1192, 649);
-			this.Controls.Add(this.mainPanel);
-			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.ClientSize = new System.Drawing.Size(946, 618);
+			this.Controls.Add(this.btnLamMoi);
+			this.Controls.Add(this.btnTimKiem);
+			this.Controls.Add(this.cbMonHoc);
+			this.Controls.Add(this.cbDoKho);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.txt);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.btnRightToLeftAll);
+			this.Controls.Add(this.btnLeftToRightAll);
+			this.Controls.Add(this.btnRightToLeft);
+			this.Controls.Add(this.btnLeftToRight);
+			this.Controls.Add(this.lbDeThi);
+			this.Controls.Add(this.lbCauHoi);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "fThemChiTietDeThi";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "fThemChiTietDeThi";
-			this.mainPanel.ResumeLayout(false);
-			this.leftPanel.ResumeLayout(false);
-			this.leftPanel.PerformLayout();
-			this.rightPanel.ResumeLayout(false);
-			this.rightPanel.PerformLayout();
-			this.centerPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.TableLayoutPanel mainPanel;
-		private System.Windows.Forms.TableLayoutPanel leftPanel;
-		private System.Windows.Forms.Label lblCauHoi;
-		private System.Windows.Forms.TableLayoutPanel rightPanel;
 		private System.Windows.Forms.ListBox lbCauHoi;
-		private System.Windows.Forms.Label lblCHDT;
 		private System.Windows.Forms.ListBox lbDeThi;
-		private System.Windows.Forms.TableLayoutPanel centerPanel;
 		private System.Windows.Forms.Button btnLeftToRight;
 		private System.Windows.Forms.Button btnRightToLeft;
 		private System.Windows.Forms.Button btnLeftToRightAll;
 		private System.Windows.Forms.Button btnRightToLeftAll;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TextBox txt;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.ComboBox cbDoKho;
+		private System.Windows.Forms.ComboBox cbMonHoc;
+		private System.Windows.Forms.Button btnTimKiem;
+		private System.Windows.Forms.Button btnLamMoi;
 	}
 }

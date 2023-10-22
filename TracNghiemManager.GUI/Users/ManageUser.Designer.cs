@@ -56,7 +56,7 @@ namespace TracNghiemManager.GUI.Users
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutContainer, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
-			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 2;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.2288F));
@@ -69,7 +69,7 @@ namespace TracNghiemManager.GUI.Users
 			this.flowLayoutContainer.AutoScroll = true;
 			this.flowLayoutContainer.BackColor = System.Drawing.Color.Transparent;
 			this.flowLayoutContainer.Location = new System.Drawing.Point(4, 85);
-			this.flowLayoutContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.flowLayoutContainer.Margin = new System.Windows.Forms.Padding(4);
 			this.flowLayoutContainer.Name = "flowLayoutContainer";
 			this.flowLayoutContainer.Size = new System.Drawing.Size(1360, 704);
 			this.flowLayoutContainer.TabIndex = 1;
@@ -83,7 +83,7 @@ namespace TracNghiemManager.GUI.Users
 			this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 1;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -94,7 +94,7 @@ namespace TracNghiemManager.GUI.Users
 			// 
 			this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.button1.Location = new System.Drawing.Point(30, 5);
-			this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button1.Margin = new System.Windows.Forms.Padding(4);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(100, 62);
 			this.button1.TabIndex = 0;
@@ -107,13 +107,13 @@ namespace TracNghiemManager.GUI.Users
 			this.tableLayoutPanel3.ColumnCount = 3;
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.87013F));
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.12987F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 267F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 268F));
 			this.tableLayoutPanel3.Controls.Add(this.textBox1, 2, 0);
 			this.tableLayoutPanel3.Controls.Add(this.comboBox1, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(165, 4);
-			this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 1;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -123,8 +123,8 @@ namespace TracNghiemManager.GUI.Users
 			// textBox1
 			// 
 			this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.textBox1.Location = new System.Drawing.Point(969, 21);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.textBox1.Location = new System.Drawing.Point(968, 21);
+			this.textBox1.Margin = new System.Windows.Forms.Padding(4);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(176, 22);
 			this.textBox1.TabIndex = 0;
@@ -133,14 +133,15 @@ namespace TracNghiemManager.GUI.Users
 			// comboBox1
 			// 
 			this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox1.FormattingEnabled = true;
 			this.comboBox1.Items.AddRange(new object[] {
             "username",
             "quyen",
             "ngay tao",
             "quyen va username"});
-			this.comboBox1.Location = new System.Drawing.Point(58, 20);
-			this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.comboBox1.Location = new System.Drawing.Point(57, 20);
+			this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(160, 24);
 			this.comboBox1.TabIndex = 2;
@@ -156,8 +157,8 @@ namespace TracNghiemManager.GUI.Users
 			this.tableLayoutPanel4.Controls.Add(this.dateTimePicker2, 1, 0);
 			this.tableLayoutPanel4.Controls.Add(this.button2, 2, 0);
 			this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel4.Location = new System.Drawing.Point(280, 4);
-			this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tableLayoutPanel4.Location = new System.Drawing.Point(279, 4);
+			this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
 			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
 			this.tableLayoutPanel4.RowCount = 1;
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -169,7 +170,7 @@ namespace TracNghiemManager.GUI.Users
 			// 
 			this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.dateTimePicker1.Location = new System.Drawing.Point(23, 17);
-			this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(228, 22);
 			this.dateTimePicker1.TabIndex = 0;
@@ -178,7 +179,7 @@ namespace TracNghiemManager.GUI.Users
 			// 
 			this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.dateTimePicker2.Location = new System.Drawing.Point(288, 17);
-			this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
 			this.dateTimePicker2.Name = "dateTimePicker2";
 			this.dateTimePicker2.Size = new System.Drawing.Size(228, 22);
 			this.dateTimePicker2.TabIndex = 1;
@@ -186,7 +187,7 @@ namespace TracNghiemManager.GUI.Users
 			// button2
 			// 
 			this.button2.Location = new System.Drawing.Point(535, 4);
-			this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button2.Margin = new System.Windows.Forms.Padding(4);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(100, 28);
 			this.button2.TabIndex = 2;
@@ -200,7 +201,7 @@ namespace TracNghiemManager.GUI.Users
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
 			this.Controls.Add(this.tableLayoutPanel1);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "ManageUser";
 			this.Size = new System.Drawing.Size(1376, 801);
 			this.tableLayoutPanel1.ResumeLayout(false);

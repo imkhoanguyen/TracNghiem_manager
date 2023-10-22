@@ -34,6 +34,12 @@ namespace TracNghiemManager.BUS
         {
             return deThiDAO.GetAll();
         }
+
+        public List<DeThiDTO> GetAll(int maNguoiTao)
+        {
+            return deThiDAO.GetAll(maNguoiTao);
+        }
+
         public DeThiDTO GetById(int id)
         {
             return deThiDAO.GetById(id);

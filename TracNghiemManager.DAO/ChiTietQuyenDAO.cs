@@ -30,6 +30,7 @@ namespace TracNghiemManager.DAO
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 return false;
             }
         }

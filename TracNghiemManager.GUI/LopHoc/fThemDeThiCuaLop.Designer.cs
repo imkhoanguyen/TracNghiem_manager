@@ -81,16 +81,20 @@
 			// dtpThoiGianBatDau
 			// 
 			this.dtpThoiGianBatDau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dtpThoiGianBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.dtpThoiGianBatDau.Location = new System.Drawing.Point(242, 165);
 			this.dtpThoiGianBatDau.Name = "dtpThoiGianBatDau";
+			this.dtpThoiGianBatDau.ShowUpDown = true;
 			this.dtpThoiGianBatDau.Size = new System.Drawing.Size(347, 34);
 			this.dtpThoiGianBatDau.TabIndex = 4;
 			// 
 			// dtpThoiGianKetThuc
 			// 
 			this.dtpThoiGianKetThuc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dtpThoiGianKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.dtpThoiGianKetThuc.Location = new System.Drawing.Point(242, 238);
 			this.dtpThoiGianKetThuc.Name = "dtpThoiGianKetThuc";
+			this.dtpThoiGianKetThuc.ShowUpDown = true;
 			this.dtpThoiGianKetThuc.Size = new System.Drawing.Size(347, 34);
 			this.dtpThoiGianKetThuc.TabIndex = 5;
 			// 

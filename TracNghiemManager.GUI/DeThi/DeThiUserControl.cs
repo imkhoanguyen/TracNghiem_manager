@@ -26,7 +26,7 @@ namespace TracNghiemManager.GUI.DeThi
             InitializeComponent();
             dtBus = new DeThiBUS();
             mhBus = new MonHocBUS();
-            listdt = dtBus.GetAll();
+            listdt = dtBus.GetAll(Form1.USER_ID);
             loadLop(listdt);
         }
 
@@ -59,7 +59,7 @@ namespace TracNghiemManager.GUI.DeThi
         {
             dtBus.Update(obj);
             DeThiBUS lnew = new DeThiBUS();
-            List<DeThiDTO> newlist = lnew.GetAll();
+            List<DeThiDTO> newlist = lnew.GetAll(Form1.USER_ID);
             loadLop(newlist);
         }
 
@@ -122,7 +122,7 @@ namespace TracNghiemManager.GUI.DeThi
                 Name = "lblThoiGianLamBai" + counter,
                 Size = new Size(140, 13),
                 TabIndex = 1,
-                Text = "Thời gian làm bài: " + obj.ThoiGianLamBai
+                Text = "Thời gian làm bài: " + obj.ThoiGianLamBai + " phút"
             };
 
             System.Windows.Forms.Button btnThemCauHoiVaoDe = new System.Windows.Forms.Button

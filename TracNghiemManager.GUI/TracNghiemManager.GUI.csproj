@@ -79,6 +79,12 @@
     <Compile Include="DeThi\DeThiUserControl.Designer.cs">
       <DependentUpon>DeThiUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="fKetQua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fKetQua.Designer.cs">
+      <DependentUpon>fKetQua.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeThi\DeThiUserControl.resx">
       <DependentUpon>DeThiUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fKetQua.resx">
+      <DependentUpon>fKetQua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

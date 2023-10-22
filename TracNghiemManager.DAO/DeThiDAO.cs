@@ -20,12 +20,13 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "INSERT INTO de_thi (ma_mon_hoc, ten_de_thi, thoi_gian_lam_bai, trang_thai)" +
-                        "VALUES (@ma_mon_hoc, @ten_de_thi, @thoi_gian_lam_bai, @trang_thai)";
+                    string query = "INSERT INTO de_thi (ma_mon_hoc, ma_nguoi_tao, ten_de_thi, thoi_gian_lam_bai, trang_thai)" +
+                        "VALUES (@ma_mon_hoc, @ma_nguoi_tao, @ten_de_thi, @thoi_gian_lam_bai, @trang_thai)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
 						command.Parameters.AddWithValue("@ma_mon_hoc", t.MaMonHoc);
-                        command.Parameters.AddWithValue("@ten_de_thi", t.TenDeThi);
+						command.Parameters.AddWithValue("@ma_nguoi_tao", t.MaNguoiTao);
+						command.Parameters.AddWithValue("@ten_de_thi", t.TenDeThi);
                         command.Parameters.AddWithValue("@thoi_gian_lam_bai", t.ThoiGianLamBai);
                         command.Parameters.AddWithValue("@trang_thai", 1);
                         int rowsChanged = command.ExecuteNonQuery();
@@ -79,6 +80,7 @@ namespace TracNghiemManager.DAO
                             {
                                 MaDeThi = Convert.ToInt32(reader["ma_de_thi"]),
                                 MaMonHoc = Convert.ToInt32(reader["ma_mon_hoc"]),
+                                MaNguoiTao = Convert.ToInt32(reader["ma_nguoi_tao"]),
 								TenDeThi = reader["ten_de_thi"].ToString(),
                                 ThoiGianLamBai = Convert.ToInt32(reader["thoi_gian_lam_bai"]),
                                 TrangThai = Convert.ToInt32(reader["trang_thai"])
@@ -92,7 +94,37 @@ namespace TracNghiemManager.DAO
             return dtList;
         }
 
-        public DeThiDTO GetById(int id)
+		public List<DeThiDTO> GetAll(int maNguoiTao)
+		{
+			List<DeThiDTO> dtList = new List<DeThiDTO>();
+			using (SqlConnection connection = DbConnection.GetSqlConnection())
+			{
+				string query = "Select * from de_thi Where trang_thai = 1 and ma_nguoi_tao = " + maNguoiTao;
+				using (SqlCommand command = new SqlCommand(query, connection))
+				{
+					using (SqlDataReader reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							DeThiDTO dt = new DeThiDTO
+							{
+								MaDeThi = Convert.ToInt32(reader["ma_de_thi"]),
+								MaMonHoc = Convert.ToInt32(reader["ma_mon_hoc"]),
+								MaNguoiTao = Convert.ToInt32(reader["ma_nguoi_tao"]),
+								TenDeThi = reader["ten_de_thi"].ToString(),
+								ThoiGianLamBai = Convert.ToInt32(reader["thoi_gian_lam_bai"]),
+								TrangThai = Convert.ToInt32(reader["trang_thai"])
+							};
+							dtList.Add(dt);
+						}
+					}
+
+				}
+			}
+			return dtList;
+		}
+
+		public DeThiDTO GetById(int id)
         {
             DeThiDTO result = null;
             using (SqlConnection connection = DbConnection.GetSqlConnection())

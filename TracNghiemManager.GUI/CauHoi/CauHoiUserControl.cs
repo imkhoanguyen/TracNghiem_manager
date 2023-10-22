@@ -15,16 +15,16 @@ namespace TracNghiemManager.GUI.CauHoi
 {
     public partial class CauHoiUserControl : UserControl
     {
-        CauHoiBUS chBus;
-        MonHocBUS mhBus;
-        CauTraLoiBUS ctlBus;
+        private CauHoiBUS chBus;
+        private MonHocBUS mhBus;
+        private CauTraLoiBUS ctlBus;
         private List<CauHoiDTO> listch;
-        DataTable dt;
+        private DataTable dt;
         private int idSelected; // id của row được select
         private int index; // row được select
         private MonHocDTO indexSreachMonHoc; // search
         private string indexSearchDoKho; // search
-        List<MonHocDTO> listmh;
+        private List<MonHocDTO> listmh;
         public CauHoiUserControl()
         {
 
@@ -37,14 +37,27 @@ namespace TracNghiemManager.GUI.CauHoi
             listch = chBus.getAll();
             listmh = mhBus.getAll();
             loadComboBoxMonHoc(listmh);
-            loadComboBoxDoKho();
-            dt.Columns.Add("ID", typeof(int));
+			loadComboBoxDoKho();
+			dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("Nội dung câu hỏi", typeof(string));
             dt.Columns.Add("Môn học", typeof(string));
             dt.Columns.Add("Độ khó", typeof(string));
             loadDataTable(listch);
         }
-        public void loadDataTable(List<CauHoiDTO> list)
+
+		public void load()
+		{
+			MonHocBUS newmhbus = new MonHocBUS();
+			listmh = newmhbus.getAll();
+			listch = chBus.getAll();
+			loadDataTable(listch);
+			loadComboBoxMonHoc(listmh);
+			textBoxTimKiem.Text = "";
+			comboBoxDoKho.SelectedIndex = 0;
+			loadComboBoxDoKho();
+		}
+
+		public void loadDataTable(List<CauHoiDTO> list)
         {
             listch = list;
             dt.Clear();
@@ -187,16 +200,11 @@ namespace TracNghiemManager.GUI.CauHoi
         // load lại từ dtb không phải listch
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            MonHocBUS newmhbus = new MonHocBUS();
-            listmh = newmhbus.getAll();
-            listch = chBus.getAll();
-            loadDataTable(listch);
-            loadComboBoxMonHoc(listmh);
-            textBoxTimKiem.Text = "";
-            comboBoxDoKho.SelectedIndex = 0;
+            load();
         }
 
-        private void btnXuatFile_Click(object sender, EventArgs e)
+
+		private void btnXuatFile_Click(object sender, EventArgs e)
         {
 			SaveFileDialog saveFileDialog = new SaveFileDialog();
 			saveFileDialog.Title = "Chọn File";
@@ -303,8 +311,6 @@ namespace TracNghiemManager.GUI.CauHoi
             if (cb.SelectedValue != null)
             {
                 indexSreachMonHoc = mhBus.getById(Convert.ToInt32(cb.SelectedValue));
-                if (indexSreachMonHoc != null)
-                    MessageBox.Show(indexSreachMonHoc.TenMonHoc);
             }
         }
 

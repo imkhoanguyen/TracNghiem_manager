@@ -92,7 +92,7 @@ namespace TracNghiemManager.GUI.Users
 				textBoxRole[i].Name = "textBoxRole" + i;
 				textBoxRole[i].Size = new Size(209, 23);
 
-				List<ChiTietQuyenDTO> user_roles = chiTietQuyenBUS.GetRoleByUserId(i);
+				List<ChiTietQuyenDTO> user_roles = chiTietQuyenBUS.GetRoleByUserId(users[i].Id);
 				for (int j = 0; j < user_roles.Count; j++)
 				{
 					textBoxRole[i].Text += user_roles[j].ten_quyen + "|";

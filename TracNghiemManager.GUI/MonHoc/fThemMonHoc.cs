@@ -49,7 +49,7 @@ namespace TracNghiemManager.GUI.MonHoc
                         MonHocDTO obj = new MonHocDTO(mhBus.GetAutoIncrement(), txtTenMonHoc.Text, 1);
                         monHocUserControl.AddMonHoc(obj);
                         this.Close();
-                        MessageBox.Show("Thêm môn học thành công!");
+                        MessageBox.Show("Thêm môn học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Dispose();
                     }
                     catch (Exception ex)
@@ -66,7 +66,7 @@ namespace TracNghiemManager.GUI.MonHoc
                         MonHocDTO obj = new MonHocDTO(mhUpdate.MaMonHoc, txtTenMonHoc.Text, 1);
                         monHocUserControl.UpdateMonHoc(obj);
                         this.Close();
-                        MessageBox.Show("Cập nhật môn học thành công!");
+                        MessageBox.Show("Cập nhật môn học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Dispose();
                     }
                     catch (Exception ex)
@@ -80,7 +80,7 @@ namespace TracNghiemManager.GUI.MonHoc
         {
             if(string.IsNullOrEmpty(txtTenMonHoc.Text))
             {
-                MessageBox.Show("Không được để trống tên môn học");
+                MessageBox.Show("Không được để trống tên môn học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;

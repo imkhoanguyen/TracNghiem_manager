@@ -58,7 +58,7 @@ namespace TracNghiemManager.GUI.DeThi
 					{
 						//public DeThiDTO(int maDeThi, string tenDeThi, int maMonHoc, int maNuoiTao, int thoiGianLamBai, int trangThai)
 						int time = (int)nud.Value;
-						DeThiDTO dt = new DeThiDTO(dtBus.GetAutoIncrement(), txtTenlop.Text, selectedMonHoc.MaMonHoc, time, 1);
+						DeThiDTO dt = new DeThiDTO(dtBus.GetAutoIncrement(), txtTenlop.Text, selectedMonHoc.MaMonHoc, Form1.USER_ID, time, 1);
 						deThiUserControl.AddDeThi(dt);
 						this.Close();
 						MessageBox.Show("Thêm đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -77,7 +77,7 @@ namespace TracNghiemManager.GUI.DeThi
 					try
 					{
 						int time = (int)nud.Value;
-						DeThiDTO dt = new DeThiDTO(objUpdate.MaDeThi, txtTenlop.Text, selectedMonHoc.MaMonHoc, time, 1);
+						DeThiDTO dt = new DeThiDTO(objUpdate.MaDeThi, txtTenlop.Text, selectedMonHoc.MaMonHoc, Form1.USER_ID, time, 1);
 						deThiUserControl.UpdateDeThi(dt);
 						this.Close();
 						MessageBox.Show("Cập nhật đề thi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

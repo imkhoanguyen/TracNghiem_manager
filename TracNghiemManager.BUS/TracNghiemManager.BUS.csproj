@@ -48,10 +48,12 @@
     <Compile Include="CauHoiBUS.cs" />
     <Compile Include="CauTraLoiBUS.cs" />
     <Compile Include="ChiTietDeThiBUS.cs" />
+    <Compile Include="ChiTietLopBUS.cs" />
     <Compile Include="ChiTietQuyenBUS.cs" />
     <Compile Include="ChucNangBUS.cs" />
     <Compile Include="DeThiBUS.cs" />
     <Compile Include="DeThiCuaLopBUS.cs" />
+    <Compile Include="KetQuaBUS.cs" />
     <Compile Include="LopBUS.cs" />
     <Compile Include="MonHocBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

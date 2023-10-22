@@ -44,8 +44,8 @@ namespace TracNghiemManager.GUI
 			this.infoOwnerPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.lblOwnerName = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.lblOwnerRule = new System.Windows.Forms.Label();
 			this.btnSetting = new System.Windows.Forms.Button();
+			this.lblOwnerRule = new System.Windows.Forms.Label();
 			this.pictureOwner = new System.Windows.Forms.PictureBox();
 			this.btnHome = new System.Windows.Forms.Button();
 			this.btnNguoiDung = new System.Windows.Forms.Button();
@@ -78,7 +78,6 @@ namespace TracNghiemManager.GUI
 			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.containerBtnPanel.Controls.Add(this.infoPanelBox, 0, 0);
 			this.containerBtnPanel.Controls.Add(this.btnHome, 0, 1);
-			this.containerBtnPanel.Controls.Add(this.btnNguoiDung, 0, 2);
 			this.containerBtnPanel.Dock = System.Windows.Forms.DockStyle.Left;
 			this.containerBtnPanel.Location = new System.Drawing.Point(0, 0);
 			this.containerBtnPanel.Margin = new System.Windows.Forms.Padding(10);
@@ -125,13 +124,13 @@ namespace TracNghiemManager.GUI
 			// 
 			// lblOwnerName
 			// 
+			this.lblOwnerName.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lblOwnerName.AutoSize = true;
-			this.lblOwnerName.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lblOwnerName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-			this.lblOwnerName.Location = new System.Drawing.Point(0, 0);
-			this.lblOwnerName.Margin = new System.Windows.Forms.Padding(0);
+			this.lblOwnerName.Location = new System.Drawing.Point(5, 18);
+			this.lblOwnerName.Margin = new System.Windows.Forms.Padding(5, 10, 0, 0);
 			this.lblOwnerName.Name = "lblOwnerName";
-			this.lblOwnerName.Size = new System.Drawing.Size(211, 47);
+			this.lblOwnerName.Size = new System.Drawing.Size(137, 20);
 			this.lblOwnerName.TabIndex = 0;
 			this.lblOwnerName.Text = "Nguyễn Anh Khoa";
 			this.lblOwnerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -141,8 +140,8 @@ namespace TracNghiemManager.GUI
 			this.tableLayoutPanel1.ColumnCount = 2;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.46392F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.53608F));
-			this.tableLayoutPanel1.Controls.Add(this.lblOwnerRule, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btnSetting, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.lblOwnerRule, 0, 0);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 50);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
@@ -151,21 +150,11 @@ namespace TracNghiemManager.GUI
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(205, 52);
 			this.tableLayoutPanel1.TabIndex = 1;
 			// 
-			// lblOwnerRule
-			// 
-			this.lblOwnerRule.AutoSize = true;
-			this.lblOwnerRule.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lblOwnerRule.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.lblOwnerRule.Location = new System.Drawing.Point(3, 0);
-			this.lblOwnerRule.Name = "lblOwnerRule";
-			this.lblOwnerRule.Size = new System.Drawing.Size(128, 52);
-			this.lblOwnerRule.TabIndex = 2;
-			this.lblOwnerRule.Text = "Admin";
-			this.lblOwnerRule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
 			// btnSetting
 			// 
 			this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnSetting.FlatAppearance.BorderSize = 0;
+			this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
 			this.btnSetting.Location = new System.Drawing.Point(137, 3);
 			this.btnSetting.Name = "btnSetting";
@@ -174,10 +163,24 @@ namespace TracNghiemManager.GUI
 			this.btnSetting.UseVisualStyleBackColor = true;
 			this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
 			// 
+			// lblOwnerRule
+			// 
+			this.lblOwnerRule.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.lblOwnerRule.AutoSize = true;
+			this.lblOwnerRule.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.lblOwnerRule.Location = new System.Drawing.Point(5, 21);
+			this.lblOwnerRule.Margin = new System.Windows.Forms.Padding(5, 10, 3, 0);
+			this.lblOwnerRule.Name = "lblOwnerRule";
+			this.lblOwnerRule.Size = new System.Drawing.Size(49, 19);
+			this.lblOwnerRule.TabIndex = 2;
+			this.lblOwnerRule.Text = "Admin";
+			this.lblOwnerRule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
 			// pictureOwner
 			// 
 			this.pictureOwner.Image = ((System.Drawing.Image)(resources.GetObject("pictureOwner.Image")));
 			this.pictureOwner.InitialImage = null;
+			this.pictureOwner.SizeMode = PictureBoxSizeMode.AutoSize;
 			this.pictureOwner.Location = new System.Drawing.Point(2, 2);
 			this.pictureOwner.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureOwner.Name = "pictureOwner";
@@ -455,6 +458,7 @@ namespace TracNghiemManager.GUI
 			this.MinimumSize = new System.Drawing.Size(700, 550);
 			this.Name = "UserForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Load += new System.EventHandler(this.UserForm_Load_1);
 			this.containerBtnPanel.ResumeLayout(false);
 			this.infoPanelBox.ResumeLayout(false);
 			this.infoOwnerPanel.ResumeLayout(false);
@@ -493,7 +497,6 @@ namespace TracNghiemManager.GUI
 		private MonHocUserControl monHocPanel;
 		private CauHoiUserControl cauHoiPanel;
 		private DeThiUserControl deThiPanel;
-		//private ThongKeUserControl thongKePanel;
 		private Panel containerPanel;
 		private Button btnNguoiDung;
 		private ManageUser userPanel;

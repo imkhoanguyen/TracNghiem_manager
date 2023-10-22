@@ -29,6 +29,10 @@ namespace TracNghiemManager.GUI.LopHoc
 			hanhDong = hd;
 			fctl = f;
 			dtclBus = new DeThiCuaLopBUS();
+			dtpThoiGianBatDau.Format = DateTimePickerFormat.Custom;
+			dtpThoiGianBatDau.CustomFormat = "dd/MM/yyyy HH:mm";
+			dtpThoiGianKetThuc.Format = DateTimePickerFormat.Custom;
+			dtpThoiGianKetThuc.CustomFormat = "dd/MM/yyyy HH:mm";
 		}
 
 		private void btnLuu_Click(object sender, EventArgs e)

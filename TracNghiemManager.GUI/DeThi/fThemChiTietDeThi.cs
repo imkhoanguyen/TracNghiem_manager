@@ -19,16 +19,22 @@ namespace TracNghiemManager.GUI.DeThi
 		ChiTietDeThiBUS ctdtBus;
 		List<CauHoiDTO> lLeft, lRight;
 		DeThiDTO dt;
+		MonHocBUS mhBus;
+		private MonHocDTO indexSreachMonHoc; // search
+		private string indexSearchDoKho; // search
+		CauTraLoiBUS ctlBus;
 		public fThemChiTietDeThi(DeThiDTO d)
 		{
 			InitializeComponent();
 			chBus = new CauHoiBUS();
 			ctdtBus = new ChiTietDeThiBUS();
+			mhBus = new MonHocBUS();
+			ctlBus = new CauTraLoiBUS();
 			dt = d;
 			lbCauHoi.SelectionMode = SelectionMode.MultiSimple;
 			lbDeThi.SelectionMode = SelectionMode.MultiSimple;
-
-
+			lbCauHoi.HorizontalScrollbar = true;
+			lbDeThi.HorizontalScrollbar = true;
 			load();
 			lbCauHoi.DisplayMember = "CauHoiDTOToString";
 			lbDeThi.DisplayMember = "CauHoiDTOToString";
@@ -36,6 +42,8 @@ namespace TracNghiemManager.GUI.DeThi
 
 		void load()
 		{
+			lbCauHoi.Items.Clear();
+			lbDeThi.Items.Clear();
 			List<CauHoiDTO> lch = chBus.getAll();
 			lLeft = new List<CauHoiDTO>(lch); // Sao chép danh sách câu hỏi ban đầu
 			lRight = ctdtBus.GetAllCauHoiOfDeThi(dt.MaDeThi);
@@ -58,18 +66,29 @@ namespace TracNghiemManager.GUI.DeThi
 				lbCauHoi.Items.Add(item);
 			}
 
-
+			// load comboBox
+			loadComboBoxDoKho();
+			loadComboBoxMonHoc();
+			txt.Text = "";
 		}
 
-		private void lbCauHoi_SelectedIndexChanged(object sender, EventArgs e)
+		private void lbCauHoi_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
-			
-			
+			// Lấy chỉ mục của mục được double click
+			int index = lbCauHoi.IndexFromPoint(e.Location);
+
+			// Đảm bảo chỉ thực hiện khi double click vào một mục cụ thể
+			if (index != ListBox.NoMatches)
+			{
+				// Lấy đối tượng được double click
+				CauHoiDTO selectedItem = (CauHoiDTO)lbCauHoi.Items[index];
+				MessageBox.Show(selectedItem.NoiDung);
+			}
 		}
 
-		private void btnRightToLeft_Click(object sender, EventArgs e)
+		private void btnRightToLeft_Click_1(object sender, EventArgs e)
 		{
-			if(lbDeThi.Items.Count > 0)
+			if (lbDeThi.Items.Count > 0)
 			{
 				ListBox.SelectedObjectCollection ds = lbDeThi.SelectedItems;
 				ListBox.SelectedIndexCollection ds2 = lbDeThi.SelectedIndices;
@@ -90,16 +109,16 @@ namespace TracNghiemManager.GUI.DeThi
 					}
 
 				}
-			} else
+			}
+			else
 			{
 				MessageBox.Show("Danh sách câu hỏi đang rỗng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
-
 		}
 
-		private void btnLeftToRightAll_Click(object sender, EventArgs e)
+		private void btnLeftToRightAll_Click_1(object sender, EventArgs e)
 		{
-			if(lbCauHoi.Items.Count > 0)
+			if (lbCauHoi.Items.Count > 0)
 			{
 				foreach (CauHoiDTO item in lbCauHoi.Items)
 				{
@@ -110,17 +129,17 @@ namespace TracNghiemManager.GUI.DeThi
 
 				// Xóa tất cả các mục từ lbCauHoi
 				lbCauHoi.Items.Clear();
-			} else
+			}
+			else
 			{
 				MessageBox.Show("Danh sách câu hỏi đang rỗng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 			}
-
 		}
 
-		private void btnRightToLeftAll_Click(object sender, EventArgs e)
+		private void btnRightToLeftAll_Click_1(object sender, EventArgs e)
 		{
-			if(lbDeThi.Items.Count > 0)
+			if (lbDeThi.Items.Count > 0)
 			{
 				foreach (CauHoiDTO item in lbDeThi.Items)
 				{
@@ -128,31 +147,17 @@ namespace TracNghiemManager.GUI.DeThi
 				}
 				lbDeThi.Items.Clear();
 				ctdtBus.Delete(dt.MaDeThi);
-			} else
+			}
+			else
 			{
 				MessageBox.Show("Danh sách câu hỏi đang rỗng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 			}
-
 		}
 
-		private void lbCauHoi_MouseDoubleClick(object sender, MouseEventArgs e)
+		private void btnLeftToRight_Click_1(object sender, EventArgs e)
 		{
-			// Lấy chỉ mục của mục được double click
-			int index = lbCauHoi.IndexFromPoint(e.Location);
-
-			// Đảm bảo chỉ thực hiện khi double click vào một mục cụ thể
-			if (index != ListBox.NoMatches)
-			{
-				// Lấy đối tượng được double click
-				CauHoiDTO selectedItem = (CauHoiDTO)lbCauHoi.Items[index];
-				MessageBox.Show(selectedItem.NoiDung);
-			}
-		}
-
-		private void btnLeftToRight_Click(object sender, EventArgs e)
-		{
-			if(lbCauHoi.Items.Count  > 0)
+			if (lbCauHoi.Items.Count > 0)
 			{
 				ListBox.SelectedObjectCollection ds = lbCauHoi.SelectedItems;
 				ListBox.SelectedIndexCollection ds2 = lbCauHoi.SelectedIndices;
@@ -166,9 +171,129 @@ namespace TracNghiemManager.GUI.DeThi
 				{
 					lbCauHoi.Items.RemoveAt(ds2[i]);
 				}
-			} else
+			}
+			else
 			{
 				MessageBox.Show("Danh sách câu hỏi đang rỗng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+		}
+
+		public void loadComboBoxDoKho()
+		{
+			List<string> listdk = new List<string> { "Dễ", "Bình thường", "Khó" };
+			cbDoKho.DataSource = listdk;
+			cbDoKho.SelectedIndex = 0;
+		}
+
+		private void btnLamMoi_Click(object sender, EventArgs e)
+		{
+			load();
+		}
+
+		public void loadComboBoxMonHoc()
+		{
+			List<MonHocDTO> l = mhBus.getAll();
+			cbMonHoc.ValueMember = "MaMonHoc";
+			cbMonHoc.DisplayMember = "TenMonHoc";
+			cbMonHoc.DataSource = l;
+			cbMonHoc.SelectedIndex = 0;
+		}
+
+		private void cbDoKho_SelectedValueChanged(object sender, EventArgs e)
+		{
+			ComboBox cb = sender as ComboBox;
+			//search
+			if (cb.SelectedValue != null)
+			{
+				indexSearchDoKho = cb.SelectedValue.ToString();
+			}
+		}
+
+		private void cbMonHoc_SelectedValueChanged(object sender, EventArgs e)
+		{
+			ComboBox cb = sender as ComboBox;
+			//search
+			if (cb.SelectedValue != null)
+			{
+				indexSreachMonHoc = mhBus.getById(Convert.ToInt32(cb.SelectedValue));
+			}
+		}
+
+		private void btnTimKiem_Click(object sender, EventArgs e)
+		{
+			Search();
+		}
+
+		private void lbCauHoi_DoubleClick(object sender, EventArgs e)
+		{
+			ListBox.SelectedObjectCollection ds = lbCauHoi.SelectedItems;
+			if(ds.Count == 1 )
+			{
+				foreach(CauHoiDTO item in ds)
+				{
+					List<CauTraLoiDTO> l = ctlBus.getByMaCauHoi(item.MaCauHoi);
+					fThemCauHoi fThem = new fThemCauHoi("view", item, l);
+					fThem.Visible = true;
+				}
+			} else
+			{
+				MessageBox.Show("Vui lòng chọn 1 hàng để xem chi tiết!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+		}
+
+		private void lbDeThi_DoubleClick(object sender, EventArgs e)
+		{
+			ListBox.SelectedObjectCollection ds = lbDeThi.SelectedItems;
+			if (ds.Count == 1)
+			{
+				foreach (CauHoiDTO item in ds)
+				{
+					List<CauTraLoiDTO> l = ctlBus.getByMaCauHoi(item.MaCauHoi);
+					fThemCauHoi fThem = new fThemCauHoi("view", item, l);
+					fThem.Visible = true;
+				}
+			}
+			else
+			{
+				MessageBox.Show("Vui lòng chọn 1 hàng để xem chi tiết!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+		}
+
+		public void Search()
+		{
+			try
+			{
+				string noiDungTimKiem = txt.Text;
+
+				// Lọc các câu hỏi theo nội dung tìm kiếm
+				List<CauHoiDTO> listCauHoiTimKiem = lLeft.Where(ch => ch.NoiDung.Contains(noiDungTimKiem)).ToList();
+
+				// Nếu có chọn môn học thì lọc các câu hỏi theo môn học
+				if (indexSreachMonHoc != null)
+				{
+					listCauHoiTimKiem = (List<CauHoiDTO>)listCauHoiTimKiem.Where(ch => ch.MaMonHoc == indexSreachMonHoc.MaMonHoc).ToList();
+				}
+
+				// Nếu có chọn độ khó thì lọc các câu hỏi theo độ khó
+				if (!string.IsNullOrEmpty(indexSearchDoKho))
+				{
+					listCauHoiTimKiem = (List<CauHoiDTO>)listCauHoiTimKiem.Where(ch => ch.DoKho == indexSearchDoKho).ToList();
+				}
+
+				// Nếu không chọn môn học và độ khó thì tìm kiếm theo nội dung tìm kiếm
+				if (indexSreachMonHoc == null && indexSearchDoKho == null)
+				{
+					listCauHoiTimKiem = (List<CauHoiDTO>)lLeft.Where(ch => ch.NoiDung.Contains(noiDungTimKiem)).ToList();
+				}
+				lbCauHoi.Items.Clear();
+				foreach(CauHoiDTO item in listCauHoiTimKiem)
+				{
+					lbCauHoi.Items.Add(item);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
 			}
 
 		}

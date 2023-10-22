@@ -63,13 +63,14 @@ namespace TracNghiemManager.DAO
             }
         }
 
-        public List<LopDTO> GetAll()
+        public List<LopDTO> GetAll(int userId)
         {
             List<LopDTO> lopList = new List<LopDTO>();
             using (SqlConnection connection = DbConnection.GetSqlConnection())
             {
-                string query = "Select * from lop Where trang_thai = 1";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                string query = "select lop.* from chi_tiet_lop inner join lop on chi_tiet_lop.ma_lop = lop.ma_lop and chi_tiet_lop.user_id = " + userId;
+
+				using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -92,7 +93,8 @@ namespace TracNghiemManager.DAO
             return lopList;
         }
 
-        public LopDTO GetById(int id)
+
+		public LopDTO GetById(int id)
         {
             LopDTO result = null;
             using (SqlConnection connection = DbConnection.GetSqlConnection())
@@ -175,5 +177,59 @@ namespace TracNghiemManager.DAO
             }
             return result + 1;
         }
-    }
+
+		public List<LopDTO> GetAll()
+		{
+			List<LopDTO> lopList = new List<LopDTO>();
+			using (SqlConnection connection = DbConnection.GetSqlConnection())
+			{
+				string query = "Select * from lop Where trang_thai = 1";
+				using (SqlCommand command = new SqlCommand(query, connection))
+				{
+					using (SqlDataReader reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							LopDTO lop = new LopDTO
+							{
+								MaLop = Convert.ToInt32(reader["ma_lop"]),
+								MaGiaoVien = Convert.ToInt32(reader["ma_giao_vien"]),
+								TenLop = reader["ten_lop"].ToString(),
+								MaMoi = reader["ma_moi"].ToString(),
+								TrangThai = Convert.ToInt32(reader["trang_thai"])
+							};
+							lopList.Add(lop);
+						}
+					}
+
+				}
+			}
+			return lopList;
+		}
+
+		public int GetMaLopByMaMoi(string maMoi)
+		{
+			int result = -1; 
+
+			using (SqlConnection connection = DbConnection.GetSqlConnection())
+			{
+				string query = "SELECT ma_lop FROM lop WHERE ma_moi = @ma_moi";
+				using (SqlCommand command = new SqlCommand(query, connection))
+				{
+					command.Parameters.AddWithValue("@ma_moi", maMoi); 
+
+					// Sử dụng ExecuteScalar() để trả về giá trị đơn
+					object objResult = command.ExecuteScalar();
+
+					if (objResult != null)
+					{
+						// Nếu có kết quả, chuyển đổi sang kiểu int
+						result = Convert.ToInt32(objResult);
+					}
+				}
+			}
+
+			return result;
+		}
+	}
 }

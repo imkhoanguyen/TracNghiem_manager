@@ -15,15 +15,21 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Drawing.Drawing2D;
 using TracNghiemManager.DTO;
 using TracNghiemManager.GUI.Users;
+using TracNghiemManager.BUS;
 
 namespace TracNghiemManager.GUI
 {
 	public partial class UserForm : Form
 	{
 		private Rectangle recLab1;
-
+		private ChiTietQuyenBUS chiTietQuyenBUS;
+		private UserBUS userBus;
+		private string tenQuyen;
+		private List<ChiTietQuyenDTO> userRoles;
 		public UserForm()
 		{
+			chiTietQuyenBUS = new ChiTietQuyenBUS();
+			userBus = new UserBUS();
 			InitializeComponent();
 			AddColorChange(btnHome, hoverColor, hoverColor);
 			AddColorChange(btnCauHoi, hoverColor, hoverColor);
@@ -33,7 +39,25 @@ namespace TracNghiemManager.GUI
 			AddColorChange(btnThongKe, hoverColor, hoverColor);
 			AddColorChange(btnThoat, hoverColor, hoverColor);
 			AddColorChange(btnNguoiDung, hoverColor, hoverColor);
-			//AddColorChange(btnPhanQuyen, hoverColor, hoverColor);
+			userRoles = chiTietQuyenBUS.GetRoleByUserId(Form1.USER_ID);
+			for (int i = 0; i < userRoles.Count; i++)
+			{
+				if (userRoles.Count > 1)
+				{
+					tenQuyen += userRoles[i].ten_quyen + ", ";
+
+				}
+				else
+				{
+					tenQuyen += userRoles[i].ten_quyen;
+
+				}
+
+			}
+			UserDTO u = userBus.getById(Form1.USER_ID);
+
+			lblOwnerName.Text = u.HoVaTen;
+			lblOwnerRule.Text = tenQuyen;
 
 			infoPanelBox.Paint += (sender, e) =>
 			{
@@ -59,23 +83,7 @@ namespace TracNghiemManager.GUI
 			};
 			HideAllUserControls();
 			homePanel.Visible = true;
-			//tmp
-			containerBtnPanel.Controls.Add(btnThongKe, 0, 8);
-			containerBtnPanel.RowStyles.Add(new RowStyle());
-			containerBtnPanel.Controls.Add(btnThoat, 0, 9);
-			containerBtnPanel.RowStyles.Add(new RowStyle());
-			containerBtnPanel.Controls.Add(btnNguoiDung, 0, 7);
-			containerBtnPanel.RowStyles.Add(new RowStyle());
-			containerBtnPanel.Controls.Add(btnLopHoc, 0, 2);
-			containerBtnPanel.RowStyles.Add(new RowStyle());
-			containerBtnPanel.Controls.Add(btnCauHoi, 0, 4);
-			containerBtnPanel.RowStyles.Add(new RowStyle());
-			containerBtnPanel.Controls.Add(btnDeThi, 0, 5);
-			containerBtnPanel.RowStyles.Add(new RowStyle());
-			containerBtnPanel.Controls.Add(btnMonHoc, 0, 3);
-			containerBtnPanel.RowStyles.Add(new RowStyle());
-			//containerBtnPanel.Controls.Add(btnPhanQuyen, 0, 6);
-			//containerBtnPanel.RowStyles.Add(new RowStyle());
+
 		}
 
 		private void HideAllUserControls()
@@ -184,6 +192,7 @@ namespace TracNghiemManager.GUI
 		private void btnCauHoi_Click(object sender, EventArgs e)
 		{
 			ShowUserControl(cauHoiPanel);
+			cauHoiPanel.load();
 		}
 
 		private void btnDeThi_Click(object sender, EventArgs e)
@@ -217,59 +226,6 @@ namespace TracNghiemManager.GUI
 			//ShowUserControl(PermissionUser);
 		}
 
-		private void UserForm_Load(object sender, EventArgs e)
-		{
-			
-			//List<ChucNangDTO> listChucNang = ChucNangDAO.Instance.GetTenChucNangBangUserId(Form1.USER_ID);
-
-			//for (int i = 0; i < listChucNang.Count; i++)
-			//{
-			//    if (listChucNang[i].ten_chuc_nang.Equals("sửa user") || listChucNang[i].ten_chuc_nang.Equals("xóa user") ||
-			//        listChucNang[i].ten_chuc_nang.Equals("thêm user"))
-			//    {
-			//        containerBtnPanel.Controls.Add(btnNguoiDung, 0, 7);
-			//        containerBtnPanel.RowStyles.Add(new RowStyle());
-			//    }
-
-			//    if (listChucNang[i].ten_chuc_nang.Equals("tạo lớp") || listChucNang[i].ten_chuc_nang.Equals("xóa lớp") ||
-			//        listChucNang[i].ten_chuc_nang.Equals("sửa lớp"))
-			//    {
-			//        containerBtnPanel.Controls.Add(btnLopHoc, 0, 2);
-			//        containerBtnPanel.RowStyles.Add(new RowStyle());
-			//    }
-
-			//    if (listChucNang[i].ten_chuc_nang.Equals("tạo câu hỏi") || listChucNang[i].ten_chuc_nang.Equals("sửa câu hỏi") ||
-			//        listChucNang[i].ten_chuc_nang.Equals("xóa câu hỏi"))
-			//    {
-			//        containerBtnPanel.Controls.Add(btnCauHoi, 0, 4);
-			//        containerBtnPanel.RowStyles.Add(new RowStyle());
-			//    }
-
-			//    if (listChucNang[i].ten_chuc_nang.Equals("tạo đề thi") || listChucNang[i].ten_chuc_nang.Equals("xóa đề thi") ||
-			//        listChucNang[i].ten_chuc_nang.Equals("sửa đề thi"))
-			//    {
-			//        containerBtnPanel.Controls.Add(btnDeThi, 0, 5);
-			//        containerBtnPanel.RowStyles.Add(new RowStyle());
-			//    }
-
-			//    if (listChucNang[i].ten_chuc_nang.Equals("tạo môn học") || listChucNang[i].ten_chuc_nang.Equals("sửa môn học") ||
-			//        listChucNang[i].ten_chuc_nang.Equals("xóa môn học"))
-			//    {
-			//        containerBtnPanel.Controls.Add(btnMonHoc, 0, 3);
-			//        containerBtnPanel.RowStyles.Add(new RowStyle());
-			//    }
-
-			//    if (listChucNang[i].ten_chuc_nang.Equals("sửa chức năng") || listChucNang[i].ten_chuc_nang.Equals("xóa chức năng") ||
-			//        listChucNang[i].ten_chuc_nang.Equals("thêm chức năng"))
-			//    {
-			//        containerBtnPanel.Controls.Add(btnPhanQuyen, 0, 6);
-			//        containerBtnPanel.RowStyles.Add(new RowStyle());
-			//    }
-			//}
-		}
-
-
-
 		private void lblSetting_Click(object sender, EventArgs e)
 		{
 			UserInfo info = new UserInfo();
@@ -278,9 +234,51 @@ namespace TracNghiemManager.GUI
 
 		private void btnSetting_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("click");
 			UserInfo f = new UserInfo();
 			f.Visible = true;
+		}
+
+		private void UserForm_Load_1(object sender, EventArgs e)
+		{
+			List<ChiTietQuyenDTO> list = chiTietQuyenBUS.GetRoleByUserId(Form1.USER_ID);
+
+			for (int i = 0; i < list.Count; i++)
+			{
+				if (list[i].ten_quyen.Contains("Admin") || list[i].ten_quyen.Contains("Full"))
+				{
+					containerBtnPanel.Controls.Add(btnNguoiDung, 0, 7);
+					containerBtnPanel.RowStyles.Add(new RowStyle());
+				}
+
+				if (list[i].ten_quyen.Contains("Giáo viên") || list[i].ten_quyen.Contains("Học sinh") || list[i].ten_quyen.Contains("Full"))
+				{
+					containerBtnPanel.Controls.Add(btnLopHoc, 0, 2);
+					containerBtnPanel.RowStyles.Add(new RowStyle());
+				}
+
+				if (list[i].ten_quyen.Contains("Giáo viên") || list[i].ten_quyen.Contains("Full"))
+				{
+					containerBtnPanel.Controls.Add(btnCauHoi, 0, 4);
+					containerBtnPanel.RowStyles.Add(new RowStyle());
+				}
+
+				if (list[i].ten_quyen.Contains("Giáo viên") || list[i].ten_quyen.Contains("Full"))
+				{
+					containerBtnPanel.Controls.Add(btnDeThi, 0, 5);
+					containerBtnPanel.RowStyles.Add(new RowStyle());
+				}
+
+				if (list[i].ten_quyen.Contains("Giáo viên") || list[i].ten_quyen.Contains("Full"))
+				{
+					containerBtnPanel.Controls.Add(btnMonHoc, 0, 3);
+					containerBtnPanel.RowStyles.Add(new RowStyle());
+				}
+
+			}
+			containerBtnPanel.Controls.Add(btnThongKe, 0, 8);
+			containerBtnPanel.RowStyles.Add(new RowStyle());
+			containerBtnPanel.Controls.Add(btnThoat, 0, 9);
+			containerBtnPanel.RowStyles.Add(new RowStyle());
 		}
 	}
 }

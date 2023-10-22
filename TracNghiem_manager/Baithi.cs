@@ -53,7 +53,7 @@ namespace TracNghiem_manager
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex);
                 }
             }
             else
