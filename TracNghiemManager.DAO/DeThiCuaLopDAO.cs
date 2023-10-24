@@ -163,14 +163,14 @@ namespace TracNghiemManager.DAO
 			return result + 1;
 		}
 
-		public int GetCountDeThi(int ma_de_thi)
+		public int CheckDeThiCoTrongLop(int ma_de_thi, int ma_lop)
 		{
 			int count = -1;
 			try
 			{
 				using (SqlConnection connection = DbConnection.GetSqlConnection())
 				{
-					string query = "SELECT COUNT(ma_de_thi) FROM bai_thi WHERE ma_de_thi = " + ma_de_thi;
+					string query = "SELECT COUNT(ma_de_thi) FROM bai_thi WHERE ma_de_thi = " + ma_de_thi + " and ma_lop = " + ma_lop;
 					using (SqlCommand command = new SqlCommand(query, connection))
 					{
 						count = (int)command.ExecuteScalar();

@@ -28,11 +28,27 @@ namespace TracNghiemManager.GUI
 			lop = l;
 			ketQua = kq;
 			load();
-			
+
 		}
 
 		void load()
 		{
+			if (ketQua.SoCauDung >= 10)
+			{
+				lblDung.Location = new Point(74, 118);
+			}
+			if (ketQua.SoCauSai >= 10)
+			{
+				lblSai.Location = new Point(78, 118);
+			}
+			if (ketQua.SoCauChuaChon >= 10)
+			{
+				lblBoQua.Location = new Point(78, 118);
+			}
+			if (ketQua.Diem < 10)
+			{
+				lblDiem.Location = new Point(68, 120);
+			}
 			lblTTenBaiThi.Text = deThi.TenDeThi;
 			lblTenThiSinh.Text = userBUS.getById(Form1.USER_ID).HoVaTen;
 			lblTenLop.Text = lop.TenLop;
@@ -41,7 +57,8 @@ namespace TracNghiemManager.GUI
 			lblDung.Text = ketQua.SoCauDung.ToString();
 			lblSai.Text = ketQua.SoCauSai.ToString();
 			lblDiem.Text = ketQua.Diem.ToString();
+
 		}
-	
+
 	}
 }

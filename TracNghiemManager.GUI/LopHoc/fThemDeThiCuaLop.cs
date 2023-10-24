@@ -90,7 +90,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				// Trả về false nếu dtpThoiGianBatDau nhỏ hơn hoặc bằng thời gian hiện tại
 				return false;
 			}
-			if(dtclBus.checkDeThiCoTrongLop(deThiDTO.MaDeThi))
+			if(dtclBus.checkDeThiCoTrongLop(deThiDTO.MaDeThi, lopDTO.MaLop))
 			{
 				MessageBox.Show("Đề thi đã có trong lớp rồi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;

@@ -49,9 +49,9 @@ namespace TracNghiemManager.BUS
 			return deThiCuaLopDAO.GetAutoIncrement();
 		}
 
-		public bool checkDeThiCoTrongLop(int ma_de_thi)
+		public bool checkDeThiCoTrongLop(int ma_de_thi, int ma_lop)
 		{
-			if(deThiCuaLopDAO.GetCountDeThi(ma_de_thi) >= 1)
+			if(deThiCuaLopDAO.CheckDeThiCoTrongLop(ma_de_thi, ma_lop) >= 1)
 			{
 				return true;
 			}

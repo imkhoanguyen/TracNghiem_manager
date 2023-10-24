@@ -68,7 +68,7 @@ namespace TracNghiemManager.DAO
             List<LopDTO> lopList = new List<LopDTO>();
             using (SqlConnection connection = DbConnection.GetSqlConnection())
             {
-                string query = "select lop.* from chi_tiet_lop inner join lop on chi_tiet_lop.ma_lop = lop.ma_lop and chi_tiet_lop.user_id = " + userId;
+                string query = "select lop.* from chi_tiet_lop inner join lop on chi_tiet_lop.ma_lop = lop.ma_lop and chi_tiet_lop.user_id = " + userId + " and lop.trang_thai = 1";
 
 				using (SqlCommand command = new SqlCommand(query, connection))
                 {

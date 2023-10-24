@@ -234,7 +234,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				Name = "button2" + counter,
 				Size = new Size(120, 41),
 				TabIndex = 2,
-				Text = "Xem kết quả",
+				Text = "Kết quả",
 				UseVisualStyleBackColor = true,
 				Cursor = System.Windows.Forms.Cursors.Hand,
 				Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
