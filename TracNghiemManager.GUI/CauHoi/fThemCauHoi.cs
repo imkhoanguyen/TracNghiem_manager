@@ -15,11 +15,11 @@ namespace TracNghiemManager.GUI.CauHoi
 {
 	public partial class fThemCauHoi : Form
 	{
-		CauHoiUserControl cauHoiUserControl;
-		CauHoiBUS chBus;
-		MonHocBUS mhBus;
-		CauTraLoiBUS ctlBus;
-		string hanhDong;
+		private CauHoiUserControl cauHoiUserControl;
+		private CauHoiBUS chBus;
+		private MonHocBUS mhBus;
+		private CauTraLoiBUS ctlBus;
+		private string hanhDong;
 		private MonHocDTO selectedMonHoc;
 		private string selectedDoKho;
 		private int selectedSoDapAn;
@@ -210,7 +210,6 @@ namespace TracNghiemManager.GUI.CauHoi
 			}
 			else if (hanhDong.Equals("edit"))
 			{
-
 				if (checkValidInput())
 				{
 					// Check truong hop cap nhat 4 cau tra loi thanh 2 cau tra loi
