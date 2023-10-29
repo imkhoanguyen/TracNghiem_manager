@@ -13,70 +13,26 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TracNghiemManager.GUI.Users
 {
-    public partial class UserInfo : Form
-    {
+	public partial class UserInfo : Form
+	{
 		UserBUS userBUS = new UserBUS();
 		int user_id = Form1.USER_ID;
 		UserDTO user;
+		private DateTime timePick;
+		private UserForm userForm;
 		public UserInfo()
 		{
 			InitializeComponent();
 			user = userBUS.getById(user_id);
 			RenderUser(user);
 		}
-
-		private void buttonUpImg_Click(object sender, EventArgs e)
+		public UserInfo(UserForm f)
 		{
-			OpenFileDialog ofdImages = new OpenFileDialog();
-			ofdImages.Filter = "Ảnh (*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp";
-			if (ofdImages.ShowDialog() == DialogResult.OK)
-			{
-				string filepath = ofdImages.FileName;
+			InitializeComponent();
+			userForm = f;
+			user = userBUS.getById(user_id);
+			RenderUser(user);
 
-				pictureBox1.Image = Image.FromFile(filepath);
-				pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-
-				textBox1.Text = filepath;
-			}
-		}
-
-		private void button1_Click(object sender, EventArgs e)
-		{
-			if (validate_form())
-			{
-				user = userBUS.getById(user_id);
-				DateTime date = dateTimePicker1.Value;
-				string gender = "";
-				if (rbNam.Checked) gender = rbNam.Tag.ToString();
-				if (RbNu.Checked) gender = RbNu.Tag.ToString();
-
-				int gioi_tinh = Convert.ToInt32(gender);
-				user.Email = textBoxEmail.Text.Trim();
-				user.HoVaTen = textBoxName.Text.Trim();
-				user.ngaySinh = Convert.ToDateTime(textBox2.Text.Trim());
-				user.avatar = textBox1.Text.Trim();
-				user.gioiTinh = gioi_tinh;
-
-				MessageBox.Show(userBUS.Update(user));
-
-				button1.Visible = false;
-				buttonUpImg.Visible = false;
-				panel1.Enabled = false;
-				textBoxName.Enabled = false;
-				textBoxEmail.Enabled = false;
-				dateTimePicker1.Enabled = false;
-			}
-		}
-
-		private void button2_Click(object sender, EventArgs e)
-		{
-			button1.Visible = true;
-			buttonUpImg.Visible = true;
-
-			panel1.Enabled = true;
-			textBoxName.Enabled = true;
-			textBoxEmail.Enabled = true;
-			dateTimePicker1.Enabled = true;
 		}
 
 		private void label5_Click(object sender, EventArgs e)
@@ -92,6 +48,8 @@ namespace TracNghiemManager.GUI.Users
 
 			textBoxEmail.Text = user.Email;
 
+			txtPass.Text = user.Password;
+
 			dateTimePicker1.Value = user.ngaySinh;
 
 			if (user.gioiTinh == 1)
@@ -105,12 +63,115 @@ namespace TracNghiemManager.GUI.Users
 		}
 		private bool validate_form()
 		{
+			DateTime currentDateTime = DateTime.Now;
+			DateTime minDateTime = new DateTime(1900, 1, 1);
+			if (string.IsNullOrEmpty(textBoxName.Text) && textBoxName.Enabled == true)
+			{
+				MessageBox.Show("Không được để trống họ tên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return false;
+			}
+			if (string.IsNullOrEmpty(txtPass.Text))
+			{
+				MessageBox.Show("Không được để trống mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return false;
+			}
+			if(timePick > currentDateTime)
+			{
+				MessageBox.Show("Ngày tháng không được lớn hơn thời gian hiện tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return false;
+			}
+			if (timePick < minDateTime)
+			{
+				MessageBox.Show("Không được chọn năm bé hơn 1900", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return false;
+			}
 			return true;
 		}
 
-		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+		private void button2_Click_1(object sender, EventArgs e)
 		{
-			textBox2.Text = dateTimePicker1.Value.ToString();
+			button1.Visible = true;
+			buttonUpImg.Visible = true;
+
+			panel1.Enabled = true;
+			textBoxName.Enabled = true;
+			textBoxEmail.Enabled = true;
+			dateTimePicker1.Enabled = true;
+			txtPass.Enabled = true;
+			if (Form1.flag != 1)
+			{
+				textBoxName.Enabled = false;
+			}
+		}
+
+		private void button1_Click_1(object sender, EventArgs e)
+		{
+
+			if (validate_form())
+			{
+				user = userBUS.getById(user_id);
+				string gender = "";
+				if (rbNam.Checked) gender = rbNam.Tag.ToString();
+				if (RbNu.Checked) gender = RbNu.Tag.ToString();
+
+				int gioi_tinh = Convert.ToInt32(gender);
+				user.Email = textBoxEmail.Text.Trim();
+				user.HoVaTen = textBoxName.Text.Trim();
+				user.ngaySinh = timePick;
+				user.avatar = textBox1.Text.Trim();
+				user.gioiTinh = gioi_tinh;
+				user.Password = txtPass.Text.Trim();
+
+				if (userBUS.Update(user).Equals("Cập nhật thành công!"))
+				{
+					MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					// chua dien du tt
+					if (Form1.flag == 1)
+					{
+						UserForm f = new UserForm();
+						f.Show();
+						f.updateAvatar(user.avatar);
+						this.Close();
+						Form1.flag = -1; // cap nhat ve trang thai ban dau
+						Form1 f1 = new Form1();
+						f1.SaveLoginHistory(Form1.USER_ID + "_" + Form1.LoginTime.ToString());
+
+					}
+					else
+					{
+						userForm.updateAvatar(user.avatar);
+
+					}
+				}
+
+
+				button1.Visible = false;
+				buttonUpImg.Visible = false;
+				panel1.Enabled = false;
+				textBoxName.Enabled = false;
+				textBoxEmail.Enabled = false;
+				dateTimePicker1.Enabled = false;
+			}
+		}
+
+		private void buttonUpImg_Click_1(object sender, EventArgs e)
+		{
+			OpenFileDialog ofdImages = new OpenFileDialog();
+			ofdImages.Filter = "Ảnh (*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp";
+			if (ofdImages.ShowDialog() == DialogResult.OK)
+			{
+				string filepath = ofdImages.FileName;
+
+				pictureBox1.Image = Image.FromFile(filepath);
+				pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+
+				textBox1.Text = filepath;
+			}
+		}
+
+		private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
+		{
+			timePick = dateTimePicker1.Value;
 		}
 	}
 }

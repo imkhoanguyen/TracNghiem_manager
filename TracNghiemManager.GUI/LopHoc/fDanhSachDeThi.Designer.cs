@@ -37,7 +37,6 @@
 			this.txtDeThi = new System.Windows.Forms.TextBox();
 			this.cbMonHoc = new System.Windows.Forms.ComboBox();
 			this.btnTimKiem = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.mainPanel.SuspendLayout();
 			this.headingPanel.SuspendLayout();
@@ -94,13 +93,12 @@
 			this.searchPanel.ColumnCount = 3;
 			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.81227F));
 			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.18773F));
-			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
+			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 181F));
 			this.searchPanel.Controls.Add(this.lblTenDeThi, 0, 0);
 			this.searchPanel.Controls.Add(this.lblMonHoc, 0, 1);
 			this.searchPanel.Controls.Add(this.txtDeThi, 1, 0);
 			this.searchPanel.Controls.Add(this.cbMonHoc, 1, 1);
 			this.searchPanel.Controls.Add(this.btnTimKiem, 2, 1);
-			this.searchPanel.Controls.Add(this.button1, 2, 0);
 			this.searchPanel.Location = new System.Drawing.Point(543, 3);
 			this.searchPanel.Name = "searchPanel";
 			this.searchPanel.RowCount = 2;
@@ -137,7 +135,7 @@
 			this.txtDeThi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtDeThi.Location = new System.Drawing.Point(144, 8);
 			this.txtDeThi.Name = "txtDeThi";
-			this.txtDeThi.Size = new System.Drawing.Size(402, 34);
+			this.txtDeThi.Size = new System.Drawing.Size(401, 34);
 			this.txtDeThi.TabIndex = 1;
 			// 
 			// cbMonHoc
@@ -148,7 +146,7 @@
 			this.cbMonHoc.FormattingEnabled = true;
 			this.cbMonHoc.Location = new System.Drawing.Point(144, 57);
 			this.cbMonHoc.Name = "cbMonHoc";
-			this.cbMonHoc.Size = new System.Drawing.Size(402, 36);
+			this.cbMonHoc.Size = new System.Drawing.Size(401, 36);
 			this.cbMonHoc.TabIndex = 2;
 			this.cbMonHoc.SelectedValueChanged += new System.EventHandler(this.cbMonHoc_SelectedValueChanged);
 			// 
@@ -157,23 +155,13 @@
 			this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.btnTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnTimKiem.Location = new System.Drawing.Point(583, 54);
+			this.btnTimKiem.Location = new System.Drawing.Point(582, 54);
 			this.btnTimKiem.Name = "btnTimKiem";
 			this.btnTimKiem.Size = new System.Drawing.Size(113, 43);
 			this.btnTimKiem.TabIndex = 3;
 			this.btnTimKiem.Text = "Tìm kiếm";
 			this.btnTimKiem.UseVisualStyleBackColor = true;
 			this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(552, 3);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 4;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// flowLayoutPanel1
 			// 
@@ -214,6 +202,5 @@
 		private System.Windows.Forms.Button btnTimKiem;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 		private System.Windows.Forms.Label lblHeading;
-		private System.Windows.Forms.Button button1;
 	}
 }

@@ -63,6 +63,7 @@ namespace TracNghiemManager.GUI
 			this.cauHoiPanel = new TracNghiemManager.GUI.CauHoi.CauHoiUserControl();
 			this.deThiPanel = new TracNghiemManager.GUI.DeThi.DeThiUserControl();
 			this.userPanel = new TracNghiemManager.GUI.Users.ManageUser();
+			this.thongKePanel = new TracNghiemManager.GUI.ThongKeAdminUserControl();
 			this.containerBtnPanel.SuspendLayout();
 			this.infoPanelBox.SuspendLayout();
 			this.infoOwnerPanel.SuspendLayout();
@@ -117,20 +118,20 @@ namespace TracNghiemManager.GUI
 			this.infoOwnerPanel.Margin = new System.Windows.Forms.Padding(0);
 			this.infoOwnerPanel.Name = "infoOwnerPanel";
 			this.infoOwnerPanel.RowCount = 2;
-			this.infoOwnerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.55556F));
-			this.infoOwnerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.44444F));
+			this.infoOwnerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.47619F));
+			this.infoOwnerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.52381F));
 			this.infoOwnerPanel.Size = new System.Drawing.Size(211, 105);
 			this.infoOwnerPanel.TabIndex = 1;
 			// 
 			// lblOwnerName
 			// 
-			this.lblOwnerName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.lblOwnerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.lblOwnerName.AutoSize = true;
 			this.lblOwnerName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-			this.lblOwnerName.Location = new System.Drawing.Point(5, 18);
-			this.lblOwnerName.Margin = new System.Windows.Forms.Padding(5, 10, 0, 0);
+			this.lblOwnerName.Location = new System.Drawing.Point(5, 28);
+			this.lblOwnerName.Margin = new System.Windows.Forms.Padding(5, 20, 0, 0);
 			this.lblOwnerName.Name = "lblOwnerName";
-			this.lblOwnerName.Size = new System.Drawing.Size(137, 20);
+			this.lblOwnerName.Size = new System.Drawing.Size(174, 25);
 			this.lblOwnerName.TabIndex = 0;
 			this.lblOwnerName.Text = "Nguyễn Anh Khoa";
 			this.lblOwnerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,12 +143,12 @@ namespace TracNghiemManager.GUI
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.53608F));
 			this.tableLayoutPanel1.Controls.Add(this.btnSetting, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.lblOwnerRule, 0, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 50);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 56);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(205, 52);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(205, 46);
 			this.tableLayoutPanel1.TabIndex = 1;
 			// 
 			// btnSetting
@@ -158,20 +159,19 @@ namespace TracNghiemManager.GUI
 			this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
 			this.btnSetting.Location = new System.Drawing.Point(137, 3);
 			this.btnSetting.Name = "btnSetting";
-			this.btnSetting.Size = new System.Drawing.Size(65, 46);
+			this.btnSetting.Size = new System.Drawing.Size(65, 40);
 			this.btnSetting.TabIndex = 3;
 			this.btnSetting.UseVisualStyleBackColor = true;
 			this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
 			// 
 			// lblOwnerRule
 			// 
-			this.lblOwnerRule.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lblOwnerRule.AutoSize = true;
 			this.lblOwnerRule.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.lblOwnerRule.Location = new System.Drawing.Point(5, 21);
-			this.lblOwnerRule.Margin = new System.Windows.Forms.Padding(5, 10, 3, 0);
+			this.lblOwnerRule.Location = new System.Drawing.Point(5, 0);
+			this.lblOwnerRule.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
 			this.lblOwnerRule.Name = "lblOwnerRule";
-			this.lblOwnerRule.Size = new System.Drawing.Size(49, 19);
+			this.lblOwnerRule.Size = new System.Drawing.Size(60, 23);
 			this.lblOwnerRule.TabIndex = 2;
 			this.lblOwnerRule.Text = "Admin";
 			this.lblOwnerRule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -180,12 +180,11 @@ namespace TracNghiemManager.GUI
 			// 
 			this.pictureOwner.Image = ((System.Drawing.Image)(resources.GetObject("pictureOwner.Image")));
 			this.pictureOwner.InitialImage = null;
-			this.pictureOwner.SizeMode = PictureBoxSizeMode.AutoSize;
 			this.pictureOwner.Location = new System.Drawing.Point(2, 2);
 			this.pictureOwner.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureOwner.Name = "pictureOwner";
 			this.pictureOwner.Size = new System.Drawing.Size(112, 100);
-			this.pictureOwner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureOwner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
 			this.pictureOwner.TabIndex = 0;
 			this.pictureOwner.TabStop = false;
 			this.pictureOwner.WaitOnLoad = true;
@@ -272,6 +271,7 @@ namespace TracNghiemManager.GUI
 			this.btnThongKe.Text = "  Thống kê";
 			this.btnThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnThongKe.UseVisualStyleBackColor = false;
+			this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
 			// 
 			// btnCauHoi
 			// 
@@ -386,6 +386,7 @@ namespace TracNghiemManager.GUI
 			this.containerPanel.Controls.Add(this.cauHoiPanel);
 			this.containerPanel.Controls.Add(this.deThiPanel);
 			this.containerPanel.Controls.Add(this.userPanel);
+			this.containerPanel.Controls.Add(this.thongKePanel);
 			this.containerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.containerPanel.Location = new System.Drawing.Point(0, 0);
 			this.containerPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -448,6 +449,15 @@ namespace TracNghiemManager.GUI
 			this.userPanel.Size = new System.Drawing.Size(1210, 845);
 			this.userPanel.TabIndex = 6;
 			// 
+			// thongKePanel
+			// 
+			this.thongKePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.thongKePanel.Location = new System.Drawing.Point(0, 0);
+			this.thongKePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.thongKePanel.Name = "thongKePanel";
+			this.thongKePanel.Size = new System.Drawing.Size(1210, 845);
+			this.thongKePanel.TabIndex = 4;
+			// 
 			// UserForm
 			// 
 			this.BackColor = System.Drawing.Color.White;
@@ -458,6 +468,7 @@ namespace TracNghiemManager.GUI
 			this.MinimumSize = new System.Drawing.Size(700, 550);
 			this.Name = "UserForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserForm_FormClosed);
 			this.Load += new System.EventHandler(this.UserForm_Load_1);
 			this.containerBtnPanel.ResumeLayout(false);
 			this.infoPanelBox.ResumeLayout(false);
@@ -500,6 +511,7 @@ namespace TracNghiemManager.GUI
 		private Panel containerPanel;
 		private Button btnNguoiDung;
 		private ManageUser userPanel;
+		private ThongKeAdminUserControl thongKePanel;
 		private TableLayoutPanel tableLayoutPanel1;
 		private Label lblOwnerRule;
 		private Button btnSetting;

@@ -250,6 +250,7 @@ namespace TracNghiemManager.DAO
 							}
 							user.UserName = reader["username"].ToString();
 							user.Password = reader["mat_khau"].ToString();
+							user.trangThai = Convert.ToInt32(reader["trang_thai"]);
 						}
 					}
 

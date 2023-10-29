@@ -367,5 +367,10 @@ namespace TracNghiemManager.GUI
 			}
 			
 		}
+
+		private void Baithi_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

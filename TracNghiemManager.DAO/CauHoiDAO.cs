@@ -101,7 +101,7 @@ namespace TracNghiemManager.DAO
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
-                        {
+                        {   
                             CauHoiDTO cauHoi = new CauHoiDTO
                             {
                                 MaCauHoi = Convert.ToInt32(reader["ma_cau_hoi"]),

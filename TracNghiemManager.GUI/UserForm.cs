@@ -16,6 +16,8 @@ using System.Drawing.Drawing2D;
 using TracNghiemManager.DTO;
 using TracNghiemManager.GUI.Users;
 using TracNghiemManager.BUS;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace TracNghiemManager.GUI
 {
@@ -44,21 +46,18 @@ namespace TracNghiemManager.GUI
 			{
 				if (userRoles.Count > 1)
 				{
-					tenQuyen += userRoles[i].ten_quyen + ", ";
-
+					tenQuyen += userRoles[i].ten_quyen;
+					if (i < userRoles.Count - 1)
+					{
+						tenQuyen += ", ";
+					}
 				}
 				else
 				{
 					tenQuyen += userRoles[i].ten_quyen;
-
 				}
-
 			}
-			UserDTO u = userBus.getById(Form1.USER_ID);
-
-			lblOwnerName.Text = u.HoVaTen;
-			lblOwnerRule.Text = tenQuyen;
-
+			loadInfo();
 			infoPanelBox.Paint += (sender, e) =>
 			{
 				Control control = (Control)sender;
@@ -83,6 +82,7 @@ namespace TracNghiemManager.GUI
 			};
 			HideAllUserControls();
 			homePanel.Visible = true;
+			
 
 		}
 
@@ -105,45 +105,6 @@ namespace TracNghiemManager.GUI
 			controlToShow.Visible = true;
 		}
 
-		public T CreateAndConfigureControl<T>(string name) where T : Control, new()
-		{
-			T control = new T();
-			control.Dock = DockStyle.Fill;
-			control.Location = new Point(0, 0);
-			control.Margin = new Padding(3, 4, 3, 4);
-			control.Name = name;
-			control.Size = new Size(1032, 570);
-			control.TabIndex = 6;
-			return control;
-		}
-
-		private void ConfigureButton(System.Windows.Forms.Button button)
-		{
-			button.BackColor = Color.White;
-			button.Cursor = Cursors.Hand;
-			button.FlatAppearance.BorderColor = Color.Black;
-			button.FlatAppearance.BorderSize = 0;
-			button.FlatStyle = FlatStyle.Flat;
-			button.Font = new Font("Times New Roman", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
-			button.Margin = new Padding(5);
-			button.Padding = new Padding(5);
-			button.TextAlign = ContentAlignment.MiddleRight;
-			button.ForeColor = defaultTitleBtnColor;
-			button.TextImageRelation = TextImageRelation.ImageBeforeText;
-			button.UseVisualStyleBackColor = false;
-		}
-
-		private void SetBorderButton(System.Windows.Forms.Button button, int borderRadius)
-		{
-			GraphicsPath buttonPath = new GraphicsPath();
-			buttonPath.AddArc(0, 0, borderRadius * 2, borderRadius * 2, 180, 90); // Góc trên bên trái
-			buttonPath.AddArc(button.Width - borderRadius * 2, 0, borderRadius * 2, borderRadius * 2, 270, 90); // Góc trên bên phải
-			buttonPath.AddArc(button.Width - borderRadius * 2, button.Height - borderRadius * 2, borderRadius * 2, borderRadius * 2, 0, 90); // Góc dưới bên phải
-			buttonPath.AddArc(0, button.Height - borderRadius * 2, borderRadius * 2, borderRadius * 2, 90, 90); // Góc dưới bên trái
-			buttonPath.CloseAllFigures();
-
-			button.Region = new Region(buttonPath); // Đặt Region của nút bằng đường viền cong
-		}
 		private void AddColorChange(System.Windows.Forms.Button button, Color hoverColor, Color clickColor)
 		{
 			Color defaultBackColor = button.BackColor;
@@ -202,7 +163,8 @@ namespace TracNghiemManager.GUI
 
 		private void btnThongKe_Click(object sender, EventArgs e)
 		{
-
+			ShowUserControl(thongKePanel);
+			thongKePanel.load();
 		}
 
 		private void btnThoat_Click(object sender, EventArgs e)
@@ -234,7 +196,7 @@ namespace TracNghiemManager.GUI
 
 		private void btnSetting_Click(object sender, EventArgs e)
 		{
-			UserInfo f = new UserInfo();
+			UserInfo f = new UserInfo(this);
 			f.Visible = true;
 		}
 
@@ -247,6 +209,8 @@ namespace TracNghiemManager.GUI
 				if (list[i].ten_quyen.Contains("Admin") || list[i].ten_quyen.Contains("Full"))
 				{
 					containerBtnPanel.Controls.Add(btnNguoiDung, 0, 7);
+					containerBtnPanel.RowStyles.Add(new RowStyle());
+					containerBtnPanel.Controls.Add(btnThongKe, 0, 8);
 					containerBtnPanel.RowStyles.Add(new RowStyle());
 				}
 
@@ -275,10 +239,55 @@ namespace TracNghiemManager.GUI
 				}
 
 			}
-			containerBtnPanel.Controls.Add(btnThongKe, 0, 8);
-			containerBtnPanel.RowStyles.Add(new RowStyle());
 			containerBtnPanel.Controls.Add(btnThoat, 0, 9);
 			containerBtnPanel.RowStyles.Add(new RowStyle());
+
+		}
+		public void loadInfo()
+		{
+		
+			UserDTO u = userBus.getById(Form1.USER_ID);
+			lblOwnerName.Text = u.HoVaTen;
+			lblOwnerRule.Text = tenQuyen;
+			if (!string.IsNullOrWhiteSpace(u.avatar) && System.IO.File.Exists(u.avatar))
+			{
+				pictureOwner.ImageLocation = u.avatar;
+			}
+		}
+
+		public void updateAvatar(string ava)
+		{
+			if (!string.IsNullOrWhiteSpace(ava) && System.IO.File.Exists(ava))
+			{
+				pictureOwner.ImageLocation = ava;
+			}
+		}
+
+		private void UserForm_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			UpdateLogoutTime(Form1.USER_ID.ToString() + "_" + Form1.LoginTime.ToString());
+		}
+		private void UpdateLogoutTime(string loginId)
+		{
+			List<UserDTO> loginHistories = new List<UserDTO>();
+
+			// Đọc dữ liệu từ tệp JSON nếu nó đã tồn tại
+			if (File.Exists("loginHistory.json"))
+			{
+				string json = File.ReadAllText("loginHistory.json");
+				loginHistories = JsonConvert.DeserializeObject<List<UserDTO>>(json);
+			}
+
+			// Tìm thông tin đăng nhập của người dùng và cập nhật thời gian đăng xuất
+			UserDTO userHistory = loginHistories.FirstOrDefault(history => history.IdLogin == loginId);
+			if (userHistory != null)
+			{
+				userHistory.TimeOut = DateTime.Now;
+			}
+
+			// Ghi lại danh sách vào tệp JSON
+			string updatedJson = JsonConvert.SerializeObject(loginHistories, Formatting.Indented);
+			File.WriteAllText("loginHistory.json", updatedJson);
 		}
 	}
 }

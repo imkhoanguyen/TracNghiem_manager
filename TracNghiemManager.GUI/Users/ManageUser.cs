@@ -57,23 +57,25 @@ namespace TracNghiemManager.GUI.Users
 				buttonCT[i] = new Button();
 				buttonCT[i].Location = new Point(202, 105);
 				buttonCT[i].Name = "buttonCT" + i;
-				buttonCT[i].Size = new Size(75, 23);
+				buttonCT[i].Size = new Size(75, 30);
 				buttonCT[i].Tag = "" + users[i].Id;
 				buttonCT[i].Text = "Chi Tiet";
 				buttonCT[i].UseVisualStyleBackColor = true;
 				buttonCT[i].MouseClick += Detail_MouseClick;
+				buttonCT[i].Cursor = Cursors.Hand;
 				// 
 				// buttonDELETE
 				// 
 				buttonDELETE[i] = new Button();
 				buttonDELETE[i].Location = new Point(283, 105);
 				buttonDELETE[i].Name = "buttonDELETE" + i;
-				buttonDELETE[i].Size = new Size(75, 23);
-				buttonDELETE[i].Text = "DELETE";
+				buttonDELETE[i].Size = new Size(75, 30);
+				buttonDELETE[i].Text = "Xóa";
 				buttonDELETE[i].Tag = "" + users[i].Id;
 				buttonDELETE[i].TextImageRelation = TextImageRelation.ImageBeforeText;
 				buttonDELETE[i].UseVisualStyleBackColor = true;
 				buttonDELETE[i].MouseClick += Delete_MouseClick;
+				buttonDELETE[i].Cursor = Cursors.Hand;
 				// 
 				// textBoxDate
 				// 
@@ -95,7 +97,18 @@ namespace TracNghiemManager.GUI.Users
 				List<ChiTietQuyenDTO> user_roles = chiTietQuyenBUS.GetRoleByUserId(users[i].Id);
 				for (int j = 0; j < user_roles.Count; j++)
 				{
-					textBoxRole[i].Text += user_roles[j].ten_quyen + "|";
+					if (user_roles.Count > 1)
+					{
+						textBoxRole[i].Text += user_roles[j].ten_quyen;
+						if (j < user_roles.Count - 1)
+						{
+							textBoxRole[i].Text += ", ";
+						}
+					}
+					else
+					{
+						textBoxRole[i].Text += user_roles[j].ten_quyen;
+					}
 				}
 
 				// 
@@ -167,15 +180,16 @@ namespace TracNghiemManager.GUI.Users
 		{
 			userBUS = new UserBUS();
 			userBUS.Delete(id);
+			reLoad(userBUS.GetAll());
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			AddUser add_user = new AddUser();
+			AddUser add_user = new AddUser(this);
 			add_user.ShowDialog();
 		}
 
-		private void reLoad(List<UserDTO> list)
+		public void reLoad(List<UserDTO> list)
 		{
 			flowLayoutContainer.Controls.Clear();
 			users = list;

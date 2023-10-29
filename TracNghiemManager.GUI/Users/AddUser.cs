@@ -18,21 +18,24 @@ namespace TracNghiemManager.GUI.Users
 		UserBUS userBUS = new UserBUS();
 		QuyenBus qBus;
 		ChiTietQuyenBUS chiTietQuyenBUS = new ChiTietQuyenBUS();
-		public AddUser()
+		private ManageUser manageUser;
+		private int flag = -1; // check add thanh cong khong
+		public AddUser(ManageUser mgu)
 		{
 			InitializeComponent();
 			qBus = new QuyenBus();
 
 			//render checkedlistbox
 			List<QuyenDTO> listQuyen = qBus.GetAll();
-			foreach(QuyenDTO item in listQuyen)
+			foreach (QuyenDTO item in listQuyen)
 			{
-				if(!(item.ten_quyen.Equals("Admin") || item.ten_quyen.Equals("Full")))
+				if (!(item.ten_quyen.Equals("Admin") || item.ten_quyen.Equals("Full")))
 				{
 					checkedListBox1.Items.Add(item);
 				}
 			}
 			checkedListBox1.DisplayMember = "ten_quyen";
+			this.manageUser = mgu;
 		}
 
 		private bool validateForm()
@@ -87,7 +90,12 @@ namespace TracNghiemManager.GUI.Users
 
 					chiTietQuyenBUS.Add(chiTietQuyen);
 				}
+				flag = 1;
 				clear();
+			}
+			if(flag == 1)
+			{
+				manageUser.reLoad(userBUS.GetAll());
 			}
 		}
 

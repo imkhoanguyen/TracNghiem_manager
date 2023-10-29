@@ -47,7 +47,7 @@ namespace TracNghiemManager.BUS
 		{
 			if (UserDAO.Update(t))
 			{
-				return "Sửa thành công!";
+				return "Cập nhật thành công!";
 			}
 			return "Sửa thất bại!";
 		}
