@@ -158,6 +158,10 @@ namespace TracNghiemManager.GUI.LopHoc
 				{
 					btnThem_Click(s, ev, obj);
 				};
+			btnXem.Click += (s, ev) =>
+			{
+				btnXem_Click(s, ev, obj);
+			};
 			panelHead.Controls.AddRange(new Control[] { lblThoiGianLamBai, lblMonHoc, lblTenDeThi, });
 
 			panelContain.Location = new Point(20, flowLayoutPanel1.Controls.Count * 150);
@@ -167,6 +171,12 @@ namespace TracNghiemManager.GUI.LopHoc
 			flowLayoutPanel1.AutoScroll = true;
 
 			counter++;
+		}
+
+		private void btnXem_Click(object s, EventArgs ev, DeThiDTO obj)
+		{
+			fXemDeThiCuaLop f = new fXemDeThiCuaLop(this, obj);
+			f.Visible = true;
 		}
 
 		private void btnThem_Click(object s, EventArgs ev, DeThiDTO obj)

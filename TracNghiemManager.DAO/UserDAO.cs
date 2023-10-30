@@ -308,5 +308,44 @@ namespace TracNghiemManager.DAO
 				}
 			}
 		}
+		public Dictionary<int, List<Tuple<string, string, float>>> GetName(int ma_lop)
+		{
+			Dictionary<int, List<Tuple<string, string, float>>> dict = new Dictionary<int, List<Tuple<string, string, float>>>();
+
+			using (SqlConnection connection = DbConnection.GetSqlConnection())
+			{
+				string query = "SELECT users.id, users.ho_va_ten, de_thi.ten_de_thi, ket_qua.diem " +
+				   "FROM users JOIN ket_qua ON users.id = ket_qua.user_id " +
+				   "JOIN bai_thi ON ket_qua.ma_bai_thi = bai_thi.ma_bai_thi " +
+				   "JOIN lop ON bai_thi.ma_lop = lop.ma_lop " +
+				   "JOIN de_thi ON bai_thi.ma_de_thi = de_thi.ma_de_thi " +
+				   "JOIN chi_tiet_quyen ON users.id = chi_tiet_quyen.user_id " +
+				   "WHERE chi_tiet_quyen.ma_quyen = 3 AND ket_qua.ma_bai_thi = bai_thi.ma_bai_thi AND lop.ma_lop = @malop";
+
+				using (SqlCommand command = new SqlCommand(query, connection))
+				{
+					command.Parameters.AddWithValue("@malop", ma_lop);
+					using (SqlDataReader reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							int id = Convert.ToInt32(reader["id"]);
+							string ho_va_ten = reader["ho_va_ten"].ToString();
+							string tenDeThi = reader["ten_de_thi"].ToString();
+							float diem = Convert.ToSingle(reader["diem"]);
+
+							if (!dict.ContainsKey(id))
+							{
+								dict[id] = new List<Tuple<string, string, float>>();
+							}
+
+							dict[id].Add(new Tuple<string, string, float>(ho_va_ten, tenDeThi, diem));
+						}
+					}
+				}
+			}
+
+			return dict;
+		}
 	}
 }

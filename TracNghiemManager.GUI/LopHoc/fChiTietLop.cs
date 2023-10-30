@@ -358,5 +358,11 @@ namespace TracNghiemManager.GUI.LopHoc
 			}
 			
 		}
+
+		private void btnXemDSSV_Click(object sender, EventArgs e)
+		{
+			fDanhSachSV fdsv = new fDanhSachSV(lop);
+			fdsv.Visible = true;
+		}
 	}
 }

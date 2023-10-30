@@ -92,5 +92,10 @@ namespace TracNghiemManager.BUS
 		{
 			return UserDAO.SearchEvenDate(s1, s2);
 		}
+
+		public Dictionary<int, List<Tuple<string, string, float>>> GetName(int ma_lop)
+		{
+			return UserDAO.GetName(ma_lop);
+		}
 	}
 }
