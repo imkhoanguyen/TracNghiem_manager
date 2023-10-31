@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TracNghiemManager.DTO;
+using TracNghiemManager.DTO.ViewModel;
 
 namespace TracNghiemManager.DAO
 {
@@ -39,25 +40,52 @@ namespace TracNghiemManager.DAO
 			}
 		}
 
-
-		public bool Delete(int id)
+		public List<HocSinhTrongLop> GetAllHSTrongLop(int maLop)
 		{
-			throw new NotImplementedException();
+			List<HocSinhTrongLop> l = new List<HocSinhTrongLop>();
+
+			using (SqlConnection connection = DbConnection.GetSqlConnection())
+			{
+				string query = "select ctl.user_id, u.ho_va_ten, u.email from chi_tiet_lop ctl join users u on ctl.user_id = u.id " +
+					"join lop on ctl.ma_lop = lop.ma_lop where ctl.ma_lop = " + maLop;
+				using (SqlCommand cmd = new SqlCommand(query, connection))
+				{
+					using (SqlDataReader reader = cmd.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							HocSinhTrongLop hs = new HocSinhTrongLop
+							{
+								MaHocSinh = Convert.ToInt32(reader["user_id"]),
+								HoTen = reader["ho_va_ten"].ToString(),
+								Email = reader["email"].ToString(),
+							};
+							l.Add(hs);
+						}
+					}
+				}
+			}
+			return l;
 		}
 
-		public List<ChiTietLopDTO> GetAll()
-		{
-			throw new NotImplementedException();
-		}
-
-		public ChiTietLopDTO GetById(int id)
-		{
-			throw new NotImplementedException();
-		}
-
-		public bool Update(ChiTietLopDTO t)
-		{
-			throw new NotImplementedException();
-		}
+	public bool Delete(int id)
+	{
+		throw new NotImplementedException();
 	}
+
+	public List<ChiTietLopDTO> GetAll()
+	{
+		throw new NotImplementedException();
+	}
+
+	public ChiTietLopDTO GetById(int id)
+	{
+		throw new NotImplementedException();
+	}
+
+	public bool Update(ChiTietLopDTO t)
+	{
+		throw new NotImplementedException();
+	}
+}
 }

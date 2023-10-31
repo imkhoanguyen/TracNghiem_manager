@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TracNghiemManager.DAO;
 using TracNghiemManager.DTO;
+using TracNghiemManager.DTO.ViewModel;
 
 namespace TracNghiemManager.BUS
 {
@@ -23,6 +24,10 @@ namespace TracNghiemManager.BUS
 
 			}
 			return "that bai";
+		}
+		public List<HocSinhTrongLop> GetAllHSTrongLop(int maLop)
+		{
+			return chiTietLopDAO.GetAllHSTrongLop(maLop);
 		}
 	}
 }

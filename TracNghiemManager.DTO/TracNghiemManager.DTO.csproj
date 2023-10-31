@@ -52,6 +52,7 @@
     <Compile Include="DeThiDTO.cs" />
     <Compile Include="KetQuaDTO.cs" />
     <Compile Include="LopDTO.cs" />
+    <Compile Include="ViewModel\HocSinhTrongLop.cs" />
     <Compile Include="MonHocDTO.cs" />
     <Compile Include="PhanQuyenDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
