@@ -42,8 +42,10 @@ namespace TracNghiemManager.GUI.CauHoi
             dt.Columns.Add("Nội dung câu hỏi", typeof(string));
             dt.Columns.Add("Môn học", typeof(string));
             dt.Columns.Add("Độ khó", typeof(string));
-            loadDataTable(listch);
-        }
+		
+			loadDataTable(listch);
+			dataGridView1.Columns["Môn học"].Width = 200;
+		}
 
 		public void load()
 		{

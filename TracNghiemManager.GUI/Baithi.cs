@@ -168,10 +168,10 @@ namespace TracNghiemManager.GUI
 				KetQuaDTO kq = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
 				kqBus.Add(kq);
 				this.Dispose();
-				this.Close();
-				fctl.loadDeThi();
 				fKetQua f = new fKetQua(deThi, lop, kq);
 				f.Visible = true;
+				fctl.Dispose();
+				
 			}
 
 		}
@@ -197,8 +197,7 @@ namespace TracNghiemManager.GUI
 			KetQuaDTO kq = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
 			kqBus.Add(kq);
 			this.Dispose();
-			this.Close();
-			fctl.loadDeThi();
+			fctl.Dispose();
 			fKetQua f = new fKetQua(deThi, lop, kq);
 			f.Visible = true;
 

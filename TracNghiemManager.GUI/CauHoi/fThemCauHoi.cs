@@ -25,6 +25,7 @@ namespace TracNghiemManager.GUI.CauHoi
 		private int selectedSoDapAn;
 		private CauHoiDTO cauHoiObj;
 		private List<CauTraLoiDTO> listctl;
+		private bool allowTabControl2 = true;
 		public fThemCauHoi(CauHoiUserControl ch, string hanhDong, CauHoiDTO obj = null, List<CauTraLoiDTO> list = null)
 		{
 			InitializeComponent();
@@ -68,6 +69,7 @@ namespace TracNghiemManager.GUI.CauHoi
 					cbSoDapAn.SelectedIndex = 0;
 					
 				}
+				tabPage2.Text = "";
 			}
 			if (hanhDong.Equals("view"))
 			{
@@ -86,7 +88,8 @@ namespace TracNghiemManager.GUI.CauHoi
 					txtInputDA4.Visible = false;
 					cbSoDapAn.SelectedIndex = 0;
 				}
-				
+				tabPage2.Text = "";
+
 			}
 
 			if (listctl != null)
@@ -156,6 +159,7 @@ namespace TracNghiemManager.GUI.CauHoi
 					txtInputDA4.Visible = false;
 					cbSoDapAn.SelectedIndex = 0;
 				}
+				tabPage2.Text = "";
 
 			}
 
@@ -525,6 +529,13 @@ namespace TracNghiemManager.GUI.CauHoi
 			}
 		}
 
-		
+		private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+		{
+			if(tabControl1.SelectedTab == tabPage2 && (hanhDong.Equals("edit") || hanhDong.Equals("view")))
+			{
+				tabControl1.SelectedTab = tabPage1;
+				tabPage2.Text = "";
+			}
+		}
 	}
 }

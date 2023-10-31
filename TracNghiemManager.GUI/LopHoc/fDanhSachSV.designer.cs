@@ -32,6 +32,7 @@
 			this.tableSV = new System.Windows.Forms.DataGridView();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
+			this.btnThongKe = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.tableSV)).BeginInit();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -72,6 +73,7 @@
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.btnThongKe, 1, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -84,14 +86,26 @@
 			// 
 			// label1
 			// 
-			this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(3, 31);
+			this.label1.Location = new System.Drawing.Point(10, 20);
+			this.label1.Margin = new System.Windows.Forms.Padding(10, 20, 3, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(159, 54);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Kết quả";
+			// 
+			// btnThongKe
+			// 
+			this.btnThongKe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnThongKe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnThongKe.Location = new System.Drawing.Point(922, 20);
+			this.btnThongKe.Margin = new System.Windows.Forms.Padding(3, 20, 10, 3);
+			this.btnThongKe.Name = "btnThongKe";
+			this.btnThongKe.Size = new System.Drawing.Size(129, 54);
+			this.btnThongKe.TabIndex = 1;
+			this.btnThongKe.Text = "Thống kê";
+			this.btnThongKe.UseVisualStyleBackColor = true;
 			// 
 			// fDanhSachSV
 			// 
@@ -101,6 +115,7 @@
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "fDanhSachSV";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "fDanhSachSV";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.tableSV)).EndInit();
@@ -116,5 +131,6 @@
 		private System.Windows.Forms.DataGridView tableSV;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button btnThongKe;
 	}
 }
