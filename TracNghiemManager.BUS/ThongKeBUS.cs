@@ -33,5 +33,10 @@ namespace TracNghiemManager.BUS
 		{
 			return thongKeDAO.GetAllDiemTBCuaHs(maLop);
 		}
+
+		public int getSlHSDaNopBai(int maLop, int maDeThi)
+		{
+			return thongKeDAO.getSlHsDaNopBai(maLop, maDeThi);
+		}
 	}
 }

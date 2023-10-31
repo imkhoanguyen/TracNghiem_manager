@@ -108,5 +108,26 @@ namespace TracNghiemManager.DAO
 				return list;
 			}
 		}
+
+		public int getSlHsDaNopBai(int maLop, int maDeThi)
+		{
+			int result = -1;
+			using(SqlConnection conn = DbConnection.GetSqlConnection())
+			{
+				string query = "SELECT count(users.id) as sLHSDaNopBai " +
+					"FROM users JOIN ket_qua ON users.id = ket_qua.user_id " +
+					"JOIN bai_thi ON ket_qua.ma_bai_thi = bai_thi.ma_bai_thi " +
+					"JOIN lop ON bai_thi.ma_lop = lop.ma_lop " +
+					"JOIN de_thi ON bai_thi.ma_de_thi = de_thi.ma_de_thi " +
+					"JOIN chi_tiet_quyen ON users.id = chi_tiet_quyen.user_id " +
+					"WHERE chi_tiet_quyen.ma_quyen = 3 AND ket_qua.ma_bai_thi = bai_thi.ma_bai_thi " +
+					"AND lop.ma_lop = " + maLop + " AND de_thi.ma_de_thi = " + maDeThi;
+				using(SqlCommand command = new SqlCommand(query, conn))
+				{
+					result = (int)command.ExecuteScalar();
+				}
+			}
+			return result;
+		}
 	}
 }

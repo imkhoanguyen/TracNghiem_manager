@@ -20,6 +20,7 @@ namespace TracNghiemManager.GUI.LopHoc
 	public partial class fDanhSachSV : Form
 	{
 		private ChiTietLopBUS ctlBus;
+		private DeThiBUS dtBus;
 		private List<HocSinhTrongLop> lHocSinhTrongLop;
 		private LopDTO lopDTO;
 		private DataTable dt;
@@ -29,15 +30,22 @@ namespace TracNghiemManager.GUI.LopHoc
 		private List<string> listHoTenHs;
 		private List<double> listDiemTBCuaHs;
 		private int soLuongDeThiCoTrongLop;
+		private int soLuongHsDaNopBai;
+		private List<DeThiCuaLopDTO> listDeThiCuaLop;
+		private List<DeThiDTO> listDeThi;
+		private int selectedIdDeThi;
 		public fDanhSachSV(LopDTO l)
 		{
 			InitializeComponent();
 			ctlBus = new ChiTietLopBUS();
+			dtBus = new DeThiBUS();
 			lopDTO = l;
 			tkBus = new ThongKeBUS();
 			dtclBus = new DeThiCuaLopBUS();
 			soLuongDeThiCoTrongLop = dtclBus.slDeThiCoTrongLop(lopDTO.MaLop);
 			lDTB = tkBus.GetAllDiemTBCuaHS(lopDTO.MaLop);
+			listDeThiCuaLop = dtclBus.GetAll(lopDTO.MaLop);
+			soLuongHsDaNopBai = tkBus.getSlHSDaNopBai(lopDTO.MaLop, selectedIdDeThi);
 			if (listHoTenHs == null)
 			{
 				listHoTenHs = new List<string>();
@@ -45,6 +53,14 @@ namespace TracNghiemManager.GUI.LopHoc
 			if (listDiemTBCuaHs == null)
 			{
 				listDiemTBCuaHs = new List<double>();
+			}
+			if(listDeThi == null)
+			{
+				listDeThi = new List<DeThiDTO>();
+			}
+			foreach(DeThiCuaLopDTO item in listDeThiCuaLop)
+			{
+				listDeThi.Add(dtBus.GetById(item.MaDeThi));
 			}
 			foreach (DiemTBCuaHS item in lDTB)
 			{
@@ -57,7 +73,16 @@ namespace TracNghiemManager.GUI.LopHoc
 			dt.Columns.Add("Họ và tên", typeof(string));
 			dt.Columns.Add("Email", typeof(string));
 			load();
+			loadCbDeThi();
 			loadChartTongQuan();
+			loadPieChart();
+		}
+
+		private void loadCbDeThi()
+		{
+			cbDeThi.ValueMember = "MaDeThi";
+			cbDeThi.DisplayMember = "TenDeThi";
+			cbDeThi.DataSource = listDeThi;
 		}
 
 		private void load()
@@ -90,11 +115,6 @@ namespace TracNghiemManager.GUI.LopHoc
 			dataGridView1.Columns["Email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 		}
 
-		private void loadTongQuan()
-		{
-
-
-		}
 		private void loadChartTongQuan()
 		{
 			cartesianChart1.Series = new SeriesCollection
@@ -118,6 +138,44 @@ namespace TracNghiemManager.GUI.LopHoc
 				Title = "Điểm trung bình",
 				LabelFormatter = value => value.ToString("N2")
 			});
+
+		}
+
+		private void loadPieChart()
+		{
+			Func<ChartPoint, string> labelPoint = chartPoint =>
+		string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+
+			pieChart1.Series = new SeriesCollection
+			{
+				new PieSeries
+				{
+					Title = "Đã nộp bài",
+					Values = new ChartValues<int> {soLuongHsDaNopBai},
+					DataLabels = true,
+					LabelPoint = labelPoint
+				},
+				new PieSeries
+				{
+					Title = "Chưa nộp bài",
+					Values = new ChartValues<int> {lHocSinhTrongLop.Count - soLuongHsDaNopBai},
+					DataLabels = true,
+					LabelPoint = labelPoint
+				}
+			};
+
+			pieChart1.LegendLocation = LegendLocation.Bottom;
+		}
+
+		private void cbDeThi_SelectedValueChanged(object sender, EventArgs e)
+		{
+			ComboBox cb = sender as ComboBox;
+			if(cb.SelectedValue != null)
+			{
+				selectedIdDeThi = Convert.ToInt32(cb.SelectedValue);
+				soLuongHsDaNopBai = tkBus.getSlHSDaNopBai(lopDTO.MaLop, selectedIdDeThi);
+				loadPieChart();
+			}
 
 		}
 	}
