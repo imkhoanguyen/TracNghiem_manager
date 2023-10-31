@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TracNghiemManager.DTO.ViewModel;
 
 namespace TracNghiemManager.DAO
 {
@@ -75,6 +76,37 @@ namespace TracNghiemManager.DAO
 				ex.ToString();
 			}
 			return result;
+		}
+		public List<DiemTBCuaHS> GetAllDiemTBCuaHs(int maLop)
+		{
+			List<DiemTBCuaHS> list = new List<DiemTBCuaHS>();
+			using (SqlConnection conn = DbConnection.GetSqlConnection())
+			{
+				string query = "SELECT top 5 users.id, users.ho_va_ten,  Sum(ket_qua.diem) as tong_diem FROM users " +
+					"JOIN ket_qua ON users.id = ket_qua.user_id " +
+					"JOIN bai_thi ON ket_qua.ma_bai_thi = bai_thi.ma_bai_thi " +
+					"JOIN lop ON bai_thi.ma_lop = lop.ma_lop " +
+					"JOIN chi_tiet_quyen ON users.id = chi_tiet_quyen.user_id " +
+					" WHERE chi_tiet_quyen.ma_quyen = 3 AND ket_qua.ma_bai_thi = bai_thi.ma_bai_thi AND lop.ma_lop = " + maLop +
+					" GROUP BY users.id, users.ho_va_ten Order by tong_diem desc";
+				using (SqlCommand command = new SqlCommand(query, conn))
+				{
+					using (SqlDataReader reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							DiemTBCuaHS diemTBCuaHS = new DiemTBCuaHS
+							{
+								MaHocSinh = Convert.ToInt32(reader["id"]),
+								HoTen = reader["ho_va_ten"].ToString(),
+								Diem = Convert.ToDouble(reader["tong_diem"]),
+							};
+							list.Add(diemTBCuaHS);
+						}
+					}
+				}
+				return list;
+			}
 		}
 	}
 }

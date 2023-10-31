@@ -66,5 +66,9 @@ namespace TracNghiemManager.BUS
 			}
 			return "that bai";
 		}
+		public int slDeThiCoTrongLop(int maLop)
+		{
+			return deThiCuaLopDAO.slDeThiCoTrongLop(maLop);
+		}
 	}
 }

@@ -49,7 +49,6 @@
 			this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
 			this.label3 = new System.Windows.Forms.Label();
-			this.cbDeThi = new System.Windows.Forms.ComboBox();
 			this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
 			this.tabControl1.SuspendLayout();
@@ -301,11 +300,10 @@
 			// 
 			// tableLayoutPanel8
 			// 
-			this.tableLayoutPanel8.ColumnCount = 2;
+			this.tableLayoutPanel8.ColumnCount = 1;
 			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.47676F));
 			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.52324F));
 			this.tableLayoutPanel8.Controls.Add(this.label3, 0, 0);
-			this.tableLayoutPanel8.Controls.Add(this.cbDeThi, 1, 0);
 			this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -317,25 +315,15 @@
 			// 
 			// label3
 			// 
-			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(10, 21);
+			this.label3.Location = new System.Drawing.Point(145, 21);
 			this.label3.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(879, 38);
 			this.label3.TabIndex = 0;
-			this.label3.Text = "Biểu đồ thống kê top 3 học sinh có điểm trung bình cao nhất lớp ";
-			// 
-			// cbDeThi
-			// 
-			this.cbDeThi.Anchor = System.Windows.Forms.AnchorStyles.Right;
-			this.cbDeThi.FormattingEnabled = true;
-			this.cbDeThi.Location = new System.Drawing.Point(995, 28);
-			this.cbDeThi.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-			this.cbDeThi.Name = "cbDeThi";
-			this.cbDeThi.Size = new System.Drawing.Size(157, 36);
-			this.cbDeThi.TabIndex = 1;
+			this.label3.Text = "Biểu đồ thống kê top 5 học sinh có điểm trung bình cao nhất lớp ";
 			// 
 			// cartesianChart1
 			// 
@@ -411,7 +399,6 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.ComboBox cbDeThi;
 		private LiveCharts.WinForms.CartesianChart cartesianChart1;
 	}
 }

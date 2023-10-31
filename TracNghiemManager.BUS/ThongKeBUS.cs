@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TracNghiemManager.DAO;
+using TracNghiemManager.DTO.ViewModel;
 
 namespace TracNghiemManager.BUS
 {
@@ -27,6 +28,10 @@ namespace TracNghiemManager.BUS
 		public int getCountCauHoi()
 		{
 			return thongKeDAO.getCountCauHoi();
+		}
+		public List<DiemTBCuaHS> GetAllDiemTBCuaHS(int maLop)
+		{
+			return thongKeDAO.GetAllDiemTBCuaHs(maLop);
 		}
 	}
 }

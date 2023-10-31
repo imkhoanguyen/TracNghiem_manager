@@ -13,6 +13,7 @@ using System.Windows.Media;
 using TracNghiemManager.BUS;
 using TracNghiemManager.DTO;
 using TracNghiemManager.DTO.ViewModel;
+using LiveCharts.Helpers;
 
 namespace TracNghiemManager.GUI.LopHoc
 {
@@ -22,11 +23,34 @@ namespace TracNghiemManager.GUI.LopHoc
 		private List<HocSinhTrongLop> lHocSinhTrongLop;
 		private LopDTO lopDTO;
 		private DataTable dt;
+		private ThongKeBUS tkBus;
+		private DeThiCuaLopBUS dtclBus;
+		private List<DiemTBCuaHS> lDTB;
+		private List<string> listHoTenHs;
+		private List<double> listDiemTBCuaHs;
+		private int soLuongDeThiCoTrongLop;
 		public fDanhSachSV(LopDTO l)
 		{
 			InitializeComponent();
 			ctlBus = new ChiTietLopBUS();
 			lopDTO = l;
+			tkBus = new ThongKeBUS();
+			dtclBus = new DeThiCuaLopBUS();
+			soLuongDeThiCoTrongLop = dtclBus.slDeThiCoTrongLop(lopDTO.MaLop);
+			lDTB = tkBus.GetAllDiemTBCuaHS(lopDTO.MaLop);
+			if (listHoTenHs == null)
+			{
+				listHoTenHs = new List<string>();
+			}
+			if (listDiemTBCuaHs == null)
+			{
+				listDiemTBCuaHs = new List<double>();
+			}
+			foreach (DiemTBCuaHS item in lDTB)
+			{
+				listHoTenHs.Add(item.HoTen);
+				listDiemTBCuaHs.Add(item.Diem / soLuongDeThiCoTrongLop);
+			}
 			dt = new DataTable();
 			dt.Columns.Add("STT", typeof(int));
 			dt.Columns.Add("Mã học sinh", typeof(int));
@@ -68,59 +92,32 @@ namespace TracNghiemManager.GUI.LopHoc
 
 		private void loadTongQuan()
 		{
-			
+
 
 		}
 		private void loadChartTongQuan()
 		{
 			cartesianChart1.Series = new SeriesCollection
 			{
-				new LineSeries
+				new ColumnSeries
 				{
-					Title = "Series 1",
-					Values = new ChartValues<double> {4, 6, 5, 2, 7}
-				},
-				new LineSeries
-				{
-					Title = "Series 2",
-					Values = new ChartValues<double> {6, 7, 3, 4, 6},
-					PointGeometry = null
-				},
-				new LineSeries
-				{
-					Title = "Series 2",
-					Values = new ChartValues<double> {5, 2, 8, 3},
-					PointGeometry = DefaultGeometries.Square,
-					PointGeometrySize = 15
+					Title = "Điểm trung bình",
+					Values = listDiemTBCuaHs.Select(value => (double)value).AsChartValues(),
 				}
 			};
 
+
 			cartesianChart1.AxisX.Add(new Axis
 			{
-				Title = "Month",
-				Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" }
+				Title = "Họ tên học sinh",
+				Labels = listHoTenHs.ToArray(),
 			});
 
 			cartesianChart1.AxisY.Add(new Axis
 			{
-				Title = "Sales",
-				LabelFormatter = value => value.ToString("C")
+				Title = "Điểm trung bình",
+				LabelFormatter = value => value.ToString("N2")
 			});
-
-			cartesianChart1.LegendLocation = LegendLocation.Right;
-
-			//modifying the series collection will animate and update the chart
-			cartesianChart1.Series.Add(new LineSeries
-			{
-				Values = new ChartValues<double> { 5, 3, 2, 4, 5 },
-				LineSmoothness = 0, //straight lines, 1 really smooth lines
-				PointGeometry = Geometry.Parse("m 25 70.36218 20 -28 -20 22 -8 -6 z"),
-				PointGeometrySize = 50,
-				PointForeground = System.Windows.Media.Brushes.Gray
-			});
-
-			//modifying any series values will also animate and update the chart
-			cartesianChart1.Series[2].Values.Add(5d);
 
 		}
 	}

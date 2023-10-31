@@ -207,5 +207,18 @@ namespace TracNghiemManager.DAO
 				return false;
 			}
 		}
+		public int slDeThiCoTrongLop(int maLop)
+		{
+			int result = -1;
+			using(SqlConnection connection = DbConnection.GetSqlConnection())
+			{
+				string query = "select count(bt.ma_bai_thi) as soLuong from bai_thi bt join lop on lop.ma_lop = bt.ma_lop where bt.ma_lop = " + maLop;
+				using(SqlCommand command = new SqlCommand(query, connection))
+				{
+					result = (int)command.ExecuteScalar();
+				}
+			}
+			return result;
+		}
 	}
 }
