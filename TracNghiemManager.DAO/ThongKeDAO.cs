@@ -77,9 +77,9 @@ namespace TracNghiemManager.DAO
 			}
 			return result;
 		}
-		public List<DiemTBCuaHS> GetAllDiemTBCuaHs(int maLop)
+		public List<DiemCuaHS> GetAllDiemTBCuaHs(int maLop)
 		{
-			List<DiemTBCuaHS> list = new List<DiemTBCuaHS>();
+			List<DiemCuaHS> list = new List<DiemCuaHS>();
 			using (SqlConnection conn = DbConnection.GetSqlConnection())
 			{
 				string query = "SELECT top 5 users.id, users.ho_va_ten,  Sum(ket_qua.diem) as tong_diem FROM users " +
@@ -95,7 +95,7 @@ namespace TracNghiemManager.DAO
 					{
 						while (reader.Read())
 						{
-							DiemTBCuaHS diemTBCuaHS = new DiemTBCuaHS
+							DiemCuaHS diemTBCuaHS = new DiemCuaHS
 							{
 								MaHocSinh = Convert.ToInt32(reader["id"]),
 								HoTen = reader["ho_va_ten"].ToString(),
@@ -105,14 +105,14 @@ namespace TracNghiemManager.DAO
 						}
 					}
 				}
-				return list;
 			}
+				return list;
 		}
 
 		public int getSlHsDaNopBai(int maLop, int maDeThi)
 		{
 			int result = -1;
-			using(SqlConnection conn = DbConnection.GetSqlConnection())
+			using (SqlConnection conn = DbConnection.GetSqlConnection())
 			{
 				string query = "SELECT count(users.id) as sLHSDaNopBai " +
 					"FROM users JOIN ket_qua ON users.id = ket_qua.user_id " +
@@ -122,9 +122,69 @@ namespace TracNghiemManager.DAO
 					"JOIN chi_tiet_quyen ON users.id = chi_tiet_quyen.user_id " +
 					"WHERE chi_tiet_quyen.ma_quyen = 3 AND ket_qua.ma_bai_thi = bai_thi.ma_bai_thi " +
 					"AND lop.ma_lop = " + maLop + " AND de_thi.ma_de_thi = " + maDeThi;
-				using(SqlCommand command = new SqlCommand(query, conn))
+				using (SqlCommand command = new SqlCommand(query, conn))
 				{
 					result = (int)command.ExecuteScalar();
+				}
+			}
+			return result;
+		}
+
+		public List<DiemCuaHS> GetTop5HsCoDiemCaoNhatTheoDeThi(int maLop, int maDeThi)
+		{
+			List<DiemCuaHS> list =  new List<DiemCuaHS>();
+			using (SqlConnection conn = DbConnection.GetSqlConnection())
+			{
+				string query = "SELECT top 5 users.id, users.ho_va_ten,ket_qua.diem FROM users " +
+					"JOIN ket_qua ON users.id = ket_qua.user_id " +
+					"JOIN bai_thi ON ket_qua.ma_bai_thi = bai_thi.ma_bai_thi " +
+					"JOIN lop ON bai_thi.ma_lop = lop.ma_lop " +
+					"JOIN de_thi on de_thi.ma_de_thi = bai_thi.ma_de_thi " +
+					"JOIN chi_tiet_quyen ON users.id = chi_tiet_quyen.user_id " +
+					"WHERE chi_tiet_quyen.ma_quyen = 3 AND ket_qua.ma_bai_thi = bai_thi.ma_bai_thi AND lop.ma_lop = " + maLop +
+					" And bai_thi.ma_de_thi = " + maDeThi + " GROUP BY users.id, users.ho_va_ten, ket_qua.diem" +
+					" order by ket_qua.diem desc";
+				using (SqlCommand command = new SqlCommand(query, conn))
+				{
+					using (SqlDataReader reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							DiemCuaHS diemTBCuaHS = new DiemCuaHS
+							{
+								MaHocSinh = Convert.ToInt32(reader["id"]),
+								HoTen = reader["ho_va_ten"].ToString(),
+								Diem = Convert.ToDouble(reader["diem"]),
+							};
+							list.Add(diemTBCuaHS);
+						}
+					}
+				}
+			}
+			return list;
+		}
+
+		public double getDiemCuaDeThiByUserId(int maLop, int maDeThi, int userId)
+		{
+			double result = -1;
+			using (SqlConnection conn = DbConnection.GetSqlConnection())
+			{
+				string query = "SELECT ket_qua.diem FROM users " +
+					"JOIN ket_qua ON users.id = ket_qua.user_id " +
+					"JOIN bai_thi ON ket_qua.ma_bai_thi = bai_thi.ma_bai_thi " +
+					"JOIN lop ON bai_thi.ma_lop = lop.ma_lop " +
+					"JOIN de_thi on de_thi.ma_de_thi = bai_thi.ma_de_thi " +
+					"JOIN chi_tiet_quyen ON users.id = chi_tiet_quyen.user_id " +
+					"WHERE chi_tiet_quyen.ma_quyen = 3 AND ket_qua.ma_bai_thi = bai_thi.ma_bai_thi AND lop.ma_lop = " + maLop +
+					" And bai_thi.ma_de_thi = " + maDeThi + " and users.id = " +  userId +
+					" GROUP BY ket_qua.diem";
+				using (SqlCommand command = new SqlCommand(query, conn))
+				{
+					var resultObject = command.ExecuteScalar();
+					if (resultObject != null && resultObject != DBNull.Value)
+					{
+						result = Convert.ToDouble(resultObject);
+					}
 				}
 			}
 			return result;

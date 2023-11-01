@@ -11,6 +11,7 @@ namespace TracNghiemManager.DTO.ViewModel
 		public int MaHocSinh { get; set; }
 		public string HoTen { get; set; }
 		public string Email { get; set; }
+		public double Diem { get; set; }
 		public HocSinhTrongLop()
 		{
 
@@ -20,6 +21,13 @@ namespace TracNghiemManager.DTO.ViewModel
 			MaHocSinh = maHocSinh;
 			HoTen = hoTen;
 			Email = email;
+		}
+		public HocSinhTrongLop(int maHocSinh, string hoTen, string email, double diem)
+		{
+			MaHocSinh = maHocSinh;
+			HoTen = hoTen;
+			Email = email;
+			Diem = diem;
 		}
 	}
 }

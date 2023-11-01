@@ -29,7 +29,7 @@ namespace TracNghiemManager.BUS
 		{
 			return thongKeDAO.getCountCauHoi();
 		}
-		public List<DiemTBCuaHS> GetAllDiemTBCuaHS(int maLop)
+		public List<DiemCuaHS> GetAllDiemTBCuaHS(int maLop)
 		{
 			return thongKeDAO.GetAllDiemTBCuaHs(maLop);
 		}
@@ -37,6 +37,14 @@ namespace TracNghiemManager.BUS
 		public int getSlHSDaNopBai(int maLop, int maDeThi)
 		{
 			return thongKeDAO.getSlHsDaNopBai(maLop, maDeThi);
+		}
+		public List<DiemCuaHS> getTop5HsCoDiemCaoNhatTheoDeThi(int maLop, int maDeThi)
+		{
+			return thongKeDAO.GetTop5HsCoDiemCaoNhatTheoDeThi(maLop, maDeThi);
+		}
+		public double getDiemCuaDeThiByUserId(int maLop, int maDeThi, int userId)
+		{
+			return thongKeDAO.getDiemCuaDeThiByUserId(maLop,maDeThi,userId);
 		}
 	}
 }

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace TracNghiemManager.DTO.ViewModel
 {
-	public class DiemTBCuaHS
+	public class DiemCuaHS
 	{
 		public int MaHocSinh { get; set; }
 		public string HoTen { get; set; }
 		public double Diem { get; set; }
-		public DiemTBCuaHS()
+		public DiemCuaHS()
 		{
 
 		}
-		public DiemTBCuaHS(int maHocSinh, string hoTen, double diem)
+		public DiemCuaHS(int maHocSinh, string hoTen, double diem)
 		{
 			MaHocSinh = maHocSinh;
 			HoTen = hoTen;
