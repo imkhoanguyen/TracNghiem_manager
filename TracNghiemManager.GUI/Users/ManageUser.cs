@@ -129,6 +129,8 @@ namespace TracNghiemManager.GUI.Users
 				avatarImg[i].Name = "avatarImg" + i;
 				avatarImg[i].Size = new Size(100, 113);
 				avatarImg[i].TabStop = false;
+				avatarImg[i].SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+
 
 
 				panelUser[i].Controls.Add(buttonCT[i]);

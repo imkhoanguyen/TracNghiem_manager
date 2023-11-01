@@ -184,7 +184,7 @@ namespace TracNghiemManager.GUI
 			this.pictureOwner.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureOwner.Name = "pictureOwner";
 			this.pictureOwner.Size = new System.Drawing.Size(112, 100);
-			this.pictureOwner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.pictureOwner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureOwner.TabIndex = 0;
 			this.pictureOwner.TabStop = false;
 			this.pictureOwner.WaitOnLoad = true;

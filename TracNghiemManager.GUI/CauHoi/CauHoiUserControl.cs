@@ -128,7 +128,7 @@ namespace TracNghiemManager.GUI.CauHoi
                 }
 
                 // Lọc các câu hỏi theo nội dung tìm kiếm
-                List<CauHoiDTO> listCauHoiTimKiem = listch.Where(ch => ch.NoiDung.Contains(noiDungTimKiem)).ToList();
+                List<CauHoiDTO> listCauHoiTimKiem = listch.Where(ch => ch.NoiDung.ToLower().Contains(noiDungTimKiem.ToLower())).ToList();
 
                 // Nếu có chọn môn học thì lọc các câu hỏi theo môn học
                 if (indexSreachMonHoc != null)
@@ -145,7 +145,7 @@ namespace TracNghiemManager.GUI.CauHoi
                 // Nếu không chọn môn học và độ khó thì tìm kiếm theo nội dung tìm kiếm
                 if (indexSreachMonHoc == null && indexSearchDoKho == null)
                 {
-                    listCauHoiTimKiem = (List<CauHoiDTO>)listch.Where(ch => ch.NoiDung.Contains(noiDungTimKiem)).ToList();
+                    listCauHoiTimKiem = (List<CauHoiDTO>)listch.Where(ch => ch.NoiDung.ToLower().Contains(noiDungTimKiem.ToLower())).ToList();
                 }
 
                 // Show nội dung cần thiết

@@ -71,6 +71,11 @@
 			this.cbTrangThai = new System.Windows.Forms.ComboBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.dataGridView2 = new System.Windows.Forms.DataGridView();
+			this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+			this.lblCountDtDangMo = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -97,6 +102,9 @@
 			this.tableLayoutPanel15.SuspendLayout();
 			this.tableLayoutPanel16.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+			this.tableLayoutPanel18.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+			this.tableLayoutPanel19.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -251,6 +259,7 @@
 			this.tableLayoutPanel4.ColumnCount = 2;
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel18, 0, 0);
 			this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 0);
 			this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 2);
@@ -265,7 +274,7 @@
 			// tableLayoutPanel5
 			// 
 			this.tableLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.tableLayoutPanel5.BackColor = System.Drawing.Color.White;
+			this.tableLayoutPanel5.BackColor = System.Drawing.Color.Silver;
 			this.tableLayoutPanel5.ColumnCount = 2;
 			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.14151F));
 			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.85849F));
@@ -671,6 +680,72 @@
 			this.dataGridView2.Size = new System.Drawing.Size(1163, 162);
 			this.dataGridView2.TabIndex = 1;
 			// 
+			// tableLayoutPanel18
+			// 
+			this.tableLayoutPanel18.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.tableLayoutPanel18.BackColor = System.Drawing.Color.Silver;
+			this.tableLayoutPanel18.ColumnCount = 2;
+			this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.14151F));
+			this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.85849F));
+			this.tableLayoutPanel18.Controls.Add(this.pictureBox2, 0, 0);
+			this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel19, 1, 0);
+			this.tableLayoutPanel18.ForeColor = System.Drawing.Color.Black;
+			this.tableLayoutPanel18.Location = new System.Drawing.Point(664, 5);
+			this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+			this.tableLayoutPanel18.RowCount = 1;
+			this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel18.Size = new System.Drawing.Size(424, 130);
+			this.tableLayoutPanel18.TabIndex = 1;
+			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+			this.pictureBox2.Location = new System.Drawing.Point(3, 2);
+			this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(143, 126);
+			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.pictureBox2.TabIndex = 0;
+			this.pictureBox2.TabStop = false;
+			// 
+			// tableLayoutPanel19
+			// 
+			this.tableLayoutPanel19.ColumnCount = 1;
+			this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel19.Controls.Add(this.lblCountDtDangMo, 0, 0);
+			this.tableLayoutPanel19.Controls.Add(this.label10, 0, 1);
+			this.tableLayoutPanel19.Location = new System.Drawing.Point(152, 2);
+			this.tableLayoutPanel19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+			this.tableLayoutPanel19.RowCount = 2;
+			this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel19.Size = new System.Drawing.Size(269, 126);
+			this.tableLayoutPanel19.TabIndex = 1;
+			// 
+			// lblCountDtDangMo
+			// 
+			this.lblCountDtDangMo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.lblCountDtDangMo.AutoSize = true;
+			this.lblCountDtDangMo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblCountDtDangMo.Location = new System.Drawing.Point(3, 0);
+			this.lblCountDtDangMo.Name = "lblCountDtDangMo";
+			this.lblCountDtDangMo.Size = new System.Drawing.Size(249, 63);
+			this.lblCountDtDangMo.TabIndex = 0;
+			this.lblCountDtDangMo.Text = "lblCountDtDangMo";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(3, 63);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(231, 28);
+			this.label10.TabIndex = 1;
+			this.label10.Text = "Số lượng đề thi đang mở";
+			// 
 			// fDanhSachSV
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -715,6 +790,10 @@
 			this.tableLayoutPanel15.PerformLayout();
 			this.tableLayoutPanel16.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+			this.tableLayoutPanel18.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+			this.tableLayoutPanel19.ResumeLayout(false);
+			this.tableLayoutPanel19.PerformLayout();
 			this.ResumeLayout(false);
 
         }
@@ -763,5 +842,10 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
 		private System.Windows.Forms.ComboBox cbDeThi;
 		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
+		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
+		private System.Windows.Forms.Label lblCountDtDangMo;
+		private System.Windows.Forms.Label label10;
 	}
 }

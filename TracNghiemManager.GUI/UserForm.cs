@@ -93,7 +93,7 @@ namespace TracNghiemManager.GUI
 			monHocPanel.Visible = false;
 			cauHoiPanel.Visible = false;
 			deThiPanel.Visible = false;
-			//thongKePanel.Visible = false;
+			thongKePanel.Visible = false;
 			userPanel.Visible = false;
 
 		}
@@ -181,6 +181,7 @@ namespace TracNghiemManager.GUI
 		private void btnNguoiDung_Click(object sender, EventArgs e)
 		{
 			ShowUserControl(userPanel);
+			userPanel.reLoad(userBus.GetAll());
 		}
 
 		private void btnPhanQuyen_Click(object sender, EventArgs e)

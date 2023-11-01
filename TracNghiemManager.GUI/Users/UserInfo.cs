@@ -125,7 +125,7 @@ namespace TracNghiemManager.GUI.Users
 				if (userBUS.Update(user).Equals("Cập nhật thành công!"))
 				{
 					MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					// chua dien du tt
+					// chưa điền đầy đủ thông tin
 					if (Form1.flag == 1)
 					{
 						UserForm f = new UserForm();
@@ -140,8 +140,8 @@ namespace TracNghiemManager.GUI.Users
 					else
 					{
 						userForm.updateAvatar(user.avatar);
-
 					}
+
 				}
 
 

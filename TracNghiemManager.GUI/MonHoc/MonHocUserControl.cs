@@ -141,7 +141,7 @@ namespace TracNghiemManager.GUI.MonHoc
         {
             try
             {
-                List<MonHocDTO> listMonHocTimKiem = listmh.Where(mh => mh.TenMonHoc.Contains(textBoxTimKiem.Text)).ToList();
+                List<MonHocDTO> listMonHocTimKiem = listmh.Where(mh => mh.TenMonHoc.ToLower().Contains(textBoxTimKiem.Text.ToLower())).ToList();
                 var listMonHocTimKiemFilter = listMonHocTimKiem.Select(mh => new
                 {
                     ID = mh.MaMonHoc,
