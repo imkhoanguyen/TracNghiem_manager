@@ -74,9 +74,13 @@ namespace TracNghiemManager.DAO
 						{
 							UserDTO user = new UserDTO();
 							user.Id = Convert.ToInt32(reader["id"]);
+							user.HoVaTen = reader["ho_va_ten"].ToString();
+							user.Email = reader["email"].ToString();
+							user.Password = reader["mat_khau"].ToString();
 							user.UserName = reader["username"].ToString();
 							user.avatar = reader["avatar"].ToString();
-							user.Password = reader["mat_khau"].ToString();
+							user.gioiTinh = Convert.ToInt32(reader["gioi_tinh"]);
+							user.ngaySinh = Convert.ToDateTime(reader["ngay_sinh"]);
 							if (reader["ngay_tao"].ToString() != "")
 							{
 								user.ngayTao = Convert.ToDateTime(reader["ngay_tao"]);
@@ -308,44 +312,53 @@ namespace TracNghiemManager.DAO
 				}
 			}
 		}
-		public Dictionary<int, List<Tuple<string, string, float>>> GetName(int ma_lop)
+		public List<UserDTO> GetMailandAvatar(string s)
 		{
-			Dictionary<int, List<Tuple<string, string, float>>> dict = new Dictionary<int, List<Tuple<string, string, float>>>();
+			List<UserDTO> users = new List<UserDTO>();
 
-			using (SqlConnection connection = DbConnection.GetSqlConnection())
+			try
 			{
-				string query = "SELECT users.id, users.ho_va_ten, de_thi.ten_de_thi, ket_qua.diem " +
-				   "FROM users JOIN ket_qua ON users.id = ket_qua.user_id " +
-				   "JOIN bai_thi ON ket_qua.ma_bai_thi = bai_thi.ma_bai_thi " +
-				   "JOIN lop ON bai_thi.ma_lop = lop.ma_lop " +
-				   "JOIN de_thi ON bai_thi.ma_de_thi = de_thi.ma_de_thi " +
-				   "JOIN chi_tiet_quyen ON users.id = chi_tiet_quyen.user_id " +
-				   "WHERE chi_tiet_quyen.ma_quyen = 3 AND ket_qua.ma_bai_thi = bai_thi.ma_bai_thi AND lop.ma_lop = @malop";
-
-				using (SqlCommand command = new SqlCommand(query, connection))
+				using (SqlConnection connection = DbConnection.GetSqlConnection())
 				{
-					command.Parameters.AddWithValue("@malop", ma_lop);
-					using (SqlDataReader reader = command.ExecuteReader())
+					string query = "SELECT email, avatar, username,ho_va_ten FROM users WHERE trang_thai = 1 AND (username = @input OR email = @input)";
+
+					using (SqlCommand command = new SqlCommand(query, connection))
 					{
-						while (reader.Read())
+						command.Parameters.AddWithValue("@input", s);
+
+						using (SqlDataReader reader = command.ExecuteReader())
 						{
-							int id = Convert.ToInt32(reader["id"]);
-							string ho_va_ten = reader["ho_va_ten"].ToString();
-							string tenDeThi = reader["ten_de_thi"].ToString();
-							float diem = Convert.ToSingle(reader["diem"]);
-
-							if (!dict.ContainsKey(id))
+							while (reader.Read())
 							{
-								dict[id] = new List<Tuple<string, string, float>>();
+								UserDTO user = new UserDTO();
+								user.Email = reader["email"].ToString();
+								user.avatar = reader["avatar"].ToString();
+								user.UserName = reader["username"].ToString();
+								user.HoVaTen = reader["ho_va_ten"].ToString();
+								users.Add(user);
 							}
-
-							dict[id].Add(new Tuple<string, string, float>(ho_va_ten, tenDeThi, diem));
 						}
 					}
 				}
 			}
+			catch (Exception ex)
+			{
+			}
 
-			return dict;
+			return users;
+		}
+		public void UpdatePassword(string email, string newPassword)
+		{
+			using (SqlConnection connection = DbConnection.GetSqlConnection())
+			{
+				string query = "UPDATE users SET mat_khau = @newPassword WHERE email = @email";
+				using (SqlCommand command = new SqlCommand(query, connection))
+				{
+					command.Parameters.AddWithValue("@email", email);
+					command.Parameters.AddWithValue("@newPassword", newPassword);
+					command.ExecuteNonQuery();
+				}
+			}
 		}
 	}
 }

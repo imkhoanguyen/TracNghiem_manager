@@ -93,9 +93,30 @@ namespace TracNghiemManager.BUS
 			return UserDAO.SearchEvenDate(s1, s2);
 		}
 
-		public Dictionary<int, List<Tuple<string, string, float>>> GetName(int ma_lop)
+		public List<UserDTO> getEmailandAvatar(string s)
 		{
-			return UserDAO.GetName(ma_lop);
+			return UserDAO.GetMailandAvatar(s);
+		}
+		public int CheckEmail(string newEmail)
+		{
+			List<UserDTO> l = UserDAO.GetAll();
+			for (int i=0; i<l.Count; i++)
+			{
+				if (l[i].Email!=null)
+				{
+					if (l[i].Email.Equals(newEmail))
+					{
+						return 1;
+					}
+				}
+				
+			}
+
+			return -1;
+		}
+		public void UpdatePassword(string email, string newPassword)
+		{
+			UserDAO.UpdatePassword(email, newPassword);
 		}
 	}
 }

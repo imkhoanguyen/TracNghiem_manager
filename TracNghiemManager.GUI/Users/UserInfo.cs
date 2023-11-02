@@ -130,13 +130,13 @@ namespace TracNghiemManager.GUI.Users
 
 			if (validate_form())
 			{
+				// admin update tai khoan nguoi dung (admin click chi tiet)
 				if (flagAdminUpdate != null)
 				{
 					user = userBUS.getById(userIdUpdate);
 				}
 				else
 				{
-
 					user = userBUS.getById(user_id);
 				}
 				string gender = "";
@@ -144,17 +144,27 @@ namespace TracNghiemManager.GUI.Users
 				if (RbNu.Checked) gender = RbNu.Tag.ToString();
 
 				int gioi_tinh = Convert.ToInt32(gender);
-				user.Email = textBoxEmail.Text.Trim();
-				user.HoVaTen = textBoxName.Text.Trim();
+				if(user.Email != textBoxEmail.Text)
+				{
+					int check = userBUS.CheckEmail(textBoxEmail.Text);
+					if(check==1)
+					{
+						MessageBox.Show("Email đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						return;
+					}
+				}
+				user.Email = textBoxEmail.Text;
+				
+				user.HoVaTen = textBoxName.Text;
 				user.ngaySinh = timePick;
-				user.avatar = textBox1.Text.Trim();
+				user.avatar = textBox1.Text;
 				user.gioiTinh = gioi_tinh;
-				user.Password = txtPass.Text.Trim();
+				user.Password = txtPass.Text;
 
 				if (userBUS.Update(user).Equals("Cập nhật thành công!"))
 				{
 					MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					// chưa điền đầy đủ thông tin
+					// chưa điền đầy đủ thông tin (tai khoan dang nhap lan dau)
 					if (Form1.flag == 1)
 					{
 						UserForm f = new UserForm();
@@ -169,14 +179,16 @@ namespace TracNghiemManager.GUI.Users
 						f1.SaveLoginHistory(Form1.USER_ID + "_" + Form1.LoginTime.ToString());
 
 					}
-					else
+					else //Tai khoan da co day du thong tin
 					{
+						// cap nhat hinh anh tren userForm (thanh ben trai)
 						if (user.avatar != null && userForm != null)
 						{
 
 							userForm.updateAvatar(user.avatar);
 						}
 					}
+					// cap nhat lai giao dien cua manageuser chinh sua user (admin nhan nut chi tiet)
 					if (manageUser != null)
 					{
 						manageUser.reLoad(userBUS.GetAll());

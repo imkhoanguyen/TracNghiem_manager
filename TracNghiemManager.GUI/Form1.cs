@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using TracNghiemManager.BUS;
 using TracNghiemManager.DTO;
 using TracNghiemManager.GUI.Users;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Formatting = Newtonsoft.Json.Formatting;
 
 namespace TracNghiemManager.GUI
@@ -80,79 +81,8 @@ namespace TracNghiemManager.GUI
 			}
 			c.Font = new Font(c.Font.FontFamily, newFontSize);
 		}
-		private void button1_Click(object sender, EventArgs e)
-		{
-			UserBUS userBUS = new UserBUS();
-			int id = userBUS.getIdByUsername(textBox1.Text.Trim());
-			if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
-			{
-				MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
-			}
-			if (id == -1)
-			{
-				MessageBox.Show("Username không tồn tại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
-			}
 
-			UserDTO user = userBUS.getById(id);
-			user.Password = user.Password.Trim();
-			textBox2.Text = textBox2.Text.Trim();
-			if (user.Password != textBox2.Text)
-			{
-				MessageBox.Show("Mật Khẩu sai!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
-			}
 
-			USER_ID = id;
-			UserDTO uLogin = userBUS.getById(USER_ID);
-			if(uLogin.HoVaTen == "")
-			{
-				DialogResult result = MessageBox.Show("Vui lòng điền thông tin cá nhân trước khi đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				if(result == DialogResult.OK)
-				{
-					UserInfo userInfo = new UserInfo();
-					userInfo.Show();
-					flag = 1;
-				} 
-			} else
-			{
-				UserForm form = new UserForm();
-				form.Show();
-				SaveLoginHistory(USER_ID.ToString() + "_" + LoginTime.ToString());
-			}
-			this.Visible = false;
-
-		}
-		private void checkBox1_CheckedChanged(object sender, EventArgs e)
-		{
-			if (checkBox1.Checked)
-			{
-				textBox2.PasswordChar = '\0';
-			}
-			else
-			{
-				textBox2.PasswordChar = '*';
-			}
-		}
-
-		private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if (e.KeyChar == (char)Keys.Enter)
-			{
-				e.Handled = true;
-				textBox2.Focus();
-			}
-		}
-
-		private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if (e.KeyChar == (char)Keys.Enter)
-			{
-				e.Handled = true;
-				button1.PerformClick();
-			}
-		}
 
 		public void SaveLoginHistory(string idLogin)
 		{
@@ -188,14 +118,127 @@ namespace TracNghiemManager.GUI
 			u.TenQuyen = q;
 			u.IdLogin = idLogin;
 			UserDTO userHistory = u;
-			
+
 			loginHistories.Add(userHistory);
 			// Ghi lại danh sách vào tệp JSON
 			string updatedJson = JsonConvert.SerializeObject(loginHistories, Formatting.Indented);
 			File.WriteAllText("loginHistory.json", updatedJson);
 		}
 
+		private void button1_Click_1(object sender, EventArgs e)
+		{
+			UserBUS userBUS = new UserBUS();
+			int id = userBUS.getIdByUsername(textBox1.Text.Trim());
+			if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
+			{
+				MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (id == -1)
+			{
+				MessageBox.Show("Username không tồn tại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 
+			UserDTO user = userBUS.getById(id);
+			user.Password = user.Password.Trim();
+			textBox2.Text = textBox2.Text.Trim();
+			if (user.Password != textBox2.Text)
+			{
+				MessageBox.Show("Mật Khẩu sai!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 
+			USER_ID = id;
+			UserDTO uLogin = userBUS.getById(USER_ID);
+			if (uLogin.HoVaTen == "")
+			{
+				DialogResult result = MessageBox.Show("Vui lòng điền thông tin cá nhân trước khi đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				if (result == DialogResult.OK)
+				{
+					UserInfo userInfo = new UserInfo();
+					userInfo.Show();
+					flag = 1;
+				}
+			}
+			else
+			{
+				UserForm form = new UserForm();
+				form.Show();
+				SaveLoginHistory(USER_ID.ToString() + "_" + LoginTime.ToString());
+			}
+			this.Visible = false;
+		}
+
+		private void checkBox1_Click(object sender, EventArgs e)
+		{
+			if (checkBox1.Checked)
+			{
+				textBox2.PasswordChar = '\0';
+			}
+			else
+			{
+				textBox2.PasswordChar = '*';
+			}
+			if (checkBox1.Checked)
+			{
+				textBox2.PasswordChar = '\0';
+			}
+			else
+			{
+				textBox2.PasswordChar = '*';
+			}
+		}
+
+		private void textBox1_KeyPress_1(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == (char)Keys.Enter)
+			{
+				e.Handled = true;
+				textBox2.Focus();
+			}
+		}
+
+		private void textBox2_KeyPress_1(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == (char)Keys.Enter)
+			{
+				e.Handled = true;
+				button1.PerformClick();
+			}
+			if (e.KeyChar == (char)Keys.Enter)
+			{
+				e.Handled = true;
+				button1.PerformClick();
+			}
+		}
+
+		private void lblQuenMatKhau_Click(object sender, EventArgs e)
+		{
+			UserBUS userBUS = new UserBUS();
+			if (string.IsNullOrEmpty(textBox1.Text))
+			{
+				fNhapInfo f = new fNhapInfo();
+				f.Show();
+			}
+			else
+			{
+				string username = textBox1.Text;
+				List<UserDTO> users = userBUS.getEmailandAvatar(username);
+
+				if (users.Count > 0)
+				{
+					fGetOTP fget = new fGetOTP();
+					fget.lblEmail.Text = users[0].Email;
+					fget.lblUser.Text = users[0].HoVaTen;
+					fget.pictureUser.ImageLocation = users[0].avatar;
+					fget.Show();
+				}
+				else
+				{
+					MessageBox.Show("Tài khoản không hợp lệ!");
+				}
+			}
+		}
 	}
 }
