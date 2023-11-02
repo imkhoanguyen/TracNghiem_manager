@@ -14,6 +14,7 @@ using TracNghiemManager.BUS;
 using TracNghiemManager.DTO;
 using TracNghiemManager.DTO.ViewModel;
 using LiveCharts.Helpers;
+using ClosedXML.Excel;
 
 namespace TracNghiemManager.GUI.LopHoc
 {
@@ -38,6 +39,7 @@ namespace TracNghiemManager.GUI.LopHoc
 		private List<string> listTrangThai;
 		private string selectedTrangThai;
 		private DataTable dt1;
+		private int soLuongDeThiDangMo = 0;
 		public fDanhSachSV(LopDTO l)
 		{
 			InitializeComponent();
@@ -73,6 +75,10 @@ namespace TracNghiemManager.GUI.LopHoc
 			foreach (DeThiCuaLopDTO item in listDeThiCuaLop)
 			{
 				listDeThi.Add(dtBus.GetById(item.MaDeThi));
+				if(item.TrangThai == 1)
+				{
+					soLuongDeThiDangMo++;
+				}
 			}
 			foreach (HocSinhTrongLop item in lDTB)
 			{
@@ -115,6 +121,7 @@ namespace TracNghiemManager.GUI.LopHoc
 		private void load()
 		{
 			lblCountSLDeThi.Text = soLuongDeThiCoTrongLop.ToString();
+			lblCountDtDangMo.Text = soLuongDeThiDangMo.ToString();
 		}
 
 		private void loadCbDeThi()
@@ -323,6 +330,74 @@ namespace TracNghiemManager.GUI.LopHoc
 			{
 				selectedTrangThai = cb.SelectedValue.ToString();
 				loadDataGridView2();
+			}
+		}
+
+		private void btnXuatDSHS_Click(object sender, EventArgs e)
+		{
+			using (SaveFileDialog sfd = new SaveFileDialog())
+			{
+				sfd.Filter = "Excel Workbook|*.xlsx";
+
+				if (sfd.ShowDialog() == DialogResult.OK)
+				{
+					try
+					{
+						using (var workbook = new XLWorkbook())
+						{
+							DataTable dt = (DataTable)dataGridView1.DataSource;
+
+							if (dt != null)
+							{
+								var worksheet = workbook.Worksheets.Add(dt, "Sheet1");
+								workbook.SaveAs(sfd.FileName);
+								MessageBox.Show("Xuất thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							}
+							else
+							{
+								MessageBox.Show("Không có dữ liệu để xuất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+							}
+						}
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+			}
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			using (SaveFileDialog sfd = new SaveFileDialog())
+			{
+				sfd.Filter = "Excel Workbook|*.xlsx";
+
+				if (sfd.ShowDialog() == DialogResult.OK)
+				{
+					try
+					{
+						using (var workbook = new XLWorkbook())
+						{
+							DataTable dt = (DataTable)dataGridView2.DataSource;
+
+							if (dt != null)
+							{
+								var worksheet = workbook.Worksheets.Add(dt, "Sheet1");
+								workbook.SaveAs(sfd.FileName);
+								MessageBox.Show("Xuất thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							}
+							else
+							{
+								MessageBox.Show("Không có dữ liệu để xuất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+							}
+						}
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
 			}
 		}
 	}

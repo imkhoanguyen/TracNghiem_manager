@@ -29,5 +29,13 @@ namespace TracNghiemManager.BUS
 		{
 			return ketQuaDAO.Get(maBaiThi, userId);
 		}
+		public string Update(KetQuaDTO t)
+		{
+			if (ketQuaDAO.Update(t))
+			{
+				return "thanh cong";
+			}
+			return "that bai";
+		}
 	}
 }

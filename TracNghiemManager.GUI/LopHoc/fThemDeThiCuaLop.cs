@@ -14,13 +14,14 @@ namespace TracNghiemManager.GUI.LopHoc
 {
 	public partial class fThemDeThiCuaLop : Form
 	{
-		DeThiDTO deThiDTO;
-		LopDTO lopDTO;
-		string hanhDong;
-		DeThiCuaLopBUS dtclBus;
-		fChiTietLop fctl;
-		fDanhSachDeThi fdsdt;
-		public fThemDeThiCuaLop(DeThiDTO dt, LopDTO l, fChiTietLop f, fDanhSachDeThi f1,string hd = null)
+		private DeThiDTO deThiDTO;
+		private LopDTO lopDTO;
+		private string hanhDong;
+		private DeThiCuaLopBUS dtclBus;
+		private fChiTietLop fctl;
+		private fDanhSachDeThi fdsdt;
+		private DeThiCuaLopDTO deThiCuaLop;
+		public fThemDeThiCuaLop(DeThiDTO dt, LopDTO l, fChiTietLop f, fDanhSachDeThi f1 = null,string hd = null)
 		{
 			InitializeComponent();
 			deThiDTO = dt;
@@ -28,6 +29,20 @@ namespace TracNghiemManager.GUI.LopHoc
 			fdsdt = f1;
 			hanhDong = hd;
 			fctl = f;
+			dtclBus = new DeThiCuaLopBUS();
+			dtpThoiGianBatDau.Format = DateTimePickerFormat.Custom;
+			dtpThoiGianBatDau.CustomFormat = "dd/MM/yyyy HH:mm";
+			dtpThoiGianKetThuc.Format = DateTimePickerFormat.Custom;
+			dtpThoiGianKetThuc.CustomFormat = "dd/MM/yyyy HH:mm";
+		}
+		public fThemDeThiCuaLop(DeThiDTO dt, LopDTO l, fChiTietLop f, DeThiCuaLopDTO dtcl, string hd = null)
+		{
+			InitializeComponent();
+			deThiDTO = dt;
+			lopDTO = l;
+			hanhDong = hd;
+			fctl = f;
+			deThiCuaLop = dtcl;
 			dtclBus = new DeThiCuaLopBUS();
 			dtpThoiGianBatDau.Format = DateTimePickerFormat.Custom;
 			dtpThoiGianBatDau.CustomFormat = "dd/MM/yyyy HH:mm";
@@ -57,6 +72,26 @@ namespace TracNghiemManager.GUI.LopHoc
 						MessageBox.Show("Thêm đề thi vào lớp thất bại","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
 					
+				}
+			} else if(hanhDong.Equals("edit"))
+			{
+				if (checkValidate())
+				{
+					try
+					{
+						DeThiCuaLopDTO obj = new DeThiCuaLopDTO(deThiCuaLop.MaBaiThi, deThiDTO.MaDeThi, lopDTO.MaLop, dtpThoiGianBatDau.Value, dtpThoiGianKetThuc.Value, 1); ;
+						dtclBus.Update(obj);
+						MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						fctl.loadDeThi();
+						fctl.flagMoDeThi = 1; // cap nhat lai trang thai dang mo cua de thi
+						this.Dispose();
+						this.Close();
+					}
+					catch (Exception ex)
+					{
+						Console.WriteLine(ex);
+						MessageBox.Show("Cập nhật thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
 				}
 			}
 		}
@@ -90,7 +125,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				// Trả về false nếu dtpThoiGianBatDau nhỏ hơn hoặc bằng thời gian hiện tại
 				return false;
 			}
-			if(dtclBus.checkDeThiCoTrongLop(deThiDTO.MaDeThi, lopDTO.MaLop))
+			if(dtclBus.checkDeThiCoTrongLop(deThiDTO.MaDeThi, lopDTO.MaLop) && hanhDong.Equals("add"))
 			{
 				MessageBox.Show("Đề thi đã có trong lớp rồi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;

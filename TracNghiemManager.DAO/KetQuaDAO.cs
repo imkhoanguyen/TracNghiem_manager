@@ -43,6 +43,32 @@ namespace TracNghiemManager.DAO
 				return false;
 			}
 		}
+		public bool Update(KetQuaDTO t)
+		{
+			try
+			{
+				using (SqlConnection connection = DbConnection.GetSqlConnection())
+				{
+					string query = "update ket_qua set so_cau_dung = @so_cau_dung, so_cau_sai = @so_cau_sai, so_cau_chua_chon = @so_cau_chua_chon, diem = @diem where ma_bai_thi = @ma_bai_thi and user_id = @user_id; ";
+					using (SqlCommand command = new SqlCommand(query, connection))
+					{
+						command.Parameters.AddWithValue("@ma_bai_thi", t.MaBaiThi);
+						command.Parameters.AddWithValue("@user_id", t.MaThiSinh);
+						command.Parameters.AddWithValue("@so_cau_dung", t.SoCauDung);
+						command.Parameters.AddWithValue("@so_cau_sai", t.SoCauSai);
+						command.Parameters.AddWithValue("@so_cau_chua_chon", t.SoCauChuaChon);
+						command.Parameters.AddWithValue("@diem", t.Diem);
+						int rowsChanged = command.ExecuteNonQuery();
+						return rowsChanged > 0;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+				return false;
+			}
+		}
 
 		public KetQuaDTO Get(int maBaiThi, int userId)
 		{
@@ -89,9 +115,6 @@ namespace TracNghiemManager.DAO
 			throw new NotImplementedException();
 		}
 
-		public bool Update(KetQuaDTO t)
-		{
-			throw new NotImplementedException();
-		}
+		
 	}
 }

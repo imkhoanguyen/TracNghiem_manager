@@ -144,6 +144,7 @@ namespace TracNghiemManager.GUI.Users
 				if (RbNu.Checked) gender = RbNu.Tag.ToString();
 
 				int gioi_tinh = Convert.ToInt32(gender);
+				// neu nguoi dung nhap khac email hien tai cua minh
 				if(user.Email != textBoxEmail.Text)
 				{
 					int check = userBUS.CheckEmail(textBoxEmail.Text);

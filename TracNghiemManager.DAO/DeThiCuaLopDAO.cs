@@ -111,7 +111,7 @@ namespace TracNghiemManager.DAO
 			{
 				using (SqlConnection connection = DbConnection.GetSqlConnection())
 				{
-					string query = "Update bai_thi Set tg_bat_dau = @tg_bat_dau, tg_ket_thuc = @tg_ket_thuc Where ma_bai_thi = @ma_bai_thi";
+					string query = "Update bai_thi Set tg_bat_dau = @tg_bat_dau, tg_ket_thuc = @tg_ket_thuc, trang_thai = 1 Where ma_bai_thi = @ma_bai_thi";
 					using (SqlCommand command = new SqlCommand(query, connection))
 					{
 						command.Parameters.AddWithValue("@tg_bat_dau", t.ThoiGianBatDau);
@@ -128,6 +128,7 @@ namespace TracNghiemManager.DAO
 				return false;
 			}
 		}
+
 
 		public int GetAutoIncrement()
 		{
