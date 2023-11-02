@@ -77,9 +77,9 @@ namespace TracNghiemManager.DAO
 			}
 			return result;
 		}
-		public List<DiemCuaHS> GetAllDiemTBCuaHs(int maLop)
+		public List<HocSinhTrongLop> GetAllDiemTBCuaHs(int maLop)
 		{
-			List<DiemCuaHS> list = new List<DiemCuaHS>();
+			List<HocSinhTrongLop> list = new List<HocSinhTrongLop>();
 			using (SqlConnection conn = DbConnection.GetSqlConnection())
 			{
 				string query = "SELECT top 5 users.id, users.ho_va_ten,  Sum(ket_qua.diem) as tong_diem FROM users " +
@@ -95,7 +95,7 @@ namespace TracNghiemManager.DAO
 					{
 						while (reader.Read())
 						{
-							DiemCuaHS diemTBCuaHS = new DiemCuaHS
+							HocSinhTrongLop diemTBCuaHS = new HocSinhTrongLop
 							{
 								MaHocSinh = Convert.ToInt32(reader["id"]),
 								HoTen = reader["ho_va_ten"].ToString(),
@@ -130,9 +130,9 @@ namespace TracNghiemManager.DAO
 			return result;
 		}
 
-		public List<DiemCuaHS> GetTop5HsCoDiemCaoNhatTheoDeThi(int maLop, int maDeThi)
+		public List<HocSinhTrongLop> GetTop5HsCoDiemCaoNhatTheoDeThi(int maLop, int maDeThi)
 		{
-			List<DiemCuaHS> list =  new List<DiemCuaHS>();
+			List<HocSinhTrongLop> list =  new List<HocSinhTrongLop>();
 			using (SqlConnection conn = DbConnection.GetSqlConnection())
 			{
 				string query = "SELECT top 5 users.id, users.ho_va_ten,ket_qua.diem FROM users " +
@@ -150,7 +150,7 @@ namespace TracNghiemManager.DAO
 					{
 						while (reader.Read())
 						{
-							DiemCuaHS diemTBCuaHS = new DiemCuaHS
+							HocSinhTrongLop diemTBCuaHS = new HocSinhTrongLop
 							{
 								MaHocSinh = Convert.ToInt32(reader["id"]),
 								HoTen = reader["ho_va_ten"].ToString(),

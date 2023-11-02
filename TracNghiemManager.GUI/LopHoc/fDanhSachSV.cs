@@ -26,7 +26,7 @@ namespace TracNghiemManager.GUI.LopHoc
 		private DataTable dt;
 		private ThongKeBUS tkBus;
 		private DeThiCuaLopBUS dtclBus;
-		private List<DiemCuaHS> lDTB;
+		private List<HocSinhTrongLop> lDTB;
 		private List<string> listHoTenHs;
 		private List<double> listDiemTBCuaHs;
 		private int soLuongDeThiCoTrongLop;
@@ -34,7 +34,7 @@ namespace TracNghiemManager.GUI.LopHoc
 		private List<DeThiCuaLopDTO> listDeThiCuaLop;
 		private List<DeThiDTO> listDeThi;
 		private int selectedIdDeThi;
-		private List<DiemCuaHS> listTop5HsCoDiemCaoNhat;
+		private List<HocSinhTrongLop> listTop5HsCoDiemCaoNhat;
 		private List<string> listTrangThai;
 		private string selectedTrangThai;
 		private DataTable dt1;
@@ -64,7 +64,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			}
 			if (listTop5HsCoDiemCaoNhat == null)
 			{
-				listTop5HsCoDiemCaoNhat = new List<DiemCuaHS>();
+				listTop5HsCoDiemCaoNhat = new List<HocSinhTrongLop>();
 			}
 			if (listTrangThai == null)
 			{
@@ -74,7 +74,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			{
 				listDeThi.Add(dtBus.GetById(item.MaDeThi));
 			}
-			foreach (DiemCuaHS item in lDTB)
+			foreach (HocSinhTrongLop item in lDTB)
 			{
 				listHoTenHs.Add(item.HoTen);
 				listDiemTBCuaHs.Add(item.Diem / soLuongDeThiCoTrongLop);
@@ -197,12 +197,13 @@ namespace TracNghiemManager.GUI.LopHoc
 		}
 		private void StyleDataGridView()
 		{
+			// datagridview danh sach sinh vien
 			dataGridView1.RowTemplate.Height = 30;
 			dataGridView1.Columns["STT"].Width = 50;
 			dataGridView1.Columns["Mã học sinh"].Width = 150;
 			dataGridView1.Columns["Họ và tên"].Width = 300;
 			dataGridView1.Columns["Email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			// 
+			// datagridview danh sach diem cua sinh vien
 			dataGridView2.RowTemplate.Height = 30;
 			dataGridView2.Columns["STT"].Width = 50;
 			dataGridView2.Columns["Mã học sinh"].Width = 150;
@@ -290,7 +291,7 @@ namespace TracNghiemManager.GUI.LopHoc
 				listTop5HsCoDiemCaoNhat = tkBus.getTop5HsCoDiemCaoNhatTheoDeThi(lopDTO.MaLop, selectedIdDeThi);
 				List<double> lDiem = new List<double>();
 				List<string> lname = new List<string>();
-				foreach (DiemCuaHS item in listTop5HsCoDiemCaoNhat)
+				foreach (HocSinhTrongLop item in listTop5HsCoDiemCaoNhat)
 				{
 					lDiem.Add(item.Diem);
 					lname.Add(item.HoTen);
