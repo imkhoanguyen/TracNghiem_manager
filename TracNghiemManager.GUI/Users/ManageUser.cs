@@ -59,7 +59,7 @@ namespace TracNghiemManager.GUI.Users
 				buttonCT[i].Name = "buttonCT" + i;
 				buttonCT[i].Size = new Size(75, 30);
 				buttonCT[i].Tag = "" + users[i].Id;
-				buttonCT[i].Text = "Chi Tiet";
+				buttonCT[i].Text = "Chi tiết";
 				buttonCT[i].UseVisualStyleBackColor = true;
 				buttonCT[i].MouseClick += Detail_MouseClick;
 				buttonCT[i].Cursor = Cursors.Hand;
@@ -173,8 +173,8 @@ namespace TracNghiemManager.GUI.Users
 			if (bt != null)
 			{
 				int user_id = Convert.ToInt32(bt.Tag);
-				UserDetail detail = new UserDetail(user_id);
-				detail.ShowDialog();
+				UserInfo userInfo = new UserInfo(this, user_id, "adminUpdate");
+				userInfo.Visible = true;
 			}
 		}
 

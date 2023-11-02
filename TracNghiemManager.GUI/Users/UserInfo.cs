@@ -20,6 +20,9 @@ namespace TracNghiemManager.GUI.Users
 		UserDTO user;
 		private DateTime timePick;
 		private UserForm userForm;
+		private int userIdUpdate;
+		private ManageUser manageUser;
+		private string flagAdminUpdate;
 		public UserInfo()
 		{
 			InitializeComponent();
@@ -34,6 +37,16 @@ namespace TracNghiemManager.GUI.Users
 			RenderUser(user);
 
 		}
+		public UserInfo(ManageUser u, int userId, string flag)
+		{
+			InitializeComponent();
+			manageUser = u;
+			userIdUpdate = userId;
+			flagAdminUpdate = flag;
+			user = userBUS.getById(userIdUpdate);
+			RenderUser(user);
+
+		}
 
 		private void label5_Click(object sender, EventArgs e)
 		{
@@ -43,6 +56,7 @@ namespace TracNghiemManager.GUI.Users
 		private void RenderUser(UserDTO user)
 		{
 			pictureBox1.ImageLocation = @"" + user.avatar;
+			textBox1.Text = user.avatar;
 
 			textBoxName.Text = user.HoVaTen;
 
@@ -75,7 +89,7 @@ namespace TracNghiemManager.GUI.Users
 				MessageBox.Show("Không được để trống mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return false;
 			}
-			if(timePick > currentDateTime)
+			if (timePick > currentDateTime)
 			{
 				MessageBox.Show("Ngày tháng không được lớn hơn thời gian hiện tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return false;
@@ -102,6 +116,13 @@ namespace TracNghiemManager.GUI.Users
 			{
 				textBoxName.Enabled = false;
 			}
+			if (flagAdminUpdate != null)
+			{
+				if (flagAdminUpdate.Equals("adminUpdate"))
+				{
+					textBoxName.Enabled = true;
+				}
+			}
 		}
 
 		private void button1_Click_1(object sender, EventArgs e)
@@ -109,7 +130,15 @@ namespace TracNghiemManager.GUI.Users
 
 			if (validate_form())
 			{
-				user = userBUS.getById(user_id);
+				if (flagAdminUpdate != null)
+				{
+					user = userBUS.getById(userIdUpdate);
+				}
+				else
+				{
+
+					user = userBUS.getById(user_id);
+				}
 				string gender = "";
 				if (rbNam.Checked) gender = rbNam.Tag.ToString();
 				if (RbNu.Checked) gender = RbNu.Tag.ToString();
@@ -130,7 +159,10 @@ namespace TracNghiemManager.GUI.Users
 					{
 						UserForm f = new UserForm();
 						f.Show();
-						f.updateAvatar(user.avatar);
+						if (user.avatar != null)
+						{
+							f.updateAvatar(user.avatar);
+						}
 						this.Close();
 						Form1.flag = -1; // cap nhat ve trang thai ban dau
 						Form1 f1 = new Form1();
@@ -139,7 +171,15 @@ namespace TracNghiemManager.GUI.Users
 					}
 					else
 					{
-						userForm.updateAvatar(user.avatar);
+						if (user.avatar != null && userForm != null)
+						{
+
+							userForm.updateAvatar(user.avatar);
+						}
+					}
+					if (manageUser != null)
+					{
+						manageUser.reLoad(userBUS.GetAll());
 					}
 
 				}
