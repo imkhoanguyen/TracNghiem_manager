@@ -333,8 +333,10 @@ namespace TracNghiemManager.GUI.LopHoc
 			}
 		}
 
+		
 		private void btnXuatDSHS_Click(object sender, EventArgs e)
 		{
+			string tenLop = lopDTO.TenLop;
 			using (SaveFileDialog sfd = new SaveFileDialog())
 			{
 				sfd.Filter = "Excel Workbook|*.xlsx";
@@ -349,7 +351,13 @@ namespace TracNghiemManager.GUI.LopHoc
 
 							if (dt != null)
 							{
-								var worksheet = workbook.Worksheets.Add(dt, "Sheet1");
+								var worksheet = workbook.Worksheets.Add("Sheet1");
+								var tenlop = worksheet.Cell(1, 1);
+								tenlop.Value = "Tên lớp: " + tenLop;
+								tenlop.Style.Font.Bold = true;
+
+								worksheet.Cell(2, 1).InsertTable(dt.AsEnumerable());
+
 								workbook.SaveAs(sfd.FileName);
 								MessageBox.Show("Xuất thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 							}
@@ -367,8 +375,12 @@ namespace TracNghiemManager.GUI.LopHoc
 			}
 		}
 
+
+
+
 		private void button1_Click(object sender, EventArgs e)
 		{
+			string tenLop = lopDTO.TenLop;
 			using (SaveFileDialog sfd = new SaveFileDialog())
 			{
 				sfd.Filter = "Excel Workbook|*.xlsx";
@@ -383,7 +395,17 @@ namespace TracNghiemManager.GUI.LopHoc
 
 							if (dt != null)
 							{
-								var worksheet = workbook.Worksheets.Add(dt, "Sheet1");
+								var worksheet = workbook.Worksheets.Add("Sheet1");
+								var tenlop = worksheet.Cell(1, 1);
+								tenlop.Value = "Tên lớp: " + tenLop;
+								tenlop.Style.Font.Bold = true;
+
+								var dethi = worksheet.Cell(1, 2);
+								dethi.Value = "Đề thi: " + cbDeThi.Text;
+								dethi.Style.Font.Bold = true;
+								worksheet.Row(1).Height = 20;
+
+								worksheet.Cell(2, 1).InsertTable(dt.AsEnumerable());
 								workbook.SaveAs(sfd.FileName);
 								MessageBox.Show("Xuất thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 							}
