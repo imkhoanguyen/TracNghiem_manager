@@ -83,7 +83,6 @@ namespace TracNghiemManager.GUI.LopHoc
 						dtclBus.Update(obj);
 						MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						fctl.loadDeThi();
-						fctl.flagMoDeThi = 1; // cap nhat lai trang thai dang mo cua de thi
 						this.Dispose();
 						this.Close();
 					}

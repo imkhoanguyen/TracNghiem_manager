@@ -31,7 +31,6 @@ namespace TracNghiemManager.GUI.LopHoc
 		private List<ChiTietQuyenDTO> userRoles;
 		private ChiTietDeThiBUS chiTietDeThiBus;
 		private string tenQuyen;
-		public int flagMoDeThi = -1; // dang dong
 		public fChiTietLop(LopHocUserControl lhuc, LopDTO obj)
 		{
 			InitializeComponent();
@@ -289,7 +288,6 @@ namespace TracNghiemManager.GUI.LopHoc
 			{
 				btnLamBai.Text = "Mở để thi";
 				btnLamBai.Enabled = true;
-				flagMoDeThi = 1;
 				btnDong.Enabled = false;
 			}
 			panelHead.BackColor = baiThi.TrangThai == 1 ? GetRandomColor() : Color.FromArgb(134, 142, 150);
@@ -314,7 +312,7 @@ namespace TracNghiemManager.GUI.LopHoc
 		private void btnLamBai_Click(object s, EventArgs ev, DeThiDTO obj, DeThiCuaLopDTO baiThi, LopDTO lop)
 		{
 			// thực hiện chức năng mở đề thi khi de thi dang dong
-			if (flagMoDeThi == -1)
+			if (baiThi.TrangThai == 0)
 			{
 				fThemDeThiCuaLop f = new fThemDeThiCuaLop(obj, lop, this, baiThi, "edit");
 				f.Visible = true;
@@ -360,7 +358,6 @@ namespace TracNghiemManager.GUI.LopHoc
 			//donng
 			dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, obj.MaDeThi);
 			loadDeThi();
-			flagMoDeThi = -1;
 		}
 
 		private void lblTenLop_Click_1(object sender, EventArgs e)
