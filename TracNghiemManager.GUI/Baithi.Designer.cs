@@ -67,7 +67,7 @@ namespace TracNghiemManager.GUI
 			// panel1
 			// 
 			this.panel1.Location = new System.Drawing.Point(1, 12);
-			this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.panel1.Margin = new System.Windows.Forms.Padding(4);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(900, 336);
 			this.panel1.TabIndex = 0;
@@ -91,7 +91,7 @@ namespace TracNghiemManager.GUI
 			this.panel2.Controls.Add(this.lbl1);
 			this.panel2.Controls.Add(this.lbl);
 			this.panel2.Location = new System.Drawing.Point(909, 12);
-			this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.panel2.Margin = new System.Windows.Forms.Padding(4);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(371, 367);
 			this.panel2.TabIndex = 1;
@@ -99,9 +99,10 @@ namespace TracNghiemManager.GUI
 			// pictureBox1
 			// 
 			this.pictureBox1.Location = new System.Drawing.Point(136, 4);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(115, 117);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 2;
 			this.pictureBox1.TabStop = false;
 			// 
@@ -283,7 +284,7 @@ namespace TracNghiemManager.GUI
 			this.panel3.Controls.Add(this.label17);
 			this.panel3.Controls.Add(this.label13);
 			this.panel3.Location = new System.Drawing.Point(1, 412);
-			this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.panel3.Margin = new System.Windows.Forms.Padding(4);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(93, 234);
 			this.panel3.TabIndex = 3;
@@ -347,7 +348,7 @@ namespace TracNghiemManager.GUI
 			// 
 			this.flowLayoutPanel1.AutoScroll = true;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(103, 412);
-			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(1177, 255);
@@ -359,7 +360,7 @@ namespace TracNghiemManager.GUI
 			this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.Location = new System.Drawing.Point(1156, 674);
-			this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button1.Margin = new System.Windows.Forms.Padding(4);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(124, 42);
 			this.button1.TabIndex = 5;
@@ -372,7 +373,7 @@ namespace TracNghiemManager.GUI
 			this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button2.Location = new System.Drawing.Point(801, 356);
-			this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button2.Margin = new System.Windows.Forms.Padding(4);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(100, 43);
 			this.button2.TabIndex = 6;
@@ -385,7 +386,7 @@ namespace TracNghiemManager.GUI
 			this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button3.Location = new System.Drawing.Point(653, 357);
-			this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button3.Margin = new System.Windows.Forms.Padding(4);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(100, 43);
 			this.button3.TabIndex = 7;
@@ -405,7 +406,7 @@ namespace TracNghiemManager.GUI
 			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "Baithi";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Baithi";

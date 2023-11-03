@@ -160,7 +160,7 @@ namespace TracNghiemManager.GUI
 			this.btnSetting.Location = new System.Drawing.Point(137, 3);
 			this.btnSetting.Name = "btnSetting";
 			this.btnSetting.Size = new System.Drawing.Size(65, 40);
-			this.btnSetting.TabIndex = 3;
+			this.btnSetting.TabIndex = 1;
 			this.btnSetting.UseVisualStyleBackColor = true;
 			this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
 			// 
@@ -204,7 +204,7 @@ namespace TracNghiemManager.GUI
 			this.btnHome.Name = "btnHome";
 			this.btnHome.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnHome.Size = new System.Drawing.Size(310, 60);
-			this.btnHome.TabIndex = 25;
+			this.btnHome.TabIndex = 2;
 			this.btnHome.Text = "  Trang chủ";
 			this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnHome.UseVisualStyleBackColor = false;
@@ -225,7 +225,7 @@ namespace TracNghiemManager.GUI
 			this.btnNguoiDung.Name = "btnNguoiDung";
 			this.btnNguoiDung.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnNguoiDung.Size = new System.Drawing.Size(310, 60);
-			this.btnNguoiDung.TabIndex = 33;
+			this.btnNguoiDung.TabIndex = 7;
 			this.btnNguoiDung.Text = "  Người dùng";
 			this.btnNguoiDung.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnNguoiDung.UseVisualStyleBackColor = false;
@@ -246,7 +246,7 @@ namespace TracNghiemManager.GUI
 			this.btnMonHoc.Name = "btnMonHoc";
 			this.btnMonHoc.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnMonHoc.Size = new System.Drawing.Size(310, 60);
-			this.btnMonHoc.TabIndex = 24;
+			this.btnMonHoc.TabIndex = 4;
 			this.btnMonHoc.Text = "  Môn học";
 			this.btnMonHoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnMonHoc.UseVisualStyleBackColor = false;
@@ -267,7 +267,7 @@ namespace TracNghiemManager.GUI
 			this.btnThongKe.Name = "btnThongKe";
 			this.btnThongKe.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnThongKe.Size = new System.Drawing.Size(310, 60);
-			this.btnThongKe.TabIndex = 28;
+			this.btnThongKe.TabIndex = 8;
 			this.btnThongKe.Text = "  Thống kê";
 			this.btnThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnThongKe.UseVisualStyleBackColor = false;
@@ -290,7 +290,7 @@ namespace TracNghiemManager.GUI
 			this.btnCauHoi.Name = "btnCauHoi";
 			this.btnCauHoi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnCauHoi.Size = new System.Drawing.Size(310, 60);
-			this.btnCauHoi.TabIndex = 23;
+			this.btnCauHoi.TabIndex = 5;
 			this.btnCauHoi.Text = "  Câu hỏi";
 			this.btnCauHoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnCauHoi.UseVisualStyleBackColor = false;
@@ -311,7 +311,7 @@ namespace TracNghiemManager.GUI
 			this.btnLopHoc.Name = "btnLopHoc";
 			this.btnLopHoc.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnLopHoc.Size = new System.Drawing.Size(310, 60);
-			this.btnLopHoc.TabIndex = 26;
+			this.btnLopHoc.TabIndex = 3;
 			this.btnLopHoc.Text = "  Lớp học";
 			this.btnLopHoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnLopHoc.UseVisualStyleBackColor = false;
@@ -333,7 +333,7 @@ namespace TracNghiemManager.GUI
 			this.btnThoat.Name = "btnThoat";
 			this.btnThoat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnThoat.Size = new System.Drawing.Size(310, 60);
-			this.btnThoat.TabIndex = 29;
+			this.btnThoat.TabIndex = 9;
 			this.btnThoat.Text = "  Đăng xuất";
 			this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnThoat.UseVisualStyleBackColor = false;
@@ -354,7 +354,7 @@ namespace TracNghiemManager.GUI
 			this.btnDeThi.Name = "btnDeThi";
 			this.btnDeThi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnDeThi.Size = new System.Drawing.Size(310, 60);
-			this.btnDeThi.TabIndex = 27;
+			this.btnDeThi.TabIndex = 6;
 			this.btnDeThi.Text = "  Đề thi";
 			this.btnDeThi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnDeThi.UseVisualStyleBackColor = false;

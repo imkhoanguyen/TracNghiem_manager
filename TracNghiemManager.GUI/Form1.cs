@@ -206,11 +206,6 @@ namespace TracNghiemManager.GUI
 				e.Handled = true;
 				button1.PerformClick();
 			}
-			if (e.KeyChar == (char)Keys.Enter)
-			{
-				e.Handled = true;
-				button1.PerformClick();
-			}
 		}
 
 		private void lblQuenMatKhau_Click(object sender, EventArgs e)

@@ -85,6 +85,7 @@ namespace TracNghiemManager.GUI.Users
 				textBoxDate[i].Name = "textBoxDate" + i;
 				textBoxDate[i].Size = new Size(209, 23);
 				textBoxDate[i].Text = "" + users[i].ngayTao;
+				textBoxDate[i].Enabled = false;
 				// 
 				// textBoxRole
 				// 
@@ -93,6 +94,7 @@ namespace TracNghiemManager.GUI.Users
 				textBoxRole[i].Location = new Point(149, 47);
 				textBoxRole[i].Name = "textBoxRole" + i;
 				textBoxRole[i].Size = new Size(209, 23);
+				textBoxRole[i].Enabled = false;
 
 				List<ChiTietQuyenDTO> user_roles = chiTietQuyenBUS.GetRoleByUserId(users[i].Id);
 				for (int j = 0; j < user_roles.Count; j++)
@@ -120,6 +122,7 @@ namespace TracNghiemManager.GUI.Users
 				textBoxName[i].Name = "textBoxName" + i;
 				textBoxName[i].Size = new Size(209, 23);
 				textBoxName[i].Text = users[i].UserName;
+				textBoxName[i].Enabled = false;
 				// 
 				// avatarImg
 				// 

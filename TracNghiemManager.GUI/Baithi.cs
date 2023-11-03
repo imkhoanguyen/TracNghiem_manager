@@ -67,6 +67,7 @@ namespace TracNghiemManager.GUI
 			lblLop.Text = lop.TenLop.ToString();
 			lblNgayThi.Text = DateTime.Now.ToString();
 			lblSoCauHoi.Text = so_cau_hoi.ToString();
+			pictureBox1.ImageLocation = userBUS.getById(Form1.USER_ID).avatar;
 
 			// Khởi tạo đối tượng Timer và cấu hình nó
 			countdownTimer = new System.Windows.Forms.Timer();
@@ -164,14 +165,26 @@ namespace TracNghiemManager.GUI
 			{
 				double diemCuaMotCauDung = (10.0f / so_cau_hoi);
 				double diem = Math.Round(d * diemCuaMotCauDung, 2);
-				
-				KetQuaDTO kq = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
-				kqBus.Add(kq);
+
+				// check xem giáo viên đã làm bài chưa nếu có thì cập nhật lại kết quả
+				KetQuaDTO kq = kqBus.Get(baiThi.MaBaiThi, Form1.USER_ID);
+				if (kq == null)
+				{
+					KetQuaDTO kqInsert = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
+					kqBus.Add(kqInsert);
+					fKetQua f = new fKetQua(deThi, lop, kqInsert);
+					f.Visible = true;
+				}
+				else
+				{
+					KetQuaDTO kqUpdate = new KetQuaDTO(kq.MaBaiThi, kq.MaThiSinh, d, s - soCauChuaChon, soCauChuaChon, diem);
+					kqBus.Update(kqUpdate);
+					fKetQua f = new fKetQua(deThi, lop, kqUpdate);
+					f.Visible = true;
+				}
 				this.Dispose();
-				fKetQua f = new fKetQua(deThi, lop, kq);
-				f.Visible = true;
-				fctl.Dispose();
 				
+				fctl.Dispose();
 			}
 
 		}
@@ -194,13 +207,24 @@ namespace TracNghiemManager.GUI
 			}
 			double diemCuaMotCauDung = (10.0f / so_cau_hoi);
 			double diem = d * diemCuaMotCauDung;
-			KetQuaDTO kq = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
-			kqBus.Add(kq);
+			// check xem giáo viên đã làm bài chưa nếu có thì cập nhật lại kết quả
+			KetQuaDTO kq = kqBus.Get(baiThi.MaBaiThi, Form1.USER_ID);
+			if (kq == null)
+			{
+				KetQuaDTO kqInsert = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
+				kqBus.Add(kqInsert);
+				fKetQua f = new fKetQua(deThi, lop, kqInsert);
+				f.Visible = true;
+			}
+			else
+			{
+				KetQuaDTO kqUpdate = new KetQuaDTO(kq.MaBaiThi, kq.MaThiSinh, d, s - soCauChuaChon, soCauChuaChon, diem);
+				kqBus.Update(kqUpdate);
+				fKetQua f = new fKetQua(deThi, lop, kqUpdate);
+				f.Visible = true;
+			}
 			this.Dispose();
 			fctl.Dispose();
-			fKetQua f = new fKetQua(deThi, lop, kq);
-			f.Visible = true;
-
 		}
 
 		private void TaoDapAn(GroupBox g, int ma_cau_hoi)
@@ -352,7 +376,7 @@ namespace TracNghiemManager.GUI
 
 		private void Baithi_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			if(flag == -1)
+			if (flag == -1)
 			{
 				DialogResult rs = MessageBox.Show("Thoát đồng nghĩa với nộp bài. Bạn có muốn thoát", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 				if (rs == DialogResult.OK)
@@ -364,7 +388,7 @@ namespace TracNghiemManager.GUI
 					e.Cancel = true;
 				}
 			}
-			
+
 		}
 
 		private void Baithi_Load(object sender, EventArgs e)

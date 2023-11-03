@@ -320,10 +320,12 @@ namespace TracNghiemManager.GUI.LopHoc
 			else // thực hiện chức năng làm bài
 			{
 				List<CauHoiDTO> l = chiTietDeThiBus.GetAllCauHoiOfDeThi(baiThi.MaDeThi);
+				// check xem trong đề thi có câu hỏi không
 				if (l.Count > 0)
 				{
 					TimeSpan khoangThoiGian = baiThi.ThoiGianKetThuc - DateTime.Now;
 
+					// check xem đề thi có đang trong thời gian làm bài không
 					if (khoangThoiGian <= TimeSpan.Zero)
 					{
 						dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, obj.MaDeThi);
@@ -333,13 +335,13 @@ namespace TracNghiemManager.GUI.LopHoc
 					else
 					{
 						KetQuaDTO kq = ketQuaBus.Get(baiThi.MaBaiThi, Form1.USER_ID);
-						if (kq != null)
+						// Check xem người dùng đã làm bài thi này chưa (chỉ check trong trường hợp người dùng là học sinh)
+						if (kq != null && tenQuyen.Equals("Học sinh"))
 						{
 							MessageBox.Show("Bạn đã làm bài thi này rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						}
 						else
 						{
-							// Nếu còn thời gian mở, cho phép làm bài thi
 							Baithi baithi = new Baithi(obj, baiThi, lop, this);
 							baithi.ShowDialog();
 						}

@@ -45,5 +45,25 @@ namespace TracNghiemManager.GUI
                 }
             }
         }
-    }
+
+		private void fNhapInfo_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void lblEmail_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void lblQuenMK_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void txtEmailorUsername_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

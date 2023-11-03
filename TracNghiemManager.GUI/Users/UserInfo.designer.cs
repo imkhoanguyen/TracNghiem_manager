@@ -116,6 +116,7 @@ namespace TracNghiemManager.GUI.Users
 			// buttonUpImg
 			// 
 			this.buttonUpImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.buttonUpImg.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.buttonUpImg.Location = new System.Drawing.Point(373, 70);
 			this.buttonUpImg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.buttonUpImg.Name = "buttonUpImg";
@@ -298,6 +299,7 @@ namespace TracNghiemManager.GUI.Users
 			// button1
 			// 
 			this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.button1.Location = new System.Drawing.Point(39, 15);
 			this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button1.Name = "button1";
@@ -311,6 +313,7 @@ namespace TracNghiemManager.GUI.Users
 			// button2
 			// 
 			this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.button2.Location = new System.Drawing.Point(204, 10);
 			this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button2.Name = "button2";
@@ -325,6 +328,7 @@ namespace TracNghiemManager.GUI.Users
 			this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.panel1.Controls.Add(this.RbNu);
 			this.panel1.Controls.Add(this.rbNam);
+			this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.panel1.Enabled = false;
 			this.panel1.Location = new System.Drawing.Point(139, 338);
 			this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -361,6 +365,7 @@ namespace TracNghiemManager.GUI.Users
 			// dateTimePicker1
 			// 
 			this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.dateTimePicker1.Enabled = false;
 			this.dateTimePicker1.Location = new System.Drawing.Point(48, 263);
 			this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

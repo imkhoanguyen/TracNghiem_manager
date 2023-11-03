@@ -28,61 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblQuenMK = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.txtEmailorUsername = new System.Windows.Forms.TextBox();
-            this.btnGui = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // lblQuenMK
-            // 
-            this.lblQuenMK.AutoSize = true;
-            this.lblQuenMK.Location = new System.Drawing.Point(214, 19);
-            this.lblQuenMK.Name = "lblQuenMK";
-            this.lblQuenMK.Size = new System.Drawing.Size(82, 13);
-            this.lblQuenMK.TabIndex = 0;
-            this.lblQuenMK.Text = "Quên Mật Khẩu";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(12, 77);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(142, 13);
-            this.lblEmail.TabIndex = 1;
-            this.lblEmail.Text = "Nhập Tài khoản hoặc Email:";
-            // 
-            // txtEmailorUsername
-            // 
-            this.txtEmailorUsername.Location = new System.Drawing.Point(160, 74);
-            this.txtEmailorUsername.Multiline = true;
-            this.txtEmailorUsername.Name = "txtEmailorUsername";
-            this.txtEmailorUsername.Size = new System.Drawing.Size(286, 27);
-            this.txtEmailorUsername.TabIndex = 2;
-            // 
-            // btnGui
-            // 
-            this.btnGui.Location = new System.Drawing.Point(304, 128);
-            this.btnGui.Name = "btnGui";
-            this.btnGui.Size = new System.Drawing.Size(143, 35);
-            this.btnGui.TabIndex = 3;
-            this.btnGui.Text = "Gửi";
-            this.btnGui.UseVisualStyleBackColor = true;
-            this.btnGui.Click += new System.EventHandler(this.btnGui_Click);
-            // 
-            // fNhapInfo
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 214);
-            this.Controls.Add(this.btnGui);
-            this.Controls.Add(this.txtEmailorUsername);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblQuenMK);
-            this.Name = "fNhapInfo";
-            this.Text = "fQuenMatKhau";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.lblQuenMK = new System.Windows.Forms.Label();
+			this.lblEmail = new System.Windows.Forms.Label();
+			this.txtEmailorUsername = new System.Windows.Forms.TextBox();
+			this.btnGui = new System.Windows.Forms.Button();
+			this.SuspendLayout();
+			// 
+			// lblQuenMK
+			// 
+			this.lblQuenMK.AutoSize = true;
+			this.lblQuenMK.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblQuenMK.Location = new System.Drawing.Point(314, 43);
+			this.lblQuenMK.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+			this.lblQuenMK.Name = "lblQuenMK";
+			this.lblQuenMK.Size = new System.Drawing.Size(301, 54);
+			this.lblQuenMK.TabIndex = 0;
+			this.lblQuenMK.Text = "Quên Mật Khẩu";
+			this.lblQuenMK.Click += new System.EventHandler(this.lblQuenMK_Click);
+			// 
+			// lblEmail
+			// 
+			this.lblEmail.AutoSize = true;
+			this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblEmail.Location = new System.Drawing.Point(15, 174);
+			this.lblEmail.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+			this.lblEmail.Name = "lblEmail";
+			this.lblEmail.Size = new System.Drawing.Size(250, 28);
+			this.lblEmail.TabIndex = 1;
+			this.lblEmail.Text = "Nhập Tài khoản hoặc Email:";
+			this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
+			// 
+			// txtEmailorUsername
+			// 
+			this.txtEmailorUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtEmailorUsername.Location = new System.Drawing.Point(298, 171);
+			this.txtEmailorUsername.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+			this.txtEmailorUsername.Multiline = true;
+			this.txtEmailorUsername.Name = "txtEmailorUsername";
+			this.txtEmailorUsername.Size = new System.Drawing.Size(521, 39);
+			this.txtEmailorUsername.TabIndex = 2;
+			this.txtEmailorUsername.TextChanged += new System.EventHandler(this.txtEmailorUsername_TextChanged);
+			// 
+			// btnGui
+			// 
+			this.btnGui.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnGui.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnGui.Location = new System.Drawing.Point(669, 280);
+			this.btnGui.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+			this.btnGui.Name = "btnGui";
+			this.btnGui.Size = new System.Drawing.Size(150, 61);
+			this.btnGui.TabIndex = 3;
+			this.btnGui.Text = "Gửi";
+			this.btnGui.UseVisualStyleBackColor = true;
+			this.btnGui.Click += new System.EventHandler(this.btnGui_Click);
+			// 
+			// fNhapInfo
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(892, 395);
+			this.Controls.Add(this.btnGui);
+			this.Controls.Add(this.txtEmailorUsername);
+			this.Controls.Add(this.lblEmail);
+			this.Controls.Add(this.lblQuenMK);
+			this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+			this.MaximumSize = new System.Drawing.Size(910, 442);
+			this.MinimumSize = new System.Drawing.Size(910, 442);
+			this.Name = "fNhapInfo";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "fQuenMatKhau";
+			this.Load += new System.EventHandler(this.fNhapInfo_Load);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
