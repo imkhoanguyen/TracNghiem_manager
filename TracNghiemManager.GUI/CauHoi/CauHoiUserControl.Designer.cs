@@ -273,7 +273,7 @@ namespace TracNghiemManager.GUI.CauHoi
 			this.comboBoxMonHoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
 			this.comboBoxMonHoc.FormattingEnabled = true;
 			this.comboBoxMonHoc.Location = new System.Drawing.Point(2, 2);
-			this.comboBoxMonHoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.comboBoxMonHoc.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxMonHoc.Name = "comboBoxMonHoc";
 			this.comboBoxMonHoc.Size = new System.Drawing.Size(433, 29);
 			this.comboBoxMonHoc.TabIndex = 0;
@@ -286,7 +286,7 @@ namespace TracNghiemManager.GUI.CauHoi
 			this.comboBoxDoKho.Font = new System.Drawing.Font("Segoe UI", 12F);
 			this.comboBoxDoKho.FormattingEnabled = true;
 			this.comboBoxDoKho.Location = new System.Drawing.Point(2, 46);
-			this.comboBoxDoKho.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.comboBoxDoKho.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxDoKho.Name = "comboBoxDoKho";
 			this.comboBoxDoKho.Size = new System.Drawing.Size(135, 29);
 			this.comboBoxDoKho.TabIndex = 1;
@@ -389,7 +389,7 @@ namespace TracNghiemManager.GUI.CauHoi
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.mainPanel);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "CauHoiUserControl";
 			this.Size = new System.Drawing.Size(1180, 671);
 			this.mainPanel.ResumeLayout(false);

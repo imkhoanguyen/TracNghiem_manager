@@ -270,7 +270,7 @@ namespace TracNghiemManager.DAO
 			{
 				using (SqlConnection connection = DbConnection.GetSqlConnection())
 				{
-					string query = "update users set ho_va_ten = @ho_va_ten, ngay_sinh = @ngay_sinh, avatar = @avatar, gioi_tinh = @gioi_tinh, email = @email where id = @id; ";
+					string query = "update users set mat_khau = @mat_khau, ho_va_ten = @ho_va_ten, ngay_sinh = @ngay_sinh, avatar = @avatar, gioi_tinh = @gioi_tinh, email = @email where id = @id; ";
 					using (SqlCommand command = new SqlCommand(query, connection))
 					{
 						command.Parameters.AddWithValue("@id", t.Id);
@@ -279,6 +279,7 @@ namespace TracNghiemManager.DAO
 						command.Parameters.AddWithValue("@avatar", t.avatar);
 						command.Parameters.AddWithValue("@gioi_tinh", t.gioiTinh);
 						command.Parameters.AddWithValue("@email", t.Email);
+						command.Parameters.AddWithValue("@mat_khau", t.Password);
 						int rowsChanged = command.ExecuteNonQuery();
 						return rowsChanged > 0;
 					}

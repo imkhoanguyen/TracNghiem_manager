@@ -41,9 +41,9 @@
 			this.lblQuenMK.Location = new System.Drawing.Point(314, 43);
 			this.lblQuenMK.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
 			this.lblQuenMK.Name = "lblQuenMK";
-			this.lblQuenMK.Size = new System.Drawing.Size(301, 54);
+			this.lblQuenMK.Size = new System.Drawing.Size(238, 45);
 			this.lblQuenMK.TabIndex = 0;
-			this.lblQuenMK.Text = "Quên Mật Khẩu";
+			this.lblQuenMK.Text = "Quên mật khẩu";
 			this.lblQuenMK.Click += new System.EventHandler(this.lblQuenMK_Click);
 			// 
 			// lblEmail
@@ -53,7 +53,7 @@
 			this.lblEmail.Location = new System.Drawing.Point(15, 174);
 			this.lblEmail.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
 			this.lblEmail.Name = "lblEmail";
-			this.lblEmail.Size = new System.Drawing.Size(250, 28);
+			this.lblEmail.Size = new System.Drawing.Size(199, 21);
 			this.lblEmail.TabIndex = 1;
 			this.lblEmail.Text = "Nhập Tài khoản hoặc Email:";
 			this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
@@ -84,9 +84,9 @@
 			// 
 			// fNhapInfo
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(892, 395);
+			this.ClientSize = new System.Drawing.Size(894, 403);
 			this.Controls.Add(this.btnGui);
 			this.Controls.Add(this.txtEmailorUsername);
 			this.Controls.Add(this.lblEmail);
@@ -97,7 +97,7 @@
 			this.MinimumSize = new System.Drawing.Size(910, 442);
 			this.Name = "fNhapInfo";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "fQuenMatKhau";
+			this.Text = "Quên mật khẩu";
 			this.Load += new System.EventHandler(this.fNhapInfo_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();

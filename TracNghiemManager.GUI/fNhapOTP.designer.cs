@@ -38,20 +38,18 @@
 			// txtNhapMa
 			// 
 			this.txtNhapMa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtNhapMa.Location = new System.Drawing.Point(21, 65);
-			this.txtNhapMa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtNhapMa.Location = new System.Drawing.Point(16, 53);
 			this.txtNhapMa.Name = "txtNhapMa";
-			this.txtNhapMa.Size = new System.Drawing.Size(271, 34);
+			this.txtNhapMa.Size = new System.Drawing.Size(204, 29);
 			this.txtNhapMa.TabIndex = 0;
 			// 
 			// btnXacNhan
 			// 
 			this.btnXacNhan.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnXacNhan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnXacNhan.Location = new System.Drawing.Point(344, 59);
-			this.btnXacNhan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnXacNhan.Location = new System.Drawing.Point(258, 48);
 			this.btnXacNhan.Name = "btnXacNhan";
-			this.btnXacNhan.Size = new System.Drawing.Size(163, 46);
+			this.btnXacNhan.Size = new System.Drawing.Size(122, 37);
 			this.btnXacNhan.TabIndex = 2;
 			this.btnXacNhan.Text = "Xác Nhận";
 			this.btnXacNhan.UseVisualStyleBackColor = true;
@@ -61,27 +59,25 @@
 			// 
 			this.lblEmail.AutoSize = true;
 			this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblEmail.Location = new System.Drawing.Point(16, 32);
-			this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblEmail.Location = new System.Drawing.Point(12, 26);
 			this.lblEmail.Name = "lblEmail";
-			this.lblEmail.Size = new System.Drawing.Size(65, 28);
+			this.lblEmail.Size = new System.Drawing.Size(52, 21);
 			this.lblEmail.TabIndex = 3;
 			this.lblEmail.Text = "label1";
 			// 
 			// fNhapOTP
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(564, 219);
+			this.ClientSize = new System.Drawing.Size(424, 184);
 			this.Controls.Add(this.lblEmail);
 			this.Controls.Add(this.btnXacNhan);
 			this.Controls.Add(this.txtNhapMa);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.MaximumSize = new System.Drawing.Size(582, 266);
-			this.MinimumSize = new System.Drawing.Size(582, 266);
+			this.MaximumSize = new System.Drawing.Size(440, 223);
+			this.MinimumSize = new System.Drawing.Size(440, 223);
 			this.Name = "fNhapOTP";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "fNhapMa";
+			this.Text = "Nhập OTP";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

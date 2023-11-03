@@ -16,6 +16,7 @@ using TracNghiemManager.BUS;
 using TracNghiemManager.DTO;
 using System.IO;
 using Newtonsoft.Json;
+using Org.BouncyCastle.Utilities.Collections;
 
 namespace TracNghiemManager.GUI
 {
@@ -60,22 +61,40 @@ namespace TracNghiemManager.GUI
 			dt.Clear();
 			if (loginHistories != null)
 			{
-				foreach (var history in loginHistories)
+				//foreach (var history in loginHistories)
+				//{
+				//	DataRow row = dt.NewRow();
+				//	row["ID"] = history.IdLogin.ToString();
+				//	row["Họ tên"] = history.HoVaTen;
+				//	row["Quyền"] = history.TenQuyen;
+				//	if (history.TimeOut.ToString() == "01/01/0001 00:00:00")
+				//	{
+				//		row["Thời gian thoát"] = "";
+				//	}
+				//	else
+				//	{
+
+				//		row["Thời gian thoát"] = history.TimeOut.ToString();
+				//	}
+				//	row["Thời gian đăng nhập"] = history.TimeIn.ToString();
+				//	dt.Rows.Add(row);
+				//}
+				for (int i = loginHistories.Count - 1; i >= 0; i--)
 				{
 					DataRow row = dt.NewRow();
-					row["ID"] = history.IdLogin.ToString();
-					row["Họ tên"] = history.HoVaTen;
-					row["Quyền"] = history.TenQuyen;
-					if (history.TimeOut.ToString() == "01/01/0001 00:00:00")
+					row["ID"] = loginHistories[i].IdLogin.ToString();
+					row["Họ tên"] = loginHistories[i].HoVaTen;
+					row["Quyền"] = loginHistories[i].TenQuyen;
+					if (loginHistories[i].TimeOut.ToString() == "01/01/0001 00:00:00")
 					{
 						row["Thời gian thoát"] = "";
 					}
 					else
 					{
 
-						row["Thời gian thoát"] = history.TimeOut.ToString();
+						row["Thời gian thoát"] = loginHistories[i].TimeOut.ToString();
 					}
-					row["Thời gian đăng nhập"] = history.TimeIn.ToString();
+					row["Thời gian đăng nhập"] = loginHistories[i].TimeIn.ToString();
 					dt.Rows.Add(row);
 				}
 				dataGridView1.DataSource = dt;

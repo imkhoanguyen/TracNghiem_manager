@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TracNghiemManager.DAO;
 using TracNghiemManager.DTO;
-using TracNghiemManager.DTO.ViewModel;
+using TracNghiemManager.DTO;
 
 namespace TracNghiemManager.BUS
 {

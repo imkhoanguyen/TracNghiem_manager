@@ -91,9 +91,9 @@
 			this.tabPage1.Controls.Add(this.mainThemThuCongPanel);
 			this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabPage1.Location = new System.Drawing.Point(4, 30);
-			this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
 			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
 			this.tabPage1.Size = new System.Drawing.Size(938, 584);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Thêm thủ công";
@@ -144,7 +144,7 @@
 			this.comboBoxPanel.Controls.Add(this.comboBoxMonHoc, 0, 1);
 			this.comboBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.comboBoxPanel.Location = new System.Drawing.Point(2, 2);
-			this.comboBoxPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.comboBoxPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxPanel.Name = "comboBoxPanel";
 			this.comboBoxPanel.RowCount = 2;
 			this.comboBoxPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.47368F));
@@ -215,7 +215,7 @@
 			this.noiDungPanel.Controls.Add(this.txtNoiDung, 0, 1);
 			this.noiDungPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.noiDungPanel.Location = new System.Drawing.Point(8, 72);
-			this.noiDungPanel.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+			this.noiDungPanel.Margin = new System.Windows.Forms.Padding(8);
 			this.noiDungPanel.Name = "noiDungPanel";
 			this.noiDungPanel.RowCount = 2;
 			this.noiDungPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.71831F));
@@ -240,7 +240,7 @@
 			// 
 			this.txtNoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.txtNoiDung.Location = new System.Drawing.Point(2, 42);
-			this.txtNoiDung.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtNoiDung.Margin = new System.Windows.Forms.Padding(2);
 			this.txtNoiDung.Multiline = true;
 			this.txtNoiDung.Name = "txtNoiDung";
 			this.txtNoiDung.Size = new System.Drawing.Size(914, 163);
@@ -255,7 +255,7 @@
 			this.containerDapAnPanel.Controls.Add(this.tableLayoutPanel1, 0, 0);
 			this.containerDapAnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.containerDapAnPanel.Location = new System.Drawing.Point(2, 289);
-			this.containerDapAnPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.containerDapAnPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.containerDapAnPanel.Name = "containerDapAnPanel";
 			this.containerDapAnPanel.RowCount = 2;
 			this.containerDapAnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.87845F));
@@ -287,7 +287,7 @@
 			this.groupBox1.Location = new System.Drawing.Point(0, 0);
 			this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
 			this.groupBox1.Size = new System.Drawing.Size(926, 200);
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
@@ -307,7 +307,7 @@
 			this.tableLayoutPanel2.Controls.Add(this.txtInputDA4, 1, 3);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 24);
-			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 4;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.87156F));
@@ -452,8 +452,8 @@
 			this.cbSoDapAn.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.cbSoDapAn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbSoDapAn.FormattingEnabled = true;
-			this.cbSoDapAn.Location = new System.Drawing.Point(154, 2);
-			this.cbSoDapAn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.cbSoDapAn.Location = new System.Drawing.Point(154, 6);
+			this.cbSoDapAn.Margin = new System.Windows.Forms.Padding(2);
 			this.cbSoDapAn.Name = "cbSoDapAn";
 			this.cbSoDapAn.Size = new System.Drawing.Size(100, 29);
 			this.cbSoDapAn.TabIndex = 4;
@@ -463,9 +463,9 @@
 			// 
 			this.tabPage2.Controls.Add(this.btnThem);
 			this.tabPage2.Location = new System.Drawing.Point(4, 30);
-			this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
 			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
 			this.tabPage2.Size = new System.Drawing.Size(938, 584);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Thêm từ file";
@@ -473,12 +473,12 @@
 			// 
 			// btnThem
 			// 
-			this.btnThem.Location = new System.Drawing.Point(142, 116);
-			this.btnThem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnThem.Location = new System.Drawing.Point(7, 4);
+			this.btnThem.Margin = new System.Windows.Forms.Padding(2);
 			this.btnThem.Name = "btnThem";
 			this.btnThem.Size = new System.Drawing.Size(142, 72);
 			this.btnThem.TabIndex = 0;
-			this.btnThem.Text = "button1";
+			this.btnThem.Text = "Thêm";
 			this.btnThem.UseVisualStyleBackColor = true;
 			this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
 			// 
@@ -488,7 +488,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(946, 618);
 			this.Controls.Add(this.tabControl1);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "fThemCauHoi";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Thêm câu hỏi";

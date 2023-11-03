@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TracNghiemManager.BUS;
 using TracNghiemManager.DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TracNghiemManager.GUI.Users
 {
@@ -19,7 +20,6 @@ namespace TracNghiemManager.GUI.Users
 		QuyenBus qBus;
 		ChiTietQuyenBUS chiTietQuyenBUS = new ChiTietQuyenBUS();
 		private ManageUser manageUser;
-		private int flag = -1; // check add thanh cong khong
 		public AddUser(ManageUser mgu)
 		{
 			InitializeComponent();
@@ -42,22 +42,23 @@ namespace TracNghiemManager.GUI.Users
 		{
 			if (txtUsername.Text.Trim().Length <= 0)
 			{
-				MessageBox.Show("username!");
+				MessageBox.Show("Tài khoản không được rỗng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;
 			}
 			else if (!userBUS.isExistUsername(txtUsername.Text.Trim()))
 			{
-				MessageBox.Show("username was exist!");
+				MessageBox.Show("Tài khoản không được trùng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;
 			}
 			else if (txtPassword.Text.Trim().Length <= 0)
 			{
-				MessageBox.Show("password!");
+				MessageBox.Show("Mật khẩu không được rỗng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
 				return false;
 			}
 			else if (checkedListBox1.CheckedItems.Count <= 0)
 			{
-				MessageBox.Show("chua chon quyen!");
+				MessageBox.Show("Chưa chọn quyền!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;
 			}
 			return true;
@@ -90,18 +91,90 @@ namespace TracNghiemManager.GUI.Users
 
 					chiTietQuyenBUS.Add(chiTietQuyen);
 				}
-				flag = 1;
 				clear();
 			}
-			if(flag == 1)
-			{
-				manageUser.reLoad(userBUS.GetAll());
-			}
+			manageUser.reLoad(userBUS.GetAll());
 		}
 
 		private void clear()
 		{
 			this.Dispose();
+		}
+
+		private bool validThemSl()
+		{
+			if (string.IsNullOrEmpty(txtTkSL.Text))
+			{
+				MessageBox.Show("Tài khoản không được rỗng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+			else if (string.IsNullOrEmpty(txtMkSl.Text))
+			{
+				MessageBox.Show("Mật khẩu không được rỗng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+			else if (rbGv.Checked == false && rbHs.Checked == false)
+			{
+				MessageBox.Show("Chưa chọn quyền!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+			else if (numSl.Value < 1)
+			{
+				MessageBox.Show("Số lượng phải lớn hơn hoặc bằng 1", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+			else if (numSl.Value > 1000)
+			{
+				MessageBox.Show("Số lượng phải bé hơn hoặc bằng 1000", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+			return true;
+		}
+
+		private void btnThemSl_Click(object sender, EventArgs e)
+		{
+			if (validThemSl())
+			{
+				// check xem qua trinh render tai khoan co trung nhau xong neu co bat cu tai khoan nao bi trungg thi se dung lai
+				for (int i = 1; i <= numSl.Value; i++)
+				{
+					string tk = txtTkSL.Text + i;
+					if (!userBUS.isExistUsername(tk))
+					{
+						MessageBox.Show("Đã tồn tại tài khoản trùng xin vui lòng nhập định dạng tài khoản khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						return;
+					}
+				}
+				// neu khong co tai khoan nao trung tien hanh them tu dong
+				for (int i = 1; i <= numSl.Value; i++)
+				{
+					int userId = userBUS.getNewId();
+					string tk = txtTkSL.Text + i;
+					string mk = txtMkSl.Text;
+					DateTime ngayTao = DateTime.Now;
+
+					UserDTO user = new UserDTO();
+					user.UserName = tk;
+					user.Password = mk;
+					user.ngayTao = ngayTao;
+					int mq = 3;
+					if (rbGv.Checked == true)
+					{
+						mq = 2;
+					}
+					else if (rbHs.Checked == true)
+					{
+						mq = 3;
+					}
+					userBUS.Add(user);
+					ChiTietQuyenDTO chiTietQuyen = new ChiTietQuyenDTO();
+					chiTietQuyen.ma_quyen = mq;
+					chiTietQuyen.user_id = userId;
+					chiTietQuyenBUS.Add(chiTietQuyen);
+				}
+				clear();
+				manageUser.reLoad(userBUS.GetAll());
+			}
 		}
 	}
 }

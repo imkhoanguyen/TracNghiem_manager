@@ -69,7 +69,7 @@
 			this.headingPanel.Controls.Add(this.searchPanel, 1, 0);
 			this.headingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.headingPanel.Location = new System.Drawing.Point(2, 2);
-			this.headingPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.headingPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.headingPanel.Name = "headingPanel";
 			this.headingPanel.RowCount = 1;
 			this.headingPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -94,14 +94,14 @@
 			this.searchPanel.ColumnCount = 3;
 			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.81227F));
 			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.18773F));
-			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
+			this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
 			this.searchPanel.Controls.Add(this.lblTenDeThi, 0, 0);
 			this.searchPanel.Controls.Add(this.lblMonHoc, 0, 1);
 			this.searchPanel.Controls.Add(this.txtDeThi, 1, 0);
 			this.searchPanel.Controls.Add(this.cbMonHoc, 1, 1);
 			this.searchPanel.Controls.Add(this.btnTimKiem, 2, 1);
 			this.searchPanel.Location = new System.Drawing.Point(407, 2);
-			this.searchPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.searchPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.searchPanel.Name = "searchPanel";
 			this.searchPanel.RowCount = 2;
 			this.searchPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -138,9 +138,9 @@
 			this.txtDeThi.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.txtDeThi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtDeThi.Location = new System.Drawing.Point(108, 6);
-			this.txtDeThi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtDeThi.Margin = new System.Windows.Forms.Padding(2);
 			this.txtDeThi.Name = "txtDeThi";
-			this.txtDeThi.Size = new System.Drawing.Size(301, 29);
+			this.txtDeThi.Size = new System.Drawing.Size(300, 29);
 			this.txtDeThi.TabIndex = 1;
 			// 
 			// cbMonHoc
@@ -151,9 +151,9 @@
 			this.cbMonHoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cbMonHoc.FormattingEnabled = true;
 			this.cbMonHoc.Location = new System.Drawing.Point(108, 47);
-			this.cbMonHoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.cbMonHoc.Margin = new System.Windows.Forms.Padding(2);
 			this.cbMonHoc.Name = "cbMonHoc";
-			this.cbMonHoc.Size = new System.Drawing.Size(301, 29);
+			this.cbMonHoc.Size = new System.Drawing.Size(300, 29);
 			this.cbMonHoc.TabIndex = 2;
 			this.cbMonHoc.SelectedValueChanged += new System.EventHandler(this.cbMonHoc_SelectedValueChanged);
 			// 
@@ -162,8 +162,8 @@
 			this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.btnTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnTimKiem.Location = new System.Drawing.Point(437, 44);
-			this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnTimKiem.Location = new System.Drawing.Point(436, 44);
+			this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2);
 			this.btnTimKiem.Name = "btnTimKiem";
 			this.btnTimKiem.Size = new System.Drawing.Size(85, 35);
 			this.btnTimKiem.TabIndex = 3;
@@ -175,9 +175,9 @@
 			// 
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 94);
-			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+			this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(8);
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(958, 292);
 			this.flowLayoutPanel1.TabIndex = 1;
 			// 
@@ -187,10 +187,10 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(962, 388);
 			this.Controls.Add(this.mainPanel);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "fDanhSachDeThi";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "fDanhSachDeThi";
+			this.Text = "Danh sách đề thi";
 			this.mainPanel.ResumeLayout(false);
 			this.headingPanel.ResumeLayout(false);
 			this.headingPanel.PerformLayout();

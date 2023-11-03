@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TracNghiemManager.DTO.ViewModel
+namespace TracNghiemManager.DTO
 {
 	public class HocSinhTrongLop
 	{

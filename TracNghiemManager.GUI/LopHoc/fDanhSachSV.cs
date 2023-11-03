@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using System.Windows.Media;
 using TracNghiemManager.BUS;
 using TracNghiemManager.DTO;
-using TracNghiemManager.DTO.ViewModel;
+using TracNghiemManager.DTO;
 using LiveCharts.Helpers;
 using ClosedXML.Excel;
 

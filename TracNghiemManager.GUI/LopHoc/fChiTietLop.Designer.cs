@@ -63,7 +63,7 @@
 			this.mainPanel.Controls.Add(this.flowLayoutPanel1, 0, 1);
 			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.mainPanel.Location = new System.Drawing.Point(0, 0);
-			this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.RowCount = 2;
 			this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.52503F));
@@ -101,7 +101,7 @@
 			this.containerlbl.Controls.Add(this.lblMaMoi, 1, 1);
 			this.containerlbl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.containerlbl.Location = new System.Drawing.Point(525, 2);
-			this.containerlbl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.containerlbl.Margin = new System.Windows.Forms.Padding(2);
 			this.containerlbl.Name = "containerlbl";
 			this.containerlbl.RowCount = 2;
 			this.containerlbl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -168,7 +168,7 @@
 			this.containerBtn.Controls.Add(this.btnThem, 0, 0);
 			this.containerBtn.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.containerBtn.Location = new System.Drawing.Point(525, 118);
-			this.containerBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.containerBtn.Margin = new System.Windows.Forms.Padding(2);
 			this.containerBtn.Name = "containerBtn";
 			this.containerBtn.RowCount = 1;
 			this.containerBtn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -182,7 +182,7 @@
 			this.btnXemDSSV.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnXemDSSV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnXemDSSV.Location = new System.Drawing.Point(301, 9);
-			this.btnXemDSSV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnXemDSSV.Margin = new System.Windows.Forms.Padding(2);
 			this.btnXemDSSV.Name = "btnXemDSSV";
 			this.btnXemDSSV.Size = new System.Drawing.Size(116, 36);
 			this.btnXemDSSV.TabIndex = 0;
@@ -196,7 +196,7 @@
 			this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnThem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnThem.Location = new System.Drawing.Point(2, 9);
-			this.btnThem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnThem.Margin = new System.Windows.Forms.Padding(2);
 			this.btnThem.Name = "btnThem";
 			this.btnThem.Size = new System.Drawing.Size(175, 36);
 			this.btnThem.TabIndex = 1;
@@ -258,7 +258,7 @@
 			this.chuThichPanel.Controls.Add(this.lblChuThichDong, 0, 1);
 			this.chuThichPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.chuThichPanel.Location = new System.Drawing.Point(2, 118);
-			this.chuThichPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.chuThichPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.chuThichPanel.Name = "chuThichPanel";
 			this.chuThichPanel.RowCount = 2;
 			this.chuThichPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -307,10 +307,10 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(976, 612);
 			this.Controls.Add(this.mainPanel);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "fChiTietLop";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "fChiTietLop";
+			this.Text = "Lớp học";
 			this.mainPanel.ResumeLayout(false);
 			this.headingPanel.ResumeLayout(false);
 			this.containerlbl.ResumeLayout(false);
