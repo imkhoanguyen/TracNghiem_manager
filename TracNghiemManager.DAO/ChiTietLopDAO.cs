@@ -46,8 +46,11 @@ namespace TracNghiemManager.DAO
 
 			using (SqlConnection connection = DbConnection.GetSqlConnection())
 			{
-				string query = "select ctl.user_id, u.ho_va_ten, u.email from chi_tiet_lop ctl join users u on ctl.user_id = u.id " +
-					"join lop on ctl.ma_lop = lop.ma_lop where ctl.ma_lop = " + maLop;
+				string query = "select ctl.user_id, u.ho_va_ten, u.email from chi_tiet_lop ctl " +
+					"join users u on ctl.user_id = u.id " +
+					"join lop on ctl.ma_lop = lop.ma_lop " +
+					"join chi_tiet_quyen ctq on ctq.user_id = u.id " +
+					"where ctl.ma_lop = " + maLop + " and ctq.ma_quyen = 3";
 				using (SqlCommand cmd = new SqlCommand(query, connection))
 				{
 					using (SqlDataReader reader = cmd.ExecuteReader())

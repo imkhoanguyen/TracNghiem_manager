@@ -126,10 +126,19 @@ namespace TracNghiemManager.GUI.LopHoc
 
 		private void loadCbDeThi()
 		{
-			cbDeThi.ValueMember = "MaDeThi";
-			cbDeThi.DisplayMember = "TenDeThi";
-			cbDeThi.DataSource = listDeThi;
-			cbDeThi.SelectedIndex = 0;
+			try
+			{
+				cbDeThi.ValueMember = "MaDeThi";
+				cbDeThi.DisplayMember = "TenDeThi";
+				cbDeThi.DataSource = listDeThi;
+				cbDeThi.SelectedIndex = 0;
+			} catch(Exception ex)
+			{
+				ex.ToString();
+			}
+				 
+			
+			
 		}
 
 		private void loadCbTrangThai()

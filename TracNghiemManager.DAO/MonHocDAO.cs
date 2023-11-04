@@ -91,7 +91,7 @@ namespace TracNghiemManager.DAO
             MonHocDTO result = null;
             using (SqlConnection connection = DbConnection.GetSqlConnection())
             {
-                string query = "select * from mon_hoc where ma_mon_hoc = @id and trang_thai = 1";
+                string query = "select * from mon_hoc where ma_mon_hoc = @id";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@id", id);

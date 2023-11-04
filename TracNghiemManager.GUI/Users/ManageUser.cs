@@ -237,7 +237,9 @@ namespace TracNghiemManager.GUI.Users
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			reLoad(userBUS.SearchEvenDate(dateTimePicker1.Value.ToString(), dateTimePicker2.Value.ToString()));
+			string d1 = dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss.fff");
+			string d2 = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss.fff"); 
+			reLoad(userBUS.SearchEvenDate(d1, d2));
 		}
 	}
 }
