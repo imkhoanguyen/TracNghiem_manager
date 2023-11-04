@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -162,5 +163,41 @@ namespace TracNghiemManager.GUI.MonHoc
         {
             Search();
         }
-    }
+
+		private void btnXuatFile_Click(object sender, EventArgs e)
+		{
+			using (SaveFileDialog sfd = new SaveFileDialog())
+			{
+				sfd.Filter = "Excel Workbook|*.xlsx";
+
+				if (sfd.ShowDialog() == DialogResult.OK)
+				{
+					try
+					{
+						using (var workbook = new XLWorkbook())
+						{
+							DataTable dt = (DataTable)dataGridView1.DataSource;
+
+							if (dt != null)
+							{
+								var worksheet = workbook.Worksheets.Add("Sheet1");
+								worksheet.Cell(2, 1).InsertTable(dt.AsEnumerable());
+
+								workbook.SaveAs(sfd.FileName);
+								MessageBox.Show("Xuất thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							}
+							else
+							{
+								MessageBox.Show("Không có dữ liệu để xuất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+							}
+						}
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+			}
+		}
+	}
 }
