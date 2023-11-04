@@ -73,9 +73,10 @@ namespace TracNghiemManager.GUI.CauHoi
                 row["Độ khó"] = cauHoi.DoKho;
                 dt.Rows.Add(row);
             }
-            dataGridView1.DataSource = dt;
-            // Thêm sự kiện DataBindingComplete vào DataGridView
-            dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
+			dataGridView1.DataSource = dt;
+			dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			// Thêm sự kiện DataBindingComplete vào DataGridView
+			dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
         }
 
         public void AddCauHoi(CauHoiDTO cauHoi)
