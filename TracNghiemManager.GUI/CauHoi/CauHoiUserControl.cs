@@ -73,8 +73,16 @@ namespace TracNghiemManager.GUI.CauHoi
                 row["Độ khó"] = cauHoi.DoKho;
                 dt.Rows.Add(row);
             }
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(241, 243, 245);
+			dataGridView1.EnableHeadersVisualStyles = false;
 			dataGridView1.DataSource = dt;
-			dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            
+            // setChieuCaoCuaTatCaCacDong
+            for(int i=0; i<listch.Count; i++)
+            {
+                dataGridView1.Rows[i].Height = 40;
+
+			}
 			// Thêm sự kiện DataBindingComplete vào DataGridView
 			dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
         }
