@@ -106,16 +106,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			loadChartTop5HsDiemCao();
 			StyleDataGridView();
 
-			// Khởi cột giá trị cho biểu đồ thống kê top 5 hs có điểm cao nhất theo đề thi
-			SeriesCollection columnSeriesCollection = new SeriesCollection
-			{
-				new ColumnSeries
-				{
-					Title = "Điểm",
-					Values = new ChartValues<double>(),
-				}
-			};
-			cartesianChart2.Series = columnSeriesCollection;
+			
 		}
 
 		private void load()
@@ -296,6 +287,16 @@ namespace TracNghiemManager.GUI.LopHoc
 
 		private void loadChartTop5HsDiemCao()
 		{
+			// Khởi cột giá trị cho biểu đồ thống kê top 5 hs có điểm cao nhất theo đề thi
+			SeriesCollection columnSeriesCollection = new SeriesCollection
+			{
+				new ColumnSeries
+				{
+					Title = "Điểm",
+					Values = new ChartValues<double>(),
+				}
+			};
+			cartesianChart2.Series = columnSeriesCollection;
 			if (cartesianChart2.Series.Any())
 			{
 				var columnSeries = cartesianChart2.Series[0] as ColumnSeries;

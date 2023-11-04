@@ -233,7 +233,7 @@ namespace TracNghiemManager.GUI
 					containerBtnPanel.RowStyles.Add(new RowStyle());
 				}
 
-				if (list[i].ten_quyen.Contains("Giáo viên") || list[i].ten_quyen.Contains("Full"))
+				if (list[i].ten_quyen.Contains("Admin") || list[i].ten_quyen.Contains("Full"))
 				{
 					containerBtnPanel.Controls.Add(btnMonHoc, 0, 3);
 					containerBtnPanel.RowStyles.Add(new RowStyle());

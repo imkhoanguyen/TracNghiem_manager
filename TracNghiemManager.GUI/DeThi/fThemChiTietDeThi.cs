@@ -180,7 +180,7 @@ namespace TracNghiemManager.GUI.DeThi
 
 		public void loadComboBoxDoKho()
 		{
-			List<string> listdk = new List<string> { "Dễ", "Bình thường", "Khó" };
+			List<string> listdk = new List<string> { "Chọn độ khó", "Dễ", "Bình thường", "Khó" };
 			cbDoKho.DataSource = listdk;
 			cbDoKho.SelectedIndex = 0;
 		}
@@ -192,10 +192,26 @@ namespace TracNghiemManager.GUI.DeThi
 
 		public void loadComboBoxMonHoc()
 		{
-			List<MonHocDTO> l = mhBus.getAll();
+			int t = -1;
+			// Clear datasouce
+			cbMonHoc.DataSource = null;
 			cbMonHoc.ValueMember = "MaMonHoc";
 			cbMonHoc.DisplayMember = "TenMonHoc";
-			cbMonHoc.DataSource = l;
+			List<MonHocDTO> list = mhBus.getAll();
+			MonHocDTO chonMonHocItem = new MonHocDTO
+			{
+				TenMonHoc = "Chọn môn học",
+				MaMonHoc = -1,
+			};
+			for (int i = 0; i < list.Count; i++)
+			{
+				if (list[i].MaMonHoc == -1) t = 1;
+			}
+			if (t != 1)
+			{
+				list.Insert(0, chonMonHocItem);
+			}
+			cbMonHoc.DataSource = list;
 			cbMonHoc.SelectedIndex = 0;
 		}
 
@@ -264,9 +280,13 @@ namespace TracNghiemManager.GUI.DeThi
 			try
 			{
 				string noiDungTimKiem = txt.Text;
+				if (indexSearchDoKho == "Chọn độ khó")
+				{
+					indexSearchDoKho = null;
+				}
 
 				// Lọc các câu hỏi theo nội dung tìm kiếm
-				List<CauHoiDTO> listCauHoiTimKiem = lLeft.Where(ch => ch.NoiDung.Contains(noiDungTimKiem)).ToList();
+				List<CauHoiDTO> listCauHoiTimKiem = lLeft.Where(ch => ch.NoiDung.ToLower().Contains(noiDungTimKiem.ToLower())).ToList();
 
 				// Nếu có chọn môn học thì lọc các câu hỏi theo môn học
 				if (indexSreachMonHoc != null)
@@ -283,10 +303,10 @@ namespace TracNghiemManager.GUI.DeThi
 				// Nếu không chọn môn học và độ khó thì tìm kiếm theo nội dung tìm kiếm
 				if (indexSreachMonHoc == null && indexSearchDoKho == null)
 				{
-					listCauHoiTimKiem = (List<CauHoiDTO>)lLeft.Where(ch => ch.NoiDung.Contains(noiDungTimKiem)).ToList();
+					listCauHoiTimKiem = (List<CauHoiDTO>)lLeft.Where(ch => ch.NoiDung.ToLower().Contains(noiDungTimKiem.ToLower())).ToList();
 				}
 				lbCauHoi.Items.Clear();
-				foreach(CauHoiDTO item in listCauHoiTimKiem)
+				foreach(var item in listCauHoiTimKiem)
 				{
 					lbCauHoi.Items.Add(item);
 				}

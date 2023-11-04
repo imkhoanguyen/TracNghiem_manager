@@ -49,28 +49,29 @@ namespace TracNghiemManager.GUI.DeThi
 			this.mainPanel.ColumnCount = 1;
 			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
 			this.mainPanel.Controls.Add(this.flowLayoutPanel1, 0, 1);
 			this.mainPanel.Controls.Add(this.panelHeading, 0, 0);
 			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.mainPanel.Location = new System.Drawing.Point(0, 0);
-			this.mainPanel.Margin = new System.Windows.Forms.Padding(17, 18, 17, 18);
+			this.mainPanel.Margin = new System.Windows.Forms.Padding(23, 22, 23, 22);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.RowCount = 2;
 			this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.56185F));
 			this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.43815F));
-			this.mainPanel.Size = new System.Drawing.Size(1180, 671);
+			this.mainPanel.Size = new System.Drawing.Size(1573, 826);
 			this.mainPanel.TabIndex = 0;
 			// 
 			// flowLayoutPanel1
 			// 
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 94);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 116);
+			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(1174, 574);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(1565, 706);
 			this.flowLayoutPanel1.TabIndex = 1;
 			// 
 			// panelHeading
@@ -81,13 +82,13 @@ namespace TracNghiemManager.GUI.DeThi
 			this.panelHeading.Controls.Add(this.btnThem, 1, 0);
 			this.panelHeading.Controls.Add(this.lblHeading, 0, 0);
 			this.panelHeading.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelHeading.Location = new System.Drawing.Point(2, 2);
-			this.panelHeading.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.panelHeading.Location = new System.Drawing.Point(3, 2);
+			this.panelHeading.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panelHeading.Name = "panelHeading";
 			this.panelHeading.RowCount = 1;
 			this.panelHeading.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.panelHeading.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.panelHeading.Size = new System.Drawing.Size(1176, 87);
+			this.panelHeading.Size = new System.Drawing.Size(1567, 108);
 			this.panelHeading.TabIndex = 2;
 			// 
 			// btnThem
@@ -96,12 +97,12 @@ namespace TracNghiemManager.GUI.DeThi
 			this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(215)))), ((int)(((byte)(251)))));
 			this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnThem.FlatAppearance.BorderSize = 0;
-			this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.System;
 			this.btnThem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnThem.Location = new System.Drawing.Point(1002, 21);
-			this.btnThem.Margin = new System.Windows.Forms.Padding(3, 3, 56, 3);
+			this.btnThem.Location = new System.Drawing.Point(1348, 30);
+			this.btnThem.Margin = new System.Windows.Forms.Padding(4, 4, 75, 4);
 			this.btnThem.Name = "btnThem";
-			this.btnThem.Size = new System.Drawing.Size(118, 45);
+			this.btnThem.Size = new System.Drawing.Size(144, 47);
 			this.btnThem.TabIndex = 1;
 			this.btnThem.Text = "Tạo đề thi\r\n";
 			this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -115,10 +116,9 @@ namespace TracNghiemManager.GUI.DeThi
 			this.lblHeading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
 			this.lblHeading.Font = new System.Drawing.Font("Bahnschrift", 36F, System.Drawing.FontStyle.Bold);
 			this.lblHeading.ForeColor = System.Drawing.Color.SteelBlue;
-			this.lblHeading.Location = new System.Drawing.Point(2, 14);
-			this.lblHeading.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblHeading.Location = new System.Drawing.Point(3, 18);
 			this.lblHeading.Name = "lblHeading";
-			this.lblHeading.Size = new System.Drawing.Size(242, 58);
+			this.lblHeading.Size = new System.Drawing.Size(300, 72);
 			this.lblHeading.TabIndex = 2;
 			this.lblHeading.Text = "Kho đề thi\r\n";
 			// 
@@ -151,12 +151,12 @@ namespace TracNghiemManager.GUI.DeThi
 			// 
 			// DeThiUserControl
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.mainPanel);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "DeThiUserControl";
-			this.Size = new System.Drawing.Size(1180, 671);
+			this.Size = new System.Drawing.Size(1573, 826);
 			this.mainPanel.ResumeLayout(false);
 			this.panelHeading.ResumeLayout(false);
 			this.panelHeading.PerformLayout();
