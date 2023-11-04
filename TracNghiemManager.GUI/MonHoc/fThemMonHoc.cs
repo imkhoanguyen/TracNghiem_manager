@@ -83,6 +83,11 @@ namespace TracNghiemManager.GUI.MonHoc
                 MessageBox.Show("Không được để trống tên môn học", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+            if(mhBus.checkTrungTen(txtTenMonHoc.Text))
+            {
+				MessageBox.Show("Tên môn học không được trùng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
             return true;
         }
     }

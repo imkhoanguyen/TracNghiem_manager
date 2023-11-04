@@ -60,21 +60,21 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.mainPanel.ColumnCount = 1;
 			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+			this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
 			this.mainPanel.Controls.Add(this.headingPanel, 0, 0);
 			this.mainPanel.Controls.Add(this.dataGridView1, 0, 1);
 			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.mainPanel.Location = new System.Drawing.Point(0, 0);
-			this.mainPanel.Margin = new System.Windows.Forms.Padding(17, 18, 17, 18);
+			this.mainPanel.Margin = new System.Windows.Forms.Padding(23, 22, 23, 22);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.RowCount = 2;
 			this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.87899F));
 			this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.12101F));
-			this.mainPanel.Size = new System.Drawing.Size(1180, 671);
+			this.mainPanel.Size = new System.Drawing.Size(1573, 826);
 			this.mainPanel.TabIndex = 0;
 			// 
 			// headingPanel
@@ -86,13 +86,13 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.headingPanel.Controls.Add(this.containerBtnPanel, 0, 0);
 			this.headingPanel.Controls.Add(this.containerTimKiemPanel, 0, 1);
 			this.headingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.headingPanel.Location = new System.Drawing.Point(8, 7);
-			this.headingPanel.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+			this.headingPanel.Location = new System.Drawing.Point(11, 9);
+			this.headingPanel.Margin = new System.Windows.Forms.Padding(11, 9, 11, 9);
 			this.headingPanel.Name = "headingPanel";
 			this.headingPanel.RowCount = 2;
 			this.headingPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.23404F));
 			this.headingPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.76596F));
-			this.headingPanel.Size = new System.Drawing.Size(1164, 152);
+			this.headingPanel.Size = new System.Drawing.Size(1551, 187);
 			this.headingPanel.TabIndex = 0;
 			// 
 			// containerBtnPanel
@@ -115,8 +115,8 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.containerBtnPanel.Margin = new System.Windows.Forms.Padding(0);
 			this.containerBtnPanel.Name = "containerBtnPanel";
 			this.containerBtnPanel.RowCount = 1;
-			this.containerBtnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 104F));
-			this.containerBtnPanel.Size = new System.Drawing.Size(1164, 102);
+			this.containerBtnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 128F));
+			this.containerBtnPanel.Size = new System.Drawing.Size(1551, 125);
 			this.containerBtnPanel.TabIndex = 0;
 			// 
 			// btnLamMoi
@@ -129,10 +129,10 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.btnLamMoi.ForeColor = System.Drawing.Color.SteelBlue;
 			this.btnLamMoi.Image = ((System.Drawing.Image)(resources.GetObject("btnLamMoi.Image")));
-			this.btnLamMoi.Location = new System.Drawing.Point(903, 0);
-			this.btnLamMoi.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
+			this.btnLamMoi.Location = new System.Drawing.Point(1205, 0);
+			this.btnLamMoi.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.btnLamMoi.Name = "btnLamMoi";
-			this.btnLamMoi.Size = new System.Drawing.Size(259, 104);
+			this.btnLamMoi.Size = new System.Drawing.Size(343, 128);
 			this.btnLamMoi.TabIndex = 5;
 			this.btnLamMoi.Text = "LÀM MỚI";
 			this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -149,10 +149,10 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.btnXuatFile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.btnXuatFile.ForeColor = System.Drawing.Color.SteelBlue;
 			this.btnXuatFile.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatFile.Image")));
-			this.btnXuatFile.Location = new System.Drawing.Point(645, 0);
-			this.btnXuatFile.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
+			this.btnXuatFile.Location = new System.Drawing.Point(861, 0);
+			this.btnXuatFile.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.btnXuatFile.Name = "btnXuatFile";
-			this.btnXuatFile.Size = new System.Drawing.Size(256, 104);
+			this.btnXuatFile.Size = new System.Drawing.Size(341, 128);
 			this.btnXuatFile.TabIndex = 3;
 			this.btnXuatFile.Text = "XUẤT FILE";
 			this.btnXuatFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -168,10 +168,10 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.btnXoa.ForeColor = System.Drawing.Color.SteelBlue;
 			this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-			this.btnXoa.Location = new System.Drawing.Point(430, 0);
-			this.btnXoa.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
+			this.btnXoa.Location = new System.Drawing.Point(574, 0);
+			this.btnXoa.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.btnXoa.Name = "btnXoa";
-			this.btnXoa.Size = new System.Drawing.Size(213, 104);
+			this.btnXoa.Size = new System.Drawing.Size(284, 128);
 			this.btnXoa.TabIndex = 2;
 			this.btnXoa.Text = "XÓA";
 			this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -188,10 +188,10 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.btnSua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.btnSua.ForeColor = System.Drawing.Color.SteelBlue;
 			this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-			this.btnSua.Location = new System.Drawing.Point(215, 0);
-			this.btnSua.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
+			this.btnSua.Location = new System.Drawing.Point(287, 0);
+			this.btnSua.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.btnSua.Name = "btnSua";
-			this.btnSua.Size = new System.Drawing.Size(213, 104);
+			this.btnSua.Size = new System.Drawing.Size(284, 128);
 			this.btnSua.TabIndex = 1;
 			this.btnSua.Text = "SỬA";
 			this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -209,9 +209,9 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.btnThem.ForeColor = System.Drawing.Color.SteelBlue;
 			this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
 			this.btnThem.Location = new System.Drawing.Point(0, 0);
-			this.btnThem.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
+			this.btnThem.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.btnThem.Name = "btnThem";
-			this.btnThem.Size = new System.Drawing.Size(213, 104);
+			this.btnThem.Size = new System.Drawing.Size(284, 128);
 			this.btnThem.TabIndex = 0;
 			this.btnThem.Text = "THÊM";
 			this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -226,13 +226,13 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.containerTimKiemPanel.Controls.Add(this.textBoxTimKiem, 0, 0);
 			this.containerTimKiemPanel.Controls.Add(this.btnTimKiem, 1, 0);
 			this.containerTimKiemPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.containerTimKiemPanel.Location = new System.Drawing.Point(0, 107);
-			this.containerTimKiemPanel.Margin = new System.Windows.Forms.Padding(0, 5, 17, 5);
+			this.containerTimKiemPanel.Location = new System.Drawing.Point(0, 131);
+			this.containerTimKiemPanel.Margin = new System.Windows.Forms.Padding(0, 6, 23, 6);
 			this.containerTimKiemPanel.Name = "containerTimKiemPanel";
 			this.containerTimKiemPanel.RowCount = 1;
 			this.containerTimKiemPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.containerTimKiemPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.containerTimKiemPanel.Size = new System.Drawing.Size(1147, 40);
+			this.containerTimKiemPanel.Size = new System.Drawing.Size(1528, 50);
 			this.containerTimKiemPanel.TabIndex = 1;
 			// 
 			// textBoxTimKiem
@@ -240,10 +240,10 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.textBoxTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
 			this.textBoxTimKiem.Font = new System.Drawing.Font("Segoe UI", 16.2F);
-			this.textBoxTimKiem.Location = new System.Drawing.Point(15, 1);
-			this.textBoxTimKiem.Margin = new System.Windows.Forms.Padding(15, 1, 22, 0);
+			this.textBoxTimKiem.Location = new System.Drawing.Point(20, 1);
+			this.textBoxTimKiem.Margin = new System.Windows.Forms.Padding(20, 1, 29, 0);
 			this.textBoxTimKiem.Name = "textBoxTimKiem";
-			this.textBoxTimKiem.Size = new System.Drawing.Size(925, 36);
+			this.textBoxTimKiem.Size = new System.Drawing.Size(1232, 43);
 			this.textBoxTimKiem.TabIndex = 0;
 			// 
 			// btnTimKiem
@@ -253,10 +253,10 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.btnTimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.btnTimKiem.Location = new System.Drawing.Point(962, 0);
+			this.btnTimKiem.Location = new System.Drawing.Point(1282, 0);
 			this.btnTimKiem.Margin = new System.Windows.Forms.Padding(0);
 			this.btnTimKiem.Name = "btnTimKiem";
-			this.btnTimKiem.Size = new System.Drawing.Size(185, 40);
+			this.btnTimKiem.Size = new System.Drawing.Size(246, 50);
 			this.btnTimKiem.TabIndex = 1;
 			this.btnTimKiem.Text = " TÌM KIẾM";
 			this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -279,12 +279,12 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(8, 179);
-			this.dataGridView1.Margin = new System.Windows.Forms.Padding(8, 13, 8, 13);
+			this.dataGridView1.Location = new System.Drawing.Point(11, 221);
+			this.dataGridView1.Margin = new System.Windows.Forms.Padding(11, 16, 11, 16);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.RowHeadersWidth = 51;
 			this.dataGridView1.RowTemplate.Height = 29;
-			this.dataGridView1.Size = new System.Drawing.Size(1164, 479);
+			this.dataGridView1.Size = new System.Drawing.Size(1551, 589);
 			this.dataGridView1.TabIndex = 1;
 			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
 			// 
@@ -310,12 +310,12 @@ namespace TracNghiemManager.GUI.MonHoc
 			// 
 			// MonHocUserControl
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.mainPanel);
-			this.Margin = new System.Windows.Forms.Padding(2);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "MonHocUserControl";
-			this.Size = new System.Drawing.Size(1180, 671);
+			this.Size = new System.Drawing.Size(1573, 826);
 			this.mainPanel.ResumeLayout(false);
 			this.headingPanel.ResumeLayout(false);
 			this.containerBtnPanel.ResumeLayout(false);
