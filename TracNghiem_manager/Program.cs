@@ -13,7 +13,7 @@ namespace TracNghiem_manager
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguratiSon.
             ApplicationConfiguration.Initialize();
-            Application.Run(new UserForm());
+            Application.Run(new Form1());
         }
     }
 }

@@ -62,17 +62,17 @@
     <Compile Include="UserBUS.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\TracNghiemManager.DAO\TracNghiemManager.DAO.csproj">
-      <Project>{9804F92C-5242-4584-BBE0-259FF022320E}</Project>
+      <Project>{9804f92c-5242-4584-bbe0-259ff022320e}</Project>
       <Name>TracNghiemManager.DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\TracNghiemManager.DTO\TracNghiemManager.DTO.csproj">
-      <Project>{416CE8BC-B563-478A-BFD4-3DF9F4BE7116}</Project>
+      <Project>{416ce8bc-b563-478a-bfd4-3df9f4be7116}</Project>
       <Name>TracNghiemManager.DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
