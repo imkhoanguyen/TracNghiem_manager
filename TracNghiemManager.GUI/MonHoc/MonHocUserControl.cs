@@ -30,7 +30,8 @@ namespace TracNghiemManager.GUI.MonHoc
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("Tên môn học", typeof(string));
             loadDataTable(listmh);
-        }
+			dataGridView1.Columns["ID"].Width = 60;
+		}
 
         public void loadDataTable(List<MonHocDTO> list)
         {
@@ -43,10 +44,20 @@ namespace TracNghiemManager.GUI.MonHoc
                 row["Tên môn học"] = obj.TenMonHoc;
                 dt.Rows.Add(row);
             }
-            dataGridView1.DataSource = dt;
-            // Thêm sự kiện DataBindingComplete vào DataGridView
-            dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
-        }
+			dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
+			dataGridView1.EnableHeadersVisualStyles = false;
+			dataGridView1.DataSource = dt;
+			// setChieuCaoCuaTatCaCacDong
+			for (int i = 0; i < listmh.Count; i++)
+			{
+				dataGridView1.Rows[i].Height = 40;
+				dataGridView1.Rows[i].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+			}
+			// Thêm sự kiện DataBindingComplete vào DataGridView
+			dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
+			
+		}
 
         public void AddMonHoc(MonHocDTO obj)
         {

@@ -154,6 +154,8 @@ namespace TracNghiemManager.GUI.LopHoc
 				dt.Rows.Add(row);
 				stt++;
 			}
+			dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(242, 242, 242);
+			dataGridView1.EnableHeadersVisualStyles = false;
 			dataGridView1.DataSource = dt;
 		}
 		private void loadDataGridView2()
@@ -200,6 +202,8 @@ namespace TracNghiemManager.GUI.LopHoc
 				}
 				
 			}
+			dataGridView2.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(242, 242, 242);
+			dataGridView2.EnableHeadersVisualStyles = false;
 			dataGridView2.DataSource = dt1;
 		}
 		private void StyleDataGridView()

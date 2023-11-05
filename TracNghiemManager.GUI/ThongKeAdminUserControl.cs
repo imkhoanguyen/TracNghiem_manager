@@ -98,7 +98,14 @@ namespace TracNghiemManager.GUI
 					dt.Rows.Add(row);
 				}
 				dataGridView1.DataSource = dt;
-				
+				dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(242, 242, 242);
+				dataGridView1.EnableHeadersVisualStyles = false;
+				// setChieuCaoCuaTatCaCacDong
+				for (int i = 0; i < loginHistories.Count; i++)
+				{
+					dataGridView1.Rows[i].Height = 40;
+				}
+
 			}
 			if (dataGridView1.DataSource == null)
 			{
@@ -107,9 +114,9 @@ namespace TracNghiemManager.GUI
 		}
 		public void StyleDataGridView()
 		{
-			dataGridView1.Columns["Thời gian thoát"].Width = 200;
-			dataGridView1.Columns["Thời gian đăng nhập"].Width = 200;
-			dataGridView1.Columns["Quyền"].Width = 150;
+			dataGridView1.Columns["Thời gian thoát"].Width = 250;
+			dataGridView1.Columns["Thời gian đăng nhập"].Width = 250;
+			dataGridView1.Columns["Quyền"].Width = 200;
 			dataGridView1.Columns["ID"].Width = 200;
 			dataGridView1.Columns["Họ tên"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
