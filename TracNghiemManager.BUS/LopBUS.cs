@@ -30,10 +30,11 @@ namespace TracNghiemManager.BUS
             if (lopDAO.Delete(id)) return "Xóa lớp học thành công!";
             return "Xóa lớp học thất bại";
         }
-        public List<LopDTO> GetAll()
+        public List<LopDTO> GetAll(int userId)
         {
-            return lopDAO.GetAll();
+            return lopDAO.GetAll(userId);
         }
+
         public int GetAutoIncrement()
         {
             return lopDAO.GetAutoIncrement();
@@ -42,6 +43,22 @@ namespace TracNghiemManager.BUS
         public LopDTO getById(int id)
         {
             return lopDAO.GetById(id);
+        }
+
+        public bool checkMaMoi(string maMoi)
+        {
+            List<LopDTO> l = lopDAO.GetAll();
+            for(int i= 0; i < l.Count; i++)
+            {
+                if (l[i].MaMoi.Equals(maMoi)) return true;
+                
+            }
+            return false;
+        }
+
+        public int GetMaLopByMaMoi(string maMoi)
+        {
+            return lopDAO.GetMaLopByMaMoi(maMoi);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,8 @@ namespace TracNghiemManager.GUI.MonHoc
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("Tên môn học", typeof(string));
             loadDataTable(listmh);
-        }
+			dataGridView1.Columns["ID"].Width = 60;
+		}
 
         public void loadDataTable(List<MonHocDTO> list)
         {
@@ -42,10 +44,20 @@ namespace TracNghiemManager.GUI.MonHoc
                 row["Tên môn học"] = obj.TenMonHoc;
                 dt.Rows.Add(row);
             }
-            dataGridView1.DataSource = dt;
-            // Thêm sự kiện DataBindingComplete vào DataGridView
-            dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
-        }
+			dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
+			dataGridView1.EnableHeadersVisualStyles = false;
+			dataGridView1.DataSource = dt;
+			// setChieuCaoCuaTatCaCacDong
+			for (int i = 0; i < listmh.Count; i++)
+			{
+				dataGridView1.Rows[i].Height = 40;
+				dataGridView1.Rows[i].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+			}
+			// Thêm sự kiện DataBindingComplete vào DataGridView
+			dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
+			
+		}
 
         public void AddMonHoc(MonHocDTO obj)
         {
@@ -141,7 +153,7 @@ namespace TracNghiemManager.GUI.MonHoc
         {
             try
             {
-                List<MonHocDTO> listMonHocTimKiem = listmh.Where(mh => mh.TenMonHoc.Contains(textBoxTimKiem.Text)).ToList();
+                List<MonHocDTO> listMonHocTimKiem = listmh.Where(mh => mh.TenMonHoc.ToLower().Contains(textBoxTimKiem.Text.ToLower())).ToList();
                 var listMonHocTimKiemFilter = listMonHocTimKiem.Select(mh => new
                 {
                     ID = mh.MaMonHoc,
@@ -162,5 +174,41 @@ namespace TracNghiemManager.GUI.MonHoc
         {
             Search();
         }
-    }
+
+		private void btnXuatFile_Click(object sender, EventArgs e)
+		{
+			using (SaveFileDialog sfd = new SaveFileDialog())
+			{
+				sfd.Filter = "Excel Workbook|*.xlsx";
+
+				if (sfd.ShowDialog() == DialogResult.OK)
+				{
+					try
+					{
+						using (var workbook = new XLWorkbook())
+						{
+							DataTable dt = (DataTable)dataGridView1.DataSource;
+
+							if (dt != null)
+							{
+								var worksheet = workbook.Worksheets.Add("Sheet1");
+								worksheet.Cell(2, 1).InsertTable(dt.AsEnumerable());
+
+								workbook.SaveAs(sfd.FileName);
+								MessageBox.Show("Xuất thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							}
+							else
+							{
+								MessageBox.Show("Không có dữ liệu để xuất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+							}
+						}
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+			}
+		}
+	}
 }

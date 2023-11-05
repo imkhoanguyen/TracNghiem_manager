@@ -14,6 +14,11 @@ namespace TracNghiemManager.DTO
         public int MaNguoiTao { get; set; }
         public string DoKho {  get; set; }
         public int TrangThai { get; set; }
+
+        public string CauHoiDTOToString
+        {
+            get { return MaCauHoi + " - " + NoiDung + " - " + DoKho; }
+        }
         public CauHoiDTO()
         {
 

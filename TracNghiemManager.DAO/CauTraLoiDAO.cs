@@ -20,14 +20,13 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "INSERT INTO cau_tra_loi (ma_cau_hoi, noi_dung, la_dap_an, trang_thai)" +
-                        "VALUES (@idCauHoi, @noiDung, @laDapAn, @trangThai)";
+                    string query = "INSERT INTO cau_tra_loi (ma_cau_hoi, noi_dung, la_dap_an)" +
+                        "VALUES (@idCauHoi, @noiDung, @laDapAn)";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@idCauHoi", t.MaCauHoi);
                         command.Parameters.AddWithValue("@noiDung", t.NoiDung);
                         command.Parameters.AddWithValue("@laDapAn", t.DapAn);
-                        command.Parameters.AddWithValue("@trangThai", 1);
                         int rowsChanged = command.ExecuteNonQuery();
                         return rowsChanged > 0;
                     }
@@ -70,7 +69,7 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "Update cau_tra_loi Set trang_thai = 0, la_dap_an = 0 Where ma_cau_tra_loi = " + id;
+                    string query = "delete from cau_tra_loi where ma_cau_tra_loi = " + id;
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         int rowsChanged = command.ExecuteNonQuery();
@@ -90,7 +89,7 @@ namespace TracNghiemManager.DAO
             List<CauTraLoiDTO> cauTraLoiList = new List<CauTraLoiDTO>();
             using (SqlConnection connection = DbConnection.GetSqlConnection())
             {
-                string query = "Select * from cau_tra_loi Where trang_thai = 1";
+                string query = "Select * from cau_tra_loi";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -103,7 +102,6 @@ namespace TracNghiemManager.DAO
                                 MaCauTraLoi = Convert.ToInt32(reader["ma_cau_tra_loi"]),
                                 NoiDung = reader["noi_dung"].ToString(),
                                 DapAn = Convert.ToBoolean(reader["la_dap_an"]),
-                                TrangThai = Convert.ToInt32(reader["trang_thai"])
                             };
                             cauTraLoiList.Add(cauTraLoi);
                         }
@@ -130,7 +128,6 @@ namespace TracNghiemManager.DAO
                             cauTraLoi.MaCauTraLoi = Convert.ToInt32(reader["ma_cau_tra_loi"]);
                             cauTraLoi.NoiDung = reader["noi_dung"].ToString();
                             cauTraLoi.DapAn = Convert.ToBoolean(reader["la_dap_an"]);
-                            cauTraLoi.TrangThai = Convert.ToInt32(reader["trang_thai"]);
                         }
                     }
                 }
@@ -144,7 +141,7 @@ namespace TracNghiemManager.DAO
             {
                 using (SqlConnection connection = DbConnection.GetSqlConnection())
                 {
-                    string query = "SELECT ma_cau_tra_loi from cau_tra_loi where trang_thai = 1";
+                    string query = "SELECT ma_cau_tra_loi from cau_tra_loi ";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -175,7 +172,7 @@ namespace TracNghiemManager.DAO
             List<CauTraLoiDTO> cauTraLoiList = new List<CauTraLoiDTO>();
             using (SqlConnection connection = DbConnection.GetSqlConnection())
             {
-                string query = "SELECT * from cau_tra_loi where trang_thai = 1 and ma_cau_hoi = " + mch;
+                string query = "SELECT * from cau_tra_loi where ma_cau_hoi = " + mch;
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -188,7 +185,6 @@ namespace TracNghiemManager.DAO
                                 MaCauTraLoi = Convert.ToInt32(reader["ma_cau_tra_loi"]),
                                 NoiDung = reader["noi_dung"].ToString(),
                                 DapAn = Convert.ToBoolean(reader["la_dap_an"]),
-                                TrangThai = Convert.ToInt32(reader["trang_thai"])
                             };
                             cauTraLoiList.Add(cauTraLoi);
                         }

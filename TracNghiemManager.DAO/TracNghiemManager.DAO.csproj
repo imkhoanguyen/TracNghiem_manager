@@ -43,15 +43,21 @@
   <ItemGroup>
     <Compile Include="CauTraLoiDAO.cs" />
     <Compile Include="CauHoiDAO.cs" />
+    <Compile Include="ChiTietDeThiDAO.cs" />
+    <Compile Include="ChiTietLopDAO.cs" />
+    <Compile Include="ChiTietQuyenDAO.cs" />
     <Compile Include="ChucNangDAO.cs" />
     <Compile Include="DbConnection.cs" />
+    <Compile Include="DeThiCuaLopDAO.cs" />
+    <Compile Include="DeThiDAO.cs" />
     <Compile Include="IDAO.cs" />
-    <Compile Include="ChiTietQuyenDAO.cs" />
-    <Compile Include="ChiTietQuyenDAO.cs" />
+    <Compile Include="KetQuaDAO.cs" />
     <Compile Include="LopDAO.cs" />
     <Compile Include="MonHocDAO.cs" />
+    <Compile Include="PhanQuyenDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuyenDAO.cs" />
+    <Compile Include="ThongKeDAO.cs" />
     <Compile Include="UserDAO.cs" />
   </ItemGroup>
   <ItemGroup>

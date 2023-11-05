@@ -51,5 +51,14 @@ namespace TracNghiemManager.BUS
         {
             return monHocDAO.GetById(id);
         }
+        public bool checkTrungTen(string ten)
+        {
+            List<MonHocDTO> l = monHocDAO.GetAll();
+            foreach(MonHocDTO t in l)
+            {
+                if(t.TenMonHoc.ToLower().Equals(ten.ToLower())) { return true; }
+            }
+            return false;
+        }
     }
 }

@@ -11,6 +11,8 @@ namespace TracNghiemManager.DTO
         public int user_id {  get; set; }
         public string ten_quyen { get; set; }
         public string ho_va_ten { get; set; }
+        public int trang_thai { get; set; }
+        public int ma_quyen { get; set; }
 
         public ChiTietQuyenDTO()
         {

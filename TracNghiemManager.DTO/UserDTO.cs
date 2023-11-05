@@ -18,6 +18,13 @@ namespace TracNghiemManager.DTO
         public int trangThai { get; set; }
         public string avatar { get; set; }
         public DateTime ngaySinh { get; set; }
+        public DateTime ngayTao { get; set; }
+
+		public DateTime TimeIn { get; set; }
+
+        public DateTime TimeOut { get; set; }
+        public string TenQuyen { get; set; } = null;
+        public string IdLogin { get; set; }
 
         public UserDTO()
         {

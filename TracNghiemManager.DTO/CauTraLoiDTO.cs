@@ -12,18 +12,16 @@ namespace TracNghiemManager.DTO
         public int MaCauHoi { get; set; }
         public string NoiDung { get; set; }
         public bool DapAn { get; set; }
-        public int TrangThai { get; set; }
         public CauTraLoiDTO()
         {
 
         }
-        public CauTraLoiDTO(int maCauTraLoi, int maCauHoi, string noiDung, bool dapAn, int trangThai)
+        public CauTraLoiDTO(int maCauTraLoi, int maCauHoi, string noiDung, bool dapAn)
         {
             MaCauTraLoi = maCauTraLoi;
             MaCauHoi = maCauHoi;
             NoiDung = noiDung;
             DapAn = dapAn;
-            TrangThai = trangThai;
         }
     }
 }
