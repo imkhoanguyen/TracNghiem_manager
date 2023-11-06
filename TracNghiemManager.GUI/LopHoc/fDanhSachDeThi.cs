@@ -17,11 +17,11 @@ namespace TracNghiemManager.GUI.LopHoc
 	public partial class fDanhSachDeThi : Form
 	{
 		private int counter = 1;
-		System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-		DeThiBUS dtBus;
+		private System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+		private DeThiBUS dtBus;
 		private List<DeThiDTO> listdt;
-		MonHocBUS mhBus;
-		MonHocDTO selectedMonHoc;
+		private MonHocBUS mhBus;
+		private MonHocDTO selectedMonHoc;
 		LopDTO lopDTO;
 		fChiTietLop fctl;
 		public fDanhSachDeThi(LopDTO l, fChiTietLop f)
@@ -32,8 +32,14 @@ namespace TracNghiemManager.GUI.LopHoc
 			lopDTO = l;
 			fctl = f;
 			listdt = dtBus.GetAll(Form1.USER_ID);
+			load();
+		}
+		public void load()
+		{
+			listdt = dtBus.GetAll(Form1.USER_ID);
 			loadDeThi(listdt);
 			loadCbMonHoc();
+
 		}
 
 		void loadDeThi(List<DeThiDTO> list)
@@ -233,10 +239,9 @@ namespace TracNghiemManager.GUI.LopHoc
 			Search();
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void button1_Click_1(object sender, EventArgs e)
 		{
-			fThemDeThi fThemDeThi = new fThemDeThi();
-			fThemDeThi.ShowDialog();
+			load();
 		}
 	}
 }
