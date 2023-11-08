@@ -282,7 +282,7 @@ namespace TracNghiemManager.GUI
 
 		private void tao_slide(int n)
 		{
-			List<CauHoiDTO> cauHoiList = cauHoi.getAll();
+			List<CauHoiDTO> cauHoiList = chiTietDeThi.GetAllCauHoiOfDeThi(deThi.MaDeThi);
 			slide = new Panel[n];
 			for (int i = 1; i <= n; i++)
 			{
