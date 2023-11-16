@@ -118,5 +118,9 @@ namespace TracNghiemManager.BUS
 		{
 			UserDAO.UpdatePassword(email, newPassword);
 		}
+		public int GetAutoIncreament()
+		{
+			return UserDAO.GetAutoIncrement();
+		}
 	}
 }

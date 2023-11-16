@@ -148,7 +148,7 @@ namespace TracNghiemManager.GUI.Users
 				// neu khong co tai khoan nao trung tien hanh them tu dong
 				for (int i = 1; i <= numSl.Value; i++)
 				{
-					int userId = userBUS.getNewId();
+					int userId = userBUS.GetAutoIncreament();
 					string tk = txtTkSL.Text + i;
 					string mk = txtMkSl.Text;
 					DateTime ngayTao = DateTime.Now;
