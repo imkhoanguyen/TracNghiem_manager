@@ -34,7 +34,7 @@ namespace TracNghiemManager.GUI.CauHoi
 			chBus = new CauHoiBUS();
 			mhBus = new MonHocBUS();
 			ctlBus = new CauTraLoiBUS();
-			listch = chBus.getAll();
+			listch = chBus.GetAllByMaNguoiTao(Form1.USER_ID);
 			listmh = mhBus.getAll();
 			loadComboBoxMonHoc(listmh);
 			loadComboBoxDoKho();
@@ -52,7 +52,7 @@ namespace TracNghiemManager.GUI.CauHoi
 		{
 			MonHocBUS newmhbus = new MonHocBUS();
 			listmh = newmhbus.getAll();
-			listch = chBus.getAll();
+			listch = chBus.GetAllByMaNguoiTao(Form1.USER_ID);
 			loadDataTable(listch);
 			loadComboBoxMonHoc(listmh);
 			textBoxTimKiem.Text = "";

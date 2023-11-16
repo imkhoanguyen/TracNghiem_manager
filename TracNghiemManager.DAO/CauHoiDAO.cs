@@ -120,7 +120,37 @@ namespace TracNghiemManager.DAO
             return cauHoiList;
         }
 
-        public CauHoiDTO GetById(int id)
+		public List<CauHoiDTO> GetAllByMaNguoiTao(int maNguoiTao)
+		{
+			List<CauHoiDTO> cauHoiList = new List<CauHoiDTO>();
+			using (SqlConnection connection = DbConnection.GetSqlConnection())
+			{
+				string query = "Select * from cau_hoi Where trang_thai = 1 and ma_nguoi_tao = " + maNguoiTao;
+				using (SqlCommand command = new SqlCommand(query, connection))
+				{
+					using (SqlDataReader reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							CauHoiDTO cauHoi = new CauHoiDTO
+							{
+								MaCauHoi = Convert.ToInt32(reader["ma_cau_hoi"]),
+								NoiDung = reader["noi_dung"].ToString(),
+								DoKho = reader["do_kho"].ToString(),
+								MaMonHoc = Convert.ToInt32(reader["ma_mon_hoc"]),
+								MaNguoiTao = Convert.ToInt32(reader["ma_nguoi_tao"]),
+								TrangThai = Convert.ToInt32(reader["trang_thai"])
+							};
+							cauHoiList.Add(cauHoi);
+						}
+					}
+
+				}
+			}
+			return cauHoiList;
+		}
+
+		public CauHoiDTO GetById(int id)
         {
             CauHoiDTO result = null;
             using (SqlConnection connection = DbConnection.GetSqlConnection())

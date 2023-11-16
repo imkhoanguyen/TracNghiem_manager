@@ -108,7 +108,7 @@
 			this.mainThemThuCongPanel.Controls.Add(this.containerDapAnPanel, 0, 1);
 			this.mainThemThuCongPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.mainThemThuCongPanel.Location = new System.Drawing.Point(3, 2);
-			this.mainThemThuCongPanel.Margin = new System.Windows.Forms.Padding(20, 20, 20, 20);
+			this.mainThemThuCongPanel.Margin = new System.Windows.Forms.Padding(20);
 			this.mainThemThuCongPanel.Name = "mainThemThuCongPanel";
 			this.mainThemThuCongPanel.RowCount = 2;
 			this.mainThemThuCongPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.50495F));
@@ -448,7 +448,7 @@
 			this.cbSoDapAn.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.cbSoDapAn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbSoDapAn.FormattingEnabled = true;
-			this.cbSoDapAn.Location = new System.Drawing.Point(205, 3);
+			this.cbSoDapAn.Location = new System.Drawing.Point(205, 9);
 			this.cbSoDapAn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cbSoDapAn.Name = "cbSoDapAn";
 			this.cbSoDapAn.Size = new System.Drawing.Size(132, 36);

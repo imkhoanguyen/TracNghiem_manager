@@ -136,5 +136,10 @@ namespace TracNghiemManager.BUS
 
 			return underlinedSentences;
 		}
+
+		public List<CauHoiDTO> GetAllByMaNguoiTao(int ma)
+		{
+			return cauHoiDAO.GetAllByMaNguoiTao(ma);
+		}
 	}
 }

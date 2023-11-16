@@ -17,13 +17,9 @@ namespace TracNghiemManager.GUI.LopHoc
     {
         ChiTietDeThiDTO ctdt;
         ChiTietDeThiBUS ctdtBus;
-        CauHoiBUS chBus;
         List<CauHoiDTO> listch;
         MonHocBUS mhBus;
         DeThiDTO deThi;
-        DeThiCuaLopBUS dtclBus;
-        fChiTietLop fctl;
-        fDanhSachDeThi fdsdt;
         MonHocDTO mh;
         DataTable dt;
 
@@ -33,14 +29,11 @@ namespace TracNghiemManager.GUI.LopHoc
             ctdtBus = new ChiTietDeThiBUS();
             dt = new DataTable();
             mhBus=new MonHocBUS();
-            chBus=new CauHoiBUS();
             mh=new MonHocDTO();
             deThi = obj;
-            mh=new MonHocDTO();
             
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("vi-VN");
             listch = ctdtBus.GetAllCauHoiOfDeThi(deThi.MaDeThi);
-            //listch = chBus.getAll();
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("Nội dung câu hỏi", typeof(string)); 
             dt.Columns.Add("Môn học", typeof(string));

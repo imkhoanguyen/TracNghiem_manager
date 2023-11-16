@@ -44,7 +44,7 @@ namespace TracNghiemManager.GUI.DeThi
 		{
 			lbCauHoi.Items.Clear();
 			lbDeThi.Items.Clear();
-			List<CauHoiDTO> lch = chBus.getAll();
+			List<CauHoiDTO> lch = chBus.GetAllByMaNguoiTao(Form1.USER_ID);
 			lLeft = new List<CauHoiDTO>(lch); // Sao chép danh sách câu hỏi ban đầu
 			lRight = ctdtBus.GetAllCauHoiOfDeThi(dt.MaDeThi);
 
