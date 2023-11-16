@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TracNghiemManager.BUS;
@@ -53,11 +54,59 @@ namespace TracNghiemManager.GUI.Users
 
 		}
 
+		private bool checkHoten(string name)
+		{
+			if (string.IsNullOrEmpty(name))
+			{
+				MessageBox.Show("Không được để trống họ tên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+			if (!Regex.IsMatch(name, @"^[\p{L}\s]+$"))
+			{
+				MessageBox.Show("Vui lòng nhập đúng họ tên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+			return true;
+		}
+		private bool checkEmail(string email)
+		{
+			if (string.IsNullOrEmpty(email))
+			{
+				MessageBox.Show("Không được để trống Email!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+			if (!Regex.IsMatch(email, "^([a-zA-Z0-9_.]+)@gmail.com$"))
+			{
+				MessageBox.Show("Email không đúng định dạng __@gmail.com", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+			return true;
+		}
+		private bool checkDate(string date)
+		{
+			DateTime dateNow = DateTime.Now;
+			DateTime dateOfBirth = dateTimePicker1.Value;
+			DateTime minDateTime = new DateTime(1900, 1, 1);
+			int age = dateNow.Year - dateOfBirth.Year;
+			if (age < 11)
+			{
+				MessageBox.Show("Ngày sinh phải đủ 11 tuổi.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+			if (dateOfBirth.Year < minDateTime.Year)
+			{
+				MessageBox.Show("Năm sinh không được nhỏ hơn 1990.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return false;
+			}
+			return true;
+
+		}
+
 		private void RenderUser(UserDTO user)
 		{
 			pictureBox1.ImageLocation = @"" + user.avatar;
 			textBox1.Text = user.avatar;
-
+			
 			textBoxName.Text = user.HoVaTen;
 
 			textBoxEmail.Text = user.Email;
@@ -77,26 +126,16 @@ namespace TracNghiemManager.GUI.Users
 		}
 		private bool validate_form()
 		{
-			DateTime currentDateTime = DateTime.Now;
-			DateTime minDateTime = new DateTime(1900, 1, 1);
-			if (string.IsNullOrEmpty(textBoxName.Text) && textBoxName.Enabled == true)
+			if (!checkHoten(textBoxName.Text))
 			{
-				MessageBox.Show("Không được để trống họ tên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return false;
 			}
-			if (string.IsNullOrEmpty(txtPass.Text))
+			if (!checkEmail(textBoxEmail.Text))
 			{
-				MessageBox.Show("Không được để trống mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return false;
 			}
-			if (timePick > currentDateTime)
+			if (!checkDate(dateTimePicker1.Text))
 			{
-				MessageBox.Show("Ngày tháng không được lớn hơn thời gian hiện tại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				return false;
-			}
-			if (timePick < minDateTime)
-			{
-				MessageBox.Show("Không được chọn năm bé hơn 1900", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return false;
 			}
 			return true;
@@ -144,6 +183,7 @@ namespace TracNghiemManager.GUI.Users
 				if (RbNu.Checked) gender = RbNu.Tag.ToString();
 
 				int gioi_tinh = Convert.ToInt32(gender);
+				// Kiểm tra cập nhật email nếu người dùng nhập khác email hiện tại thì mới check trùng email
 				// neu nguoi dung nhap khac email hien tai cua minh
 				if(user.Email != textBoxEmail.Text)
 				{
@@ -158,7 +198,7 @@ namespace TracNghiemManager.GUI.Users
 				
 				user.HoVaTen = textBoxName.Text;
 				user.ngaySinh = timePick;
-				user.avatar = textBox1.Text;
+				user.avatar = textBox1.Text; // Trong trường hợp nếu ko cập nhật lại hình ảnh thì ở đây avartar sẽ là rỗng
 				user.gioiTinh = gioi_tinh;
 				user.Password = txtPass.Text;
 
@@ -170,6 +210,7 @@ namespace TracNghiemManager.GUI.Users
 					{
 						UserForm f = new UserForm();
 						f.Show();
+						// update avatar trên giao diện userForm (menu chính)
 						if (user.avatar != null)
 						{
 							f.updateAvatar(user.avatar);
@@ -185,7 +226,6 @@ namespace TracNghiemManager.GUI.Users
 						// cap nhat hinh anh tren userForm (thanh ben trai)
 						if (user.avatar != null && userForm != null)
 						{
-
 							userForm.updateAvatar(user.avatar);
 						}
 					}
