@@ -500,7 +500,7 @@ namespace TracNghiemManager.GUI.CauHoi
 
 								// Thêm câu hỏi vào database
 								int mch = chBus.GetAutoIncrement();
-								CauHoiDTO ch = new CauHoiDTO(mch, questiondtb, doKho, t.MaMonHoc, 1, 1);
+								CauHoiDTO ch = new CauHoiDTO(mch, questiondtb, doKho, t.MaMonHoc, Form1.USER_ID, 1);
 								chBus.Add(ch);
 
 								// Thêm các câu trả lời vào database
