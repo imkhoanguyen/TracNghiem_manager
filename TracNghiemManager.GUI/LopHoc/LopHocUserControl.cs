@@ -219,7 +219,7 @@ namespace TracNghiemManager.GUI.LopHoc
 		private void labelMonhoc_Click(object sender, EventArgs e, LopDTO obj)
 		{
 			fThemLop themLop = new fThemLop(this, "edit", obj.MaMoi, obj);
-			themLop.Visible = true;
+			themLop.ShowDialog();
 		}
 		private void buttonXoa_Click(object sender, EventArgs e, LopDTO obj)
 		{
@@ -237,7 +237,7 @@ namespace TracNghiemManager.GUI.LopHoc
 		private void buttonThamGia_Click(object sender, EventArgs e, LopDTO obj)
 		{
 			fChiTietLop fct = new fChiTietLop(this, obj);
-			fct.Visible = true;
+			fct.ShowDialog();
 		}
 
 		private void btnThem_Click(object sender, EventArgs e)
@@ -246,12 +246,12 @@ namespace TracNghiemManager.GUI.LopHoc
 			{
 				fThemLop themLop = new fThemLop(this, "add", GenerateRandomCode(10));
 
-				themLop.Visible = true;
+				themLop.ShowDialog();
 			}
 			else if (tenQuyen.Contains("Học sinh"))
 			{
 				fThemLop f = new fThemLop(this, "join");
-				f.Visible = true;
+				f.ShowDialog();
 			}
 		}
 	}

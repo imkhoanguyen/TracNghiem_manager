@@ -79,7 +79,7 @@ namespace TracNghiemManager.GUI.Users
 
 				string s = userBUS.Add(user);
 				int user_id = userBUS.getNewId();
-				MessageBox.Show(s);
+				MessageBox.Show(s, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 				//them quyen 
 				foreach (QuyenDTO item in checkedListBox1.CheckedItems)

@@ -243,7 +243,7 @@ namespace TracNghiemManager.GUI.CauHoi
 		private void btnThem_Click(object sender, EventArgs e)
 		{
 			fThemCauHoi fThem = new fThemCauHoi(this, "add");
-			fThem.Visible = true;
+			fThem.ShowDialog();
 		}
 
 		private void btnSua_Click(object sender, EventArgs e)
@@ -257,7 +257,7 @@ namespace TracNghiemManager.GUI.CauHoi
 			else
 			{
 				fThemCauHoi fThem = new fThemCauHoi(this, "edit", selectedCauHoi, l);
-				fThem.Visible = true;
+				fThem.ShowDialog();
 			}
 
 		}
@@ -273,7 +273,7 @@ namespace TracNghiemManager.GUI.CauHoi
 			else
 			{
 				fThemCauHoi fThem = new fThemCauHoi(this, "view", selectedCauHoi, l);
-				fThem.Visible = true;
+				fThem.ShowDialog();
 			}
 
 		}

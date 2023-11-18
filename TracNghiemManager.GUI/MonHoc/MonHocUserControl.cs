@@ -94,7 +94,7 @@ namespace TracNghiemManager.GUI.MonHoc
         private void btnThem_Click(object sender, EventArgs e)
         {
             fThemMonHoc fthem = new fThemMonHoc(this, "add");
-            fthem.Visible = true;
+            fthem.ShowDialog();
         }
 
 
@@ -107,7 +107,7 @@ namespace TracNghiemManager.GUI.MonHoc
             } else
             {
                 fThemMonHoc fthem = new fThemMonHoc(this, "edit", mh);
-                fthem.Visible = true;
+                fthem.ShowDialog();
             }
             
         }

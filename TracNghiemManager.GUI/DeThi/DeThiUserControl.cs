@@ -189,7 +189,7 @@ namespace TracNghiemManager.GUI.DeThi
         private void lblTenDeThi_Click(object sender, EventArgs e, DeThiDTO obj)
         {
             fThemDeThi themDeThi = new fThemDeThi(this, "edit", obj);
-            themDeThi.Visible = true;
+            themDeThi.ShowDialog();
         }
         private void buttonXoa_Click(object sender, EventArgs e, DeThiDTO obj)
         {
@@ -209,7 +209,7 @@ namespace TracNghiemManager.GUI.DeThi
         private void btnThemCauHoiVaoDe_Click(object sender, EventArgs e, DeThiDTO obj)
         {
             fThemChiTietDeThi f = new fThemChiTietDeThi(obj);
-            f.Visible = true;
+            f.ShowDialog();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -217,7 +217,7 @@ namespace TracNghiemManager.GUI.DeThi
 
             fThemDeThi themLop = new fThemDeThi(this, "add");
 
-            themLop.Visible = true;
+            themLop.ShowDialog();
 
         }
     }

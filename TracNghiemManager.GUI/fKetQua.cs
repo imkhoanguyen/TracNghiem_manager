@@ -33,6 +33,7 @@ namespace TracNghiemManager.GUI
 
 		void load()
 		{
+			
 			if (ketQua.SoCauDung >= 10)
 			{
 				lblDung.Location = new Point(74, 118);
@@ -57,7 +58,7 @@ namespace TracNghiemManager.GUI
 			lblDung.Text = ketQua.SoCauDung.ToString();
 			lblSai.Text = ketQua.SoCauSai.ToString();
 			lblDiem.Text = ketQua.Diem.ToString();
-
+			if (ketQua.Diem == 0) lblDiem.Text = "0.00";
 		}
 
 	}

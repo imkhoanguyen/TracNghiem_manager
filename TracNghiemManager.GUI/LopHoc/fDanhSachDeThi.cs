@@ -182,13 +182,13 @@ namespace TracNghiemManager.GUI.LopHoc
 		private void btnXem_Click(object s, EventArgs ev, DeThiDTO obj)
 		{
 			fXemDeThiCuaLop f = new fXemDeThiCuaLop(this, obj);
-			f.Visible = true;
+			f.ShowDialog();
 		}
 
 		private void btnThem_Click(object s, EventArgs ev, DeThiDTO obj)
 		{
 			fThemDeThiCuaLop f = new fThemDeThiCuaLop(obj, lopDTO, fctl, this,"add");
-			f.Visible = true;
+			f.ShowDialog();
 		}
 
 		private void cbMonHoc_SelectedValueChanged(object sender, EventArgs e)

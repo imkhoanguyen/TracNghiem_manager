@@ -173,14 +173,14 @@ namespace TracNghiemManager.GUI
 					KetQuaDTO kqInsert = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
 					kqBus.Add(kqInsert);
 					fKetQua f = new fKetQua(deThi, lop, kqInsert);
-					f.Visible = true;
+					f.ShowDialog();
 				}
 				else
 				{
 					KetQuaDTO kqUpdate = new KetQuaDTO(kq.MaBaiThi, kq.MaThiSinh, d, s - soCauChuaChon, soCauChuaChon, diem);
 					kqBus.Update(kqUpdate);
 					fKetQua f = new fKetQua(deThi, lop, kqUpdate);
-					f.Visible = true;
+					f.ShowDialog();
 				}
 				this.Dispose();
 				
@@ -214,14 +214,14 @@ namespace TracNghiemManager.GUI
 				KetQuaDTO kqInsert = new KetQuaDTO(baiThi.MaBaiThi, Form1.USER_ID, d, s - soCauChuaChon, soCauChuaChon, diem);
 				kqBus.Add(kqInsert);
 				fKetQua f = new fKetQua(deThi, lop, kqInsert);
-				f.Visible = true;
+				f.ShowDialog();
 			}
 			else
 			{
 				KetQuaDTO kqUpdate = new KetQuaDTO(kq.MaBaiThi, kq.MaThiSinh, d, s - soCauChuaChon, soCauChuaChon, diem);
 				kqBus.Update(kqUpdate);
 				fKetQua f = new fKetQua(deThi, lop, kqUpdate);
-				f.Visible = true;
+				f.ShowDialog();
 			}
 			this.Dispose();
 			fctl.Dispose();

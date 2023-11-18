@@ -78,13 +78,13 @@ namespace TracNghiemManager.GUI.LopHoc
 		private void btnThem_Click(object sender, EventArgs e)
 		{
 			fDanhSachDeThi f = new fDanhSachDeThi(lop, this);
-			f.Visible = true;
+			f.ShowDialog();
 		}
 
 		private void lblTenLop_Click(object sender, EventArgs e)
 		{
 			fThemLop f = new fThemLop(lopHocUserControl, "edit", lop.MaMoi, lop);
-			f.Visible = true;
+			f.ShowDialog();
 		}
 
 		private Color GetRandomColor()
@@ -301,7 +301,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			if (kq != null)
 			{
 				fKetQua f = new fKetQua(obj, lop, kq);
-				f.Visible = true;
+				f.ShowDialog();
 			}
 			else
 			{
@@ -315,7 +315,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			if (baiThi.TrangThai == 0)
 			{
 				fThemDeThiCuaLop f = new fThemDeThiCuaLop(obj, lop, this, baiThi, "edit");
-				f.Visible = true;
+				f.ShowDialog();
 			}
 			else // thực hiện chức năng làm bài
 			{
@@ -367,7 +367,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			if (!tenQuyen.Equals("Học sinh"))
 			{
 				fThemLop f = new fThemLop(lopHocUserControl, "edit", null, lop);
-				f.Visible = true;
+				f.ShowDialog();
 			}
 
 		}
@@ -375,7 +375,7 @@ namespace TracNghiemManager.GUI.LopHoc
 		private void btnXemDSSV_Click(object sender, EventArgs e)
 		{
 			fDanhSachSV fdsv = new fDanhSachSV(lop);
-			fdsv.Visible = true;
+			fdsv.ShowDialog();
 		}
 
 		private void lblMaMoi_Click(object sender, EventArgs e)

@@ -209,7 +209,7 @@ namespace TracNghiemManager.GUI.Users
 					if (Form1.flag == 1)
 					{
 						UserForm f = new UserForm();
-						f.Show();
+						f.ShowDialog();
 						// update avatar trên giao diện userForm (menu chính)
 						if (user.avatar != null)
 						{
