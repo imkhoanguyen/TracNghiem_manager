@@ -62,12 +62,12 @@ namespace TracNghiemManager.GUI.CauHoi
 				if (listctl.Count == 2)
 				{
 					rb3.Visible = false;
-					
+
 					txtInputDA3.Visible = false;
 					rb4.Visible = false;
 					txtInputDA4.Visible = false;
 					cbSoDapAn.SelectedIndex = 0;
-					
+
 				}
 				tabPage2.Text = "";
 			}
@@ -238,7 +238,7 @@ namespace TracNghiemManager.GUI.CauHoi
 
 						UpdateCauTraLoi(listctl);
 						this.Close();
-						MessageBox.Show("Cập nhật câu hỏi thành công!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						MessageBox.Show("Cập nhật câu hỏi thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						this.Dispose();
 					}
 					catch (Exception ex)
@@ -401,7 +401,7 @@ namespace TracNghiemManager.GUI.CauHoi
 			}
 			else if (!rb1.Checked && !rb2.Checked && !rb3.Checked && !rb4.Checked)
 			{
-				MessageBox.Show("Chưa chọn đáp án đúng cho câu trả lời!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show("Chưa chọn đáp án đúng cho câu trả lời!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;
 			}
 			else if (selectedSoDapAn == 4)
@@ -409,7 +409,7 @@ namespace TracNghiemManager.GUI.CauHoi
 
 				if (string.IsNullOrEmpty(txtInputDA3.Text))
 				{
-					MessageBox.Show("Không được để trống câu trả lời!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+					MessageBox.Show("Không được để trống câu trả lời!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					return false;
 				}
 				if (string.IsNullOrEmpty(txtInputDA4.Text))
@@ -418,7 +418,7 @@ namespace TracNghiemManager.GUI.CauHoi
 					return false;
 				}
 			}
-			
+
 
 			return true;
 		}
@@ -436,102 +436,106 @@ namespace TracNghiemManager.GUI.CauHoi
 
 				string content = chBus.ImportFromWord(selectedFilePath);
 
-				if (!string.IsNullOrEmpty(content))
-				{
-					Regex monHoc = new Regex(@"Môn học: (.+?)(?=Câu \d+: |$)", RegexOptions.Singleline);
-					Regex cauHoiRegex = new Regex(@"Câu \d+: (.*?)(?=Câu \d+:|$)", RegexOptions.Singleline);
-					Regex cauTraLoiRegex = new Regex(@"[A-D]\. (.+?)(?=[A-D]|\n|$|Câu \d+:|$)", RegexOptions.Singleline);
-					List<string> underlinedSentences = chBus.ExtractUnderlinedSentences(selectedFilePath);
-					string underlineText = string.Join("\n", underlinedSentences);
-
-					bool foundSubject = false;
-					MatchCollection monHocMatches = monHoc.Matches(content);
-					foreach (Match monHocMatch in monHocMatches)
-					{
-						foundSubject = true;
-						string subject = monHocMatch.Groups[1].Value;
-						MonHocDTO t = mhBus.getAll().FirstOrDefault(mh => mh.TenMonHoc.ToLower().Equals(subject.ToLower()));
-						if (t == null)
-						{
-							MonHocDTO obj = new MonHocDTO(mhBus.GetAutoIncrement(), subject, 1);
-							mhBus.Add(obj);
-							t = obj;
-						}
-						StringBuilder combinedText = new StringBuilder();
-						for (char currentAnswerKey = 'A'; currentAnswerKey <= 'D'; currentAnswerKey++)
-						{
-							foreach (string sentence in underlinedSentences)
-							{
-								if (sentence.Length > 2 && sentence[1] == '.')
-								{
-									currentAnswerKey = sentence[0];
-									combinedText.AppendLine(sentence);
-								}
-								else
-								{
-									combinedText.AppendLine(currentAnswerKey + ". " + sentence);
-								}
-							}
-						}
-						string result = combinedText.ToString();
-						MatchCollection cauHoiMatches = cauHoiRegex.Matches(content);
-
-						foreach (Match cauHoiMatch in cauHoiMatches)
-						{
-							string question = cauHoiMatch.Groups[1].Value.Trim();
-							List<string> answers = new List<string>();
-
-							MatchCollection cauTraLoiMatches = cauTraLoiRegex.Matches(cauHoiMatch.Value);
-							foreach (Match cauTraLoiMatch in cauTraLoiMatches)
-							{
-								string answer = cauTraLoiMatch.Value.Trim();
-								answer = Regex.Replace(answer, @"^[A-D]\.\s*", "");
-								answers.Add(answer);
-							}
-							Match matchdoKho = Regex.Match(question, @"(\*\*|\*)\s*");
-							string doKho = matchdoKho.Success ? (matchdoKho.Groups[1].Value == "**" ? "Khó" : "Bình thường") : "Dễ";
-							//
-							Regex regex = new Regex(@"^(.*?)A\.");
-							Match match = regex.Match(question);
-							Regex regex1 = new Regex(@"[A-D]\. (.+)");
-							if (match.Success)
-							{
-								string questiondtb = match.Groups[1].Value.Trim();
-
-								// Thêm câu hỏi vào database
-								int mch = chBus.GetAutoIncrement();
-								CauHoiDTO ch = new CauHoiDTO(mch, questiondtb, doKho, t.MaMonHoc, Form1.USER_ID, 1);
-								chBus.Add(ch);
-
-								// Thêm các câu trả lời vào database
-								for (int i = 0; i < answers.Count; i++)
-								{
-									bool isCorrect = result.Contains(answers[i]);
-									CauTraLoiDTO ctl = new CauTraLoiDTO(ctlBus.GetAutoIncrement(), mch, answers[i], isCorrect);
-									ctlBus.Add(ctl);
-								}
-							}
-						}
-
-					}
-					if (!foundSubject)
-					{
-						MessageBox.Show("File Word không chứa thông tin môn học.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-						return;
-					}
-					MessageBox.Show("Thêm dữ liệu từ file thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					this.Dispose();
-				}
-				else
+				if (string.IsNullOrEmpty(content))
 				{
 					MessageBox.Show("File Word không chứa nội dung", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+
+				ProcessContent(content, selectedFilePath);
+			}
+		}
+
+		private void ProcessContent(string content, string selectedFilePath)
+		{
+			bool foundSubject = false;
+			Regex monHoc = new Regex(@"Môn học: (.+?)(?=Câu \d+: |$)", RegexOptions.Singleline);
+			foreach (Match monHocMatch in monHoc.Matches(content))
+			{
+				foundSubject = true;
+				string subject = monHocMatch.Groups[1].Value;
+				MonHocDTO t = mhBus.getAll().FirstOrDefault(mh => mh.TenMonHoc.ToLower().Equals(subject.ToLower()));
+
+				if (t == null)
+				{
+					t = ThemMHvaoDTB(subject);
+				}
+
+				ProcessQuestionsAndAnswers(content, t);
+			}
+
+			if (!foundSubject)
+			{
+				MessageBox.Show("File Word không chứa thông tin môn học.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			else
+			{
+				MessageBox.Show("Thêm dữ liệu từ file thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				this.Dispose();
+			}
+		}
+
+		private MonHocDTO ThemMHvaoDTB(string subject)
+		{
+			MonHocDTO obj = new MonHocDTO(mhBus.GetAutoIncrement(), subject, 1);
+			mhBus.Add(obj);
+			return obj;
+		}
+
+		private void ProcessQuestionsAndAnswers(string content, MonHocDTO subject)
+		{
+			Regex cauHoiRegex = new Regex(@"Câu \d+: (.*?)(?=Câu \d+:|$)", RegexOptions.Singleline);
+			foreach (Match cauHoiMatch in cauHoiRegex.Matches(content))
+			{
+				string question = cauHoiMatch.Groups[1].Value.Trim();
+				List<string> answers = GetAnswersFromQuestion(cauHoiMatch.Value);
+
+				Match matchdoKho = Regex.Match(question, @"(\*\*|\*)\s*");
+				string doKho = matchdoKho.Success ? (matchdoKho.Groups[1].Value == "**" ? "Khó" : "Bình thường") : "Dễ";
+
+				Regex regex = new Regex(@"^(.*?)A\.");
+				Match match = regex.Match(question);
+
+				if (match.Success)
+				{
+					string questiondtb = match.Groups[1].Value.Trim();
+					int mch = chBus.GetAutoIncrement();
+
+					// Thêm câu hỏi vào database
+					CauHoiDTO ch = new CauHoiDTO(mch, questiondtb, doKho, subject.MaMonHoc, Form1.USER_ID, 1);
+					chBus.Add(ch);
+
+					// Thêm các câu trả lời vào database
+					for (int i = 0; i < answers.Count; i++)
+					{
+						bool isCorrect = content.Contains(answers[i]);
+						CauTraLoiDTO ctl = new CauTraLoiDTO(ctlBus.GetAutoIncrement(), mch, answers[i], isCorrect);
+						ctlBus.Add(ctl);
+					}
 				}
 			}
 		}
 
+		private List<string> GetAnswersFromQuestion(string question)
+		{
+			List<string> answers = new List<string>();
+			Regex cauTraLoiRegex = new Regex(@"[A-D]\. (.+?)(?=[A-D]|\n|$|Câu \d+:|$)", RegexOptions.Singleline);
+			MatchCollection cauTraLoiMatches = cauTraLoiRegex.Matches(question);
+
+			foreach (Match cauTraLoiMatch in cauTraLoiMatches)
+			{
+				string answer = cauTraLoiMatch.Value.Trim();
+				answer = Regex.Replace(answer, @"^[A-D]\.\s*", "");
+				answers.Add(answer);
+			}
+
+			return answers;
+		}
+
+
 		private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
 		{
-			if(tabControl1.SelectedTab == tabPage2 && (hanhDong.Equals("edit") || hanhDong.Equals("view")))
+			if (tabControl1.SelectedTab == tabPage2 && (hanhDong.Equals("edit") || hanhDong.Equals("view")))
 			{
 				tabControl1.SelectedTab = tabPage1;
 				tabPage2.Text = "";
