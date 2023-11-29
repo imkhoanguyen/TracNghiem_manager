@@ -295,6 +295,7 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.dataGridView1.Margin = new System.Windows.Forms.Padding(11, 16, 11, 16);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.RowHeadersVisible = false;
 			this.dataGridView1.RowHeadersWidth = 51;
 			this.dataGridView1.RowTemplate.Height = 29;
 			this.dataGridView1.Size = new System.Drawing.Size(1551, 589);

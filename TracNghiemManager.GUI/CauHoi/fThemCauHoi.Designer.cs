@@ -58,6 +58,7 @@
 			this.cbSoDapAn = new System.Windows.Forms.ComboBox();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.btnThem = new System.Windows.Forms.Button();
+			this.cbMonhoc = new System.Windows.Forms.ComboBox();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.mainThemThuCongPanel.SuspendLayout();
@@ -448,7 +449,7 @@
 			this.cbSoDapAn.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.cbSoDapAn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbSoDapAn.FormattingEnabled = true;
-			this.cbSoDapAn.Location = new System.Drawing.Point(205, 9);
+			this.cbSoDapAn.Location = new System.Drawing.Point(205, 3);
 			this.cbSoDapAn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cbSoDapAn.Name = "cbSoDapAn";
 			this.cbSoDapAn.Size = new System.Drawing.Size(132, 36);
@@ -457,6 +458,7 @@
 			// 
 			// tabPage2
 			// 
+			this.tabPage2.Controls.Add(this.cbMonhoc);
 			this.tabPage2.Controls.Add(this.btnThem);
 			this.tabPage2.Location = new System.Drawing.Point(4, 37);
 			this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -469,7 +471,7 @@
 			// 
 			// btnThem
 			// 
-			this.btnThem.Location = new System.Drawing.Point(9, 5);
+			this.btnThem.Location = new System.Drawing.Point(740, 147);
 			this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnThem.Name = "btnThem";
 			this.btnThem.Size = new System.Drawing.Size(189, 89);
@@ -477,6 +479,15 @@
 			this.btnThem.Text = "Thêm";
 			this.btnThem.UseVisualStyleBackColor = true;
 			this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+			// 
+			// cbMonhoc
+			// 
+			this.cbMonhoc.FormattingEnabled = true;
+			this.cbMonhoc.Location = new System.Drawing.Point(66, 147);
+			this.cbMonhoc.Name = "cbMonhoc";
+			this.cbMonhoc.Size = new System.Drawing.Size(310, 36);
+			this.cbMonhoc.TabIndex = 1;
+			this.cbMonhoc.SelectedValueChanged += new System.EventHandler(this.cbMonhoc_SelectedValueChanged);
 			// 
 			// fThemCauHoi
 			// 
@@ -540,5 +551,6 @@
 		private System.Windows.Forms.TextBox txtInputDA2;
 		private System.Windows.Forms.TextBox txtInputDA3;
 		private System.Windows.Forms.TextBox txtInputDA4;
+		private System.Windows.Forms.ComboBox cbMonhoc;
 	}
 }

@@ -115,7 +115,7 @@
 			this.tableLayoutPanel6.Controls.Add(this.pictureBox3, 0, 0);
 			this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel6.Location = new System.Drawing.Point(1032, 4);
-			this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4);
 			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
 			this.tableLayoutPanel6.RowCount = 1;
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -131,7 +131,7 @@
 			this.tableLayoutPanel7.Controls.Add(this.label5, 0, 1);
 			this.tableLayoutPanel7.Controls.Add(this.lblCountHS, 0, 0);
 			this.tableLayoutPanel7.Location = new System.Drawing.Point(129, 4);
-			this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
 			this.tableLayoutPanel7.Name = "tableLayoutPanel7";
 			this.tableLayoutPanel7.RowCount = 2;
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.01754F));
@@ -168,7 +168,7 @@
 			this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
 			this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
 			this.pictureBox3.Location = new System.Drawing.Point(8, 4);
-			this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
 			this.pictureBox3.Name = "pictureBox3";
 			this.pictureBox3.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
 			this.pictureBox3.Size = new System.Drawing.Size(109, 108);
@@ -186,7 +186,7 @@
 			this.tableLayoutPanel4.Controls.Add(this.pictureBox2, 0, 0);
 			this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel4.Location = new System.Drawing.Point(518, 4);
-			this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
 			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
 			this.tableLayoutPanel4.RowCount = 1;
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -202,7 +202,7 @@
 			this.tableLayoutPanel5.Controls.Add(this.label3, 0, 1);
 			this.tableLayoutPanel5.Controls.Add(this.lblCountGV, 0, 0);
 			this.tableLayoutPanel5.Location = new System.Drawing.Point(129, 4);
-			this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4);
 			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
 			this.tableLayoutPanel5.RowCount = 2;
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.14035F));
@@ -239,7 +239,7 @@
 			this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
 			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
 			this.pictureBox2.Location = new System.Drawing.Point(4, 4);
-			this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
 			this.pictureBox2.Name = "pictureBox2";
 			this.pictureBox2.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
 			this.pictureBox2.Size = new System.Drawing.Size(117, 108);
@@ -257,7 +257,7 @@
 			this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 0, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 1;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -273,7 +273,7 @@
 			this.tableLayoutPanel3.Controls.Add(this.label1, 0, 1);
 			this.tableLayoutPanel3.Controls.Add(this.lblCountCauHoi, 0, 0);
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(129, 4);
-			this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 2;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.14035F));
@@ -310,7 +310,7 @@
 			this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
 			this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
 			this.pictureBox1.Size = new System.Drawing.Size(117, 108);
@@ -369,6 +369,7 @@
 			this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.RowHeadersVisible = false;
 			this.dataGridView1.RowHeadersWidth = 51;
 			this.dataGridView1.RowTemplate.Height = 24;
 			this.dataGridView1.Size = new System.Drawing.Size(1537, 439);
@@ -379,7 +380,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.mainPanel);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "ThongKeAdminUserControl";
 			this.Size = new System.Drawing.Size(1565, 706);
 			this.mainPanel.ResumeLayout(false);

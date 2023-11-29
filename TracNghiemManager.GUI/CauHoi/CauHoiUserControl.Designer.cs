@@ -378,6 +378,7 @@ namespace TracNghiemManager.GUI.CauHoi
 			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			this.dataGridView1.RowHeadersVisible = false;
 			this.dataGridView1.RowHeadersWidth = 51;
 			this.dataGridView1.RowTemplate.Height = 29;
 			this.dataGridView1.Size = new System.Drawing.Size(1551, 589);

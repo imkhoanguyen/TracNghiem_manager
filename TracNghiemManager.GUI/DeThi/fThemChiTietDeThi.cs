@@ -133,7 +133,6 @@ namespace TracNghiemManager.GUI.DeThi
 			else
 			{
 				MessageBox.Show("Danh sách câu hỏi đang rỗng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
 			}
 		}
 

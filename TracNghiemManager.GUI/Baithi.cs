@@ -53,9 +53,12 @@ namespace TracNghiemManager.GUI
 			soCauChuaChon = 0;
 			List<CauHoiDTO> dsCauHoi = chiTietDeThi.GetAllCauHoiOfDeThi(deThi.MaDeThi);
 			so_cau_hoi = dsCauHoi.Count;
+			// Sử dụng hàm tạo số ngẫu nhiên để trộn danh sách
+			Random random = new Random();
+			dsCauHoi.Sort((x, y) => random.Next(-1, 2));
 			InitializeComponent();
-			TaoCauHoi(so_cau_hoi);
-			tao_slide(so_cau_hoi);
+			TaoCauHoi(dsCauHoi);
+			tao_slide(dsCauHoi);
 			loadInfo();
 		}
 
@@ -254,13 +257,12 @@ namespace TracNghiemManager.GUI
 				g.Controls.Add(rd[i - 1]);
 			}
 		}
-		private void TaoCauHoi(int n)
+		private void TaoCauHoi(List<CauHoiDTO> list)
 		{
-			List<CauHoiDTO> cauHoiList = cauHoi.getAll();
-			groupBox = new GroupBox[n];
-			for (int i = 1; i <= n; i++)
+			groupBox = new GroupBox[list.Count];
+			for (int i = 1; i <= list.Count; i++)
 			{
-				List<CauTraLoiDTO> cauTraLoiList = cauTraLoi.getByMaCauHoi(cauHoiList[i - 1].MaCauHoi);
+				List<CauTraLoiDTO> cauTraLoiList = cauTraLoi.getByMaCauHoi(list[i - 1].MaCauHoi);
 				groupBox[i - 1] = new GroupBox();
 				groupBox[i - 1].Name = "groupBox" + i;
 				groupBox[i - 1].Location = new Point(5, 5);
@@ -273,25 +275,25 @@ namespace TracNghiemManager.GUI
 				groupBox[i - 1].Font = new Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
 
-				TaoDapAn(groupBox[i - 1], cauHoiList[i - 1].MaCauHoi);
+				TaoDapAn(groupBox[i - 1], list[i - 1].MaCauHoi);
 
 				flowLayoutPanel1.Controls.Add(groupBox[i - 1]);
 			}
 		}
 
 
-		private void tao_slide(int n)
+		private void tao_slide(List<CauHoiDTO> list)
 		{
-			List<CauHoiDTO> cauHoiList = chiTietDeThi.GetAllCauHoiOfDeThi(deThi.MaDeThi);
-			slide = new Panel[n];
-			for (int i = 1; i <= n; i++)
+			
+			slide = new Panel[list.Count];
+			for (int i = 1; i <= list.Count; i++)
 			{
-				List<CauTraLoiDTO> cauTraLoiList = cauTraLoi.getByMaCauHoi(cauHoiList[i - 1].MaCauHoi);
+				List<CauTraLoiDTO> cauTraLoiList = cauTraLoi.getByMaCauHoi(list[i - 1].MaCauHoi);
 				slide[i - 1] = new Panel();
 				slide[i - 1].Name = "slide" + i;
 				slide[i - 1].Size = panel1.Size;
 				slide[i - 1].BackColor = Color.BurlyWood;
-				string cauhoi = "Câu " + i + ": " + cauHoiList[i - 1].NoiDung;
+				string cauhoi = "Câu " + i + ": " + list[i - 1].NoiDung;
 				string cautraloi = "";
 
 				RichTextBox richTextBox1 = new RichTextBox();

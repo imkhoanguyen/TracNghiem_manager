@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Word;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TracNghiemManager.BUS;
 using TracNghiemManager.DTO;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace TracNghiemManager.GUI.CauHoi
 {
@@ -37,6 +37,7 @@ namespace TracNghiemManager.GUI.CauHoi
 			loadComboBoxDoKho();
 			loadComboBoxMonHoc();
 			loadComboBoxSoDapAn();
+			loadcbMonHoc();
 			this.hanhDong = hanhDong;
 			cauHoiObj = obj;
 			if (cauHoiObj != null)
@@ -423,6 +424,22 @@ namespace TracNghiemManager.GUI.CauHoi
 			return true;
 		}
 
+		private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+		{
+			if (tabControl1.SelectedTab == tabPage2 && (hanhDong.Equals("edit") || hanhDong.Equals("view")))
+			{
+				tabControl1.SelectedTab = tabPage1;
+				tabPage2.Text = "";
+			}
+		}
+
+		private void loadcbMonHoc()
+		{
+			cbMonhoc.ValueMember = "MaMonHoc";
+			cbMonhoc.DisplayMember = "TenMonHoc";
+			List<MonHocDTO> listmh = mhBus.getAll();
+			cbMonhoc.DataSource = listmh;
+		}
 		private void btnThem_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -434,112 +451,110 @@ namespace TracNghiemManager.GUI.CauHoi
 				string selectedFilePath = openFileDialog.FileName;
 				MessageBox.Show("File được chọn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-				string content = chBus.ImportFromWord(selectedFilePath);
 
-				if (string.IsNullOrEmpty(content))
-				{
-					MessageBox.Show("File Word không chứa nội dung", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					return;
-				}
-
-				ProcessContent(content, selectedFilePath);
+				ProcessQA(selectedFilePath);
+				MessageBox.Show("Thêm dữ liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				Dispose();
 			}
 		}
 
-		private void ProcessContent(string content, string selectedFilePath)
+		public void ProcessQA(string filePath)
 		{
-			bool foundSubject = false;
-			Regex monHoc = new Regex(@"Môn học: (.+?)(?=Câu \d+: |$)", RegexOptions.Singleline);
-			foreach (Match monHocMatch in monHoc.Matches(content))
-			{
-				foundSubject = true;
-				string subject = monHocMatch.Groups[1].Value;
-				MonHocDTO t = mhBus.getAll().FirstOrDefault(mh => mh.TenMonHoc.ToLower().Equals(subject.ToLower()));
+			Word.Application wordApp = new Word.Application();
+			Word.Document wordDoc = null;
 
-				if (t == null)
+			try
+			{
+				wordDoc = wordApp.Documents.Open(filePath, ReadOnly: true);
+				string content = wordDoc.Content.Text;
+
+				int currentQuestionNumber = 1;
+
+				string doKho = "Dễ";
+				while (true)
 				{
-					t = ThemMHvaoDTB(subject);
-				}
+					// Tìm vị trí của câu hỏi bắt đầu
+					int startCauHoi = content.IndexOf($"Câu {currentQuestionNumber}:");
 
-				ProcessQuestionsAndAnswers(content, t);
-			}
+					if (startCauHoi == -1)
+					{
+						break;
+					}
+					// Tìm vị trí của câu hỏi kết thúc
+					int endCauHoi = content.IndexOf("Câu", startCauHoi + 1);
 
-			if (!foundSubject)
-			{
-				MessageBox.Show("File Word không chứa thông tin môn học.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			else
-			{
-				MessageBox.Show("Thêm dữ liệu từ file thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				this.Dispose();
-			}
-		}
+					if (endCauHoi == -1)
+					{
+						endCauHoi = content.Length;
+					}
+					string question = content.Substring(startCauHoi + $"Câu {currentQuestionNumber}:".Length, endCauHoi - startCauHoi - $"Câu {currentQuestionNumber}:".Length).Trim();
 
-		private MonHocDTO ThemMHvaoDTB(string subject)
-		{
-			MonHocDTO obj = new MonHocDTO(mhBus.GetAutoIncrement(), subject, 1);
-			mhBus.Add(obj);
-			return obj;
-		}
+					Match matchDoKho = question.Contains("**") ? Regex.Match(question, @"\*\*\s*") : Regex.Match(question, @"\*\s*");
+					doKho = matchDoKho.Success ? (matchDoKho.Value == "**" ? "Khó" : "Bình thường") : "Dễ";
 
-		private void ProcessQuestionsAndAnswers(string content, MonHocDTO subject)
-		{
-			Regex cauHoiRegex = new Regex(@"Câu \d+: (.*?)(?=Câu \d+:|$)", RegexOptions.Singleline);
-			foreach (Match cauHoiMatch in cauHoiRegex.Matches(content))
-			{
-				string question = cauHoiMatch.Groups[1].Value.Trim();
-				List<string> answers = GetAnswersFromQuestion(cauHoiMatch.Value);
-
-				Match matchdoKho = Regex.Match(question, @"(\*\*|\*)\s*");
-				string doKho = matchdoKho.Success ? (matchdoKho.Groups[1].Value == "**" ? "Khó" : "Bình thường") : "Dễ";
-
-				Regex regex = new Regex(@"^(.*?)A\.");
-				Match match = regex.Match(question);
-
-				if (match.Success)
-				{
-					string questiondtb = match.Groups[1].Value.Trim();
+					// Xử lý câu hỏi
+					string questionDTB = question.Split('A')[0].Trim();
+					//MessageBox.Show($"Câu hỏi: {questionDTB}");
 					int mch = chBus.GetAutoIncrement();
-
-					// Thêm câu hỏi vào database
-					CauHoiDTO ch = new CauHoiDTO(mch, questiondtb, doKho, subject.MaMonHoc, Form1.USER_ID, 1);
+					CauHoiDTO ch = new CauHoiDTO(mch, questionDTB, doKho, selectedMonHoc.MaMonHoc, Form1.USER_ID, 1); //12 là mã môn học
 					chBus.Add(ch);
 
-					// Thêm các câu trả lời vào database
-					for (int i = 0; i < answers.Count; i++)
+					string[] answerOptions = question.Split(new[] { "A.", "B.", "C.", "D." }, StringSplitOptions.RemoveEmptyEntries);
+
+					for (int i = 1; i < answerOptions.Length; i++)
 					{
-						bool isCorrect = content.Contains(answers[i]);
-						CauTraLoiDTO ctl = new CauTraLoiDTO(ctlBus.GetAutoIncrement(), mch, answers[i], isCorrect);
+						string answer = answerOptions[i].Trim();
+						bool isAnswer = IsUnderlined(answer, content, questionDTB, startCauHoi, endCauHoi, wordApp, wordDoc);
+
+						//MessageBox.Show($"Câu tl: {answer} : là đáp án {isAnswer}");
+						CauTraLoiDTO ctl = new CauTraLoiDTO();
+						ctl.MaCauHoi = mch;
+						ctl.MaCauTraLoi = ctlBus.GetAutoIncrement();
+						ctl.NoiDung = answer;
+						ctl.DapAn = isAnswer;
 						ctlBus.Add(ctl);
 					}
+
+					// Tăng số thứ tự câu hỏi
+					currentQuestionNumber++;
 				}
 			}
-		}
-
-		private List<string> GetAnswersFromQuestion(string question)
-		{
-			List<string> answers = new List<string>();
-			Regex cauTraLoiRegex = new Regex(@"[A-D]\. (.+?)(?=[A-D]|\n|$|Câu \d+:|$)", RegexOptions.Singleline);
-			MatchCollection cauTraLoiMatches = cauTraLoiRegex.Matches(question);
-
-			foreach (Match cauTraLoiMatch in cauTraLoiMatches)
+			catch (Exception ex)
 			{
-				string answer = cauTraLoiMatch.Value.Trim();
-				answer = Regex.Replace(answer, @"^[A-D]\.\s*", "");
-				answers.Add(answer);
+				MessageBox.Show($"Error: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+			finally
+			{
+				// Đóng file Word
+				wordDoc?.Close(SaveChanges: false);
+				System.Runtime.InteropServices.Marshal.ReleaseComObject(wordDoc);
 
-			return answers;
+				wordApp?.Quit();
+				System.Runtime.InteropServices.Marshal.ReleaseComObject(wordApp);
+			}
+		}
+		private bool IsUnderlined(string answer, string content, string question, int startCauHoi, int endCauHoi, Word.Application wordApp, Word.Document wordDoc)
+		{
+			int startCauTraLoi = content.IndexOf(answer, startCauHoi + question.Length, endCauHoi - (startCauHoi + question.Length));
+			if (startCauTraLoi != -1)
+			{
+				Word.Range wordRange = wordApp.ActiveDocument.Range(startCauTraLoi, startCauTraLoi + answer.Length);
+				if (wordRange.Font.Underline != 0)
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
-
-		private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+		private void cbMonhoc_SelectedValueChanged(object sender, EventArgs e)
 		{
-			if (tabControl1.SelectedTab == tabPage2 && (hanhDong.Equals("edit") || hanhDong.Equals("view")))
+			ComboBox cb = sender as ComboBox;
+			if (cb.SelectedValue != null)
 			{
-				tabControl1.SelectedTab = tabPage1;
-				tabPage2.Text = "";
+				selectedMonHoc = mhBus.getById(Convert.ToInt32(cb.SelectedValue));
 			}
 		}
 	}
+
 }

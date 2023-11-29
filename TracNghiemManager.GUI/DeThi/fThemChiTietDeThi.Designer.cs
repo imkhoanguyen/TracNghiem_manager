@@ -53,7 +53,7 @@
 			this.lbCauHoi.FormattingEnabled = true;
 			this.lbCauHoi.ItemHeight = 21;
 			this.lbCauHoi.Location = new System.Drawing.Point(16, 258);
-			this.lbCauHoi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.lbCauHoi.Margin = new System.Windows.Forms.Padding(4);
 			this.lbCauHoi.Name = "lbCauHoi";
 			this.lbCauHoi.Size = new System.Drawing.Size(491, 424);
 			this.lbCauHoi.TabIndex = 0;
@@ -65,7 +65,7 @@
 			this.lbDeThi.FormattingEnabled = true;
 			this.lbDeThi.ItemHeight = 21;
 			this.lbDeThi.Location = new System.Drawing.Point(753, 258);
-			this.lbDeThi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.lbDeThi.Margin = new System.Windows.Forms.Padding(4);
 			this.lbDeThi.Name = "lbDeThi";
 			this.lbDeThi.Size = new System.Drawing.Size(491, 424);
 			this.lbDeThi.TabIndex = 0;
@@ -76,7 +76,7 @@
 			this.btnLeftToRight.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnLeftToRight.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnLeftToRight.Location = new System.Drawing.Point(553, 421);
-			this.btnLeftToRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnLeftToRight.Margin = new System.Windows.Forms.Padding(4);
 			this.btnLeftToRight.Name = "btnLeftToRight";
 			this.btnLeftToRight.Size = new System.Drawing.Size(73, 46);
 			this.btnLeftToRight.TabIndex = 1;
@@ -89,7 +89,7 @@
 			this.btnRightToLeft.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnRightToLeft.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnRightToLeft.Location = new System.Drawing.Point(635, 421);
-			this.btnRightToLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnRightToLeft.Margin = new System.Windows.Forms.Padding(4);
 			this.btnRightToLeft.Name = "btnRightToLeft";
 			this.btnRightToLeft.Size = new System.Drawing.Size(73, 46);
 			this.btnRightToLeft.TabIndex = 1;
@@ -102,7 +102,7 @@
 			this.btnLeftToRightAll.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnLeftToRightAll.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnLeftToRightAll.Location = new System.Drawing.Point(553, 474);
-			this.btnLeftToRightAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnLeftToRightAll.Margin = new System.Windows.Forms.Padding(4);
 			this.btnLeftToRightAll.Name = "btnLeftToRightAll";
 			this.btnLeftToRightAll.Size = new System.Drawing.Size(73, 46);
 			this.btnLeftToRightAll.TabIndex = 1;
@@ -115,7 +115,7 @@
 			this.btnRightToLeftAll.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnRightToLeftAll.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnRightToLeftAll.Location = new System.Drawing.Point(635, 474);
-			this.btnRightToLeftAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnRightToLeftAll.Margin = new System.Windows.Forms.Padding(4);
 			this.btnRightToLeftAll.Name = "btnRightToLeftAll";
 			this.btnRightToLeftAll.Size = new System.Drawing.Size(73, 46);
 			this.btnRightToLeftAll.TabIndex = 1;
@@ -171,7 +171,7 @@
 			// 
 			this.txt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txt.Location = new System.Drawing.Point(317, 101);
-			this.txt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txt.Margin = new System.Windows.Forms.Padding(4);
 			this.txt.Name = "txt";
 			this.txt.Size = new System.Drawing.Size(671, 34);
 			this.txt.TabIndex = 5;
@@ -201,10 +201,11 @@
 			// cbDoKho
 			// 
 			this.cbDoKho.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.cbDoKho.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbDoKho.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cbDoKho.FormattingEnabled = true;
 			this.cbDoKho.Location = new System.Drawing.Point(317, 161);
-			this.cbDoKho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.cbDoKho.Margin = new System.Windows.Forms.Padding(4);
 			this.cbDoKho.Name = "cbDoKho";
 			this.cbDoKho.Size = new System.Drawing.Size(183, 36);
 			this.cbDoKho.TabIndex = 7;
@@ -213,10 +214,11 @@
 			// cbMonHoc
 			// 
 			this.cbMonHoc.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.cbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbMonHoc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cbMonHoc.FormattingEnabled = true;
 			this.cbMonHoc.Location = new System.Drawing.Point(728, 161);
-			this.cbMonHoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.cbMonHoc.Margin = new System.Windows.Forms.Padding(4);
 			this.cbMonHoc.Name = "cbMonHoc";
 			this.cbMonHoc.Size = new System.Drawing.Size(260, 36);
 			this.cbMonHoc.TabIndex = 7;
@@ -227,7 +229,7 @@
 			this.btnTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnTimKiem.Location = new System.Drawing.Point(1031, 101);
-			this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4);
 			this.btnTimKiem.Name = "btnTimKiem";
 			this.btnTimKiem.Size = new System.Drawing.Size(117, 39);
 			this.btnTimKiem.TabIndex = 8;
@@ -241,7 +243,7 @@
 			this.btnLamMoi.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnLamMoi.Location = new System.Drawing.Point(1031, 159);
-			this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4);
 			this.btnLamMoi.Name = "btnLamMoi";
 			this.btnLamMoi.Size = new System.Drawing.Size(117, 39);
 			this.btnLamMoi.TabIndex = 9;
