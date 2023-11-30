@@ -186,6 +186,7 @@ namespace TracNghiemManager.GUI.LopHoc
 						row["Email"] = hs.Email;
 						row["Điểm"] = diem;
 						dt1.Rows.Add(row);
+						stt++;
 					}
 				} else if(selectedTrangThai.Equals("Chưa nộp"))
 				{
@@ -198,6 +199,8 @@ namespace TracNghiemManager.GUI.LopHoc
 						row["Email"] = hs.Email;
 						row["Điểm"] = diem;
 						dt1.Rows.Add(row);
+						stt++;
+
 					}
 				}
 				
