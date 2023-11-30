@@ -39,7 +39,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			listdt = dtBus.GetAll(Form1.USER_ID);
 			loadDeThi(listdt);
 			loadCbMonHoc();
-
+			txtDeThi.Text = "";
 		}
 
 		void loadDeThi(List<DeThiDTO> list)
@@ -187,14 +187,14 @@ namespace TracNghiemManager.GUI.LopHoc
 
 		private void btnThem_Click(object s, EventArgs ev, DeThiDTO obj)
 		{
-			fThemDeThiCuaLop f = new fThemDeThiCuaLop(obj, lopDTO, fctl, this,"add");
+			fThemDeThiCuaLop f = new fThemDeThiCuaLop(obj, lopDTO, fctl, this, "add");
 			f.ShowDialog();
 		}
 
 		private void cbMonHoc_SelectedValueChanged(object sender, EventArgs e)
 		{
-            System.Windows.Forms.ComboBox cb = sender as System.Windows.Forms.ComboBox;
-			if(cb.SelectedValue!= null)
+			System.Windows.Forms.ComboBox cb = sender as System.Windows.Forms.ComboBox;
+			if (cb.SelectedValue != null)
 			{
 				selectedMonHoc = mhBus.getById(Convert.ToInt32(cb.SelectedValue));
 			}
@@ -246,7 +246,11 @@ namespace TracNghiemManager.GUI.LopHoc
 
 		private void txtDeThi_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			Search();
+			if (e.KeyChar == (char)Keys.Enter)
+			{
+				Search();
+
+			}
 		}
 	}
 }
