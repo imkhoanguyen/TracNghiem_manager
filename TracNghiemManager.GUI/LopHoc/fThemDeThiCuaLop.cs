@@ -44,6 +44,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			fctl = f;
 			deThiCuaLop = dtcl;
 			dtclBus = new DeThiCuaLopBUS();
+			dtpThoiGianBatDau.Value = DateTime.Now;
 			dtpThoiGianBatDau.Format = DateTimePickerFormat.Custom;
 			dtpThoiGianBatDau.CustomFormat = "dd/MM/yyyy HH:mm";
 			dtpThoiGianKetThuc.Format = DateTimePickerFormat.Custom;
@@ -117,13 +118,13 @@ namespace TracNghiemManager.GUI.LopHoc
 				return false;
 			}
 
-			// Kiểm tra xem dtpThoiGianBatDau phải lớn hơn thời gian hiện tại
-			if (dtpThoiGianBatDau.Value.CompareTo(DateTime.Now) <= 0)
-			{
-				MessageBox.Show("Thời gian bất đầu phải lớn hơn thời gian hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				// Trả về false nếu dtpThoiGianBatDau nhỏ hơn hoặc bằng thời gian hiện tại
-				return false;
-			}
+			//// Kiểm tra xem dtpThoiGianBatDau phải lớn hơn thời gian hiện tại
+			//if (dtpThoiGianBatDau.Value.CompareTo(DateTime.Now) <= 0)
+			//{
+			//	MessageBox.Show("Thời gian bất đầu phải lớn hơn thời gian hiện tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			//	// Trả về false nếu dtpThoiGianBatDau nhỏ hơn hoặc bằng thời gian hiện tại
+			//	return false;
+			//}
 			if(dtclBus.checkDeThiCoTrongLop(deThiDTO.MaDeThi, lopDTO.MaLop) && hanhDong.Equals("add"))
 			{
 				MessageBox.Show("Đề thi đã có trong lớp rồi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
