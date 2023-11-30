@@ -79,7 +79,7 @@ namespace TracNghiemManager.GUI.Users
 
 				string s = userBUS.Add(user);
 				int user_id = userBUS.getNewId();
-				MessageBox.Show(s, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(s, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 				//them quyen 
 				foreach (QuyenDTO item in checkedListBox1.CheckedItems)
@@ -123,9 +123,9 @@ namespace TracNghiemManager.GUI.Users
 				MessageBox.Show("Số lượng phải lớn hơn hoặc bằng 1", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;
 			}
-			else if (numSl.Value > 1000)
+			else if (numSl.Value > 200)
 			{
-				MessageBox.Show("Số lượng phải bé hơn hoặc bằng 1000", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show("Số lượng phải bé hơn hoặc bằng 200", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;
 			}
 			return true;

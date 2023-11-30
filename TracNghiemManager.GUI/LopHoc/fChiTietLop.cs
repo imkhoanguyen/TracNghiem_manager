@@ -202,6 +202,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			else
 			{
 				thoiGianText = "Hết hạn";
+				dtclBus.DeleteByMaLopAndMaDeThi(lop.MaLop, baiThi.MaDeThi);
 				baiThi.TrangThai = 0;
 			}
 			lblTrangThai.Text = baiThi.TrangThai == 1 ? $"Trạng thái: Đang mở ({thoiGianText})" : "Trạng thái: Đã đóng";
