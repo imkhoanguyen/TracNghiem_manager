@@ -216,7 +216,6 @@ namespace TracNghiemManager.GUI.CauHoi
 			load();
 		}
 
-
 		private void btnXuatFile_Click(object sender, EventArgs e)
 		{
 			SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -287,7 +286,6 @@ namespace TracNghiemManager.GUI.CauHoi
 		{
 			Search();
 		}
-
 		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 			if (e.RowIndex >= 0)
@@ -297,7 +295,6 @@ namespace TracNghiemManager.GUI.CauHoi
 				index = e.RowIndex;
 			}
 		}
-
 		private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
 			if (dataGridView1.Columns.Contains("Nộidungcâuhỏi"))

@@ -56,7 +56,7 @@ namespace TracNghiemManager.GUI
 					client.Connect("smtp.gmail.com", 465, true);
 					client.Authenticate("nguyenthanhthientu18nt@gmail.com", "anla cbfo uldc aswj");
 					client.Send(message);
-					MessageBox.Show("Mã đã được gửi thành công! " + lblEmail.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show("Mã đã được gửi thành công đến: " + lblEmail.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					fNhapOTP f = new fNhapOTP();
 					f.lblEmail.Text = lblEmail.Text;
 					f.SentOTP = sentOTP;
@@ -78,7 +78,7 @@ namespace TracNghiemManager.GUI
 		private string GenerateOTP()
 		{
 			Random random = new Random();
-			string otp = random.Next(0, 999999).ToString();
+			string otp = random.Next(100000, 999999).ToString();
 			return otp;
 		}
 

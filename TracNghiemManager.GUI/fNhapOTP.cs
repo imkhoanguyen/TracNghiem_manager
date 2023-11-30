@@ -123,7 +123,7 @@ namespace TracNghiemManager.GUI
 		private string GenerateOTP()
 		{
 			Random random = new Random();
-			string otp = random.Next(0, 999999).ToString();
+			string otp = random.Next(100000, 999999).ToString();
 			return otp;
 		}
 		private void btnXacNhan_Click(object sender, EventArgs e)
