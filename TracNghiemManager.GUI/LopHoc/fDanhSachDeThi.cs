@@ -39,7 +39,7 @@ namespace TracNghiemManager.GUI.LopHoc
 			listdt = dtBus.GetAll(Form1.USER_ID);
 			loadDeThi(listdt);
 			loadCbMonHoc();
-
+			txtDeThi.Text = "";
 		}
 
 		void loadDeThi(List<DeThiDTO> list)
