@@ -81,5 +81,15 @@ namespace TracNghiemManager.GUI
 			string otp = random.Next(0, 999999).ToString();
 			return otp;
 		}
+
+        private void fGetOTP_KeyDown(object sender, KeyEventArgs e)
+        {
+			if(e.KeyCode == Keys.Enter) {
+                btnXacNhan.PerformClick();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
+            }
+        }
     }
 }

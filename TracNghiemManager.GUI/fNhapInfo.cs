@@ -22,6 +22,7 @@ namespace TracNghiemManager.GUI
             if (string.IsNullOrEmpty(txtEmailorUsername.Text))
             {
                 MessageBox.Show("Vui lòng nhập thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtEmailorUsername.Text = string.Empty;
             }
             else
             {
@@ -42,28 +43,18 @@ namespace TracNghiemManager.GUI
                 else
                 {
                     MessageBox.Show("Tài khoản sai");
+                    txtEmailorUsername.Text = string.Empty;
                 }
             }
         }
 
-		private void fNhapInfo_Load(object sender, EventArgs e)
-		{
-
-		}
-
-		private void lblEmail_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void lblQuenMK_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void txtEmailorUsername_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-	}
+        private void txtEmailorUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnGui.PerformClick();
+            }
+        }
+    }
 }
