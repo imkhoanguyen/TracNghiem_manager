@@ -131,7 +131,7 @@ namespace TracNghiemManager.DAO
 				string query = "SELECT DISTINCT u.id FROM users AS u " +
 					"JOIN chi_tiet_quyen AS ct ON u.id = ct.user_id " +
 					"JOIN quyen AS q ON q.ma_quyen = ct.ma_quyen " +
-					"WHERE ct.cho_phep = 1 and u.trang_thai = 1 and u.username LIKE '" + s + "%' or q.ten_quyen LIKE '" + s + "%'";
+					"WHERE ct.cho_phep = 1 and u.trang_thai = 1 and (u.username LIKE '" + s + "%' or q.ten_quyen LIKE '" + s + "%')";
 				using (SqlCommand command = new SqlCommand(query, connection))
 				{
 					using (SqlDataReader reader = command.ExecuteReader())
@@ -155,8 +155,8 @@ namespace TracNghiemManager.DAO
 			List<UserDTO> List = new List<UserDTO>();
 			using (SqlConnection connection = DbConnection.GetSqlConnection())
 			{
-				string query = "SELECT DISTINCT ct.user_id FROM  chi_tiet_quyen AS ct JOIN quyen AS q ON q.ma_quyen = ct.ma_quyen " +
-					"WHERE ct.cho_phep = 1 and trang_thai = 1 and q.ten_quyen LIKE '" + s + "%'";
+				string query = "SELECT DISTINCT ct.user_id FROM  chi_tiet_quyen AS ct JOIN quyen AS q ON q.ma_quyen = ct.ma_quyen join users AS u on u.id = ct.user_id " +
+					"WHERE ct.cho_phep = 1 and u.trang_thai = 1 and q.ten_quyen LIKE '" + s + "%'";
 				using (SqlCommand command = new SqlCommand(query, connection))
 				{
 					using (SqlDataReader reader = command.ExecuteReader())
