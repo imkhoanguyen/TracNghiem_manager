@@ -203,21 +203,7 @@ namespace TracNghiemManager.GUI.Users
 
 		private void textBox1_TextChanged(object sender, EventArgs e)
 		{
-			int index = comboBox1.SelectedIndex;
-			if (index == 3)
-			{
-				reLoad(userBUS.Search(textBox1.Text.Trim()));
-			}
-			else
-			{
-				switch (index)
-				{
-					case 0: reLoad(userBUS.SearchEvenUsername(textBox1.Text.Trim())); break;
-					case 1: reLoad(userBUS.SearchEvenPermisson(textBox1.Text.Trim())); break;
-					case 2: break;
-					case 3: reLoad(userBUS.Search(textBox1.Text.Trim())); break;
-				}
-			}
+			
 
 		}
 
@@ -240,6 +226,28 @@ namespace TracNghiemManager.GUI.Users
 			string d1 = dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss.fff");
 			string d2 = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss.fff"); 
 			reLoad(userBUS.SearchEvenDate(d1, d2));
+		}
+
+		private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if(e.KeyChar == (char)Keys.Enter)
+			{
+				int index = comboBox1.SelectedIndex;
+				if (index == 3)
+				{
+					reLoad(userBUS.Search(textBox1.Text.Trim()));
+				}
+				else
+				{
+					switch (index)
+					{
+						case 0: reLoad(userBUS.SearchEvenUsername(textBox1.Text.Trim())); break;
+						case 1: reLoad(userBUS.SearchEvenPermisson(textBox1.Text.Trim())); break;
+						case 2: break;
+						case 3: reLoad(userBUS.Search(textBox1.Text.Trim())); break;
+					}
+				}
+			}
 		}
 	}
 }

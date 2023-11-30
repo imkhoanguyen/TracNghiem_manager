@@ -35,12 +35,12 @@ namespace TracNghiemManager.GUI.Users
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.button1 = new System.Windows.Forms.Button();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
 			this.button2 = new System.Windows.Forms.Button();
+			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
 			this.flowLayoutContainer = new System.Windows.Forms.FlowLayoutPanel();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -101,7 +101,7 @@ namespace TracNghiemManager.GUI.Users
 			this.tableLayoutPanel3.ColumnCount = 3;
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.40298F));
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.59702F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 171F));
 			this.tableLayoutPanel3.Controls.Add(this.comboBox1, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
 			this.tableLayoutPanel3.Controls.Add(this.textBox1, 2, 0);
@@ -114,18 +114,6 @@ namespace TracNghiemManager.GUI.Users
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(1109, 65);
 			this.tableLayoutPanel3.TabIndex = 2;
 			// 
-			// textBox1
-			// 
-			this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(942, 15);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(163, 34);
-			this.textBox1.TabIndex = 0;
-			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-			// 
 			// comboBox1
 			// 
 			this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -137,11 +125,11 @@ namespace TracNghiemManager.GUI.Users
             "Username",
             "Quyền",
             "Ngày tạo",
-			"Quyền và Username"});
-			this.comboBox1.Location = new System.Drawing.Point(4, 14);
+            "Quyền và Username"});
+			this.comboBox1.Location = new System.Drawing.Point(4, 17);
 			this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(174, 31);
+			this.comboBox1.Size = new System.Drawing.Size(173, 31);
 			this.comboBox1.TabIndex = 2;
 			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 			// 
@@ -150,12 +138,12 @@ namespace TracNghiemManager.GUI.Users
 			this.tableLayoutPanel4.ColumnCount = 3;
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.07825F));
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.92175F));
-			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
 			this.tableLayoutPanel4.Controls.Add(this.dateTimePicker1, 0, 0);
 			this.tableLayoutPanel4.Controls.Add(this.dateTimePicker2, 1, 0);
 			this.tableLayoutPanel4.Controls.Add(this.button2, 2, 0);
 			this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel4.Location = new System.Drawing.Point(186, 4);
+			this.tableLayoutPanel4.Location = new System.Drawing.Point(185, 4);
 			this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
 			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
 			this.tableLayoutPanel4.RowCount = 1;
@@ -183,7 +171,7 @@ namespace TracNghiemManager.GUI.Users
 			this.dateTimePicker2.Location = new System.Drawing.Point(324, 11);
 			this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
 			this.dateTimePicker2.Name = "dateTimePicker2";
-			this.dateTimePicker2.Size = new System.Drawing.Size(311, 34);
+			this.dateTimePicker2.Size = new System.Drawing.Size(310, 34);
 			this.dateTimePicker2.TabIndex = 1;
 			// 
 			// button2
@@ -191,7 +179,7 @@ namespace TracNghiemManager.GUI.Users
 			this.button2.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(643, 9);
+			this.button2.Location = new System.Drawing.Point(642, 9);
 			this.button2.Margin = new System.Windows.Forms.Padding(4);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(100, 38);
@@ -199,6 +187,19 @@ namespace TracNghiemManager.GUI.Users
 			this.button2.Text = "Tìm kiếm";
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// textBox1
+			// 
+			this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textBox1.Location = new System.Drawing.Point(941, 15);
+			this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(163, 34);
+			this.textBox1.TabIndex = 0;
+			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+			this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
 			// 
 			// tableLayoutPanel5
 			// 
