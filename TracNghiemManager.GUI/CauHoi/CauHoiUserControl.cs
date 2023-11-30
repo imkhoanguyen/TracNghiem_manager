@@ -45,7 +45,7 @@ namespace TracNghiemManager.GUI.CauHoi
 
 			loadDataTable(listch);
 			dataGridView1.Columns["ID"].Width = 60;
-			dataGridView1.Columns["Môn học"].Width = 220;
+			dataGridView1.Columns["Môn học"].Width = 300;
 		}
 
 		public void load()
@@ -230,7 +230,7 @@ namespace TracNghiemManager.GUI.CauHoi
 				string filePath = saveFileDialog.FileName;
 				try
 				{
-					chBus.ExportToWord(filePath);
+					chBus.ExportToWord(filePath, Form1.USER_ID);
 					MessageBox.Show("Xuất file thành công!");
 				}
 				catch (Exception ex)
@@ -336,6 +336,14 @@ namespace TracNghiemManager.GUI.CauHoi
 			if (cb.SelectedValue != null)
 			{
 				indexSearchDoKho = cb.SelectedValue.ToString();
+			}
+		}
+
+		private void textBoxTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if(e.KeyChar == (char)Keys.Enter)
+			{
+				Search();
 			}
 		}
 	}
