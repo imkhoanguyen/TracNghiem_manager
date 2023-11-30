@@ -470,7 +470,6 @@ namespace TracNghiemManager.GUI.CauHoi
 
 				int currentQuestionNumber = 1;
 
-				string doKho = "Dễ";
 				while (true)
 				{
 					// Tìm vị trí của câu hỏi bắt đầu
@@ -488,11 +487,11 @@ namespace TracNghiemManager.GUI.CauHoi
 						endCauHoi = content.Length;
 					}
 					string question = content.Substring(startCauHoi + $"Câu {currentQuestionNumber}:".Length, endCauHoi - startCauHoi - $"Câu {currentQuestionNumber}:".Length).Trim();
-                    Match matchDoKho = question.Contains("**") ? Regex.Match(question, @"\*\*\s*") : Regex.Match(question, @"\*\s*");
-					doKho = matchDoKho.Success ? (matchDoKho.Value == "**" ? "Khó" : "Bình thường") : "Dễ";
+                    Match matchdoKho = Regex.Match(question, @"(\*\*|\*)\s*");
+                    string doKho = matchdoKho.Success ? (matchdoKho.Groups[1].Value == "**" ? "Khó" : "Bình thường") : "Dễ";
 
-					// Xử lý câu hỏi
-					string questionDTB = question.Split('A')[0].Trim();
+                    // Xử lý câu hỏi
+                    string questionDTB = question.Split('A')[0].Trim();
 					//MessageBox.Show($"Câu hỏi: {questionDTB}");
 					int mch = chBus.GetAutoIncrement();
 					CauHoiDTO ch = new CauHoiDTO(mch, questionDTB, doKho, selectedMonHoc.MaMonHoc, Form1.USER_ID, 1); //12 là mã môn học

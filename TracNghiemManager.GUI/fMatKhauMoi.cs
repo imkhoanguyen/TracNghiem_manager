@@ -31,18 +31,18 @@ namespace TracNghiemManager.GUI
         {
             UserBUS userBUS = new UserBUS();
 
-            string newPassword = txtNhapMK.Text;
-            if (string.IsNullOrEmpty(newPassword) && string.IsNullOrEmpty(txtXacNhan.Text))
+            string newPassword = txtNhapMK.Text.Trim();
+            if (string.IsNullOrEmpty(newPassword) && string.IsNullOrEmpty(txtXacNhan.Text.Trim()))
             {
                 MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
-            if (newPassword != txtXacNhan.Text)
+            if (newPassword != txtXacNhan.Text.Trim())
             {
                 MessageBox.Show("Mật khẩu không khớp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
             if (checkPassword(newPassword))
             {
-                userBUS.UpdatePassword(lblEmail.Text, newPassword.Trim());
+                userBUS.UpdatePassword(lblEmail.Text, newPassword);
                 MessageBox.Show("Mật khẩu đã được cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
