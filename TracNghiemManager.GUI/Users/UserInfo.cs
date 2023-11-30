@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -68,6 +69,20 @@ namespace TracNghiemManager.GUI.Users
 			}
 			return true;
 		}
+		private bool checkPassword(string pass)
+        {
+            if (string.IsNullOrEmpty(pass))
+            {
+                MessageBox.Show("Không được để trống mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (!Regex.IsMatch(pass, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$"))
+            {
+                MessageBox.Show("Mật khẩu phải tối thiểu 6 ký tự gồm Hoa, thường và kí tự đặc biệt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+			return true;
+        }
 		private bool checkEmail(string email)
 		{
 			if (string.IsNullOrEmpty(email))
@@ -138,6 +153,10 @@ namespace TracNghiemManager.GUI.Users
 			{
 				return false;
 			}
+			if (!checkPassword(txtPass.Text))
+			{
+				return false;
+			}
 			return true;
 		}
 
@@ -185,22 +204,22 @@ namespace TracNghiemManager.GUI.Users
 				int gioi_tinh = Convert.ToInt32(gender);
 				// Kiểm tra cập nhật email nếu người dùng nhập khác email hiện tại thì mới check trùng email
 				// neu nguoi dung nhap khac email hien tai cua minh
-				if(user.Email != textBoxEmail.Text)
+				if(user.Email != textBoxEmail.Text.Trim())
 				{
-					int check = userBUS.CheckEmail(textBoxEmail.Text);
+					int check = userBUS.CheckEmail(textBoxEmail.Text.Trim());
 					if(check==1)
 					{
 						MessageBox.Show("Email đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 						return;
 					}
 				}
-				user.Email = textBoxEmail.Text;
+				user.Email = textBoxEmail.Text.Trim();
 				
-				user.HoVaTen = textBoxName.Text;
+				user.HoVaTen = textBoxName.Text.Trim();
 				user.ngaySinh = timePick;
 				user.avatar = textBox1.Text; // Trong trường hợp nếu ko cập nhật lại hình ảnh thì ở đây avartar sẽ là rỗng
 				user.gioiTinh = gioi_tinh;
-				user.Password = txtPass.Text;
+				user.Password = txtPass.Text.Trim();
 
 				if (userBUS.Update(user).Equals("Cập nhật thành công!"))
 				{
