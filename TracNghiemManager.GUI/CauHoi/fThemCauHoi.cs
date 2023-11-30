@@ -488,8 +488,7 @@ namespace TracNghiemManager.GUI.CauHoi
 						endCauHoi = content.Length;
 					}
 					string question = content.Substring(startCauHoi + $"Câu {currentQuestionNumber}:".Length, endCauHoi - startCauHoi - $"Câu {currentQuestionNumber}:".Length).Trim();
-
-					Match matchDoKho = question.Contains("**") ? Regex.Match(question, @"\*\*\s*") : Regex.Match(question, @"\*\s*");
+                    Match matchDoKho = question.Contains("**") ? Regex.Match(question, @"\*\*\s*") : Regex.Match(question, @"\*\s*");
 					doKho = matchDoKho.Success ? (matchDoKho.Value == "**" ? "Khó" : "Bình thường") : "Dễ";
 
 					// Xử lý câu hỏi
