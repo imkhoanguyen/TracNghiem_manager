@@ -455,6 +455,7 @@ namespace TracNghiemManager.GUI.CauHoi
 				ProcessQA(selectedFilePath);
 				MessageBox.Show("Thêm dữ liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				Dispose();
+				cauHoiUserControl.load();
 			}
 		}
 
