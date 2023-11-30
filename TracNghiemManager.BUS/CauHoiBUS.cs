@@ -54,9 +54,9 @@ namespace TracNghiemManager.BUS
             return cauHoiDAO.GetById(id);
         }
 
-		public void ExportToWord(string wordFilePath)
+		public void ExportToWord(string wordFilePath, int maNguoiTao)
 		{
-			Dictionary<string, List<Tuple<string, bool>>> dict = cauHoiDAO.GetCauHoiVaCauTraLoi();
+			Dictionary<string, List<Tuple<string, bool>>> dict = cauHoiDAO.GetCauHoiVaCauTraLoi(maNguoiTao);
 
 			Word.Application wordApp = new Word.Application();
 			Word.Document wordDoc = wordApp.Documents.Add();

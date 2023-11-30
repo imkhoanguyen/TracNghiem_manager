@@ -213,13 +213,13 @@ namespace TracNghiemManager.DAO
             }
             return result + 1;
         }
-		public Dictionary<string, List<Tuple<string, bool>>> GetCauHoiVaCauTraLoi()
+		public Dictionary<string, List<Tuple<string, bool>>> GetCauHoiVaCauTraLoi(int maNguoiTao)
 		{
 			Dictionary<string, List<Tuple<string, bool>>> dict = new Dictionary<string, List<Tuple<string, bool>>>();
 
 			using (SqlConnection connection = DbConnection.GetSqlConnection())
 			{
-				string query = "SELECT ch.noi_dung, ctl.noi_dung, ctl.la_dap_an FROM cau_hoi ch JOIN cau_tra_loi ctl ON ch.ma_cau_hoi = ctl.ma_cau_hoi";
+				string query = "SELECT ch.noi_dung, ctl.noi_dung, ctl.la_dap_an FROM cau_hoi ch JOIN cau_tra_loi ctl ON ch.ma_cau_hoi = ctl.ma_cau_hoi where ch.ma_nguoi_tao = " + maNguoiTao;
 
 				using (SqlCommand command = new SqlCommand(query, connection))
 				{

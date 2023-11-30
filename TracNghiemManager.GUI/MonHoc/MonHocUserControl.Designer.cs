@@ -40,7 +40,6 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.containerBtnPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLamMoi = new System.Windows.Forms.Button();
 			this.btnXuatFile = new System.Windows.Forms.Button();
-			this.btnXoa = new System.Windows.Forms.Button();
 			this.btnSua = new System.Windows.Forms.Button();
 			this.btnThem = new System.Windows.Forms.Button();
 			this.containerTimKiemPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -98,17 +97,14 @@ namespace TracNghiemManager.GUI.MonHoc
 			// 
 			// containerBtnPanel
 			// 
-			this.containerBtnPanel.ColumnCount = 5;
-			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.4423F));
-			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.91489F));
-			this.containerBtnPanel.Controls.Add(this.btnLamMoi, 4, 0);
-			this.containerBtnPanel.Controls.Add(this.btnXuatFile, 3, 0);
-			this.containerBtnPanel.Controls.Add(this.btnXoa, 2, 0);
+			this.containerBtnPanel.ColumnCount = 4;
+			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
+			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
+			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
+			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
+			this.containerBtnPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.containerBtnPanel.Controls.Add(this.btnLamMoi, 3, 0);
+			this.containerBtnPanel.Controls.Add(this.btnXuatFile, 2, 0);
 			this.containerBtnPanel.Controls.Add(this.btnSua, 1, 0);
 			this.containerBtnPanel.Controls.Add(this.btnThem, 0, 0);
 			this.containerBtnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -130,10 +126,10 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.btnLamMoi.ForeColor = System.Drawing.Color.SteelBlue;
 			this.btnLamMoi.Image = ((System.Drawing.Image)(resources.GetObject("btnLamMoi.Image")));
-			this.btnLamMoi.Location = new System.Drawing.Point(1205, 0);
+			this.btnLamMoi.Location = new System.Drawing.Point(1127, 0);
 			this.btnLamMoi.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.btnLamMoi.Name = "btnLamMoi";
-			this.btnLamMoi.Size = new System.Drawing.Size(343, 128);
+			this.btnLamMoi.Size = new System.Drawing.Size(421, 128);
 			this.btnLamMoi.TabIndex = 5;
 			this.btnLamMoi.Text = "LÀM MỚI";
 			this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -150,35 +146,15 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.btnXuatFile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.btnXuatFile.ForeColor = System.Drawing.Color.SteelBlue;
 			this.btnXuatFile.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatFile.Image")));
-			this.btnXuatFile.Location = new System.Drawing.Point(861, 0);
+			this.btnXuatFile.Location = new System.Drawing.Point(704, 0);
 			this.btnXuatFile.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.btnXuatFile.Name = "btnXuatFile";
-			this.btnXuatFile.Size = new System.Drawing.Size(341, 128);
+			this.btnXuatFile.Size = new System.Drawing.Size(420, 128);
 			this.btnXuatFile.TabIndex = 3;
 			this.btnXuatFile.Text = "XUẤT FILE";
 			this.btnXuatFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.btnXuatFile.UseVisualStyleBackColor = false;
 			this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
-			// 
-			// btnXoa
-			// 
-			this.btnXoa.BackColor = System.Drawing.Color.White;
-			this.btnXoa.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnXoa.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnXoa.FlatAppearance.BorderSize = 0;
-			this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.btnXoa.ForeColor = System.Drawing.Color.SteelBlue;
-			this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-			this.btnXoa.Location = new System.Drawing.Point(574, 0);
-			this.btnXoa.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-			this.btnXoa.Name = "btnXoa";
-			this.btnXoa.Size = new System.Drawing.Size(284, 128);
-			this.btnXoa.TabIndex = 2;
-			this.btnXoa.Text = "XÓA";
-			this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			this.btnXoa.UseVisualStyleBackColor = false;
-			this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
 			// 
 			// btnSua
 			// 
@@ -190,10 +166,10 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.btnSua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.btnSua.ForeColor = System.Drawing.Color.SteelBlue;
 			this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-			this.btnSua.Location = new System.Drawing.Point(287, 0);
+			this.btnSua.Location = new System.Drawing.Point(352, 0);
 			this.btnSua.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.btnSua.Name = "btnSua";
-			this.btnSua.Size = new System.Drawing.Size(284, 128);
+			this.btnSua.Size = new System.Drawing.Size(349, 128);
 			this.btnSua.TabIndex = 1;
 			this.btnSua.Text = "SỬA";
 			this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -213,7 +189,7 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.btnThem.Location = new System.Drawing.Point(0, 0);
 			this.btnThem.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
 			this.btnThem.Name = "btnThem";
-			this.btnThem.Size = new System.Drawing.Size(284, 128);
+			this.btnThem.Size = new System.Drawing.Size(349, 128);
 			this.btnThem.TabIndex = 0;
 			this.btnThem.Text = "THÊM";
 			this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -247,6 +223,7 @@ namespace TracNghiemManager.GUI.MonHoc
 			this.textBoxTimKiem.Name = "textBoxTimKiem";
 			this.textBoxTimKiem.Size = new System.Drawing.Size(1232, 43);
 			this.textBoxTimKiem.TabIndex = 0;
+			this.textBoxTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTimKiem_KeyPress);
 			// 
 			// btnTimKiem
 			// 
@@ -348,7 +325,6 @@ namespace TracNghiemManager.GUI.MonHoc
         private TableLayoutPanel containerBtnPanel;
         private Button btnThem;
         private Button btnXuatFile;
-        private Button btnXoa;
         private Button btnSua;
         private Button btnLamMoi;
         private TableLayoutPanel containerTimKiemPanel;

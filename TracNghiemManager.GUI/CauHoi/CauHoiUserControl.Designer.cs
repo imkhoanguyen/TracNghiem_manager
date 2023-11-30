@@ -321,6 +321,7 @@ namespace TracNghiemManager.GUI.CauHoi
 			this.textBoxTimKiem.Name = "textBoxTimKiem";
 			this.textBoxTimKiem.Size = new System.Drawing.Size(1232, 43);
 			this.textBoxTimKiem.TabIndex = 0;
+			this.textBoxTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTimKiem_KeyPress);
 			// 
 			// btnTimKiem
 			// 
