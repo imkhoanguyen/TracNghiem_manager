@@ -243,5 +243,10 @@ namespace TracNghiemManager.GUI.LopHoc
 		{
 			load();
 		}
+
+		private void txtDeThi_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			Search();
+		}
 	}
 }
